@@ -7,10 +7,10 @@ public class Lista<E> implements Iterable<E>{
 
     //Una lista con funciones adicionales a un ArrayList tradicional.
     public ArrayList lista;
-    private String nombre;
+    public String nombre;
 
-    public <E> Lista(String nombreNuevo) {
-        this.nombre = nombreNuevo;
+    public <E> Lista(String Nombre) {
+        this.nombre = Nombre;
         lista = new ArrayList<E>();
     }
 
@@ -96,5 +96,17 @@ public class Lista<E> implements Iterable<E>{
             System.out.print(actual + ", ");
         }
         System.out.println("]");
+
+        //ejemplo de como funcionan los tipos.
+        Lista<Palabra> listaPalabras = new Lista<Palabra>("nombre");
+        Sus susNuevo = new Sus("coolio");
+        listaPalabras.add(susNuevo);
+        listaPalabras.add(new Ver("q ase"));
+        //se pueden agregar, ya que extienden Palabra.
+
+        Lista<Sus> soloSustantivos = new Lista<Sus>("aquí solo sustantivos, porfa");
+        soloSustantivos.add(new Sus("chido"));
+        //soloSustantivos.add(new Ver("chido"));
+        //Solo se pueden agregar objetos Sus. :]
     }
 }

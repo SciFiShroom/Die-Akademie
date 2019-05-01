@@ -145,7 +145,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     entendido = true;
                     break;
                 case "listar temas":
-                    Sus.ListarTemas();
+                    for (Lista actual : Control.Sustantivos) {System.out.print(actual.nombre + ", ");}
                     entendido = true;
                     break;
                 case "enseñar tema":
@@ -227,7 +227,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     entendido = true;
                     break;
                 case "listar temas":
-                    Ver.ListarTemas();
+                    for (Lista actual : Control.Verbos) {System.out.print(actual.nombre + ", ");}
                     entendido = true;
                     break;
                 case "enseñar tema":
@@ -300,7 +300,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     entendido = true;
                     break;
                 case "listar temas":
-                    Adj.ListarTemas();
+                    for (Lista actual : Control.Adjetivos) {System.out.print(actual.nombre + ", ");}
                     entendido = true;
                     break;
                 case "enseñar tema":
@@ -373,7 +373,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     entendido = true;
                     break;
                 case "listar temas":
-                    Pal.ListarTemas();
+                    for (Lista actual : Control.Palabras) {System.out.print(actual.nombre + ", ");}
                     entendido = true;
                     break;
                 case "enseñar tema":
@@ -1128,10 +1128,14 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             switch (intento) {
                 case "listar temas":
                     switch (tipoDePalabra) {
-                        case "Sus": Sus.ListarTemas(); break;
-                        case "Ver": Ver.ListarTemas(); break;
-                        case "Adj": Adj.ListarTemas(); break;
-                        case "Pal": Pal.ListarTemas(); break;
+                        case "Sus":
+                            for(Lista actual : Control.Sustantivos) {System.out.print(actual.nombre + ", ");} break;
+                        case "Ver":
+                            for(Lista actual : Control.Verbos) {System.out.print(actual.nombre + ", ");} break;
+                        case "Adj":
+                            for(Lista actual : Control.Adjetivos) {System.out.print(actual.nombre + ", ");} break;
+                        case "Pal":
+                            for(Lista actual : Control.Palabras) {System.out.print(actual.nombre + ", ");} break;
                     }
                     continue;
                 case "cerrar":

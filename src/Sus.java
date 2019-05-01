@@ -484,12 +484,14 @@ public class Sus extends Palabra{
         woche.tagAdd(medidas);
         monat.tagAdd(medidas);
 
+        /**
         Sus meter = new Sus("Meter", "Meter", "X", "metro [medida]", Tags);
         Sus quadratmeter = new Sus("Quadratmeter", "Quadratmeter", "X", "metro cuadrado", Tags);
         Sus kubikmeter = new Sus("Kubikmeter", "Kubikmeter", "X", "metro cúbico", Tags);
         Sus zentimeter = new Sus("Zentimeter", "Zentimeter", "X", "centímetro", Tags);
         Sus millimeter = new Sus("Millimeter", "Millimeter", "X", "milímetro", Tags);
         Sus kilometer = new Sus("Kilometer", "Kilometer", "X", "kilómetro", Tags);
+         */
 
         Sus grad = new Sus("Grad", "Grade", "M", "grado [medida]", Tags);
 
@@ -746,28 +748,31 @@ public class Sus extends Palabra{
 
 
 
-    // La lista solo nos surve si podemos leerla.
-    // Aquí puedes buscar un sustantivo
-    //regresa 'null' si no se encuentra el sustantivo
+
+
+    /**
+     * Te deja buscar un sustantivo de la lista Control.Sustantivos
+     * @param nombre el verbo que buscas
+     * @return el verbo si se encuentra, null si no se encuentra.
+     */
     public static Sus buscar(String nombre) {
-        for (int i = 0; i < Control.Sustantivos.size(); i++) {
-            ArrayList tema = Control.Sustantivos.get(i);
-            for (int j = 0; j < tema.size(); j++) {
-                Sus temp = (Sus)tema.get(j);
-                if(temp.sustantivo.equals(nombre)) {return temp;}
+        for (Lista<Sus> actual: Control.Sustantivos) {
+            for (Sus temp : actual) {
+                if (temp.sustantivo.equals(nombre)) {return temp;}
             }
         }
         return null;
     }
 
 
-
     //Imprime la lista de todos los temas
+    /**
     public static void ListarTemas() {
-        for (ArrayList<Sus> current : Control.Sustantivos) {
-            System.out.print(current.get(0).sustantivo + ", ");
+        for (Lista<Sus> actual : Control.Sustantivos) {
+            System.out.print(actual.nombre + ", ");
         }
     }
+     */
 
 
     //Consola que te deja elejir un tema de la lista de temas de los sustantivos.
@@ -895,9 +900,9 @@ public class Sus extends Palabra{
 
 
     //Regresa la lista de sustantivos de el tema indicado, dado la lista completa "Sustantivos"
-    public static ArrayList<Sus> ListaTema(String tema) {
-        for (ArrayList<Sus> current : Control.Sustantivos) {
-            if (current.get(0).sustantivo.equals(tema)) {return current;}
+    public static Lista<Sus> ListaTema(String tema) {
+        for (Lista<Sus> listaActual: Control.Sustantivos) {
+            if (listaActual.nombre.equals(tema)) {return listaActual;}
         }
         //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");
         throw new NullPointerException();

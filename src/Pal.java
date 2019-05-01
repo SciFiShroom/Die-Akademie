@@ -17,7 +17,6 @@ public class Pal extends Palabra{
     //3
     public static final String pronombres = "pronombres";
     public static ArrayList<Pal> Pronombres = new ArrayList<Pal>();
-
     //4
     public static final String preposiciones = "preposiciones";
     public static ArrayList<Pal> Preposiciones = new ArrayList<Pal>();
@@ -316,11 +315,13 @@ public class Pal extends Palabra{
 
 
     //Imprime la lista de todos los temas
+    /**
     public static void ListarTemas() {
         for (ArrayList<Pal> current : Control.Palabras) {
             System.out.print(current.get(0).palabra + ", ");
         }
     }
+     */
 
 
     /**
@@ -329,9 +330,9 @@ public class Pal extends Palabra{
      * @param tema el tema elejido
      * @return la lista en formato ArrayList<Pal>
      */
-    public static ArrayList<Pal> ListaTema(String tema) {
-        for (ArrayList<Pal> current : Control.Palabras) {
-            if (current.get(0).palabra.equals(tema)) {return current;}
+    public static Lista<Pal> ListaTema(String tema) {
+        for (Lista<Pal> actual : Control.Palabras) {
+            if (actual.get(0).palabra.equals(tema)) {return actual;}
         }
         //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");
         throw new NullPointerException();
@@ -367,7 +368,7 @@ public class Pal extends Palabra{
      * @return el adjetivo si se encuentra, null si no se encuentra.
      */
     public static Pal buscar(String nombre) {
-        for (ArrayList<Pal> actual: Control.Palabras) {
+        for (Lista<Pal> actual: Control.Palabras) {
             for (Pal temp : actual) {
                 if (temp.palabra.equals(nombre)) {return temp;}
             }

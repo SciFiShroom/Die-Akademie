@@ -412,9 +412,9 @@ public class Adj extends Palabra{
      * @param tema el tema elejido
      * @return la lista en formato ArrayList<Adj>
      */
-    public static ArrayList<Adj> ListaTema(String tema) {
-        for (ArrayList<Adj> current : Control.Adjetivos) {
-            if (current.get(0).adjetivo.equals(tema)) {return current;}
+    public static Lista<Adj> ListaTema(String tema) {
+        for (Lista<Adj> actual : Control.Adjetivos) {
+            if (actual.get(0).adjetivo.equals(tema)) {return actual;}
         }
         //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");
         throw new NullPointerException();
@@ -477,7 +477,7 @@ public class Adj extends Palabra{
      * @return el adjetivo si se encuentra, null si no se encuentra.
      */
     public static Adj buscar(String nombre) {
-        for (ArrayList<Adj> actual: Control.Adjetivos) {
+        for (Lista<Adj> actual: Control.Adjetivos) {
             for (Adj temp : actual) {
                 if (temp.adjetivo.equals(nombre)) {return temp;}
             }
@@ -487,12 +487,13 @@ public class Adj extends Palabra{
 
 
     //Imprime la lista de todos los temas
+    /**
     public static void ListarTemas() {
         for (ArrayList<Adj> current : Control.Adjetivos) {
             System.out.print(current.get(0).adjetivo + ", ");
         }
     }
-
+     */
 
     //Define un adjetivo
     public void definir() {

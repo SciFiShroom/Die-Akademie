@@ -1320,7 +1320,7 @@ public class Ver extends Palabra{
      * @return el verbo si se encuentra, null si no se encuentra.
      */
     public static Ver buscar(String nombre) {
-        for (ArrayList<Ver> actual: Control.Verbos) {
+        for (Lista<Ver> actual: Control.Verbos) {
             for (Ver temp : actual) {
                 if (temp.verbo.equals(nombre)) {return temp;}
             }
@@ -1331,12 +1331,13 @@ public class Ver extends Palabra{
 
 
     //Imprime la lista de todos los temas
+    /**
     public static void ListarTemas() {
         for (ArrayList<Ver> current : Control.Verbos) {
             System.out.print(current.get(0).verbo + ", ");
         }
     }
-
+    */
 
     //CONSOLA
     /**
@@ -1452,9 +1453,9 @@ public class Ver extends Palabra{
      * @param tema el tema cuya lista necesitas
      * @return un ArrayList<Ver> de todos los verbos del tema elejido.
      */
-    public static ArrayList<Ver> ListaTema(String tema) {
-        for (ArrayList<Ver> current : Control.Verbos) {
-            if (current.get(0).verbo.equals(tema)) {return current;}
+    public static Lista<Ver> ListaTema(String tema) {
+        for (Lista<Ver> actual : Control.Verbos) {
+            if (actual.get(0).verbo.equals(tema)) {return actual;}
         }
         throw new NullPointerException("El tema '" + tema + "' no se encuentra. Diga 'listar temas verbos' para ver los temas. ");
     }
@@ -1497,10 +1498,11 @@ public class Ver extends Palabra{
 
 
     //PROGRAMA
+    //q ase esto?
     public static void OrganizacióndeTags() {
-        for (ArrayList<Ver> actual: Control.Verbos) {
-            System.out.println(actual.get(0).verbo + ": " + (actual.size()-1));
-            for (int i = 1; i < actual.size(); i++) {
+        for (Lista<Ver> actual: Control.Verbos) {
+            System.out.println(actual.nombre + ": " + (actual.size()));
+            for (int i = 0; i < actual.size(); i++) {
                 System.out.print(actual.get(i).verbo + "(" + actual.get(i).significado + "), ");
             }
             System.out.println();

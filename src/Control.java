@@ -3,26 +3,76 @@ import java.util.Scanner;
 public class Control {
 
     //Estos se inicializan en el Main de Control. (Hasta abajo)
-    public static ArrayList<ArrayList<Sus>> Sustantivos; //La lista se guarde como variable estatica.
-    public static ArrayList<ArrayList<Ver>> Verbos;
-    public static ArrayList<ArrayList<Adj>> Adjetivos;
-    public static ArrayList<ArrayList<Pal>> Palabras;
+    public static ArrayList<Lista<Sus>> Sustantivos; //La lista se guarde como variable estatica.
+    public static ArrayList<Lista<Ver>> Verbos;
+    public static ArrayList<Lista<Adj>> Adjetivos;
+    public static ArrayList<Lista<Pal>> Palabras;
 
     //Se usan de ves en cuando, no son tan importantes. Contienen una de cada palabra, sin repeticiones.
-    public static ArrayList<Sus> SustantivosListaSingular;
-    public static ArrayList<Ver> VerbosListaSingular;
-    public static ArrayList<Adj> AdjetivosListaSingular;
-    public static ArrayList<Pal> PalabrasListaSingular;
+    public static Lista<Sus> SustantivosListaSingular;
+    public static Lista<Ver> VerbosListaSingular;
+    public static Lista<Adj> AdjetivosListaSingular;
+    public static Lista<Pal> PalabrasListaSingular;
 
+    //inicializa los temas de tödo el programa
+    public static void InicializarTemas() {
+        String[] Temas = {
+                "comida", "fruta", "vegetal", "país", "ciudades",
+                "capital", "test", "cuerpo", "letras", "tiempo",
+                "clima", "día", "año", "figuras", "ropa",
+                "escuela", "tecnología", "casa", "mueble", "médico",
+                "ciudad", "medidas", "transporte", "espcias", "cocina",
+                "bebidas", "materiales",
+
+                "moverse", "básco", "modal",
+                "menos_básico", "miscelaneo",
+                "expresarse", "vista", "tienda", "auxiliar",
+                "objeto", "mente",
+
+                "color", "aspecto", "personalidad",
+
+                "conjunciones", "interrogativos", "pronombres", "preposiciones", "acusativo",
+                "dativo", "wechsel"
+        };
+
+        //Nos aseguramos de que no haya entradas dobles.
+        for (int i = 0; i < Temas.length; i++) {
+            for (int j = i+1; j < Temas.length; j++) {
+                if (Temas[i].equals(Temas[j])) {
+                    throw new NullPointerException("Error: Existe una Tag duplicada: " + Temas[i]);
+                }
+            }
+        }
+
+        //Se crean las listas
+        ArrayList<Lista<Sus>> listaDeSustantivos = new ArrayList<Lista<Sus>>();
+        ArrayList<Lista<Ver>> listaDeVerbos = new ArrayList<Lista<Ver>>();
+        ArrayList<Lista<Adj>> listaDeAdjetivos = new ArrayList<Lista<Adj>>();
+        ArrayList<Lista<Pal>> listaDePals = new ArrayList<Lista<Pal>>();
+
+        //Llenamos las listas generadas antemente
+        for (String temaActual : Temas) {
+            listaDeSustantivos.add(new Lista<Sus>(temaActual));
+            listaDeVerbos.add(new Lista<Ver>(temaActual));
+            listaDeAdjetivos.add(new Lista<Adj>(temaActual));
+            listaDePals.add(new Lista<Pal>(temaActual));
+        }
+
+        //Las listas dentro de los ArrayLists aún están vasías, pero se llenarán despues en los otros métodos inicializadores.
+        Control.Sustantivos = listaDeSustantivos;
+        Control.Verbos = listaDeVerbos;
+        Control.Adjetivos = listaDeAdjetivos;
+        Control.Palabras = listaDePals;
+    }
 
 
     // Ejecuta la inicialización de los sustantivos. Créa la lista de temas, cuyas tienen los sustantivos.
     public static void InicializarSustantivos() {
         Control.Sustantivos = Sus.GeneradorSus();
 
-        ArrayList<Sus> listaCompleta = new ArrayList<Sus>();
+        Lista<Sus> listaCompleta = new Lista<Sus>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (ArrayList<Sus> tema : Control.Sustantivos) {
+        for (Lista<Sus> tema : Control.Sustantivos) {
             for (Sus actual : tema) {
                 if (!listaIdentificación.contains(actual.toString())) {
                     listaCompleta.add(actual);
@@ -40,9 +90,9 @@ public class Control {
     public static void InicializarVerbos() {
         Control.Verbos = Ver.GeneradorVer();
 
-        ArrayList<Ver> listaCompleta = new ArrayList<Ver>();
+        Lista<Ver> listaCompleta = new Lista<Ver>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (ArrayList<Ver> tema : Control.Verbos) {
+        for (Lista<Ver> tema : Control.Verbos) {
             for (int i = 1; i < tema.size(); i++) {
                 Ver actual = tema.get(i);
                 if (!listaIdentificación.contains(actual.toString())) {
@@ -61,9 +111,9 @@ public class Control {
     public static void InicializarAdjetivos() {
         Control.Adjetivos = Adj.GeneradorAdj();
 
-        ArrayList<Adj> listaCompleta = new ArrayList<Adj>();
+        Lista<Adj> listaCompleta = new Lista<Adj>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (ArrayList<Adj> tema : Control.Adjetivos) {
+        for (Lista<Adj> tema : Control.Adjetivos) {
             for (Adj actual : tema) {
                 if (!listaIdentificación.contains(actual.toString())) {
                     listaCompleta.add(actual);
@@ -81,9 +131,9 @@ public class Control {
     public static void InicializarPalabras() {
         Control.Palabras = Pal.GeneradorPal();
 
-        ArrayList<Pal> listaCompleta = new ArrayList<Pal>();
+        Lista<Pal> listaCompleta = new Lista<Pal>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (ArrayList<Pal> tema : Control.Palabras) {
+        for (Lista<Pal> tema : Control.Palabras) {
             for (Pal actual : tema) {
                 if (!listaIdentificación.contains(actual.toString())) {
                     listaCompleta.add(actual);
@@ -300,14 +350,24 @@ public class Control {
     }
 
 
-    public static void main(String[] args) {
-        //todo: Cambios se hicieron a los métodos listartemas y elejir temas. Ahora son parte de la clase Ejer.
-        //todo: Si se agrega un tipo de palabra nuevo (Lo cual lo dudo, por lo menos por ahora) recuerda actualizar esos métodos,
-        //todo: ya que si no lo haces el programa no reconocerá el tipo de palabra.
+    public static void Inicialización() {
+        InicializarTemas();
         InicializarSustantivos();
         InicializarVerbos();
         InicializarAdjetivos();
         InicializarPalabras();
+    }
+
+
+    public static void main(String[] args) {
+        Inicialización();
+        //todo: Cambios se hicieron a los métodos listartemas y elejir temas. Ahora son parte de la clase Ejer.
+        //todo: Si se agrega un tipo de palabra nuevo (Lo cual lo dudo, por lo menos por ahora) recuerda actualizar esos métodos,
+        //todo: ya que si no lo haces el programa no reconocerá el tipo de palabra.
+
+
+
+
 
         //todo: Revisar revisar verbos: Los significados tienen ")"?
 
