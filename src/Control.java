@@ -15,6 +15,7 @@ public class Control {
     public static ArrayList<Pal> PalabrasListaSingular;
 
 
+
     // Ejecuta la inicialización de los sustantivos. Créa la lista de temas, cuyas tienen los sustantivos.
     public static void InicializarSustantivos() {
         Control.Sustantivos = Sus.GeneradorSus();
