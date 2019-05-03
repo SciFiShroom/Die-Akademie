@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 public class Ver extends Palabra{
-
+public static final String Ver = "Ver";
     //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
     public static final String nullEntry = "---";
 

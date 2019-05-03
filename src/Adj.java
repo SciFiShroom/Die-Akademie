@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
-
 public class Adj extends Palabra{
-
+public static final String Adj = "Adj";
     //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
     public static final String nullEntry = "---";
 

@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
-
 public class Pal extends Palabra{
+    public static final String Pal = "Pal";
     //para todas las palabras chicas que también nos tenemos que aprender.
 
     //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------

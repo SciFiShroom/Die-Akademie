@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Control {
 
     //Estos se inicializan en el Main de Control. (Hasta abajo)
-    public static ArrayList<Lista<Sus>> Sustantivos; //La lista se guarde como variable estatica.
-    public static ArrayList<Lista<Ver>> Verbos;
-    public static ArrayList<Lista<Adj>> Adjetivos;
-    public static ArrayList<Lista<Pal>> Palabras;
+    public static ArrayList<Lista<Palabra>> Sustantivos; //La lista se guarde como variable estatica.
+    public static ArrayList<Lista<Palabra>> Verbos;
+    public static ArrayList<Lista<Palabra>> Adjetivos;
+    public static ArrayList<Lista<Palabra>> Palabras;
 
     //Se usan de ves en cuando, no son tan importantes. Contienen una de cada palabra, sin repeticiones.
     public static Lista<Sus> SustantivosListaSingular;
@@ -45,17 +45,17 @@ public class Control {
         }
 
         //Se crean las listas
-        ArrayList<Lista<Sus>> listaDeSustantivos = new ArrayList<Lista<Sus>>();
-        ArrayList<Lista<Ver>> listaDeVerbos = new ArrayList<Lista<Ver>>();
-        ArrayList<Lista<Adj>> listaDeAdjetivos = new ArrayList<Lista<Adj>>();
-        ArrayList<Lista<Pal>> listaDePals = new ArrayList<Lista<Pal>>();
+        ArrayList<Lista<Palabra>> listaDeSustantivos = new ArrayList<Lista<Palabra>>();
+        ArrayList<Lista<Palabra>> listaDeVerbos = new ArrayList<Lista<Palabra>>();
+        ArrayList<Lista<Palabra>> listaDeAdjetivos = new ArrayList<Lista<Palabra>>();
+        ArrayList<Lista<Palabra>> listaDePals = new ArrayList<Lista<Palabra>>();
 
         //Llenamos las listas generadas antemente
         for (String temaActual : Temas) {
-            listaDeSustantivos.add(new Lista<Sus>(temaActual));
-            listaDeVerbos.add(new Lista<Ver>(temaActual));
-            listaDeAdjetivos.add(new Lista<Adj>(temaActual));
-            listaDePals.add(new Lista<Pal>(temaActual));
+            listaDeSustantivos.add(new Lista<Palabra>(temaActual));
+            listaDeVerbos.add(new Lista<Palabra>(temaActual));
+            listaDeAdjetivos.add(new Lista<Palabra>(temaActual));
+            listaDePals.add(new Lista<Palabra>(temaActual));
         }
 
         //Las listas dentro de los ArrayLists aún están vasías, pero se llenarán despues en los otros métodos inicializadores.

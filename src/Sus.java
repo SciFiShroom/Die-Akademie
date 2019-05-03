@@ -3,94 +3,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Arrays;
 public class Sus extends Palabra{
+public static final String Sus = "Sus";
 
-    //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
     public static final String nullEntry = "---";
 
-    //1
-    public static final String comida = "comida";
-    public static ArrayList<Sus> Comida = new ArrayList<Sus>();
-    //2
-    public static final String fruta = "fruta";
-    public static ArrayList<Sus> Fruta = new ArrayList<Sus>();
-    //3
-    public static final String vegetal = "vegetal";
-    public static ArrayList<Sus> Vegetal = new ArrayList<Sus>();
-    //4
-    public static final String país = "país";
-    public static ArrayList<Sus> País = new ArrayList<Sus>();
-    //5
-    public static final String ciudades = "ciudades";
-    public static ArrayList<Sus> Ciudades = new ArrayList<Sus>();
-    //6
-    public static final String capital = "capital";
-    public static ArrayList<Sus> Capital = new ArrayList<Sus>();
-    //7
-    public static final String test = "test";
-    public static ArrayList<Sus> Test = new ArrayList<Sus>();
-    //8
-    public static final String cuerpo = "cuerpo";
-    public static ArrayList<Sus> Cuerpo = new ArrayList<Sus>();
-    //9
-    public static final String letras = "letras";
-    public static ArrayList<Sus> Letras = new ArrayList<Sus>();
-    //10
-    public static final String tiempo = "tiempo";
-    public static ArrayList<Sus> Tiempo = new ArrayList<Sus>();
-    //11
-    public static final String clima = "clima";
-    public static ArrayList<Sus> Clima = new ArrayList<Sus>();
-    //12
-    public static final String día = "día";
-    public static ArrayList<Sus> Día = new ArrayList<Sus>();
-    //13
-    public static final String año = "año";
-    public static ArrayList<Sus> Año = new ArrayList<Sus>();
-    //14
-    public static final String figuras = "figuras";
-    public static ArrayList<Sus> Figuras = new ArrayList<Sus>();
-    //15
-    public static final String ropa = "ropa";
-    public static ArrayList<Sus> Ropa = new ArrayList<Sus>();
-    //16
-    public static final String escuela = "escuela";
-    public static ArrayList<Sus> Escuela = new ArrayList<Sus>();
-    //17
-    public static final String tecnología = "tecnología";
-    public static ArrayList<Sus> Tecnología = new ArrayList<Sus>();
-    //18
-    public static final String casa = "casa";
-    public static ArrayList<Sus> Casa = new ArrayList<Sus>();
-    //19
-    public static final String mueble = "mueble";
-    public static ArrayList<Sus> Mueble = new ArrayList<Sus>();
-    //20
-    public static final String médico = "médico";
-    public static ArrayList<Sus> Médico = new ArrayList<Sus>();
-    //21
-    public static final String ciudad = "ciudad";
-    public static ArrayList<Sus> Ciudad = new ArrayList<Sus>();
-    //22
-    public static final String medidas = "medidas";
-    public static ArrayList<Sus> Medidas = new ArrayList<Sus>();
-    //23
-    public static final String transporte = "transporte";
-    public static ArrayList<Sus> Transporte = new ArrayList<Sus>();
-    //24
-    public static final String especias = "especias";
-    public static ArrayList<Sus> Especias = new ArrayList<Sus>();
-    //25
-    public static final String cocina = "cocina";
-    public static ArrayList<Sus> Cocina = new ArrayList<Sus>();
-    //26
-    public static final String bebidas = "bebidas";
-    public static ArrayList<Sus> Bebidas = new ArrayList<Sus>();
-    //27
-    public static final String materiales = "materiales";
-    public static ArrayList<Sus> Materiales = new ArrayList<Sus>();
-
-
-    //--------------------------</LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
 
 
     /**
@@ -164,75 +80,10 @@ public class Sus extends Palabra{
     }
 
 
-    //Echa error si agregas una tag que no se reconoce.
-    public void tagAdd(String newtag) { //agrega el sustantivo a la lista del tema.
-        String[] current = new String[this.tags.length + 1];
-        for (int i = 0; i < this.tags.length; i++) {
-            current[i] = this.tags[i];
-        }
-        current[this.tags.length] = newtag;
-        this.tags = current;
-
-        boolean entendido = false;
-        switch (newtag) {//Aquí se agrega a la lista
-            //1
-            case comida: Comida.add(this); entendido = true; break;
-            //2
-            case fruta: Fruta.add(this); entendido = true; break;
-            //3
-            case vegetal: Vegetal.add(this); entendido = true; break;
-            //4
-            case país: País.add(this); entendido = true; break;
-            //5
-            case ciudades: Ciudades.add(this); entendido = true; break;
-            //6
-            case capital: Capital.add(this); entendido = true; break;
-            //7
-            case test: Test.add(this); entendido = true; break; //Este se usa para debugging
-            //8
-            case cuerpo: Cuerpo.add(this); entendido = true; break;
-            //9
-            case letras: Cuerpo.add(this); entendido = true; break;
-            //10
-            case tiempo: Tiempo.add(this); entendido = true; break;
-            //11
-            case clima: Clima.add(this); entendido = true; break;
-            //12
-            case día: Día.add(this); entendido = true; break;
-            //13
-            case año: Año.add(this); entendido = true; break;
-            //14
-            case figuras: Figuras.add(this); entendido = true; break;
-            //15
-            case ropa: Ropa.add(this); entendido = true; break;
-            //16
-            case escuela: Escuela.add(this); entendido = true; break;
-            //17
-            case tecnología: Tecnología.add(this); entendido = true; break;
-            //18
-            case casa: Casa.add(this); entendido = true; break;
-            //19
-            case mueble: Mueble.add(this); entendido = true; break;
-            //20
-            case médico: Médico.add(this); entendido = true; break;
-            //21
-            case ciudad: Ciudad.add(this); entendido = true; break;
-            //22
-            case medidas: Medidas.add(this); entendido = true; break;
-            //23
-            case transporte: Transporte.add(this); entendido = true; break;
-            //24
-            case especias: Especias.add(this); entendido = true; break;
-            //25
-            case cocina: Cocina.add(this); entendido = true; break;
-            //26
-            case bebidas: Bebidas.add(this); entendido = true; break;
-            //26
-            case materiales: Materiales.add(this); entendido = true; break;
-        }
-
-        if (!entendido) { throw new NullPointerException("ERROR: Tag no reconocida"); }
+    public void agregarTag(String newTag) {
+        super.agregarTag(newTag, "Sus");
     }
+
 
     //Constructor. Very basic.
     public Sus(String Sustantivo, String Plural, String Genero, String Significado, String[] Tags) {
@@ -246,15 +97,10 @@ public class Sus extends Palabra{
 
         this.tags = new String[0];
         for (String current : Tags) {
-            this.tagAdd(current);
+            this.agregarTag(current, Sus);
         }
-
-
     }
-    public Sus(String tema) { //Se usa como indicador en las listas
-        this.nulo = true;
-        this.sustantivo = tema;
-    } //Constructor nulo. Cada lista temática usa uno como su primer entrada. Funciona como indicador del tema.
+
 
     public String sustantivo; //El sustantivo
     public String plural; //Plural del sustantivo
@@ -278,7 +124,7 @@ public class Sus extends Palabra{
 
         //<COMIDA>------------------------------------------------------
         //todo: Fruta, Comida
-        Tags = new String[]{comida, fruta};
+        Tags = new String[]{"comida", "fruta"};
         Sus apfel = new Sus("Apfel", "Äpfel", "M", "manzana", Tags);
         Sus banane = new Sus("Banane", "Bananen", "F", "platano", Tags);
         Sus pfirsich = new Sus("Pfirsich", "Pfirsiche", "M", "durazno", Tags);
@@ -290,14 +136,14 @@ public class Sus extends Palabra{
 
 
         //todo: Vegetal, Comida
-        Tags = new String[]{comida, vegetal};
+        Tags = new String[]{"comida", "vegetal"};
 
         Sus karotte = new Sus("Karotte", "Karotten", "F", "zanahoria", Tags);
         //pepino, pepinillo, pimiento, cebolla, papa,
 
 
         //todo: Comida
-        Tags = new String[]{comida};
+        Tags = new String[]{"comida"};
 
         Sus avocado = new Sus("Avocado", "Avocados", "F", "aguacate", Tags);
         Sus käse = new Sus("Käse", "Käse", "M", "queso", Tags);
@@ -309,7 +155,7 @@ public class Sus extends Palabra{
         //sandwhich, hamburguesa, hotdog, BBQ?, alitas, hash browns, pancakes,
 
         //todo: Especias
-        Tags = new String[]{especias};
+        Tags = new String[]{"especias"};
 
         //nuez moscada, asafrán, sal, pimienta, cilantro, oregano, ajo, albaca, tomillo, canela, azúcar, curry
 
@@ -317,24 +163,24 @@ public class Sus extends Palabra{
 
         //todo: Cocina
         //cocina
-        Tags = new String[]{cocina};
+        Tags = new String[]{"cocina"};
 
         //taza, cuchara, cuchillo, sartén, olla, tenedor, mesa, silla, estufa, refrigerador, cafetera, tetera, vitral, topper?,
         //servilleta, salero, pimientero, colador, exprimidor, m o l c a j e t e,
 
 
         //todo: Bebidas
-        Tags = new String[]{bebidas};
+        Tags = new String[]{"bebidas"};
         //agua, café, leche, jugo, vino, cerveza, tequila?, té, refresco, agua mineral,  A T O L E, glüwein??? whisky?
 
         //[---bebidas]
 
 
         //---------------------------PAISES, CIUDADES, Y SUS MONUMENTOS-------------------------------------------------
-        Tags = new String[]{país};
+        Tags = new String[]{"país"};
 
         Sus país = new Sus("Land", "Länder", "N", "país", Tags);
-        String[] Tags2 = {capital, ciudad};
+        String[] Tags2 = {"capital", "ciudad"};
 
         HashMap<Sus, Sus> Naciones = new HashMap<Sus, Sus>();
 
@@ -364,7 +210,7 @@ public class Sus extends Palabra{
 
         //El cuerpo y sus partes (suena raro pero así será)------------------------------------------------
         //todo: Marcador
-        Tags = new String[]{cuerpo};
+        Tags = new String[]{"cuerpo"};
 
         Sus arm = new Sus("Arm", "Arme", "M", "brazo", Tags);
         Sus auge = new Sus("Auge", "Augen", "N", "ojo", Tags);
@@ -401,7 +247,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //EL tiempo y las estaciones del año
-        Tags = new String[]{tiempo, día};
+        Tags = new String[]{"tiempo", "día"};
         Sus montag = new Sus("Montag", "Montage", "M", "lunes", Tags);
         Sus dienstag = new Sus("Dienstag", "Dienstage", "M", "martes", Tags);
         Sus mittwoch = new Sus("Mittwoch", "Mittwoche", "M", "miércoles", Tags);
@@ -423,7 +269,7 @@ public class Sus extends Palabra{
 
 
         //todo: Marcador
-        Tags = new String[]{tiempo, año};
+        Tags = new String[]{"tiempo", "año"};
 
         Sus januar = new Sus("Januar", "Januare", "M", "enero", Tags);
         Sus februar = new Sus("Februar", "Februare", "M", "febrero", Tags);
@@ -443,20 +289,20 @@ public class Sus extends Palabra{
 
 
         //todo: Marcador
-        Tags = new String[]{tiempo, clima};
+        Tags = new String[]{"tiempo", "clima"};
 
         Sus sommer = new Sus("Sommer", "Sommer", "M", "verano", Tags);
-        sommer.tagAdd(año);
+        sommer.agregarTag("año");
         Sus winter = new Sus("Winter", "Winter", "M", "invierno", Tags);
-        winter.tagAdd(año);
+        winter.agregarTag("año");
         Sus herbst = new Sus("Herbst", "Herbste", "M", "otoño", Tags);
-        herbst.tagAdd(año);
+        herbst.agregarTag("año");
         Sus frühling = new Sus("Frühling", "Frühlinge", "M", "primavera", Tags);
-        frühling.tagAdd(año);
+        frühling.agregarTag("año");
 
 
         //todo: Marcador
-        Tags = new String[]{clima};
+        Tags = new String[]{"clima"};
 
         Sus regen = new Sus ("Regen", "Regen", "M", "lluvia", Tags);
         Sus platzregnen = new Sus("Platzregnen", "Platzregnen", "M", "aguacero", Tags);
@@ -475,14 +321,14 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //[Medidas]
-        Tags = new String[]{medidas};
+        Tags = new String[]{"medidas"};
 
-        stunde.tagAdd(medidas);
-        minute.tagAdd(medidas);
-        sekunde.tagAdd(medidas);
-        jahr.tagAdd(medidas);
-        woche.tagAdd(medidas);
-        monat.tagAdd(medidas);
+        stunde.agregarTag("medidas");
+        minute.agregarTag("medidas");
+        sekunde.agregarTag("medidas");
+        jahr.agregarTag("medidas");
+        woche.agregarTag("medidas");
+        monat.agregarTag("medidas");
 
         /**
         Sus meter = new Sus("Meter", "Meter", "X", "metro [medida]", Tags);
@@ -504,7 +350,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //Las figuras---------------------------------------------------
-        Tags = new String[]{figuras};
+        Tags = new String[]{"figuras"};
 
         //Sus  = new Sus("", "", "", "figura", Tags);
         Sus kreis = new Sus("Kreis", "Kreise", "M", "círculo", Tags);
@@ -527,7 +373,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //La ropa
-        Tags = new String[]{ropa};
+        Tags = new String[]{"ropa"};
 
         Sus badeanzug = new Sus("Badeanzug", "Badeanzüge", "M", "traje de baño", Tags);
         Sus hemd = new Sus("Hemd", "Hemden", "N", "camisa", Tags);
@@ -549,7 +395,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //[   La casa]
-        Tags = new String[]{casa};
+        Tags = new String[]{"casa"};
 
         Sus erdgeschoß = new Sus("Erdgeschoß", "Erdgeschoße", "N", "planta baja", Tags);
         Sus dachgeschoß = new Sus("Dachgeschoß", "Dachgeschoße", "N", "ático", Tags);
@@ -582,8 +428,8 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //[   La ciudad]
-        Tags = new String[]{ciudad};
-        String[] t = new String[]{ciudad};
+        Tags = new String[]{"ciudad"};
+        String[] t = new String[]{"ciudad"};
 
         Sus Wohnung = new Sus("Wohnung", "Wohnungen", "F", "departamento [empieza con 'w']", Tags);
         Sus apartment = new Sus("Apartment", "Apartments", "N", "departamento [empieza con 'a']", Tags);
@@ -598,7 +444,7 @@ public class Sus extends Palabra{
         Sus bar = new Sus("Bar", "Bars", "F", "bar", Tags);
         Sus museum = new Sus("Museum", "Museen", "N", "museo", t );
         Sus krankenhaus = new Sus("Krankenhaus", "Krankenhäuser", "N", "hospital", t );
-        krankenhaus.tagAdd(médico);
+        krankenhaus.agregarTag("médico");
 
         Sus dorf = new Sus("Dorf", "Dörfer", "N", "pueblo", t);
 
@@ -616,7 +462,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //[Los muebles y cosas de la casa]
-        Tags = new String[]{mueble}; //y cosas
+        Tags = new String[]{"mueble"}; //y cosas
 
         Sus bett = new Sus("Bett", "Betten", "N", "cama", Tags);
         Sus stuhl = new Sus("Stuhl", "Stühle", "M", "silla", Tags);
@@ -626,7 +472,7 @@ public class Sus extends Palabra{
         Sus sofa = new Sus("Sofa", "Sofas", "N", "sofá", Tags);
 
         //[El médico]
-        Tags = new String[]{médico};
+        Tags = new String[]{"médico"};
         Sus rezept = new Sus("Rezept", "Rezepte", "F", "prescripción", Tags);
         Sus versichertenkarte = new Sus("Versichertenkarte", "Versichertenkarten", "F", "tarjeta del seguro", Tags);
         Sus krankmeldung = new Sus("Krankmeldung", "Krankmeldungen", "F", "baja de enfermedad", Tags);
@@ -644,7 +490,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //[La escuela]
-        Tags = new String[]{escuela};
+        Tags = new String[]{"escuela"};
 
         Sus schule = new Sus("Schule", "Schulen", "F", "escuela", Tags);
 
@@ -656,16 +502,16 @@ public class Sus extends Palabra{
         Sus klasse = new Sus("Klasse", "Klassen", "F", "clase", Tags);
         Sus klassenzimmer = new Sus("Klassenzimmer", "Klassenzimmer", "N", "aula", Tags);
         Sus korridor = new Sus("Korridor", "Korridore", "M", "pasillo", Tags);
-        korridor.tagAdd(casa);
+        korridor.agregarTag("casa");
         Sus kreide = new Sus("Kreide", "Kreiden", "F", "gis", Tags);
         Sus kurs = new Sus("Kurs", "Kurse", "M", "curso", Tags);
         //Sus lehrer = new Sus("Lehrer", "maestro", Tags);
         //Sus professor = new Sus("Professor", "profesor", Tags);
         Sus radiergummi = new Sus("Radiergummi", "Radiergummis", "M", "borrador [para lápiz]", Tags);
         Sus rechner = new Sus("Rechner", "Rechner", "M", "calculadora", Tags);
-        rechner.tagAdd(tecnología);
+        rechner.agregarTag("tecnología");
         Sus rechner2 = new Sus("Rechner", "Rechner", "M", "computadora", Tags);
-        rechner2.tagAdd(tecnología);
+        rechner2.agregarTag("tecnología");
         Sus rucksack = new Sus("Rucksack", "Rucksäcke", "M", "mochila", Tags);
         Sus schreibtisch = new Sus("Schreibtisch", "Schreibtische", "M", "escritório", Tags);
         //Sus student = new Sus("Student", "estudiante", Tags);
@@ -678,7 +524,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //[La tecnología]
-        Tags = new String[]{tecnología};
+        Tags = new String[]{"tecnología"};
 
         Sus fernseher = new Sus("Fernseher", "Fernseher", "N", "tele", Tags);
         Sus handy = new Sus("Handy", "Handys", "N", "teléfono", Tags);
@@ -689,7 +535,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         //[transporte]
-        Tags = new String[]{transporte};
+        Tags = new String[]{"transporte"};
 
         Sus auto = new Sus("Auto", "Autos", "N", "coche", Tags);
         Sus flugzeug = new Sus("Flugzeug", "Flugzeuge", "N", "avión", Tags);
@@ -722,7 +568,7 @@ public class Sus extends Palabra{
         //HANS, GIBT MIR DAS HAMMER
 
         //[Construcción (pero no demolición)
-        Tags = new String[]{materiales};
+        Tags = new String[]{"materiales"};
 
         Sus stein = new Sus("Stein", "Steine", "M", "piedra", Tags);
         Sus ziegelstein = new Sus("Ziegelstein", "Ziegelsteine", "M", "ladrillo", Tags);
@@ -756,9 +602,11 @@ public class Sus extends Palabra{
      * @return el verbo si se encuentra, null si no se encuentra.
      */
     public static Sus buscar(String nombre) {
-        for (Lista<Sus> actual: Control.Sustantivos) {
-            for (Sus temp : actual) {
-                if (temp.sustantivo.equals(nombre)) {return temp;}
+        for (Lista<Palabra> actual: Control.Sustantivos) {
+            for (Palabra temp : actual) {
+                //Nos aseguramos de que sea el tipo de palabra correcto
+                if (!temp.instanceOf).....
+                if ((Sus)temp.sustantivo.equals(nombre)) {return (Sus)temp;}
             }
         }
         return null;
