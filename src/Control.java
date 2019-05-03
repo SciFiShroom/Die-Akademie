@@ -253,47 +253,50 @@ public class Control {
     //Revisan repeticiones en los significados de las palabras respectivas.
     public static void revisarVer(){
         ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Ver actual : Control.VerbosListaSingular) {
-            if (listaSignificados.contains(actual.significado)) {
-                System.out.println("El significado " + actual.significado + " es repetido. " + actual.verbo);
+        for (Palabra actual : Control.VerbosListaSingular) {
+            if (listaSignificados.contains(actual.getSignificado())) {
+                System.out.println("El significado " + actual.getSignificado() + " es repetido. " + actual.getNombre());
             } else {
-                listaSignificados.add(actual.significado);
+                listaSignificados.add(actual.getSignificado());
             }
 
-            if (actual.presente == null) {System.out.println("El verbo '" + actual.verbo+ "' no tiene presente. ");}
-            if (actual.participio == null) {System.out.println("El verbo '" + actual.verbo + "' no tiene participio. ");}
-            if (actual.imperativo == null) {System.out.println("El verbo '" + actual.verbo + "' no tiene imperativo. ");}
-            if (actual.preterito == null) {System.out.println("El verbo '" + actual.verbo + "' no tiene preterito. ");}
+            if (actual instanceof Ver) {
+                Ver verActual = (Ver) actual;
+                if (verActual.presente == null) {System.out.println("El verbo '" + verActual.verbo+ "' no tiene presente. ");}
+                if (verActual.participio == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene participio. ");}
+                if (verActual.imperativo == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene imperativo. ");}
+                if (verActual.preterito == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene preterito. ");}
+            }
         }
     }
     public static void revisarAdj(){
 
         ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Adj actual : Control.AdjetivosListaSingular) {
-            if (listaSignificados.contains(actual.significado)) {
-                System.out.println("El significado " + actual.significado + " es repetido: " + actual.adjetivo);
+        for (Palabra actual : Control.AdjetivosListaSingular) {
+            if (listaSignificados.contains(actual.getSignificado())) {
+                System.out.println("El significado " + actual.getSignificado() + " es repetido: " + actual.getNombre());
             } else {
-                listaSignificados.add(actual.significado);
+                listaSignificados.add(actual.getSignificado());
             }
         }
     }
     public static void revisarSus(){
         ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Sus actual : Control.SustantivosListaSingular) {
-            if (listaSignificados.contains(actual.significado)) {
-                System.out.println("El significado " + actual.significado + " es repetido: " + actual.sustantivo);
+        for (Palabra actual : Control.SustantivosListaSingular) {
+            if (listaSignificados.contains(actual.getSignificado())) {
+                System.out.println("El significado " + actual.getSignificado() + " es repetido: " + actual.getNombre());
             } else {
-                listaSignificados.add(actual.significado);
+                listaSignificados.add(actual.getSignificado());
             }
         }
     }
     public static void revisarPal(){
         ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Pal actual : Control.PalabrasListaSingular) {
-            if (listaSignificados.contains(actual.significado)) {
-                System.out.println("El significado " + actual.significado + " es repetido: " + actual.palabra);
+        for (Palabra actual : Control.PalabrasListaSingular) {
+            if (listaSignificados.contains(actual.getSignificado())) {
+                System.out.println("El significado " + actual.getSignificado() + " es repetido: " + actual.getNombre());
             } else {
-                listaSignificados.add(actual.significado);
+                listaSignificados.add(actual.getSignificado());
             }
         }
     }
