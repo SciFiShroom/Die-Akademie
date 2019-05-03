@@ -93,12 +93,16 @@ public class Pal extends Palabra{
     }
 
     public String palabra; //La palabra en Alemán
+    public String significado; //El significado de la palabra.
+    public String[] tags; //Los tags (tipo de palabra, u otro tema. )
+
 
     @Override
     public String getNombre() {return this.palabra;}
 
-    public String significado; //El significado de la palabra.
-    public String[] tags; //Los tags (tipo de palabra, u otro tema. )
+    @Override
+    public String getSignificado() {return this.significado;}
+
 
     public boolean nulo = false;
 

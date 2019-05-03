@@ -47,15 +47,17 @@ public class Sus extends Palabra{
 
 
     public String sustantivo; //El sustantivo
-
-    @Override
-    public String getNombre() {return this.sustantivo;}
-
     public String plural; //Plural del sustantivo
     public String género; //Género del sustantivo. M = Masculino, F = Femenino, N = Neutro
     public String significado; // El significado del sustantivo.
     public String[] tags; //Tags. Agregan funcionalidad extra.
     public boolean nulo = false; // Sustantivo nulo. Sirve como indicador en las listas temáticas de abajo.
+
+    @Override
+    public String getNombre() {return this.sustantivo;}
+
+    @Override
+    public String getSignificado() {return this.significado;}
 
 
 

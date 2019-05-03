@@ -165,15 +165,18 @@ public class Adj extends Palabra{
     } //Constructor sin comparativo o superlativo
 
     public String adjetivo;
-
-    @Override
-    public String getNombre() {return this.adjetivo;}
-
-    public String comparativo;
+        public String comparativo;
     public String superlativo;
     public String significado;
     public String[] tags;
     public boolean nulo = false;
+
+
+    @Override
+    public String getNombre() {return this.adjetivo;}
+
+    @Override
+    public String getSignificado() {return this.significado;}
 
     //Hay casos como "rosa" en los que el adjetivo nunca se declina, ni tiene comparativo o superlativo. Esto lo detecta.
     public boolean seDeclina = true;

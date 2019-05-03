@@ -41,6 +41,7 @@ public class Palabra {
 
 
     public String getNombre() {throw new NumberFormatException("teneis los cojones cuadrados");}
+    public String getSignificado(){throw new NumberFormatException("Ostras, ¿qué quereis?");}
 
     //método para buscar una palabra en una lista de palabras
     public Palabra[] buscarTodo(String Nombre) {
