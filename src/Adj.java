@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
 public class Adj extends Palabra{
-public static final String Adj = "Adj";
+    public static final String Adj = "Adj";
+    public static final String nullEntry = "---";
     //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
     public static final String nullEntry = "---";
 
@@ -164,6 +165,10 @@ public static final String Adj = "Adj";
     } //Constructor sin comparativo o superlativo
 
     public String adjetivo;
+
+    @Override
+    public String getNombre() {return this.adjetivo;}
+
     public String comparativo;
     public String superlativo;
     public String significado;

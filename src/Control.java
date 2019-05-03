@@ -9,10 +9,10 @@ public class Control {
     public static ArrayList<Lista<Palabra>> Palabras;
 
     //Se usan de ves en cuando, no son tan importantes. Contienen una de cada palabra, sin repeticiones.
-    public static Lista<Sus> SustantivosListaSingular;
-    public static Lista<Ver> VerbosListaSingular;
-    public static Lista<Adj> AdjetivosListaSingular;
-    public static Lista<Pal> PalabrasListaSingular;
+    public static Lista<Palabra> SustantivosListaSingular;
+    public static Lista<Palabra> VerbosListaSingular;
+    public static Lista<Palabra> AdjetivosListaSingular;
+    public static Lista<Palabra> PalabrasListaSingular;
 
     //inicializa los temas de tödo el programa
     public static void InicializarTemas() {
@@ -366,7 +366,9 @@ public class Control {
         //todo: ya que si no lo haces el programa no reconocerá el tipo de palabra.
 
 
+        //todo: Alomejor agregar algún indicador a Lista que te diga si agregas algo que no deberías sin crashear?
 
+        //Todo: cambiar NullPointerExceptions a NumberFormatExceptions para evitar problemas.
 
 
         //todo: Revisar revisar verbos: Los significados tienen ")"?

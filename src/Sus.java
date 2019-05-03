@@ -3,8 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Arrays;
 public class Sus extends Palabra{
-public static final String Sus = "Sus";
-
+    public static final String Sus = "Sus";
     public static final String nullEntry = "---";
 
 
@@ -17,61 +16,6 @@ public static final String Sus = "Sus";
     public static ArrayList<ArrayList<Sus>> GeneradorSus() {
         // Todas las lsitas de sustantivos se oguardan en una lista de listas:
         ArrayList<ArrayList<Sus>> Sustantivos = new ArrayList<ArrayList<Sus>>();
-
-        //1
-        Sustantivos.add(Comida); Comida.add(new Sus(comida)); //<---Este es el sustantivo nulo.
-        //2
-        Sustantivos.add(Fruta); Fruta.add(new Sus(fruta)); //Se tendrán que agregar todos los temas manualmente; desconozco de una manera más facil.
-        //3
-        Sustantivos.add(Vegetal); Vegetal.add(new Sus(vegetal)); //Nota: Si quieres tener "el vegetal" como sustantivo practicable, se tenra que agregar en el generador.
-        //4
-        Sustantivos.add(País); País.add(new Sus(país));
-        //5
-        Sustantivos.add(Ciudades); Ciudades.add(new Sus(ciudades));
-        //6
-        Sustantivos.add(Capital); Capital.add(new Sus(capital));
-        //7
-        Sustantivos.add(Test); Test.add(new Sus(test)); //Se usa para debugging
-        //8
-        Sustantivos.add(Cuerpo); Cuerpo.add(new Sus(cuerpo));
-        //9
-        Sustantivos.add(Letras); Letras.add(new Sus(letras));
-        //10
-        Sustantivos.add(Tiempo); Tiempo.add(new Sus(tiempo));
-        //11
-        Sustantivos.add(Clima); Clima.add(new Sus(clima));
-        //12
-        Sustantivos.add(Día); Día.add(new Sus(día));
-        //13
-        Sustantivos.add(Año); Año.add(new Sus(año));
-        //14
-        Sustantivos.add(Figuras); Figuras.add(new Sus(figuras));
-        //15
-        Sustantivos.add(Ropa); Ropa.add(new Sus(ropa));
-        //16
-        Sustantivos.add(Escuela); Escuela.add(new Sus(escuela));
-        //17
-        Sustantivos.add(Tecnología); Tecnología.add(new Sus(tecnología));
-        //18
-        Sustantivos.add(Casa); Casa.add(new Sus(casa));
-        //19
-        Sustantivos.add(Mueble); Mueble.add(new Sus(mueble));
-        //20
-        Sustantivos.add(Médico); Médico.add(new Sus(médico));
-        //21
-        Sustantivos.add(Ciudad); Ciudad.add(new Sus(ciudad));
-        //22
-        Sustantivos.add(Medidas); Medidas.add(new Sus(medidas));
-        //23
-        Sustantivos.add(Transporte); Transporte.add(new Sus(transporte));
-        //24
-        Sustantivos.add(Especias); Especias.add(new Sus(especias));
-        //25
-        Sustantivos.add(Cocina); Cocina.add(new Sus(cocina));
-        //26
-        Sustantivos.add(Bebidas); Bebidas.add(new Sus(bebidas));
-        //27
-        Sustantivos.add(Materiales); Materiales.add(new Sus(materiales));
 
         crearSustantivos();
 
@@ -103,6 +47,10 @@ public static final String Sus = "Sus";
 
 
     public String sustantivo; //El sustantivo
+
+    @Override
+    public String getNombre() {return this.sustantivo;}
+
     public String plural; //Plural del sustantivo
     public String género; //Género del sustantivo. M = Masculino, F = Femenino, N = Neutro
     public String significado; // El significado del sustantivo.
@@ -116,9 +64,6 @@ public static final String Sus = "Sus";
     //todo: Marcador del comienzo de la lista lel
     //todo:
     //todo:
-
-
-
     public static void crearSustantivos() {
         String[] Tags;
 
@@ -596,21 +541,7 @@ public static final String Sus = "Sus";
 
 
 
-    /**
-     * Te deja buscar un sustantivo de la lista Control.Sustantivos
-     * @param nombre el verbo que buscas
-     * @return el verbo si se encuentra, null si no se encuentra.
-     */
-    public static Sus buscar(String nombre) {
-        for (Lista<Palabra> actual: Control.Sustantivos) {
-            for (Palabra temp : actual) {
-                //Nos aseguramos de que sea el tipo de palabra correcto
-                if (!temp.instanceOf).....
-                if ((Sus)temp.sustantivo.equals(nombre)) {return (Sus)temp;}
-            }
-        }
-        return null;
-    }
+
 
 
     //Imprime la lista de todos los temas
@@ -675,6 +606,7 @@ public static final String Sus = "Sus";
         }
         return out;
     }
+
 
 
     //Define un sustantivo
@@ -746,10 +678,10 @@ public static final String Sus = "Sus";
         return lista;
     }
 
-
-    //Regresa la lista de sustantivos de el tema indicado, dado la lista completa "Sustantivos"
-    public static Lista<Sus> ListaTema(String tema) {
-        for (Lista<Sus> listaActual: Control.Sustantivos) {
+    //todo really should be a Control function. Temas are now sorted completely there, not here.
+    //Regresa la lista de sustantivos del tema indicado, dado la lista completa "Sustantivos"
+    public static Lista<Palabra> ListaTema(String tema) {
+        for (Lista<Palabra> listaActual: Control.Sustantivos) {
             if (listaActual.nombre.equals(tema)) {return listaActual;}
         }
         //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");

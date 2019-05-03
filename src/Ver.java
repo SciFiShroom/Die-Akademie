@@ -2,68 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 public class Ver extends Palabra{
-public static final String Ver = "Ver";
-    //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
+    public static final String Ver = "Ver";
     public static final String nullEntry = "---";
 
-    //1
-    public static final String moverse = "moverse";
-    public static ArrayList<Ver> Moverse = new ArrayList<Ver>();
-    //2
-    public static final String cuerpo = "cuerpo";
-    public static ArrayList<Ver> Cuerpo = new ArrayList<Ver>();
-    //3
-    public static final String básico = "básico";
-    public static ArrayList<Ver> Básico = new ArrayList<Ver>();
-    //4
-    public static final String modal = "modal";
-    public static ArrayList<Ver> Modal = new ArrayList<Ver>();
-    //5
-    public static final String clima = "clima";
-    public static ArrayList<Ver> Clima = new ArrayList<Ver>();
-    //6
-    public static final String menos_básico = "menos básico";
-    public static ArrayList<Ver> Menos_básico = new ArrayList<Ver>();
-    //7
-    public static final String tecnología = "tecnología";
-    public static ArrayList<Ver> Tecnología = new ArrayList<Ver>();
-    //8
-    public static final String comida = "comida";
-    public static ArrayList<Ver> Comida = new ArrayList<Ver>();
-    //9
-    public static final String escuela = "escuela";
-    public static ArrayList<Ver> Escuela = new ArrayList<Ver>();
-    //10
-    public static final String misceláneo = "misceláneo";
-    public static ArrayList<Ver> Misceláneo = new ArrayList<Ver>();
-    //11
-    public static final String casa = "casa";
-    public static ArrayList<Ver> Casa = new ArrayList<Ver>();
-    //12
-    public static final String expresarse = "expresarse";
-    public static ArrayList<Ver> Expresarse = new ArrayList<Ver>();
-    //13
-    public static final String vista = "vista";
-    public static ArrayList<Ver> Vista = new ArrayList<Ver>();
-    //14
-    public static final String tienda = "tienda";
-    public static ArrayList<Ver> Tienda = new ArrayList<Ver>();
-    //15
-    public static final String auxiliar = "auxiliar";
-    public static ArrayList<Ver> Auxiliar = new ArrayList<Ver>();
-    //16
-    public static final String bahnhof = "bahnhof";
-    public static ArrayList<Ver> Bahnhof = new ArrayList<Ver>();
-    //17
-    public static final String objeto = "objeto";
-    public static ArrayList<Ver> Objeto = new ArrayList<Ver>();
-    //18
-    public static final String mente = "mente";
-    public static ArrayList<Ver> Mente = new ArrayList<Ver>();
-
-
-
-    //--------------------------</LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
 
 
     /**
@@ -280,6 +221,10 @@ public static final String Ver = "Ver";
     }
 
     public String verbo; //El verbo en imperativo (Lesen, sprechen, etc. )
+
+    @Override
+    public String getNombre() {return this.verbo;}
+
     public String[] presente; //La manera mas facil y modular de guardar la información del verbo. Es con String[] de 1 por 6: ich; du; er,sie,es; wir; ihr; Sie = 6
     public String significado; //El significado del verbo
     public String[] tags; //Tags. Agregan funcionalidad extra.

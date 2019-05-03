@@ -3,36 +3,9 @@ import java.util.Scanner;
 import java.util.Arrays;
 public class Pal extends Palabra{
     public static final String Pal = "Pal";
+    public static final String nullEntry = "---";
     //para todas las palabras chicas que también nos tenemos que aprender.
 
-    //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
-    public static final String nullEntry = "---";
-
-    //1
-    public static final String conjunciónes = "conjunciónes";
-    public static ArrayList<Pal> Conjunciónes = new ArrayList<Pal>();
-    //2
-    public static final String interrogativos = "interrogativos";
-    public static ArrayList<Pal> Interrogativos = new ArrayList<Pal>();
-    //3
-    public static final String pronombres = "pronombres";
-    public static ArrayList<Pal> Pronombres = new ArrayList<Pal>();
-    //4
-    public static final String preposiciones = "preposiciones";
-    public static ArrayList<Pal> Preposiciones = new ArrayList<Pal>();
-    //5
-    public static final String acusativo = "acusativo";
-    public static ArrayList<Pal> Acusativo = new ArrayList<Pal>();
-    //6
-    public static final String dativo = "dativo";
-    public static ArrayList<Pal> Dativo = new ArrayList<Pal>();
-    //7
-    public static final String wechsel = "wechsel";
-    public static ArrayList<Pal> Wechsel = new ArrayList<Pal>();
-
-
-
-    //--------------------------</LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
 
 
     /**
@@ -120,6 +93,10 @@ public class Pal extends Palabra{
     }
 
     public String palabra; //La palabra en Alemán
+
+    @Override
+    public String getNombre() {return this.palabra;}
+
     public String significado; //El significado de la palabra.
     public String[] tags; //Los tags (tipo de palabra, u otro tema. )
 
@@ -133,7 +110,7 @@ public class Pal extends Palabra{
         String[] Tags;
 
         //[Conjunciones]
-        Tags = new String[]{conjunciónes};
+        Tags = new String[]{"conjunciónes"};
         Pal aber = new Pal("aber", "pero", Tags);
         Pal und = new Pal("und", "y", Tags);
         Pal oder = new Pal("oder", "o", Tags);
@@ -151,7 +128,7 @@ public class Pal extends Palabra{
         //[/Conjunciones]
 
         //[Interrogativos]
-        Tags = new String[]{interrogativos};
+        Tags = new String[]{"interrogativos"};
 
         Pal was = new Pal("was", "qué", Tags);
         Pal wie = new Pal("wie", "cómo", Tags);
@@ -179,7 +156,7 @@ public class Pal extends Palabra{
         //[/Interrogativos]
 
         //[Pronombres]
-        Tags = new String[]{pronombres};
+        Tags = new String[]{"pronombres"};
         Pal dieser = new Pal("dieser", "este", Tags);
         Pal dieses = new Pal("dieses", "este [N.]", Tags);
         Pal diese = new Pal("diese [F.]", "esta", Tags);
@@ -242,7 +219,7 @@ public class Pal extends Palabra{
          */
 
         //[Preposiciones]
-        Tags = new String[]{preposiciones, acusativo};
+        Tags = new String[]{"preposiciones", "acusativo"};
 
         Pal durch = new Pal("durch [AKK]", "a través de", Tags);
         Pal für = new Pal("für [AKK]", "para", Tags);
@@ -251,7 +228,7 @@ public class Pal extends Palabra{
         Pal um = new Pal("um [AKK]", "a las [hora]", Tags);
 
 
-        Tags = new String[]{preposiciones, dativo};
+        Tags = new String[]{"preposiciones", "dativo"};
 
         Pal aus = new Pal("aus", "de [locativo]",  Tags);
         Pal außer = new Pal("außer", "fuera de", Tags);
@@ -264,7 +241,7 @@ public class Pal extends Palabra{
         Pal zu = new Pal("zu", "hacia [no geográfico]", Tags);
 
 
-        Tags = new String[]{preposiciones, wechsel};
+        Tags = new String[]{"preposiciones", "wechsel"};
         //Asegúrate de que no se le añada 'de' a nada.
         Pal in = new Pal("in", "dentro", Tags);
         Pal in2 = new Pal("in", "a [un lugar]", Tags);

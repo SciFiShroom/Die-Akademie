@@ -98,8 +98,9 @@ public class Lista<E> implements Iterable<E>{
         System.out.println("]");
 
         //ejemplo de como funcionan los tipos.
+        /*
         Lista<Palabra> listaPalabras = new Lista<Palabra>("nombre");
-        Sus susNuevo = new Sus("coolio");
+        Sus susNuevo = new Sus();
         listaPalabras.add(susNuevo);
         listaPalabras.add(new Ver("q ase"));
         //se pueden agregar, ya que extienden Palabra.
@@ -108,5 +109,6 @@ public class Lista<E> implements Iterable<E>{
         soloSustantivos.add(new Sus("chido"));
         //soloSustantivos.add(new Ver("chido"));
         //Solo se pueden agregar objetos Sus. :]
+        */
     }
 }
