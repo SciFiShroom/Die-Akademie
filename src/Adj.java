@@ -4,26 +4,6 @@ import java.util.Arrays;
 public class Adj extends Palabra{
     public static final String Adj = "Adj";
     public static final String nullEntry = "---";
-    //--------------------------<LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
-    public static final String nullEntry = "---";
-
-    //1
-    public static final String básico = "básico";
-    public static ArrayList<Adj> Básico = new ArrayList<Adj>();
-    //2
-    public static final String misceláneo = "misceláneo";
-    public static ArrayList<Adj> Misceláneo = new ArrayList<Adj>();
-    //3
-    public static final String color = "color";
-    public static ArrayList<Adj> Color = new ArrayList<Adj>();
-    //4
-    public static final String aspecto = "aspecto";
-    public static ArrayList<Adj> Aspecto = new ArrayList<Adj>();
-    //5
-    public static final String personalidad = "personalidad";
-    public static ArrayList<Adj> Personalidad = new ArrayList<Adj>();
-
-    //--------------------------</LISTA DE TODOS LOS TEMAS>-----------------------------------------------------
 
 
     /**
@@ -35,16 +15,7 @@ public class Adj extends Palabra{
         // Todas las lsitas de adjetivos se guardan en una lista de listas:
         ArrayList<ArrayList<Adj>> Adjetivos = new ArrayList<ArrayList<Adj>>();
 
-        //1
-        Adjetivos.add(Básico); Básico.add(new Adj(básico)); //<---Este es el adjetivo nulo.
-        //2
-        Adjetivos.add(Misceláneo); Misceláneo.add(new Adj(misceláneo));
-        //3
-        Adjetivos.add(Color); Color.add(new Adj(color)); //Se tendrán que agregar todos los temas manualmente; desconozco de una manera más facil.
-        //4
-        Adjetivos.add(Aspecto); Aspecto.add(new Adj(aspecto));
-        //5
-        Adjetivos.add(Personalidad); Personalidad.add(new Adj(personalidad));
+
 
 
         crearAdjetivos();
@@ -54,30 +25,8 @@ public class Adj extends Palabra{
     }
 
 
-    //Echa error si agregas una tag que no se reconoce.
-    public void tagAdd(String newtag) { //agrega el adjetivof a la lista del tema.
-        String[] current = new String[this.tags.length + 1];
-        for (int i = 0; i < this.tags.length; i++) {
-            current[i] = this.tags[i];
-        }
-        current[this.tags.length] = newtag;
-        this.tags = current;
-
-        boolean entendido = false;
-        switch (newtag) {//Aquí se agrega a la lista
-            //1
-            case básico: Básico.add(this); entendido = true; break;
-            //2
-            case misceláneo: Misceláneo.add(this); entendido = true; break;
-            //3
-            case color: Color.add(this); entendido = true; break;
-            //4
-            case aspecto: Aspecto.add(this); entendido = true; break;
-            //5
-            case personalidad: Personalidad.add(this); entendido = true; break;
-        }
-
-        if (!entendido) { throw new NullPointerException("ERROR: Tag no reconocida"); }
+    public void agregarTag(String newTag) {
+        super.agregarTag(newTag, Adj);
     }
 
 
@@ -95,10 +44,7 @@ public class Adj extends Palabra{
         }
     }
 
-    public Adj(String tema) {
-        this.adjetivo = tema;
-        this.nulo = true;
-    } //Constructor nulo
+
 
 
     public Adj(String Adjetivo, String Significado, String[] Tags) {
@@ -106,7 +52,7 @@ public class Adj extends Palabra{
         this.significado = Significado;
         this.tags = new String[0];
         for (String current : Tags) {
-            this.tagAdd(current);
+            this.agregarTag(current);
         }
 
 
@@ -160,12 +106,12 @@ public class Adj extends Palabra{
 
         this.tags = new String[0];
         for (String current: Tags) {
-            this.tagAdd(current);
+            this.agregarTag(current);
         }
     } //Constructor sin comparativo o superlativo
 
     public String adjetivo;
-        public String comparativo;
+    public String comparativo;
     public String superlativo;
     public String significado;
     public String[] tags;
@@ -217,7 +163,7 @@ public class Adj extends Palabra{
     public static void crearAdjetivos() {
         String[] Tags;
         //<Colores>------------------------------------
-        Tags = new String[]{color};
+        Tags = new String[]{"color"};
 
         Adj rot = new Adj("rot", "röter", "rötesten", "rojo", Tags);
 
@@ -250,32 +196,32 @@ public class Adj extends Palabra{
         //</Colores>------------------------------------
 
         //<Básico>------------------------------------
-        Tags = new String[]{básico};
+        Tags = new String[]{"básico"};
 
         //alto malo flaco rico
         //Arreglar sinónimos
         //klar
 
         Adj alt = new Adj("alt", "älter", "ältesten", "viejo", Tags);
-        alt.tagAdd(aspecto);
+        alt.agregarTag("aspecto");
 
         Adj arm = new Adj("arm", "ärmer", "ärmsten", "pobre", Tags);
 
         Adj billig = new Adj("billig", "barato", Tags);
 
         Adj böse = new Adj("böse", "malo [acaba con 'e']", Tags);
-        böse.tagAdd(personalidad);
+        böse.agregarTag("personalidad");
 
         Adj breit = new Adj("breit", "ancho", Tags);
 
         Adj dick = new Adj("dick", "gordo", Tags);
-        dick.tagAdd(aspecto);
+        dick.agregarTag("aspecto");
 
         Adj dumm = new Adj("dumm", "dümmer", "dümmsten", "tonto", Tags);
-        dumm.tagAdd(personalidad);
+        dumm.agregarTag("ersonalidad");
 
         Adj dünn = new Adj("dünn", "flaco [acaba con 'n']", Tags);
-        dünn.tagAdd(aspecto);
+        dünn.agregarTag("aspecto");
 
         Adj falsch = new Adj("falsch", "falso", Tags);
 
@@ -286,40 +232,40 @@ public class Adj extends Palabra{
         Adj gern = new Adj("gern", "lieber", "liebsten", "gusto", Tags);
 
         Adj gesund = new Adj("gesund", "sano", Tags);
-        gesund.tagAdd(aspecto);
+        gesund.agregarTag("aspecto");
 
         Adj glücklich = new Adj("glücklich [acaba con 'z']", "feliz", Tags);
-        glücklich.tagAdd(personalidad);
+        glücklich.agregarTag("personalidad");
         Adj glücklich2 = new Adj("glücklich [acaba con 'o']", "afortunado", Tags);
-        glücklich2.tagAdd(personalidad);
+        glücklich2.agregarTag("personalidad"    );
 
         Adj groß = new Adj("groß", "größer", "größten", "grande", Tags);
 
         Adj gut = new Adj("gut", "besser", "besten", "bueno", Tags);
-        gut.tagAdd(personalidad);
+        gut.agregarTag("personalidad");
         Adj heiß = new Adj("heiß", "caliente", Tags);
 
         Adj hoch = new Adj("hoch", "höher", "höchsten", "alto [acaba con 'h']", Tags);
 
         Adj jung = new Adj("jung", "jünger", "jüngsten", "joven", Tags);
-        jung.tagAdd(aspecto);
+        jung.agregarTag("aspecto");
 
         Adj kalt = new Adj("kalt", "kälter", "kältesten", "frío", Tags);
 
         Adj klein = new Adj("klein", "chiquito", Tags);
 
         Adj klug = new Adj("klug", "klüger", "klügten", "inteligente", Tags);
-        klug.tagAdd(personalidad);
+        klug.agregarTag("personalidad");
 
         Adj krank = new Adj("krank", "kränker", "kränksten", "enfermo", Tags);
-        krank.tagAdd(aspecto);
+        krank.agregarTag("aspecto");
 
         Adj kurz = new Adj("kurz", "kürzer", "kürzesten", "corto", Tags);
 
         Adj lang = new Adj("lang", "länger", "längsten", "largo", Tags);
 
         Adj laut = new Adj("laut", "alto [acaba con 't']", Tags);
-        laut.tagAdd(aspecto);
+        laut.agregarTag("aspecto");
 
         Adj leicht = new Adj("leicht", "ligero", Tags);
 
@@ -338,7 +284,7 @@ public class Adj extends Palabra{
         Adj sauber = new Adj("sauber", "limpio", Tags);
 
         Adj schlank = new Adj("schlank", "flaco [acaba con 'k']", Tags);
-        schlank.tagAdd(aspecto);
+        schlank.agregarTag("aspecto");
 
         Adj schlecht = new Adj("schlecht", "malo [acaba con 't']", Tags);
 
@@ -355,10 +301,10 @@ public class Adj extends Palabra{
         Adj spät = new Adj("spät", "tarde", Tags);
 
         Adj stark = new Adj("stark", "stärker", "stärksten", "fuerte", Tags);
-        stark.tagAdd(aspecto);
+        stark.agregarTag("aspecto");
 
         Adj traurig = new Adj("traurig", "triste", Tags);
-        traurig.tagAdd(personalidad);
+        traurig.agregarTag("personalidad");
 
         Adj teuer = new Adj("teuer", "caro", Tags);
         //teuer, teurer, teuersten
@@ -461,6 +407,7 @@ public class Adj extends Palabra{
      * @param sc el escaneador
      * @return el adjetivo si se encuentra
      */
+    //todo: hacer "ElejirPalabra", función en Palabra.
     public static Adj ElejirAdjetivo(Scanner sc) {
         Adj out;
         System.out.println("Favor de elejir un adjetivo:");

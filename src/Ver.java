@@ -62,60 +62,6 @@ public class Ver extends Palabra{
     }
 
 
-    //used to add a new tg to the tags string array. Intended to be used during inicialiation.
-    //Echa un error NullPointerException si se trata de agregar un tag que no existe
-    public void agregarTag(String newtag) { //agrega el verbo a la lista del tema.
-        String[] current = new String[this.tags.length + 1];
-        for (int i = 0; i < this.tags.length; i++) {
-            current[i] = this.tags[i];
-        }
-        current[this.tags.length] = newtag;
-        this.tags = current;
-
-        boolean entendido = false;
-        switch (newtag) {//Aquí se agrega a la lista
-            //1
-            case moverse: Moverse.add(this); entendido = true; break;
-            //2
-            case cuerpo: Cuerpo.add(this); entendido = true; break;
-            //3
-            case básico: Básico.add(this); entendido = true; break;
-            //4
-            case modal: Modal.add(this); entendido = true; break;
-            //5
-            case clima: Clima.add(this); entendido = true; break;
-            //6
-            case menos_básico: Menos_básico.add(this); entendido = true; break;
-            //7
-            case tecnología: Tecnología.add(this); entendido = true; break;
-            //8
-            case comida: Comida.add(this); entendido = true; break;
-            //9
-            case escuela: Escuela.add(this); entendido = true; break;
-            //10
-            case misceláneo: Misceláneo.add(this); entendido = true; break;
-            //11
-            case casa: Casa.add(this); entendido = true; break;
-            //12
-            case expresarse: Expresarse.add(this); entendido = true; break;
-            //13
-            case vista: Vista.add(this); entendido = true; break;
-            //14
-            case tienda: Tienda.add(this); entendido = true; break;
-            //15
-            case auxiliar: Auxiliar.add(this); entendido = true; break;
-            //16
-            case bahnhof: Bahnhof.add(this); entendido = true; break;
-            //15
-            case objeto: Objeto.add(this); entendido = true; break;
-            //16
-            case mente: Mente.add(this); entendido = true; break;
-        }
-
-        if (!entendido) { throw new NullPointerException("ERROR: Tag no reconocida"); }
-    }
-
-
 //----------------------------------------------------------------------------------------------------------------------
 
     //Presente: Yo como pescado
@@ -227,6 +173,13 @@ public class Ver extends Palabra{
     public String[] presente; //La manera mas facil y modular de guardar la información del verbo. Es con String[] de 1 por 6: ich; du; er,sie,es; wir; ihr; Sie = 6
     public String significado; //El significado del verbo
     public String[] tags; //Tags. Agregan funcionalidad extra.
+
+
+
+    public void agregarTag(String newTag) {
+        super.agregarTag(newTag, Ver);
+    }
+
 
     @Override
     public String getNombre() {return this.verbo;}

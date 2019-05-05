@@ -17,22 +17,6 @@ public class Pal extends Palabra{
         // Todas las listas de palabras se guardan en una lista de listas:
         ArrayList<ArrayList<Pal>> Palabras = new ArrayList<ArrayList<Pal>>();
 
-        //1
-        Palabras.add(Conjunciónes); Conjunciónes.add(new Pal(conjunciónes)); //<---Este es el sustantivo nulo.
-        //2
-        Palabras.add(Interrogativos); Interrogativos.add(new Pal(interrogativos)); //Se tendrán que agregar todos los temas manualmente; desconozco de una manera más facil.
-        //3
-        Palabras.add(Pronombres); Pronombres.add(new Pal(pronombres)); //Nota: Si quieres tener "el vegetal" como sustantivo practicable, se tenra que agregar en el generador.
-
-        //4
-        Palabras.add(Preposiciones); Preposiciones.add(new Pal(preposiciones));
-        //5
-        Palabras.add(Acusativo); Acusativo.add(new Pal(acusativo));
-        //6
-        Palabras.add(Dativo); Dativo.add(new Pal(dativo));
-        //7
-        Palabras.add(Wechsel); Wechsel.add(new Pal(wechsel));
-
 
         crearPalabras();
 
@@ -41,37 +25,13 @@ public class Pal extends Palabra{
     }
 
 
-    //Echa error si agregas una tag que no se reconoce.
-    public void tagAdd(String newtag) { //agrega el sustantivo a la lista del tema.
-        String[] current = new String[this.tags.length + 1];
-        for (int i = 0; i < this.tags.length; i++) {
-            current[i] = this.tags[i];
-        }
-        current[this.tags.length] = newtag;
-        this.tags = current;
 
-        boolean entendido = false;
-        switch (newtag) {//Aquí se agrega a la lista
-            //1
-            case conjunciónes: Conjunciónes.add(this); entendido = true; break;
-            //2
-            case interrogativos: Interrogativos.add(this); entendido = true; break;
-            //3
-            case pronombres: Pronombres.add(this); entendido = true; break;
-
-            //4
-            case preposiciones: Preposiciones.add(this); entendido = true; break;
-            //4
-            case acusativo: Acusativo.add(this); entendido = true; break;
-            //4
-            case dativo: Dativo.add(this); entendido = true; break;
-            //4
-            case wechsel: Wechsel.add(this); entendido = true; break;
-
-        }
-
-        if (!entendido) { throw new NullPointerException("ERROR: Tag no reconocida"); }
+    public void agregarTag(String newTag) {
+        super.agregarTag(newTag, Pal);
     }
+
+
+
 
 
 
@@ -82,15 +42,11 @@ public class Pal extends Palabra{
 
         this.tags = new String[0];
         for (String current : Tags) {
-            this.tagAdd(current);
+            this.agregarTag(current);
         }
     }
 
-    //Constructor nulo
-    public Pal(String tema) {
-        this.palabra = tema;
-        this.nulo = true;
-    }
+
 
     public String palabra; //La palabra en Alemán
     public String significado; //El significado de la palabra.
@@ -103,8 +59,6 @@ public class Pal extends Palabra{
     @Override
     public String getSignificado() {return this.significado;}
 
-
-    public boolean nulo = false;
 
 
     /**Créa todas las palabras.
@@ -342,20 +296,6 @@ public class Pal extends Palabra{
         return out;
     }
 
-
-    /**
-     * Te deja buscar un adjetivo de la lista Control.Adjetivos
-     * @param nombre el adjetivo que buscas
-     * @return el adjetivo si se encuentra, null si no se encuentra.
-     */
-    public static Pal buscar(String nombre) {
-        for (Lista<Pal> actual: Control.Palabras) {
-            for (Pal temp : actual) {
-                if (temp.palabra.equals(nombre)) {return temp;}
-            }
-        }
-        return null;
-    }
 
 
     //Define una palabra

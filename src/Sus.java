@@ -25,7 +25,7 @@ public class Sus extends Palabra{
 
 
     public void agregarTag(String newTag) {
-        super.agregarTag(newTag, "Sus");
+        super.agregarTag(newTag, Sus);
     }
 
 
