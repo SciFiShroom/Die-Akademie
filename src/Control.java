@@ -9,10 +9,10 @@ public class Control {
     public static ArrayList<Lista<Palabra>> Palabras;
 
     //Se usan de ves en cuando, no son tan importantes. Contienen una de cada palabra, sin repeticiones.
-    public static Lista<Palabra> SustantivosListaSingular;
-    public static Lista<Palabra> VerbosListaSingular;
-    public static Lista<Palabra> AdjetivosListaSingular;
-    public static Lista<Palabra> PalabrasListaSingular;
+    public static Lista<Palabra> SustantivosListaSingular = new Lista<Palabra>("hallo!");
+    public static Lista<Palabra> VerbosListaSingular = new Lista<Palabra>("hallo!");
+    public static Lista<Palabra> AdjetivosListaSingular = new Lista<Palabra>("hallo!");
+    public static Lista<Palabra> PalabrasListaSingular = new Lista<Palabra>("hallo!");
 
     //inicializa los temas de tödo el programa
     public static void InicializarTemas() {
@@ -72,8 +72,8 @@ public class Control {
 
         Lista<Sus> listaCompleta = new Lista<Sus>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (Lista<Sus> tema : Control.Sustantivos) {
-            for (Sus actual : tema) {
+        for (Lista<Palabra> tema : Control.Sustantivos) {
+            for (Palabra susActual : tema) {
                 if (!listaIdentificación.contains(actual.toString())) {
                     listaCompleta.add(actual);
                     listaIdentificación.add(actual.toString());
@@ -217,22 +217,7 @@ public class Control {
     }
 
 
-    //Escoje "num" valores aleatorios de un ArrayList, sin repeticiones, y los revuelve. Regresa una lista nueva.
-    //La lista que regresa es similar a un ArayList<Object>. Pero, con casting, tödo debería funcionar bien.
-    public static ArrayList<Object> escojerAleatorio(ArrayList input, int num) {
-        ArrayList<Object> lista = new ArrayList<Object>(); //Una lista temporanea
-        for (int i = 0; i < num; i++) {
-            int índice = (int)(input.size()*Math.random());
 
-            if (índice == input.size() || índice == 0 || lista.contains(input.get(índice))) {
-                i--;
-                continue;
-            } // Esto se asegura de que la índice sea válida. Recuerda que la índice '0' es el sustantivo nulo.
-            //También se asegura de que no aya entradas dobles.
-            lista.add(input.get(índice));
-        }
-        return lista;
-    }
 
 
     public static void comandos() {
@@ -355,6 +340,8 @@ public class Control {
 
     public static void Inicialización() {
         InicializarTemas();
+
+
         InicializarSustantivos();
         InicializarVerbos();
         InicializarAdjetivos();
@@ -373,7 +360,6 @@ public class Control {
 
         //Todo: cambiar NullPointerExceptions a NumberFormatExceptions para evitar problemas.
 
-
         //todo: Revisar revisar verbos: Los significados tienen ")"?
 
         //Ver.OrganizacióndeTags();
@@ -387,8 +373,7 @@ public class Control {
 
         //todo: Lehrer, Student, Professor,...???
 
-
-        //todo: Quitar bahnhof
+        //todo: noch ein paar
 
         //todo: Agregar palabras indicativas (Fruta, ciudad, especias, escuela, ...) a todas las listas.
         //todo: Organizar "Marcadores" en todos los diccionarios.

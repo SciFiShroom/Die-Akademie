@@ -299,6 +299,7 @@ public class Pal extends Palabra{
 
 
     //Define una palabra
+    @Override
     public void definir() {
         System.out.println(this.palabra + ": " + this.significado);
         System.out.println(Arrays.toString(this.tags));

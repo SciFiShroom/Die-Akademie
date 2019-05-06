@@ -90,4 +90,14 @@ public class Palabra {
         return out;
     }
 
+
+    public void definir() {
+        if (this instanceof Sus) {((Sus) this).definir(); return;}
+        if (this instanceof Ver) {((Ver) this).definir(); return;}
+        if (this instanceof Adj) {((Adj) this).definir(); return;}
+        if (this instanceof Pal) {((Pal) this).definir(); return;}
+
+        throw new NumberFormatException("Ich weiß nicht, was du möchtest");
+    }
+
 }

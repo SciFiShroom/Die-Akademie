@@ -23,22 +23,20 @@ public class Lista<E> implements Iterable<E>{
     public int size() {
         return this.lista.size();
     }
-
     public void add(E loquesea) {
         this.lista.add(loquesea);
     }
-
     public String Nombre() {
         return this.nombre;
     }
-
     public boolean contains(E X) {
         return this.lista.contains(X);
     }
-
     public E get(int i) {
         return (E)this.lista.get(i);
     }
+
+
 
     public Iterator iterator() {
         return new IteradorDeLista();
@@ -67,6 +65,30 @@ public class Lista<E> implements Iterable<E>{
         }
 
     }
+
+
+    //todo: Revisar de que la función funcione.
+    //Escoje "num" valores aleatorios de una Lista, sin repeticiones, y los revuelve. Regresa una lista nueva.
+    public static Lista escojerAleatorio(Lista input, int num) {
+        if (input.size() < num) {throw new NumberFormatException("Error: Num excede tamaño de lista input");}
+
+        Lista revuelta = new Lista("out mah bois"); //La lista con los valores revueltos
+        Lista<Integer> indices = new Lista<Integer>("Indices q güai"); //La lsita de indices
+
+        for (int i = 0; i < num; i++) { //'num' iteraciones
+            Integer índice = (Integer)(int)(input.size()*Math.random()); //Un número aleatorio entre 0 y input.size() - 1
+            //Si Math.Random() == 1.0000000000, se rompe tödo.
+
+            if (índice == input.size() || indices.contains(índice)) {
+                i--;
+                continue;
+            } // Esto se asegura de que la índice sea válida.
+            //También se asegura de que no aya entradas dobles. Si la índice pasa el filtro, se agrega.
+            revuelta.add(input.get(índice));
+        }
+        return revuelta;
+    }
+
 
 
     public static void main(String[] args) {

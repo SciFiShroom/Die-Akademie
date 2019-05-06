@@ -7,27 +7,27 @@ public class Sus extends Palabra{
     public static final String nullEntry = "---";
 
 
+    //---------------------------[PARAMETROS]-----------------------------------
+    public String sustantivo; //El sustantivo
+    public String plural; //Plural del sustantivo
+    public String género; //Género del sustantivo. M = Masculino, F = Femenino, N = Neutro
+    public String significado; // El significado del sustantivo.
+    public String[] tags; //Tags. Agregan funcionalidad extra.
 
-    /**
-     * Genera una lista de listas. [AQUÍ SE GENERA CONTROL.SUSTANTIVOS]
-     * Aquí se agregan las listas temáticas que se créan arribita.
-     * @return Control.Sustantivos
-     */
-    public static ArrayList<ArrayList<Sus>> GeneradorSus() {
-        // Todas las lsitas de sustantivos se oguardan en una lista de listas:
-        ArrayList<ArrayList<Sus>> Sustantivos = new ArrayList<ArrayList<Sus>>();
 
-        crearSustantivos();
+    @Override
+    public String getNombre() {return this.sustantivo;}
 
-        System.out.print("SUSTANTIVOS: " + Sustantivos.size() + " LISTAS INICIALIZADAS");
-        return Sustantivos;
-    }
+    @Override
+    public String getSignificado() {return this.significado;}
 
 
     public void agregarTag(String newTag) {
         super.agregarTag(newTag, Sus);
     }
 
+    //---------------------------[---PARAMETROS]--------------------------------
+    //---------------------------[CONSTRUCTORES]--------------------------------
 
     //Constructor. Very basic.
     public Sus(String Sustantivo, String Plural, String Genero, String Significado, String[] Tags) {
@@ -45,19 +45,28 @@ public class Sus extends Palabra{
         }
     }
 
+    //---------------------------[---CONSTRUCTORES]-----------------------------
+    //---------------------------[CONTROL]--------------------------------------
 
-    public String sustantivo; //El sustantivo
-    public String plural; //Plural del sustantivo
-    public String género; //Género del sustantivo. M = Masculino, F = Femenino, N = Neutro
-    public String significado; // El significado del sustantivo.
-    public String[] tags; //Tags. Agregan funcionalidad extra.
-    public boolean nulo = false; // Sustantivo nulo. Sirve como indicador en las listas temáticas de abajo.
+    /**
+     * Genera una lista de listas. [AQUÍ SE GENERA CONTROL.SUSTANTIVOS]
+     * Aquí se agregan las listas temáticas que se créan arribita.
+     * @return Control.Sustantivos
+     */
+    public static ArrayList<ArrayList<Sus>> GeneradorSus() {
+        // Todas las lsitas de sustantivos se oguardan en una lista de listas:
+        ArrayList<ArrayList<Sus>> Sustantivos = new ArrayList<ArrayList<Sus>>();
 
-    @Override
-    public String getNombre() {return this.sustantivo;}
+        crearSustantivos();
 
-    @Override
-    public String getSignificado() {return this.significado;}
+        System.out.print("SUSTANTIVOS: " + Sustantivos.size() + " LISTAS INICIALIZADAS");
+        return Sustantivos;
+    }
+
+    //---------------------------[---CONTROL]-----------------------------------
+
+
+
 
 
 
@@ -533,7 +542,6 @@ public class Sus extends Palabra{
         //Los oficios
         //jardinero, panadero, poliía, ...
     }
-
     //todo: mar
     //todo: ca
     //todo: dor
@@ -612,6 +620,7 @@ public class Sus extends Palabra{
 
 
     //Define un sustantivo
+    @Override
     public void definir() {
         switch (this.género) {
             case "M":

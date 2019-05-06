@@ -82,11 +82,7 @@ public class Ver extends Palabra{
         }
     }
 
-    //Constructor nulo. Cada lista temática usa uno como su primer entrada. Funciona como indicador del tema.
-    public Ver(String tema) { //Se usa como indicador en las listas
-        this.nulo = true;
-        this.verbo = tema;
-    }
+
 
     //Constructor para verbos rama. Requiere que ya exista un verbo raiz. Si no existe en el idioma, se creará uno y ya veremos que pex.
     public Ver(String Prefijo, Ver Raiz, String Significado, String[] Tags) {
@@ -1181,7 +1177,9 @@ public class Ver extends Palabra{
 //todo: Marcador para el final
     //todo: lel
 
+
     //Define un verbo
+    @Override
     public void definir() {
         System.out.println(this.verbo + " - " + this.significado);
         String[][] arr = new String[3][2];

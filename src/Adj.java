@@ -450,10 +450,12 @@ public class Adj extends Palabra{
      */
 
     //Define un adjetivo
+    @Override
     public void definir() {
         System.out.println(this.adjetivo + ": " + this.significado);
         System.out.println("Comparativo: " + this.comparativo + ", Superlativo: " + this.superlativo);
         System.out.println(Arrays.toString(this.tags));
+        System.out.println("Aún no acabo con esto...");
     }
 
 
