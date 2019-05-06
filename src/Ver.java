@@ -7,65 +7,93 @@ public class Ver extends Palabra{
 
 
 
-    /**
-     * Genera una lista de listas. [AQUÍ SE GENERA CONTROL.VERBOS]
-     * Aquí se agregan las listas temáticas que se créan arribita.
-     * @return Control.Verbos
-     */
-    public static ArrayList<ArrayList<Ver>> GeneradorVer() {
-        // Todas las lsitas de verbos se oguardan en una lista de listas:
-        ArrayList<ArrayList<Ver>> Verbos = new ArrayList<ArrayList<Ver>>();
-
-        //1
-        Verbos.add(Moverse); Moverse.add(new Ver(moverse)); //Este es el verbo nulo.
-        //2
-        Verbos.add(Cuerpo); Cuerpo.add(new Ver(cuerpo)); //Se tendrán que agregar todos los temas manualmente; desconozco de una manera más facil.
-        //3
-        Verbos.add(Básico); Básico.add(new Ver(básico));
-        //4
-        Verbos.add(Modal); Modal.add(new Ver(modal));
-        //5
-        Verbos.add(Clima); Clima.add(new Ver(clima));
-        //6
-        Verbos.add(Menos_básico); Menos_básico.add(new Ver(menos_básico));
-        //7
-        Verbos.add(Tecnología); Tecnología.add(new Ver(tecnología));
-        //8
-        Verbos.add(Comida); Comida.add(new Ver(comida));
-        //9
-        Verbos.add(Escuela); Escuela.add(new Ver(escuela));
-        //10
-        Verbos.add(Misceláneo); Misceláneo.add(new Ver(misceláneo));
-        //11
-        Verbos.add(Casa); Casa.add(new Ver(casa));
-        //12
-        Verbos.add(Expresarse); Expresarse.add(new Ver(expresarse));
-        //13
-        Verbos.add(Vista); Vista.add(new Ver(vista));
-        //14
-        Verbos.add(Tienda); Tienda.add(new Ver(tienda));
-        //15
-        Verbos.add(Auxiliar); Auxiliar.add(new Ver(auxiliar));
-        //16
-        Verbos.add(Bahnhof); Bahnhof.add(new Ver(bahnhof));
-        //17
-        Verbos.add(Objeto); Objeto.add(new Ver(objeto));
-        //18
-        Verbos.add(Mente); Mente.add(new Ver(mente));
+    //---------------------------[PARAMETROS]-----------------------------------
+    public String verbo; //El verbo en imperativo (Lesen, sprechen, etc. )
+    public String[] presente; //La manera mas facil y modular de guardar la información del verbo. Es con String[] de 1 por 6: ich; du; er,sie,es; wir; ihr; Sie = 6
+    public String significado; //El significado del verbo
+    public String[] tags; //Tags. Agregan funcionalidad extra.
+    public String participio; //Básicamente el pasado (Ich habe gegessen...)
+    public String hilfsverb = "haben"; //Puede ser haben o sein. Casi todos son Haben osea que será el default.
+    public Ver raiz = null; //Por ejemplo, en el verbo ansprechen, raiz = sprechen
+    public String[] imperativo; //??Cómo funciona???
+    public String[] preterito;
+    public boolean reflexivo = false;
+    public String prefijo = null; //El prefijo, si lo tiene
+    public boolean TienePrefijo = false;
+    public ArrayList<Ver> ramas = new ArrayList<Ver>();
 
 
+    @Override
+    public String getNombre() {return this.verbo;}
 
-        crearVerbos(); //Crea los verbos (abajito) y los mete a estas listas.
+    @Override
+    public String getSignificado() {return this.significado;}
 
-        System.out.print("VERBOS: " + Verbos.size() + " LISTAS INICIALIZADAS");
-        return Verbos;
+
+    public void agregarParticipio(String Participio) {
+        if (Participio.equals("haben") || Participio.equals("sein")) {throw new NullPointerException("Créo que te has equivocado con el verbo " + this.verbo);}
+        this.participio = Participio;
     }
 
 
-//----------------------------------------------------------------------------------------------------------------------
+    public void agregarHilfsverb(String Hilfsverb) {
+        if (!Hilfsverb.equals("haben") && !Hilfsverb.equals("sein")) {
+            throw new NullPointerException("Error: Hilfsverb no reconocido");
+        }
+        this.hilfsverb = Hilfsverb;
+    }
 
-    //Presente: Yo como pescado
-    //Participio: Yo comí pescado
+
+    public void agregarImperativo(String Singular, String Plural) {
+        this.imperativo = new String[3];
+        this.imperativo[0] = Singular; //Ven tu
+        this.imperativo[1] = Plural; //Vengan ustedes
+        this.imperativo[2] = this.verbo; //Venga usted + que vengan ellos
+    }
+
+
+    public void agregarPreterito(String[] Preterito) {
+        if (Preterito.length != 6) {throw new NullPointerException("Error con el preterito de " + this.verbo); }
+        this.preterito = Preterito;
+    } //Manual
+
+
+    public void agregarPreterito(String Base) {
+        this.preterito = new String[6];
+        this.preterito[0] = Base + "e";
+        this.preterito[1] = Base + "est";
+        this.preterito[2] = Base + "e";
+        this.preterito[3] = Base + "en";
+        this.preterito[4] = Base + "et";
+        this.preterito[5] = Base + "en";
+    }// -e, -est, -e, -en, -et, -en
+
+
+    //El verbo raiz. Tengo entendido que se conjuga de la misma manera. En tod0 caso, los primeros verbos no serán así.
+    public void agregarRaiz(Ver Raiz) {
+        this.raiz = Raiz;
+    }
+
+
+    public void esReflexivo(boolean EsReflexivo) {
+        this.reflexivo = EsReflexivo;
+    }
+
+
+    public void agregarImperativo() {
+        this.imperativo = new String[3];
+        this.imperativo[0] = this.base;
+        this.imperativo[1] = this.base + "t";
+        this.imperativo[2] = this.verbo;
+    }
+
+
+    public void tienePrefijo(boolean tienePrefijo) {
+        this.TienePrefijo = TienePrefijo;
+    }
+
+    //---------------------------[---PARAMETROS]--------------------------------
+    //---------------------------[CONSTRUCTORES]--------------------------------
 
 
     //Constructor para verbos normales. Solo se incluyen las conjugaciones presente (präsens). Las demás se agregan despues.
@@ -83,13 +111,12 @@ public class Ver extends Palabra{
     }
 
 
-
     //Constructor para verbos rama. Requiere que ya exista un verbo raiz. Si no existe en el idioma, se creará uno y ya veremos que pex.
     public Ver(String Prefijo, Ver Raiz, String Significado, String[] Tags) {
         this.verbo = Prefijo + Raiz.verbo;
         //System.out.println("!!! " + this.verbo + "!!!");
-        this.raiz = Raiz;
-        this.tienePrefijo = true;
+        this.agregarRaiz(Raiz);
+        this.tienePrefijo(true);
         this.significado = Significado;
         this.agregarParticipio(Prefijo + Raiz.participio);
 
@@ -123,20 +150,6 @@ public class Ver extends Palabra{
         Raiz.ramas.add(this);
     }
 
-    //Método para crear erbos con conjugaciones 'presente' normales.
-    // ich _e, du _st, ESE _t, wir _en, ihr _t, Sie _en
-    /**
-     public static Ver kleinPräsens(String Verbo, String Base, String Significado, String[] Tags) {
-     String[] conjugaciones = new String[6];
-     conjugaciones[0] = Base + "e";
-     conjugaciones[1] = Base + "st";
-     conjugaciones[2] = Base + "t";
-     conjugaciones[3] = Base + "en";
-     conjugaciones[4] = Base + "t";
-     conjugaciones[5] = Base + "en";
-     return new Ver(Verbo, conjugaciones, Significado, Tags);
-     }
-     */
 
     //Constructor que reemplaza kleinePräsens
     public Ver(String Verbo, String Base, String Significado, String[] Tags) {
@@ -162,104 +175,50 @@ public class Ver extends Palabra{
         this.base = Base;
     }
 
-    public String verbo; //El verbo en imperativo (Lesen, sprechen, etc. )
+
+    //---------------------------[---CONSTRUCTORES]-----------------------------
 
 
 
-    public String[] presente; //La manera mas facil y modular de guardar la información del verbo. Es con String[] de 1 por 6: ich; du; er,sie,es; wir; ihr; Sie = 6
-    public String significado; //El significado del verbo
-    public String[] tags; //Tags. Agregan funcionalidad extra.
+    //Presente: Yo COMO pescado
+    //Participio: Yo he COMIDO pescado
+
+
+    //Método para crear erbos con conjugaciones 'presente' normales.
+    // ich _e, du _st, ESE _t, wir _en, ihr _t, Sie _en
+    /**
+     public static Ver kleinPräsens(String Verbo, String Base, String Significado, String[] Tags) {
+     String[] conjugaciones = new String[6];
+     conjugaciones[0] = Base + "e";
+     conjugaciones[1] = Base + "st";
+     conjugaciones[2] = Base + "t";
+     conjugaciones[3] = Base + "en";
+     conjugaciones[4] = Base + "t";
+     conjugaciones[5] = Base + "en";
+     return new Ver(Verbo, conjugaciones, Significado, Tags);
+     }
+     */
 
 
 
-    public void agregarTag(String newTag) {
-        super.agregarTag(newTag, Ver);
-    }
 
 
-    @Override
-    public String getNombre() {return this.verbo;}
-
-    @Override
-    public String getSignificado() {return this.significado;}
-
-    public String participio; //Básicamente el pasado (Ich habe gegessen...)
-    public void agregarParticipio(String Participio) {
-        if (Participio.equals("haben") || Participio.equals("sein")) {throw new NullPointerException("Créo que te has equivocado con el verbo " + this.verbo);}
-        this.participio = Participio;
-    }
-
-
-    public String hilfsverb = "haben"; //Puede ser haben o sein. Casi todos son Haben osea que será el default.
-    public void agregarHilfsverb(String Hilfsverb) {
-        if (!Hilfsverb.equals("haben") && !Hilfsverb.equals("sein")) {
-            throw new NullPointerException("Error: Hilfsverb no reconocido");
-        }
-        this.hilfsverb = Hilfsverb;
-    }
-
-
-    public String[] imperativo; //??Cómo funciona???
-    public void agregarImperativo(String Singular, String Plural) {
-        this.imperativo = new String[3];
-        this.imperativo[0] = Singular; //Ven tu
-        this.imperativo[1] = Plural; //Vengan ustedes
-        this.imperativo[2] = this.verbo; //Venga usted + que vengan ellos
-    }
     public String base;
-    public void agregarImperativo() {
-        this.imperativo = new String[3];
-        this.imperativo[0] = this.base;
-        this.imperativo[1] = this.base + "t";
-        this.imperativo[2] = this.verbo;
-    }
 
-
-    public String[] preterito;
-    public void agregarPreterito(String[] Preterito) {
-        if (Preterito.length != 6) {throw new NullPointerException("Error con el preterito de " + this.verbo); }
-        this.preterito = Preterito;
-    } //Manual
-    public void agregarPreterito(String Base) {
-        this.preterito = new String[6];
-        this.preterito[0] = Base + "e";
-        this.preterito[1] = Base + "est";
-        this.preterito[2] = Base + "e";
-        this.preterito[3] = Base + "en";
-        this.preterito[4] = Base + "et";
-        this.preterito[5] = Base + "en";
-    }// -e, -est, -e, -en, -et, -en
-
-
-    public boolean reflexivo = false;
-    public void esReflexivo(boolean EsReflexivo) {
-        this.reflexivo = EsReflexivo;
-    }
 
 
     //Esto se usará en caso de que haya verbos cuya raiz sea este verbo. Ejemplo: Verbo = Sprechen, ramas.get(0) = ansprechen.
     //Nos dejará practicar listas deverbos cuya raiz es la misma. Será util ya que esto sucede a menudo.
-    public ArrayList<Ver> ramas = new ArrayList<Ver>();
 
-
-    //Verbo nulo. Sirve como indicador en las listas temáticas de abajo.
-    public boolean nulo = false;
 
 
     //Esto se usa para los verbos concatinativos / que tienen prefijo. (ansprechen, por ejemplo)
-    public boolean tienePrefijo = false;
-    public String prefijo = null; //El prefijo, si lo tiene
 
-    //El verbo raiz. Tengo entendido que se conjuga de la misma manera. En tod0 caso, los primeros verbos no serán así.
-    public Ver raiz = null; //Por ejemplo, en el verbo ansprechen, raiz = sprechen
-
-//----------------------------------------------------------------------------------------------------------------------
 
     //todo: Agregar errores si se trata de añadir algo que ya se añadió.
-
-//todo: aregar examen de participios perfectos.
+    //todo: agregar examen de participios perfectos.
     //todo: Agregar indikativo e Imperativo (son el pasado simple y commandos)
-    //todo: La meta es llegar al punto en el que todos los verbos estén categorizados con tags que NO SEAN BÁSICO / MENOS_BÁSICO
+
 
 
     //todo: Verbos separables: Constuctor debe actualizar preterito.
@@ -1178,6 +1137,7 @@ public class Ver extends Palabra{
     //todo: lel
 
 
+
     //Define un verbo
     @Override
     public void definir() {
@@ -1206,21 +1166,7 @@ public class Ver extends Palabra{
         System.out.println(Arrays.toString(this.tags));
     }
 
-
-
-    /**
-     * Te deja buscar un verbo de la lista Control.Verbos
-     * @param nombre el verbo que buscas
-     * @return el verbo si se encuentra, null si no se encuentra.
-     */
-    public static Ver buscar(String nombre) {
-        for (Lista<Ver> actual: Control.Verbos) {
-            for (Ver temp : actual) {
-                if (temp.verbo.equals(nombre)) {return temp;}
-            }
-        }
-        return null;
-    }
+    
 
 
 
@@ -1322,6 +1268,7 @@ public class Ver extends Palabra{
      */
 
 
+    //todo: Esto tiene que irse
     //Escoje aleatoriamente 'número' verbos de una lista de verbos.
     public static ArrayList<Ver> escojerAleatorio(ArrayList<Ver> listaVerbos, int número) {
         ArrayList<Ver> lista = new ArrayList<Ver>(1); //Una lista temporanea que se utiliza para generar la String[] preguntas.

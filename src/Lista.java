@@ -26,7 +26,7 @@ public class Lista<E> implements Iterable<E>{
     public void add(E loquesea) {
         this.lista.add(loquesea);
     }
-    public String Nombre() {
+    public String getNombre() {
         return this.nombre;
     }
     public boolean contains(E X) {

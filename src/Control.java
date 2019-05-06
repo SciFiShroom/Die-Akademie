@@ -14,6 +14,35 @@ public class Control {
     public static Lista<Palabra> AdjetivosListaSingular = new Lista<Palabra>("hallo!");
     public static Lista<Palabra> PalabrasListaSingular = new Lista<Palabra>("hallo!");
 
+    /**
+     * regresa la lista del tema especificado, dado el tipo de palabra.
+     * La lista es unas de las que es encuentran en Control.Sustantivos, Control.Verbos, etc.
+     * @param tema El dema de la lista que buscas
+     * @param tipoDePalabra El tipo de Palabra (Sus.Sus, ...)
+     * @return La lista, si existe. Echa error si no se encuentra.
+     */
+    public Lista<Palabra> getTema(String tema, String tipoDePalabra) {
+        ArrayList<Lista<Palabra>> ListaDeTemas = new ArrayList<Lista<Palabra>>();
+
+        boolean entendido = false;
+        switch (tipoDePalabra) {
+            case Sus.Sus: ListaDeTemas = Control.Sustantivos; entendido = true; break;
+            case Ver.Ver: ListaDeTemas = Control.Verbos; entendido = true; break;
+            case Adj.Adj: ListaDeTemas = Control.Adjetivos; entendido = true; break;
+            case Pal.Pal: ListaDeTemas = Control.Palabras; entendido = true; break;
+        }
+        if (!entendido) {throw new NumberFormatException("Error: Tiop de palabra no reconocido");}
+
+
+        for (Lista<Palabra> actual : ListaDeTemas) {
+            if (actual.getNombre().equals(tema)) {return actual;}
+        } //Si nos salimos de aquí, buscan algo que no existe.
+
+        throw new NumberFormatException("Error: El tipo de palabra " + tipoDePalabra + " no tiene el tema " + tema);
+    }
+
+
+
     //inicializa los temas de tödo el programa
     public static void InicializarTemas() {
         String[] Temas = {
@@ -88,7 +117,7 @@ public class Control {
 
     //Ejecuta la inicialización de los verbos, de la misma manera que la de los sustantivos.
     public static void InicializarVerbos() {
-        Control.Verbos = Ver.GeneradorVer();
+        Ver.crearVerbos(); //Crea y organiza todos los verbos en Control.Verbos Y Control.VerbosListaSingular
 
         Lista<Ver> listaCompleta = new Lista<Ver>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();

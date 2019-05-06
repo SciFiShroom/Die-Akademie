@@ -8,7 +8,7 @@ public class Palabra {
     public String palabra;
 
     //reemplaza al tagAdd previo
-    public void agregarTag(String newTag, String TipoDePalabra) {
+    public void agregarTag(String newTag) {
         String[] current = new String[this.tags.length + 1];
         for (int i = 0; i < this.tags.length; i++) {
             current[i] = this.tags[i];
@@ -19,13 +19,12 @@ public class Palabra {
 
         ArrayList<Lista<Palabra>> listaTematica = null;
         boolean entendido = false;
-        switch (TipoDePalabra) {
-            case Sus.Sus: listaTematica = Control.Sustantivos; entendido = true; break;
-            case Ver.Ver: listaTematica = Control.Verbos; entendido = true; break;
-            case Adj.Adj: listaTematica = Control.Adjetivos; entendido = true; break;
-            case Pal.Pal: listaTematica = Control.Palabras; entendido = true; break;
-        }
-        if(!entendido) {throw new NumberFormatException("Error: Tipo de palabra no reconocido: " + TipoDePalabra);}
+
+        if (this instanceof Sus) {listaTematica = Control.Sustantivos; entendido = true;}
+        if (this instanceof Ver) {listaTematica = Control.Verbos; entendido = true;}
+        if (this instanceof Adj) {listaTematica = Control.Adjetivos; entendido = true;}
+        if (this instanceof Pal) {listaTematica = Control.Palabras; entendido = true;}
+        if(!entendido) {throw new NumberFormatException("Error: Tipo de palabra no reconocido");}
 
 
         for (Lista<Palabra> actual : listaTematica) {

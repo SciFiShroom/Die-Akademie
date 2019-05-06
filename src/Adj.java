@@ -115,7 +115,7 @@ public class Adj extends Palabra{
     public String superlativo;
     public String significado;
     public String[] tags;
-    public boolean nulo = false;
+
 
 
     @Override
@@ -425,19 +425,7 @@ public class Adj extends Palabra{
     }
 
 
-    /**
-     * Te deja buscar un adjetivo de la lista Control.Adjetivos
-     * @param nombre el adjetivo que buscas
-     * @return el adjetivo si se encuentra, null si no se encuentra.
-     */
-    public static Adj buscar(String nombre) {
-        for (Lista<Adj> actual: Control.Adjetivos) {
-            for (Adj temp : actual) {
-                if (temp.adjetivo.equals(nombre)) {return temp;}
-            }
-        }
-        return null;
-    }
+
 
 
     //Imprime la lista de todos los temas
