@@ -6,33 +6,7 @@ public class Pal extends Palabra{
     public static final String nullEntry = "---";
     //para todas las palabras chicas que también nos tenemos que aprender.
 
-
-
-    /**
-     * Genera una lista de listas. [AQUÍ SE GENERA CONTROL.PALABRAS]
-     * Aquí se agregan las listas temáticas que se créan arribita.
-     * @return Control.Palabras
-     */
-    public static ArrayList<ArrayList<Pal>> GeneradorPal() {
-        // Todas las listas de palabras se guardan en una lista de listas:
-        ArrayList<ArrayList<Pal>> Palabras = new ArrayList<ArrayList<Pal>>();
-
-
-        crearPalabras();
-
-        System.out.print("PALABRAS: " + Palabras.size() + " LISTAS INICIALIZADAS");
-        return Palabras;
-    }
-
-
-
-    public void agregarTag(String newTag) {
-        super.agregarTag(newTag, Pal);
-    }
-
-
-
-
+    
 
 
     //Constructor básico.

@@ -6,28 +6,7 @@ public class Adj extends Palabra{
     public static final String nullEntry = "---";
 
 
-    /**
-     * Genera una lista de listas. [AQUÍ SE GENERA CONTROL.ADJETIVOS]
-     * Aquí se agregan las listas temáticas que se créan arribita.
-     * @return Control.Adjetivos
-     */
-    public static ArrayList<ArrayList<Adj>> GeneradorAdj() {
-        // Todas las lsitas de adjetivos se guardan en una lista de listas:
-        ArrayList<ArrayList<Adj>> Adjetivos = new ArrayList<ArrayList<Adj>>();
 
-
-
-
-        crearAdjetivos();
-
-        System.out.print("ADJETIVOS: " + Adjetivos.size() + " LISTAS INICIALIZADAS");
-        return Adjetivos;
-    }
-
-
-    public void agregarTag(String newTag) {
-        super.agregarTag(newTag, Adj);
-    }
 
 
 
@@ -40,7 +19,7 @@ public class Adj extends Palabra{
 
         this.tags = new String[0];
         for (String current: Tags) {
-            this.tagAdd(current);
+            this.agregarTag(current);
         }
     }
 

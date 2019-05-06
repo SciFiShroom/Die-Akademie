@@ -22,9 +22,6 @@ public class Sus extends Palabra{
     public String getSignificado() {return this.significado;}
 
 
-    public void agregarTag(String newTag) {
-        super.agregarTag(newTag, Sus);
-    }
 
     //---------------------------[---PARAMETROS]--------------------------------
     //---------------------------[CONSTRUCTORES]--------------------------------
@@ -46,24 +43,7 @@ public class Sus extends Palabra{
     }
 
     //---------------------------[---CONSTRUCTORES]-----------------------------
-    //---------------------------[CONTROL]--------------------------------------
 
-    /**
-     * Genera una lista de listas. [AQUÍ SE GENERA CONTROL.SUSTANTIVOS]
-     * Aquí se agregan las listas temáticas que se créan arribita.
-     * @return Control.Sustantivos
-     */
-    public static ArrayList<ArrayList<Sus>> GeneradorSus() {
-        // Todas las lsitas de sustantivos se oguardan en una lista de listas:
-        ArrayList<ArrayList<Sus>> Sustantivos = new ArrayList<ArrayList<Sus>>();
-
-        crearSustantivos();
-
-        System.out.print("SUSTANTIVOS: " + Sustantivos.size() + " LISTAS INICIALIZADAS");
-        return Sustantivos;
-    }
-
-    //---------------------------[---CONTROL]-----------------------------------
 
 
 

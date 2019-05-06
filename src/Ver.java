@@ -1166,7 +1166,7 @@ public class Ver extends Palabra{
         System.out.println(Arrays.toString(this.tags));
     }
 
-    
+
 
 
 

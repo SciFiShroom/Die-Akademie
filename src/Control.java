@@ -97,7 +97,7 @@ public class Control {
 
     // Ejecuta la inicialización de los sustantivos. Créa la lista de temas, cuyas tienen los sustantivos.
     public static void InicializarSustantivos() {
-        Control.Sustantivos = Sus.GeneradorSus();
+        Sus.crearSustantivos();
 
         Lista<Sus> listaCompleta = new Lista<Sus>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
@@ -138,7 +138,7 @@ public class Control {
 
     //Ejecuta la inicialización de los adjetivos.
     public static void InicializarAdjetivos() {
-        Control.Adjetivos = Adj.GeneradorAdj();
+        Adj.crearAdjetivos();
 
         Lista<Adj> listaCompleta = new Lista<Adj>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
@@ -158,7 +158,7 @@ public class Control {
 
     //Ejecuta la inicialización de las palabras.
     public static void InicializarPalabras() {
-        Control.Palabras = Pal.GeneradorPal();
+        Pal.crearPalabras();
 
         Lista<Pal> listaCompleta = new Lista<Pal>("");
         ArrayList<String> listaIdentificación = new ArrayList<String>();
@@ -175,6 +175,9 @@ public class Control {
 
         System.out.println("; " + Control.PalabrasListaSingular.size() + " PALABRAS CREADAS");
     }
+
+
+
 
 
     public static void clrScreen() {
