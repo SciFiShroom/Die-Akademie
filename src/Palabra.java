@@ -92,6 +92,7 @@ public class Palabra {
     }
 
 
+    //Define una palabra, a detalle. Overridden.
     public void definir() {
         System.out.println("Error: definir() no debería de aplicarse a Palabra");
         throw new NumberFormatException("Ich weiß nicht, was du hast gemacht");
@@ -101,6 +102,74 @@ public class Palabra {
         if (this instanceof Adj) {((Adj) this).definir(); return;}
         if (this instanceof Pal) {((Pal) this).definir(); return;}
         */
+    }
+
+
+    public String definirSimple() {
+        return (this.getNombre() + "(" + this.getSignificado() + ")");
+    }
+
+
+    public String TipoDePalabra() {
+        if (this instanceof Sus) {return Sus.Sus;}
+        if (this instanceof Ver) {return Ver.Ver;}
+        if (this instanceof Adj) {return Adj.Adj;}
+        if (this instanceof Pal) {return Pal.Pal;}
+
+        throw new NumberFormatException("Error: Tipo de palabra no reconocido");
+    }
+
+
+    //Transforman una Palabra a su tipo específico.
+    public Sus aSus() {
+        if (this instanceof Sus) { return (Sus)this; } else {
+            throw new NumberFormatException("Error: No se puede convertir de " + this.TipoDePalabra() + " a Sus");
+        }
+    }
+    public Ver aVer() {
+        if (this instanceof Ver) { return (Ver)this; } else {
+            throw new NumberFormatException("Error: No se puede convertir de " + this.TipoDePalabra() + " a Ver");
+        }
+    }
+    public Adj aAdj() {
+        if (this instanceof Adj) { return (Adj)this; } else {
+            throw new NumberFormatException("Error: No se puede convertir de " + this.TipoDePalabra() + " a Adj");
+        }
+    }
+    public Pal aPal() {
+        if (this instanceof Pal) { return (Pal)this; } else {
+            throw new NumberFormatException("Error: No se puede convertir de " + this.TipoDePalabra() + " a pal");
+        }
+    }
+
+    //Transforman una ArrayList<Palabra> a un ArrayList<Tipo>.
+    public static ArrayList<Sus> ConvertirListaASus(ArrayList<Palabra> original) {
+        ArrayList<Sus> out = new ArrayList<Sus>();
+        for (Palabra actual : original) {
+            out.add(actual.aSus());
+        }
+        return out;
+    }
+    public static ArrayList<Ver> ConvertirListaAVer(ArrayList<Palabra> original) {
+        ArrayList<Ver> out = new ArrayList<Ver>();
+        for (Palabra actual : original) {
+            out.add(actual.aVer());
+        }
+        return out;
+    }
+    public static ArrayList<Adj> ConvertirListaAAdj(ArrayList<Palabra> original) {
+        ArrayList<Adj> out = new ArrayList<Adj>();
+        for (Palabra actual : original) {
+            out.add(actual.aAdj());
+        }
+        return out;
+    }
+    public static ArrayList<Pal> ConvertirListaAPal(ArrayList<Palabra> original) {
+        ArrayList<Pal> out = new ArrayList<Pal>();
+        for (Palabra actual : original) {
+            out.add(actual.aPal());
+        }
+        return out;
     }
 
 

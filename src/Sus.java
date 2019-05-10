@@ -676,13 +676,14 @@ public class Sus extends Palabra{
 
     //todo really should be a Control function. Temas are now sorted completely there, not here.
     //Regresa la lista de sustantivos del tema indicado, dado la lista completa "Sustantivos"
+    /**
     public static Lista<Palabra> ListaTema(String tema) {
         for (Lista<Palabra> listaActual: Control.Sustantivos) {
             if (listaActual.nombre.equals(tema)) {return listaActual;}
         }
         //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");
         throw new NullPointerException();
-    }
+    }*/
 
 
     //Imprime una lista de sustantivos sin formateo grande.

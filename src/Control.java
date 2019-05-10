@@ -28,7 +28,7 @@ public class Control {
      * @param tipoDePalabra El tipo de Palabra (Sus.Sus, ...)
      * @return La lista, si existe. Echa error si no se encuentra.
      */
-    public Lista<Palabra> ListaTema(String tema, String tipoDePalabra) {
+    public static Lista<Palabra> getTema(String tema, String tipoDePalabra) {
         Palabra.sanitize(tipoDePalabra);
 
 
@@ -348,6 +348,8 @@ public class Control {
 
     public static void main(String[] args) {
         Inicialización();
+        //todo: crear Ejer.ConsolaDefinir(String tipoDePalabra, Scanner sc)
+
         //todo: Cambios se hicieron a los métodos listartemas y elejir temas. Ahora son parte de la clase Ejer.
         //todo: Si se agrega un tipo de palabra nuevo (Lo cual lo dudo, por lo menos por ahora) recuerda actualizar esos métodos,
         //todo: ya que si no lo haces el programa no reconocerá el tipo de palabra.
