@@ -38,12 +38,13 @@ public class Palabra {
         throw new NullPointerException("Error: Tag '" + newTag + "' no reconocida");
     }
 
+    //todo: Agregar método de significado largo, que incluya []. Haz que .getSignificado() no los incluya.
 
     public String getNombre() {throw new NumberFormatException("teneis los cojones cuadrados");}
     public String getSignificado(){throw new NumberFormatException("Ostras, ¿qué quereis?");}
 
     //método para buscar una palabra en una lista de palabras
-    public Palabra[] buscarTodo(String Nombre) {
+    public static Palabra[] buscarTodo(String Nombre) {
         ArrayList<Palabra> Resultados = new ArrayList<Palabra>();
 
         for (Palabra actual: Control.SustantivosListaSingular) {
@@ -67,18 +68,19 @@ public class Palabra {
         return out;
     }
 
-    public Palabra[] buscarTipo(String Nombre, String tipo) {
+    public static Palabra[] buscarTipo(String Nombre, String tipo) {
+        Palabra.sanitize(tipo);
+
         Lista<Palabra> ListaDeTipo = new Lista<Palabra>(nullEntry);
         ArrayList<Palabra> Resultados = new ArrayList<Palabra>();
 
-        boolean entendido = false;
+
         switch (tipo) {
-            case Sus.Sus: ListaDeTipo = Control.SustantivosListaSingular; entendido = true; break;
-            case Ver.Ver: ListaDeTipo = Control.VerbosListaSingular; entendido = true; break;
-            case Adj.Adj: ListaDeTipo = Control.AdjetivosListaSingular; entendido = true; break;
-            case Pal.Pal: ListaDeTipo = Control.PalabrasListaSingular; entendido = true; break;
+            case Sus.Sus: ListaDeTipo = Control.SustantivosListaSingular; break;
+            case Ver.Ver: ListaDeTipo = Control.VerbosListaSingular; break;
+            case Adj.Adj: ListaDeTipo = Control.AdjetivosListaSingular; break;
+            case Pal.Pal: ListaDeTipo = Control.PalabrasListaSingular; break;
         }
-        if (!entendido) {throw new NumberFormatException("la cagaste güey");}
 
         for (Palabra actual : ListaDeTipo) {
             if (actual.getNombre().equals(Nombre)) {Resultados.add(actual);}
@@ -91,12 +93,28 @@ public class Palabra {
 
 
     public void definir() {
+        System.out.println("Error: definir() no debería de aplicarse a Palabra");
+        throw new NumberFormatException("Ich weiß nicht, was du hast gemacht");
+        /**
         if (this instanceof Sus) {((Sus) this).definir(); return;}
         if (this instanceof Ver) {((Ver) this).definir(); return;}
         if (this instanceof Adj) {((Adj) this).definir(); return;}
         if (this instanceof Pal) {((Pal) this).definir(); return;}
-
-        throw new NumberFormatException("Ich weiß nicht, was du möchtest");
+        */
     }
+
+
+    //Usa esta función para asegurarte de que no haya tipos de palabras invalidas.
+    public static void sanitize(String palabra) {
+        switch (palabra) {
+            case Sus.Sus: return;
+            case Ver.Ver: return;
+            case Adj.Adj: return;
+            case Pal.Pal: return;
+        }
+
+        throw new NumberFormatException("Error: Tipo de palabra no reconocido");
+    }
+
 
 }

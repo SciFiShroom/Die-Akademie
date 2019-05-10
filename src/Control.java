@@ -2,6 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Control {
 
+    //NumberFormatExceptio = hice algo mal y el yo del pasado me lo está diciendo
+    //SecurityException = Error, pero uno que estoy esperando (catched)
+    //NullPointerException = user closed window.
+    //todo: Fix exceptions lul
+
+
+
     //Estos se inicializan en el Main de Control. (Hasta abajo)
     public static ArrayList<Lista<Palabra>> Sustantivos; //La lista se guarde como variable estatica.
     public static ArrayList<Lista<Palabra>> Verbos;
@@ -97,83 +104,47 @@ public class Control {
 
     // Ejecuta la inicialización de los sustantivos. Créa la lista de temas, cuyas tienen los sustantivos.
     public static void InicializarSustantivos() {
-        Sus.crearSustantivos();
+        Sus.crearSustantivos(); //esto cre todos los sustantivos, y se meten automáticamente a la lista Control.Sustantivos
+        // y Control.SustantivosListaSingular.
 
-        Lista<Sus> listaCompleta = new Lista<Sus>("");
-        ArrayList<String> listaIdentificación = new ArrayList<String>();
         for (Lista<Palabra> tema : Control.Sustantivos) {
-            for (Palabra susActual : tema) {
-                if (!listaIdentificación.contains(actual.toString())) {
-                    listaCompleta.add(actual);
-                    listaIdentificación.add(actual.toString());
-                }
-            }
-        }//Aqui, listaCompleta tiene todos los sustantivos sin repeticiones
+            if (tema.size() == 0) {Control.Sustantivos.remove(tema);}
+        }//Si hay algún tema sin sustantivos, lo quitamos así permanentemente.
 
-        Control.SustantivosListaSingular = listaCompleta;
-
-        System.out.println("; " + Control.SustantivosListaSingular.size() + " SUSTANTIVOS CREADOS");
+        System.out.println("SUSTANTIVOS: " + Control.SustantivosListaSingular.size() + " SUSTANTIVOS CREADOS, " + Control.Sustantivos.size() + "TEMAS USADOS");
     }
 
     //Ejecuta la inicialización de los verbos, de la misma manera que la de los sustantivos.
     public static void InicializarVerbos() {
         Ver.crearVerbos(); //Crea y organiza todos los verbos en Control.Verbos Y Control.VerbosListaSingular
 
-        Lista<Ver> listaCompleta = new Lista<Ver>("");
-        ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (Lista<Ver> tema : Control.Verbos) {
-            for (int i = 1; i < tema.size(); i++) {
-                Ver actual = tema.get(i);
-                if (!listaIdentificación.contains(actual.toString())) {
-                    listaCompleta.add(actual);
-                    listaIdentificación.add(actual.toString());
-                }
-            }
-        }//Aqui, listaCompleta tiene todos los verbos sin repeticiones
+        for (Lista<Palabra> tema : Control.Verbos) {
+            if (tema.size() == 0) {Control.Verbos.remove(tema);}
+        }//Si hay algún tema sin Verbos, lo quitamos así permanentemente.
 
-        Control.VerbosListaSingular = listaCompleta;
-
-        System.out.println("; " + Control.VerbosListaSingular.size() + " VERBOS CREADOS");
+        System.out.println("VERBOS: " + Control.VerbosListaSingular.size() + " VERBOS CREADOS, " + Control.Verbos.size() + "TEMAS USADOS");
     }
 
     //Ejecuta la inicialización de los adjetivos.
     public static void InicializarAdjetivos() {
         Adj.crearAdjetivos();
 
-        Lista<Adj> listaCompleta = new Lista<Adj>("");
-        ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (Lista<Adj> tema : Control.Adjetivos) {
-            for (Adj actual : tema) {
-                if (!listaIdentificación.contains(actual.toString())) {
-                    listaCompleta.add(actual);
-                    listaIdentificación.add(actual.toString());
-                }
-            }
-        }//Aqui, listaCompleta tiene todos los adjetivos sin repeticiones
+        for (Lista<Palabra> tema : Control.Adjetivos) {
+            if (tema.size() == 0) {Control.Adjetivos.remove(tema);}
+        }//Si hay algún tema sin Adjetivos, lo quitamos así permanentemente.
 
-        Control.AdjetivosListaSingular = listaCompleta;
-
-        System.out.println("; " + Control.AdjetivosListaSingular.size() + " ADJETIVOS CREADOS");
+        System.out.println("ADJETIVOS: " + Control.AdjetivosListaSingular.size() + " ADJETIVOS CREADOS, " + Control.Adjetivos.size() + "TEMAS USADOS");
     }
 
     //Ejecuta la inicialización de las palabras.
     public static void InicializarPalabras() {
         Pal.crearPalabras();
 
-        Lista<Pal> listaCompleta = new Lista<Pal>("");
-        ArrayList<String> listaIdentificación = new ArrayList<String>();
-        for (Lista<Pal> tema : Control.Palabras) {
-            for (Pal actual : tema) {
-                if (!listaIdentificación.contains(actual.toString())) {
-                    listaCompleta.add(actual);
-                    listaIdentificación.add(actual.toString());
-                }
-            }
-        }//Aqui, listaCompleta tiene todas las palabras sin repeticiones
+        for (Lista<Palabra> tema : Control.Palabras) {
+            if (tema.size() == 0) {Control.Palabras.remove(tema);}
+        }//Si hay algún tema sin Palabras, lo quitamos así permanentemente.
 
-        Control.PalabrasListaSingular = listaCompleta;
-
-        System.out.println("; " + Control.PalabrasListaSingular.size() + " PALABRAS CREADAS");
+        System.out.println("PALABRAS: " + Control.PalabrasListaSingular.size() + " PALABRAS CREADAS, " + Control.Palabras.size() + "TEMAS USADOS");
     }
 
 

@@ -28,6 +28,8 @@ public class Sus extends Palabra{
 
     //Constructor. Very basic.
     public Sus(String Sustantivo, String Plural, String Genero, String Significado, String[] Tags) {
+        Control.SustantivosListaSingular.add(this);
+
         this.sustantivo = Sustantivo;
         this.plural = Plural;
         if (!Genero.equals("M") && !Genero.equals("F") && !Genero.equals("N") && !Genero.equals(nullEntry) && !Genero.equals("P")) { //nullEntry = no tiene género; P = siempre plural.
@@ -38,7 +40,7 @@ public class Sus extends Palabra{
 
         this.tags = new String[0];
         for (String current : Tags) {
-            this.agregarTag(current, Sus);
+            this.agregarTag(current);
         }
     }
 

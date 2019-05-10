@@ -98,6 +98,8 @@ public class Ver extends Palabra{
 
     //Constructor para verbos normales. Solo se incluyen las conjugaciones presente (präsens). Las demás se agregan despues.
     public Ver(String Verbo, String[] Präsens, String Significado, String[] Tags) {
+        Control.VerbosListaSingular.add(this);
+
         this.verbo = Verbo;
         if (Präsens.length != 6) {throw new NullPointerException("Error: Formato de verbo " + Verbo + " no aceptado");}
         this.presente = Präsens;
@@ -113,6 +115,8 @@ public class Ver extends Palabra{
 
     //Constructor para verbos rama. Requiere que ya exista un verbo raiz. Si no existe en el idioma, se creará uno y ya veremos que pex.
     public Ver(String Prefijo, Ver Raiz, String Significado, String[] Tags) {
+        Control.VerbosListaSingular.add(this);
+
         this.verbo = Prefijo + Raiz.verbo;
         //System.out.println("!!! " + this.verbo + "!!!");
         this.agregarRaiz(Raiz);
@@ -153,6 +157,8 @@ public class Ver extends Palabra{
 
     //Constructor que reemplaza kleinePräsens
     public Ver(String Verbo, String Base, String Significado, String[] Tags) {
+        Control.VerbosListaSingular.add(this);
+
         String[] conjugaciones = new String[6];
         conjugaciones[0] = Base + "e";
         conjugaciones[1] = Base + "st";

@@ -397,11 +397,12 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     //GENERAL; EJERCICIOS
     //Consola que te deja elejir una cantidad de ejercicios/preguntas dado un ArrayList<E>
     //Contiene un desface de 1, dado que el tamaño total de la lista inclye la palabra nula al comienzo, cuya no se utiliza.
-    public static int ElejirCantidad (int tamañoTotal, Scanner sc) {
-        System.out.println("Hay " + (tamañoTotal-1) + " verbos en este tema.");
+    ...arreglar este método
+    public static int ElejirCantidad (int tamañoTotal, String mensaje, Scanner sc) {
+        //System.out.println("Hay " + (tamañoTotal-1) + " verbos en este tema.");
         int número;
         while (true) {
-            System.out.println("¿Cuántos deséa practicar?");
+            System.out.println(mensaje);
             String intento = sc.nextLine();
             try {
                 número = Integer.parseInt(intento); //Procesa input del usuario. Regresa un entero funcional.
@@ -445,7 +446,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         ArrayList<Sus> listaDeSustantivosTema = Sus.ListaTema(tema); //La lista de sustantivos del tema
 
         //int número = Sus.ElejirCantidad(listaDeSustantivosTema, sc); //La cantidad de sustantivos que se practicarán.
-        int número = Ejer.ElejirCantidad(listaDeSustantivosTema.size(), sc);
+        int número = Ejer.ElejirCantidad(listaDeSustantivosTema.size(), "¿Cuántos deséa practicar?", sc);
 
 
         ArrayList<Sus> listaSustantivos = Sus.escojerAleatorio(listaDeSustantivosTema, número);
@@ -540,7 +541,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         ArrayList<Ver> listaDeVerbosTema = Ver.ListaTema(tema);
 
         //int número = Ver.ElejirCantidad(listaDeVerbosTema, sc); //La cantidad de verbos que se practicarán.
-        int número = Ejer.ElejirCantidad(listaDeVerbosTema.size(), sc); //La cantidad de verbos que se practicarán.
+        int número = Ejer.ElejirCantidad(listaDeVerbosTema.size(), "¿Cuántos deséa practicar?", sc); //La cantidad de verbos que se practicarán.
 
         ArrayList<Ver> listaVerbos = Ver.escojerAleatorio(listaDeVerbosTema, número);
         //Ahora la lista tiene verbos aleatorios del tema elejido, sin dobles, y sin errores :LUL:
@@ -621,7 +622,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         ArrayList<Adj> listaDeAdjetivosTema = Adj.ListaTema(tema); //La lista de sustantivos del tema
 
         //int número = Adj.ElejirCantidad(listaDeAdjetivosTema, sc); //La cantidad de sustantivos que se practicarán.
-        int número = Ejer.ElejirCantidad(listaDeAdjetivosTema.size(), sc); //La cantidad de sustantivos que se practicarán.
+        int número = Ejer.ElejirCantidad(listaDeAdjetivosTema.size(), "¿Cuántos deséa practicar?", sc); //La cantidad de sustantivos que se practicarán.
 
         ArrayList<Adj> listaAdjetivos = Adj.escojerAleatorio(listaDeAdjetivosTema, número);
         //Ahora la lista tiene verbos aleatorios del tema elejido, sin dobles, y sin errores :LUL:
@@ -712,7 +713,9 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         ArrayList<Pal> listaDepalabrasTema = Pal.ListaTema(tema); //La lista de sustantivos del tema
 
         //int número = Pal.ElejirCantidad(listaDepalabrasTema, sc); //La cantidad de sustantivos que se practicarán.
-        int número = Ejer.ElejirCantidad(listaDepalabrasTema.size(), sc); //La cantidad de sustantivos que se practicarán.
+
+        //todo: "Hay [num] de cosas en este tema"
+        int número = Ejer.ElejirCantidad(listaDepalabrasTema.size(), "¿Cuántos deséa practicar?", sc); //La cantidad de sustantivos que se practicarán.
 
         ArrayList<Pal> listaPalabras = Pal.escojerAleatorio(listaDepalabrasTema, número);
         //Ahora la lista tiene verbos aleatorios del tema elejido, sin dobles, y sin errores :LUL:
@@ -1171,6 +1174,52 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         return tema;
     }
 
+
+
+
+    public static Palabra ElejirPalabraTipo(String tipoDePalabra, Scanner sc) {
+        Palabra.sanitize(tipoDePalabra);
+        Palabra[] resultados;
+
+        System.out.print("Favor de elejir ");
+        switch (tipoDePalabra) {
+            case Sus.Sus: System.out.println("un sustantivo:");
+            case Ver.Ver: System.out.println("un verbo:");
+            case Adj.Adj: System.out.println("un adjetivo:");
+            case Pal.Pal: System.out.println("una palabra:");
+        }
+
+
+        while (true) {
+            String intento = sc.nextLine();
+            if (intento.equals("cerrar")) {throw new NullPointerException("Cerrando. ");}
+
+            resultados = Palabra.buscarTipo(intento, tipoDePalabra);
+
+            if (resultados.length == 0) { //No se encontró nada.
+                System.out.println("La palabra '" + intento + "' no se encuentra. ");
+                switch (tipoDePalabra) {
+                    case Sus.Sus: System.out.println("Asegúrese de que el sustantivo sea singular y capitalizado.");
+                    case Ver.Ver: System.out.println("Asgúrese de que el verbo sea infinitivo y de no capitalizar ninguna letra.");
+                    case Adj.Adj: System.out.println("Asegúrese de que el adjetivo no sea comparativo o superlativo.");
+                    case Pal.Pal: System.out.println("Asegúrese de no capitalizar ninguna letra.");
+                }
+                continue; //volvemos a intentar
+
+            } else if (resultados.length > 1) { //Hay más de una palabra con este nombre
+                System.out.println("Se encontro más de una palabra llamada '" + intento + "'. Favor de elejir la correcta: ");
+                for (int i = 0; i < resultados.length; i++) {
+                    System.out.println((i+1) + ". " + resultados[i].getNombre() + ": " + resultados[i].getSignificado());
+                }
+
+                int respuesta = Ejer.ElejirCantidad(resultados.length, "¿Cuál buscas?", sc);
+                return resultados[respuesta - 1];
+
+            } else { //hay solo una palabra yuju
+                return resultados[0];
+            }
+        }
+    }
 
 
 

@@ -6,11 +6,13 @@ public class Pal extends Palabra{
     public static final String nullEntry = "---";
     //para todas las palabras chicas que también nos tenemos que aprender.
 
-    
+
 
 
     //Constructor básico.
     public Pal(String Palabra, String Significado, String[] Tags) {
+        Control.PalabrasListaSingular.add(this);
+
         this.palabra = Palabra;
         this.significado = Significado;
 

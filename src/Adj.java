@@ -12,6 +12,8 @@ public class Adj extends Palabra{
 
     //Constructores
     public Adj(String Adjetivo, String Comparativo, String Superlativo, String Significado, String[] Tags) {
+        Control.AdjetivosListaSingular.add(this);
+
         this.adjetivo = Adjetivo;
         this.comparativo = Comparativo;
         this.superlativo = Superlativo;
@@ -24,9 +26,9 @@ public class Adj extends Palabra{
     }
 
 
-
-
     public Adj(String Adjetivo, String Significado, String[] Tags) {
+        Control.AdjetivosListaSingular.add(this);
+
         this.adjetivo = Adjetivo;
         this.significado = Significado;
         this.tags = new String[0];
@@ -80,6 +82,8 @@ public class Adj extends Palabra{
 
 
     public Adj(String Adjetivo, String Significado, String[] Tags, boolean quePex) {
+        Control.AdjetivosListaSingular.add(this);
+
         this.adjetivo = Adjetivo;
         this.significado = Significado;
 
