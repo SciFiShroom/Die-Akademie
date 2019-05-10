@@ -28,17 +28,17 @@ public class Control {
      * @param tipoDePalabra El tipo de Palabra (Sus.Sus, ...)
      * @return La lista, si existe. Echa error si no se encuentra.
      */
-    public Lista<Palabra> getTema(String tema, String tipoDePalabra) {
-        ArrayList<Lista<Palabra>> ListaDeTemas = new ArrayList<Lista<Palabra>>();
+    public Lista<Palabra> ListaTema(String tema, String tipoDePalabra) {
+        Palabra.sanitize(tipoDePalabra);
 
-        boolean entendido = false;
+
+        ArrayList<Lista<Palabra>> ListaDeTemas = new ArrayList<Lista<Palabra>>();
         switch (tipoDePalabra) {
-            case Sus.Sus: ListaDeTemas = Control.Sustantivos; entendido = true; break;
-            case Ver.Ver: ListaDeTemas = Control.Verbos; entendido = true; break;
-            case Adj.Adj: ListaDeTemas = Control.Adjetivos; entendido = true; break;
-            case Pal.Pal: ListaDeTemas = Control.Palabras; entendido = true; break;
+            case Sus.Sus: ListaDeTemas = Control.Sustantivos; break;
+            case Ver.Ver: ListaDeTemas = Control.Verbos; break;
+            case Adj.Adj: ListaDeTemas = Control.Adjetivos; break;
+            case Pal.Pal: ListaDeTemas = Control.Palabras; break;
         }
-        if (!entendido) {throw new NumberFormatException("Error: Tiop de palabra no reconocido");}
 
 
         for (Lista<Palabra> actual : ListaDeTemas) {
@@ -113,8 +113,6 @@ public class Control {
 
         System.out.println("SUSTANTIVOS: " + Control.SustantivosListaSingular.size() + " SUSTANTIVOS CREADOS, " + Control.Sustantivos.size() + "TEMAS USADOS");
     }
-
-    //Ejecuta la inicialización de los verbos, de la misma manera que la de los sustantivos.
     public static void InicializarVerbos() {
         Ver.crearVerbos(); //Crea y organiza todos los verbos en Control.Verbos Y Control.VerbosListaSingular
 
@@ -124,8 +122,6 @@ public class Control {
 
         System.out.println("VERBOS: " + Control.VerbosListaSingular.size() + " VERBOS CREADOS, " + Control.Verbos.size() + "TEMAS USADOS");
     }
-
-    //Ejecuta la inicialización de los adjetivos.
     public static void InicializarAdjetivos() {
         Adj.crearAdjetivos();
 
@@ -135,8 +131,6 @@ public class Control {
 
         System.out.println("ADJETIVOS: " + Control.AdjetivosListaSingular.size() + " ADJETIVOS CREADOS, " + Control.Adjetivos.size() + "TEMAS USADOS");
     }
-
-    //Ejecuta la inicialización de las palabras.
     public static void InicializarPalabras() {
         Pal.crearPalabras();
 

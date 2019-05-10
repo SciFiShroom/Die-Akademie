@@ -241,6 +241,8 @@ public class Pal extends Palabra{
      * @param tema el tema elejido
      * @return la lista en formato ArrayList<Pal>
      */
+
+    /**
     public static Lista<Pal> ListaTema(String tema) {
         for (Lista<Pal> actual : Control.Palabras) {
             if (actual.get(0).palabra.equals(tema)) {return actual;}
@@ -248,7 +250,7 @@ public class Pal extends Palabra{
         //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");
         throw new NullPointerException();
     }
-
+*/
 
     /**
      * Consola que te deja elejir una palabra de la lista Control.Palabras.
@@ -256,6 +258,7 @@ public class Pal extends Palabra{
      * @param sc el escaneador
      * @return la palabra si se encuentra
      */
+    /**
     public static Pal ElejirPalabra(Scanner sc) {
         Pal out;
         System.out.println("Favor de elejir una palabra:");
@@ -271,6 +274,7 @@ public class Pal extends Palabra{
         }
         return out;
     }
+     */
 
 
 

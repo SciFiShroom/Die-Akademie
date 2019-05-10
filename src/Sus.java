@@ -583,6 +583,8 @@ public class Sus extends Palabra{
 
     //Consola que te deja elejir un sustantivo de la lista completa de todos los sustantivos.
     //Echa NullPointerException si el usuario dice 'cerrar'
+
+    /**
     public static Sus ElejirSustantivo(Scanner sc) {
         Sus out;
         System.out.println("Favor de elejir un sustantivo:");
@@ -598,6 +600,7 @@ public class Sus extends Palabra{
         }
         return out;
     }
+     */
 
 
 

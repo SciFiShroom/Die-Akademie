@@ -1228,6 +1228,7 @@ public class Ver extends Palabra{
      * @param sc el Scanner
      * @return El verbo elejido
      */
+    /**
     public static Ver ElejirVerbo(Scanner sc) {
         Ver out;
         System.out.println("Favor de elejir un verbo:");
@@ -1243,6 +1244,7 @@ public class Ver extends Palabra{
         }
         return out;
     }
+     */
 
 
 
@@ -1300,13 +1302,15 @@ public class Ver extends Palabra{
      * @param tema el tema cuya lista necesitas
      * @return un ArrayList<Ver> de todos los verbos del tema elejido.
      */
+
+    /**
     public static Lista<Ver> ListaTema(String tema) {
         for (Lista<Ver> actual : Control.Verbos) {
             if (actual.get(0).verbo.equals(tema)) {return actual;}
         }
         throw new NullPointerException("El tema '" + tema + "' no se encuentra. Diga 'listar temas verbos' para ver los temas. ");
     }
-
+*/
 
 
     //CONSOLA

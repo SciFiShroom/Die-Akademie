@@ -1175,8 +1175,13 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     }
 
 
-
-
+    /**
+     * Consola que te deja elejir una palabra de un tipo especificado.
+     * Echa NullPointerException si se cierra. Sabe que hacer si hay más de un resultado
+     * @param tipoDePalabra el tipo de palabra.
+     * @param sc el scanner
+     * @return la palabra elejida.
+     */
     public static Palabra ElejirPalabraTipo(String tipoDePalabra, Scanner sc) {
         Palabra.sanitize(tipoDePalabra);
         Palabra[] resultados;

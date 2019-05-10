@@ -348,6 +348,7 @@ public class Adj extends Palabra{
      * @param tema el tema elejido
      * @return la lista en formato ArrayList<Adj>
      */
+    /**
     public static Lista<Adj> ListaTema(String tema) {
         for (Lista<Adj> actual : Control.Adjetivos) {
             if (actual.get(0).adjetivo.equals(tema)) {return actual;}
@@ -355,7 +356,7 @@ public class Adj extends Palabra{
         //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");
         throw new NullPointerException();
     }
-
+*/
 
     //Imprime una lista de sustantivos con formateo chido
     public static void imprimirListaChido(ArrayList<Adj> tema) {
@@ -390,7 +391,8 @@ public class Adj extends Palabra{
      * @param sc el escaneador
      * @return el adjetivo si se encuentra
      */
-    //todo: hacer "ElejirPalabra", función en Palabra.
+
+    /**
     public static Adj ElejirAdjetivo(Scanner sc) {
         Adj out;
         System.out.println("Favor de elejir un adjetivo:");
@@ -406,7 +408,7 @@ public class Adj extends Palabra{
         }
         return out;
     }
-
+*/
 
 
 
