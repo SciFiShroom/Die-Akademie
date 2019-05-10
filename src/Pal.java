@@ -44,7 +44,7 @@ public class Pal extends Palabra{
         String[] Tags;
 
         //[Conjunciones]
-        Tags = new String[]{"conjunciónes"};
+        Tags = new String[]{"conjunciones"};
         Pal aber = new Pal("aber", "pero", Tags);
         Pal und = new Pal("und", "y", Tags);
         Pal oder = new Pal("oder", "o", Tags);

@@ -9,14 +9,24 @@ public class Palabra {
 
     //reemplaza al tagAdd previo
     public void agregarTag(String newTag) {
-        String[] current = new String[this.tags.length + 1];
-        for (int i = 0; i < this.tags.length; i++) {
-            current[i] = this.tags[i];
+        String[] current;
+        if (this.tags == null || this.tags.length == 0) {
+            current = new String[1];
+            current[0] = newTag;
+            this.tags = current;
+        } else {
+            current = new String[this.tags.length + 1];
+            for (int i = 0; i < this.tags.length; i++) {
+                current[i] = this.tags[i];
+            }
+            current[this.tags.length] = newTag;
+            this.tags = current;
         }
-        current[this.tags.length] = newTag;
-        this.tags = current;
+
+        Control.getTema(newTag, this.TipoDePalabra()).add(this);
 
 
+        /**
         ArrayList<Lista<Palabra>> listaTematica = null;
         boolean entendido = false;
 
@@ -35,7 +45,7 @@ public class Palabra {
         }
 
         //Si no se encuentra, echa un error.
-        throw new NullPointerException("Error: Tag '" + newTag + "' no reconocida");
+        throw new NullPointerException("Error: Tag '" + newTag + "' no reconocida");*/
     }
 
     //todo: Agregar método de significado largo, que incluya []. Haz que .getSignificado() no los incluya.

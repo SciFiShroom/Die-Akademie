@@ -39,6 +39,7 @@ public class Sus extends Palabra{
         this.significado = Significado;
 
         this.tags = new String[0];
+
         for (String current : Tags) {
             this.agregarTag(current);
         }

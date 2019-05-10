@@ -27,6 +27,7 @@ public class Control {
      * @param tema El dema de la lista que buscas
      * @param tipoDePalabra El tipo de Palabra (Sus.Sus, ...)
      * @return La lista, si existe. Echa error si no se encuentra.
+     * @throws NumberFormatException si no se encuentra el tema.
      */
     public static Lista<Palabra> getTema(String tema, String tipoDePalabra) {
         Palabra.sanitize(tipoDePalabra);
@@ -60,8 +61,8 @@ public class Control {
                 "ciudad", "medidas", "transporte", "espcias", "cocina",
                 "bebidas", "materiales",
 
-                "moverse", "básco", "modal",
-                "menos_básico", "miscelaneo",
+                "moverse", "básico", "modal",
+                "menos_básico", "misceláneo",
                 "expresarse", "vista", "tienda", "auxiliar",
                 "objeto", "mente",
 
@@ -104,41 +105,52 @@ public class Control {
 
     // Ejecuta la inicialización de los sustantivos. Créa la lista de temas, cuyas tienen los sustantivos.
     public static void InicializarSustantivos() {
-        Sus.crearSustantivos(); //esto cre todos los sustantivos, y se meten automáticamente a la lista Control.Sustantivos
-        // y Control.SustantivosListaSingular.
+        Sus.crearSustantivos(); //esto crea todos los sustantivos, y se meten automáticamente a la lista Control.Sustantivos y Control.SustantivosListaSingular.
 
-        for (Lista<Palabra> tema : Control.Sustantivos) {
-            if (tema.size() == 0) {Control.Sustantivos.remove(tema);}
-        }//Si hay algún tema sin sustantivos, lo quitamos así permanentemente.
+        //Hay que quitar las listas de los temas vacíos.
+        ArrayList<Lista<Palabra>> ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Sustantivos) {
+            if (actual.size() > 0) {ListasNoVacías.add(actual); }
+        }
+        Control.Sustantivos = ListasNoVacías;
 
-        System.out.println("SUSTANTIVOS: " + Control.SustantivosListaSingular.size() + " SUSTANTIVOS CREADOS, " + Control.Sustantivos.size() + "TEMAS USADOS");
+        System.out.println("SUSTANTIVOS: " + Control.SustantivosListaSingular.size() + " SUSTANTIVOS CREADOS, " + Control.Sustantivos.size() + " TEMAS USADOS");
     }
     public static void InicializarVerbos() {
         Ver.crearVerbos(); //Crea y organiza todos los verbos en Control.Verbos Y Control.VerbosListaSingular
 
-        for (Lista<Palabra> tema : Control.Verbos) {
-            if (tema.size() == 0) {Control.Verbos.remove(tema);}
-        }//Si hay algún tema sin Verbos, lo quitamos así permanentemente.
+        //Hay que quitar las listas de los temas vacíos.
+        ArrayList<Lista<Palabra>> ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Verbos) {
+            if (actual.size() > 0) {ListasNoVacías.add(actual); }
+        }
+        Control.Verbos = ListasNoVacías;
 
-        System.out.println("VERBOS: " + Control.VerbosListaSingular.size() + " VERBOS CREADOS, " + Control.Verbos.size() + "TEMAS USADOS");
+        System.out.println("VERBOS: " + Control.VerbosListaSingular.size() + " VERBOS CREADOS, " + Control.Verbos.size() + " TEMAS USADOS");
     }
     public static void InicializarAdjetivos() {
         Adj.crearAdjetivos();
 
-        for (Lista<Palabra> tema : Control.Adjetivos) {
-            if (tema.size() == 0) {Control.Adjetivos.remove(tema);}
-        }//Si hay algún tema sin Adjetivos, lo quitamos así permanentemente.
+        //Hay que quitar las listas de los temas vacíos.
+        ArrayList<Lista<Palabra>> ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Adjetivos) {
+            if (actual.size() > 0) {ListasNoVacías.add(actual); }
+        }
+        Control.Adjetivos = ListasNoVacías;
 
-        System.out.println("ADJETIVOS: " + Control.AdjetivosListaSingular.size() + " ADJETIVOS CREADOS, " + Control.Adjetivos.size() + "TEMAS USADOS");
+        System.out.println("ADJETIVOS: " + Control.AdjetivosListaSingular.size() + " ADJETIVOS CREADOS, " + Control.Adjetivos.size() + " TEMAS USADOS");
     }
     public static void InicializarPalabras() {
         Pal.crearPalabras();
 
-        for (Lista<Palabra> tema : Control.Palabras) {
-            if (tema.size() == 0) {Control.Palabras.remove(tema);}
-        }//Si hay algún tema sin Palabras, lo quitamos así permanentemente.
+        //Hay que quitar las listas de los temas vacíos.
+        ArrayList<Lista<Palabra>> ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Palabras) {
+            if (actual.size() > 0) {ListasNoVacías.add(actual); }
+        }
+        Control.Palabras = ListasNoVacías;
 
-        System.out.println("PALABRAS: " + Control.PalabrasListaSingular.size() + " PALABRAS CREADAS, " + Control.Palabras.size() + "TEMAS USADOS");
+        System.out.println("PALABRAS: " + Control.PalabrasListaSingular.size() + " PALABRAS CREADAS, " + Control.Palabras.size() + " TEMAS USADOS");
     }
 
 
@@ -348,6 +360,18 @@ public class Control {
 
     public static void main(String[] args) {
         Inicialización();
+        //Control.consola();
+
+        //fixed a bug where .tags would not initialize properly
+        //fixed a bug where several tags were misspelled
+        //fixed a bug where empty topic deletion during initialization didn't work
+        /**
+        Control.revisarVer();
+        Control.revisarAdj();
+        Control.revisarSus();
+        Control.revisarPal();
+        */
+
         //todo: crear Ejer.ConsolaDefinir(String tipoDePalabra, Scanner sc)
 
         //todo: Cambios se hicieron a los métodos listartemas y elejir temas. Ahora son parte de la clase Ejer.
@@ -378,10 +402,7 @@ public class Control {
         //todo: Organizar "Marcadores" en todos los diccionarios.
         //todo: Acabar de ordenar los verbos :pepeEyes:
 
-        Control.revisarVer();
-        Control.revisarAdj();
-        Control.revisarSus();
-        Control.revisarPal(); //todo: modularizar esto; agregarlo como opción buleana a inicializarX();
+        //todo: modularizar esto; agregarlo como opción buleana a inicializarX();
 
         //todo: Si a una palabra se le añade un tag que ya tine, el programa debería de echar un error.
 
@@ -402,7 +423,7 @@ public class Control {
         //todo: Checar nennen y ernennen; lassen
 
         //todo: Habrá alguna manera de modularizar la definición de los temas???
-        Control.consola();
+
 //todo: werfen y ziehen???
         //todo: agregar preterito a los verbos. Crear algún método para ver cuales verbos no tienen preterito / participio / etc.
         /*

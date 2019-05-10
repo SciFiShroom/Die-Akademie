@@ -201,7 +201,7 @@ public class Adj extends Palabra{
         dick.agregarTag("aspecto");
 
         Adj dumm = new Adj("dumm", "dümmer", "dümmsten", "tonto", Tags);
-        dumm.agregarTag("ersonalidad");
+        dumm.agregarTag("personalidad");
 
         Adj dünn = new Adj("dünn", "flaco [acaba con 'n']", Tags);
         dünn.agregarTag("aspecto");
