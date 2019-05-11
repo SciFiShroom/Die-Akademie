@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c67d7db2-f21a-48fb-b674-1a9e23769dd4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Adj.java" afterPath="$PROJECT_DIR$/src/Adj.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Palabra.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Palabra.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" />
       <change beforePath="$PROJECT_DIR$/src/Control.java" afterPath="$PROJECT_DIR$/src/Control.java" />
+      <change beforePath="$PROJECT_DIR$/src/Ejer.java" afterPath="$PROJECT_DIR$/src/Ejer.java" />
       <change beforePath="$PROJECT_DIR$/src/Pal.java" afterPath="$PROJECT_DIR$/src/Pal.java" />
       <change beforePath="$PROJECT_DIR$/src/Palabra.java" afterPath="$PROJECT_DIR$/src/Palabra.java" />
       <change beforePath="$PROJECT_DIR$/src/Sus.java" afterPath="$PROJECT_DIR$/src/Sus.java" />
+      <change beforePath="$PROJECT_DIR$/src/Ver.java" afterPath="$PROJECT_DIR$/src/Ver.java" />
       <change beforePath="$PROJECT_DIR$/src/test.java" afterPath="$PROJECT_DIR$/src/test.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -29,21 +38,16 @@
       <file leaf-file-name="Control.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Control.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="365" column="56" lean-forward="false" selection-start-line="365" selection-start-column="56" selection-end-line="365" selection-end-column="56" />
+            <state relative-caret-position="652">
+              <caret line="484" column="65" lean-forward="true" selection-start-line="484" selection-start-column="65" selection-end-line="484" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#getTema#0;class#Control#0" expanded="false" />
                 <element signature="method#getTema#0;class#Control#0" expanded="false" />
-                <element signature="method#InicializarTemas#0;class#Control#0" expanded="false" />
+                <element signature="method#TemaExiste#0;class#Control#0" expanded="false" />
                 <element signature="method#InicializarSustantivos#0;class#Control#0" expanded="false" />
-                <element signature="e#5056#5072#0" expanded="true" />
                 <element signature="method#InicializarVerbos#0;class#Control#0" expanded="false" />
-                <element signature="e#5703#5719#0" expanded="true" />
                 <element signature="method#InicializarAdjetivos#0;class#Control#0" expanded="false" />
-                <element signature="e#6243#6259#0" expanded="true" />
-                <element signature="method#InicializarPalabras#0;class#Control#0" expanded="false" />
-                <element signature="e#6799#6815#0" expanded="true" />
                 <element signature="method#clrScreen#0;class#Control#0" expanded="false" />
                 <element signature="method#scramble#0;class#Control#0" expanded="false" />
                 <element signature="method#contiene#0;class#Control#0" expanded="false" />
@@ -63,15 +67,17 @@
       <file leaf-file-name="Palabra.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Palabra.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="276">
+              <caret line="92" column="67" lean-forward="false" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;method#agregarTag#0;class#Palabra#0" expanded="false" />
+                <element signature="method#agregarTag#0;class#Palabra#0" expanded="false" />
                 <element signature="method#buscarTodo#0;class#Palabra#0" expanded="false" />
                 <element signature="method#buscarTipo#0;class#Palabra#0" expanded="false" />
                 <element signature="method#definir#0;class#Palabra#0" expanded="false" />
-                <element signature="e#4436#4437#0" expanded="true" />
-                <element signature="e#4513#4514#0" expanded="true" />
+                <element signature="e#4965#4966#0" expanded="true" />
+                <element signature="e#5042#5043#0" expanded="true" />
                 <element signature="method#TipoDePalabra#0;class#Palabra#0" expanded="false" />
                 <element signature="method#aSus#0;class#Palabra#0" expanded="false" />
                 <element signature="method#aVer#0;class#Palabra#0" expanded="false" />
@@ -81,6 +87,7 @@
                 <element signature="method#ConvertirListaAVer#0;class#Palabra#0" expanded="false" />
                 <element signature="method#ConvertirListaAAdj#0;class#Palabra#0" expanded="false" />
                 <element signature="method#ConvertirListaAPal#0;class#Palabra#0" expanded="false" />
+                <element signature="method#sanitize#0;class#Palabra#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -89,8 +96,8 @@
       <file leaf-file-name="Ejer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ejer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="545" column="133" lean-forward="false" selection-start-line="545" selection-start-column="133" selection-end-line="545" selection-end-column="133" />
+            <state relative-caret-position="1309">
+              <caret line="1224" column="78" lean-forward="false" selection-start-line="1224" selection-start-column="78" selection-end-line="1224" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ListaEjerciciosSus#0;class#Ejer#0" expanded="false" />
@@ -109,8 +116,10 @@
                 <element signature="method#PracticarAdjetivos#0;class#Ejer#0" expanded="false" />
                 <element signature="docComment;method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
                 <element signature="method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
+                <element signature="docComment;method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
                 <element signature="method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
                 <element signature="docComment;method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
+                <element signature="method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
                 <element signature="docComment;method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
                 <element signature="method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
                 <element signature="docComment;method#ejerciciosAdj#0;class#Ejer#0" expanded="false" />
@@ -125,6 +134,7 @@
                 <element signature="method#EjercicioMatching#0;class#Ejer#0" expanded="false" />
                 <element signature="docComment;method#calificar#0;class#Ejer#0" expanded="false" />
                 <element signature="method#calificar#0;class#Ejer#0" expanded="false" />
+                <element signature="docComment;method#ElejirTema#0;class#Ejer#0" expanded="false" />
                 <element signature="method#ElejirTema#0;class#Ejer#0" expanded="false" />
                 <element signature="docComment;method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
                 <element signature="method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
@@ -144,15 +154,16 @@
       <file leaf-file-name="Sus.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Sus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+            <state relative-caret-position="-1511">
+              <caret line="217" column="0" lean-forward="false" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#crearSustantivos#0;class#Sus#0" expanded="false" />
-                <element signature="e#25584#26645#0" expanded="false" />
-                <element signature="docComment;method#definir#0;class#Sus#0" expanded="false" />
+                <element signature="docComment;method#Sus#0;class#Sus#0" expanded="false" />
                 <element signature="method#definir#0;class#Sus#0" expanded="false" />
-                <marker date="1557510204836" expanded="false" signature="25302:25427" ph="{...}" />
+                <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
+                <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
+                <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
+                <marker date="1557606568019" expanded="false" signature="27574:27699" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -161,8 +172,8 @@
       <file leaf-file-name="Ver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="1312" column="2" lean-forward="false" selection-start-line="1312" selection-start-column="2" selection-end-line="1312" selection-end-column="2" />
+            <state relative-caret-position="267">
+              <caret line="852" column="52" lean-forward="true" selection-start-line="852" selection-start-column="52" selection-end-line="852" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#agregarParticipio#0;class#Ver#0" expanded="false" />
@@ -176,15 +187,13 @@
                 <element signature="method#Ver#2;class#Ver#0" expanded="false" />
                 <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
                 <element signature="method#definir#0;class#Ver#0" expanded="false" />
-                <element signature="e#52251#52493#0" expanded="false" />
                 <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
                 <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-                <element signature="e#55016#55311#0" expanded="false" />
                 <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
                 <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
                 <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
-                <marker date="1557505617986" expanded="false" signature="50833:50965" ph="{...}" />
-                <marker date="1557505617986" expanded="false" signature="55373:55639" ph="{...}" />
+                <marker date="1557595405324" expanded="false" signature="50617:50749" ph="{...}" />
+                <marker date="1557595405324" expanded="false" signature="55157:55423" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -193,7 +202,7 @@
       <file leaf-file-name="Adj.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Adj.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
+            <state relative-caret-position="2457">
               <caret line="203" column="26" lean-forward="false" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -202,9 +211,7 @@
                 <element signature="method#Adj#2;class#Adj#0" expanded="false" />
                 <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
                 <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
-                <element signature="e#11716#11977#0" expanded="false" />
                 <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
-                <element signature="e#13399#13622#0" expanded="false" />
                 <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
                 <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
                 <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
@@ -218,20 +225,18 @@
       <file leaf-file-name="Pal.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+            <state relative-caret-position="21">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Pal#0;class#Pal#0" expanded="false" />
                 <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
-                <element signature="e#7169#7428#0" expanded="false" />
-                <element signature="e#7806#8027#0" expanded="false" />
                 <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
                 <element signature="method#definir#0;class#Pal#0" expanded="false" />
                 <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
                 <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
                 <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-                <marker date="1557512239081" expanded="false" signature="7018:7154" ph="{...}" />
+                <marker date="1557572564618" expanded="false" signature="7095:7231" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -240,7 +245,7 @@
       <file leaf-file-name="Lista.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Lista.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="280">
               <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -260,9 +265,12 @@
       <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="210">
+              <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="58" />
+              <folding>
+                <element signature="e#108#109#0" expanded="true" />
+                <element signature="e#169#170#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -278,36 +286,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Lista act</find>
-      <find>actual.nombre + &quot;, &quot;</find>
-      <find>listar</find>
-      <find>listatema</find>
-      <find>sustantivo</find>
-      <find>ListaSingular</find>
-      <find>tienda</find>
-      <find>overr</find>
-      <find>nulo</find>
-      <find>public Sus</find>
-      <find>tienePrefijo</find>
-      <find>buscar</find>
-      <find>generador</find>
-      <find>agregar</find>
-      <find>ElejirPalabra</find>
-      <find>definir</find>
-      <find>defini</find>
-      <find>public Pal</find>
-      <find>public Adj</find>
-      <find>crearS</find>
-      <find>public Ver</find>
       <find>ElejirVer</find>
       <find>ElejirAdj</find>
       <find>ElejirP</find>
       <find>ElejirPal</find>
       <find>ListaTema</find>
-      <find>agregarTag</find>
-      <find>equis</find>
       <find>ersonali</find>
       <find>conjunción</find>
+      <find>cantidad</find>
+      <find>equis</find>
+      <find>Tags = new String[]{</find>
+      <find>básico</find>
+      <find>nehmen</find>
+      <find>teilnehmen</find>
+      <find>escr</find>
+      <find>trabaj</find>
+      <find>schreiben</find>
+      <find>enseñar</find>
+      <find>Comida</find>
+      <find>tienda</find>
+      <find>hören</find>
+      <find>misceláneo</find>
+      <find>expresarse</find>
+      <find>comunicación</find>
+      <find>agregarTag</find>
+      <find>NullPointerException</find>
+      <find>escritura</find>
+      <find>trabajo</find>
+      <find>equis</find>
+      <find>fruta</find>
+      <find>vegetal</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -322,13 +330,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Lista.java" />
+        <option value="$PROJECT_DIR$/src/Adj.java" />
+        <option value="$PROJECT_DIR$/src/Pal.java" />
+        <option value="$PROJECT_DIR$/src/test.java" />
+        <option value="$PROJECT_DIR$/src/Palabra.java" />
         <option value="$PROJECT_DIR$/src/Ver.java" />
         <option value="$PROJECT_DIR$/src/Ejer.java" />
         <option value="$PROJECT_DIR$/src/Sus.java" />
-        <option value="$PROJECT_DIR$/src/Palabra.java" />
-        <option value="$PROJECT_DIR$/src/test.java" />
-        <option value="$PROJECT_DIR$/src/Adj.java" />
-        <option value="$PROJECT_DIR$/src/Pal.java" />
         <option value="$PROJECT_DIR$/src/Control.java" />
       </list>
     </option>
@@ -353,9 +361,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -372,6 +377,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -545,23 +553,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.08177083" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.91822916" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.059895832" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -586,6 +593,118 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Sus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11403">
+          <caret line="543" column="38" lean-forward="false" selection-start-line="543" selection-start-column="38" selection-end-line="543" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#Sus#0;class#Sus#0" expanded="false" />
+            <element signature="method#definir#0;class#Sus#0" expanded="false" />
+            <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
+            <marker date="1557606568019" expanded="false" signature="27574:27699" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Adj.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2457">
+          <caret line="203" column="26" lean-forward="false" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Adj#0;class#Adj#0" expanded="false" />
+            <element signature="method#Adj#1;class#Adj#0" expanded="false" />
+            <element signature="method#Adj#2;class#Adj#0" expanded="false" />
+            <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
+            <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
+            <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
+            <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
+            <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
+            <marker date="1557512216355" expanded="false" signature="12038:12347" ph="{...}" />
+            <marker date="1557512216355" expanded="false" signature="13681:14221" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Pal#0;class#Pal#0" expanded="false" />
+            <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
+            <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
+            <element signature="method#definir#0;class#Pal#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
+            <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
+            <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
+            <marker date="1557572564618" expanded="false" signature="7095:7231" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lista.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Lista#0;class#Lista#0" expanded="false" />
+            <element signature="class#IteradorDeLista#0;class#Lista#0" expanded="false" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="e#1202#1203#0" expanded="true" />
+            <element signature="e#1407#1408#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="method#escojerAleatorio#0;class#Lista#0" expanded="false" />
+            <element signature="method#main#0;class#Lista#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="e#108#109#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14280">
+          <caret line="680" column="17" lean-forward="false" selection-start-line="680" selection-start-column="17" selection-end-line="680" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#agregarParticipio#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarHilfsverb#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarImperativo#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarPreterito#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarPreterito#1;class#Ver#0" expanded="false" />
+            <element signature="method#agregarImperativo#1;class#Ver#0" expanded="false" />
+            <element signature="method#Ver#0;class#Ver#0" expanded="false" />
+            <element signature="method#Ver#1;class#Ver#0" expanded="false" />
+            <element signature="method#Ver#2;class#Ver#0" expanded="false" />
+            <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
+            <element signature="method#definir#0;class#Ver#0" expanded="false" />
+            <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
+            <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
+            <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
+            <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
+            <marker date="1557595405324" expanded="false" signature="50617:50749" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="55157:55423" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Control.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -594,15 +713,10 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getTema#0;class#Control#0" expanded="false" />
             <element signature="method#getTema#0;class#Control#0" expanded="false" />
-            <element signature="method#InicializarTemas#0;class#Control#0" expanded="false" />
+            <element signature="method#TemaExiste#0;class#Control#0" expanded="false" />
             <element signature="method#InicializarSustantivos#0;class#Control#0" expanded="false" />
-            <element signature="e#5056#5072#0" expanded="true" />
             <element signature="method#InicializarVerbos#0;class#Control#0" expanded="false" />
-            <element signature="e#5703#5719#0" expanded="true" />
             <element signature="method#InicializarAdjetivos#0;class#Control#0" expanded="false" />
-            <element signature="e#6243#6259#0" expanded="true" />
-            <element signature="method#InicializarPalabras#0;class#Control#0" expanded="false" />
-            <element signature="e#6799#6815#0" expanded="true" />
             <element signature="method#clrScreen#0;class#Control#0" expanded="false" />
             <element signature="method#scramble#0;class#Control#0" expanded="false" />
             <element signature="method#contiene#0;class#Control#0" expanded="false" />
@@ -624,11 +738,13 @@
           <caret line="40" column="106" lean-forward="false" selection-start-line="40" selection-start-column="106" selection-end-line="40" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#agregarTag#0;class#Palabra#0" expanded="false" />
+            <element signature="method#agregarTag#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTodo#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTipo#0;class#Palabra#0" expanded="false" />
             <element signature="method#definir#0;class#Palabra#0" expanded="false" />
-            <element signature="e#4436#4437#0" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4965#4966#0" expanded="true" />
+            <element signature="e#5042#5043#0" expanded="true" />
             <element signature="method#TipoDePalabra#0;class#Palabra#0" expanded="false" />
             <element signature="method#aSus#0;class#Palabra#0" expanded="false" />
             <element signature="method#aVer#0;class#Palabra#0" expanded="false" />
@@ -638,6 +754,7 @@
             <element signature="method#ConvertirListaAVer#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAAdj#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAPal#0;class#Palabra#0" expanded="false" />
+            <element signature="method#sanitize#0;class#Palabra#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -664,8 +781,10 @@
             <element signature="method#PracticarAdjetivos#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
             <element signature="method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
+            <element signature="method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosAdj#0;class#Ejer#0" expanded="false" />
@@ -680,6 +799,7 @@
             <element signature="method#EjercicioMatching#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#calificar#0;class#Ejer#0" expanded="false" />
             <element signature="method#calificar#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
@@ -712,15 +832,13 @@
             <element signature="method#Ver#2;class#Ver#0" expanded="false" />
             <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
             <element signature="method#definir#0;class#Ver#0" expanded="false" />
-            <element signature="e#52251#52493#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-            <element signature="e#55016#55311#0" expanded="false" />
             <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
-            <marker date="1557505617986" expanded="false" signature="50833:50965" ph="{...}" />
-            <marker date="1557505617986" expanded="false" signature="55373:55639" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="50617:50749" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="55157:55423" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -731,11 +849,12 @@
           <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#crearSustantivos#0;class#Sus#0" expanded="false" />
-            <element signature="e#25584#26645#0" expanded="false" />
-            <element signature="docComment;method#definir#0;class#Sus#0" expanded="false" />
+            <element signature="docComment;method#Sus#0;class#Sus#0" expanded="false" />
             <element signature="method#definir#0;class#Sus#0" expanded="false" />
-            <marker date="1557510204836" expanded="false" signature="25302:25427" ph="{...}" />
+            <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
+            <marker date="1557606568019" expanded="false" signature="27574:27699" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -751,9 +870,7 @@
             <element signature="method#Adj#2;class#Adj#0" expanded="false" />
             <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
             <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
-            <element signature="e#11716#11977#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
-            <element signature="e#13399#13622#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
@@ -785,7 +902,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#108#109#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,14 +917,12 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Pal#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
-            <element signature="e#7169#7428#0" expanded="false" />
-            <element signature="e#7806#8027#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-            <marker date="1557512239081" expanded="false" signature="7018:7154" ph="{...}" />
+            <marker date="1557572564618" expanded="false" signature="7095:7231" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -817,15 +935,10 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getTema#0;class#Control#0" expanded="false" />
             <element signature="method#getTema#0;class#Control#0" expanded="false" />
-            <element signature="method#InicializarTemas#0;class#Control#0" expanded="false" />
+            <element signature="method#TemaExiste#0;class#Control#0" expanded="false" />
             <element signature="method#InicializarSustantivos#0;class#Control#0" expanded="false" />
-            <element signature="e#5056#5072#0" expanded="true" />
             <element signature="method#InicializarVerbos#0;class#Control#0" expanded="false" />
-            <element signature="e#5703#5719#0" expanded="true" />
             <element signature="method#InicializarAdjetivos#0;class#Control#0" expanded="false" />
-            <element signature="e#6243#6259#0" expanded="true" />
-            <element signature="method#InicializarPalabras#0;class#Control#0" expanded="false" />
-            <element signature="e#6799#6815#0" expanded="true" />
             <element signature="method#clrScreen#0;class#Control#0" expanded="false" />
             <element signature="method#scramble#0;class#Control#0" expanded="false" />
             <element signature="method#contiene#0;class#Control#0" expanded="false" />
@@ -847,11 +960,13 @@
           <caret line="40" column="106" lean-forward="false" selection-start-line="40" selection-start-column="106" selection-end-line="40" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#agregarTag#0;class#Palabra#0" expanded="false" />
+            <element signature="method#agregarTag#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTodo#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTipo#0;class#Palabra#0" expanded="false" />
             <element signature="method#definir#0;class#Palabra#0" expanded="false" />
-            <element signature="e#4436#4437#0" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4965#4966#0" expanded="true" />
+            <element signature="e#5042#5043#0" expanded="true" />
             <element signature="method#TipoDePalabra#0;class#Palabra#0" expanded="false" />
             <element signature="method#aSus#0;class#Palabra#0" expanded="false" />
             <element signature="method#aVer#0;class#Palabra#0" expanded="false" />
@@ -861,6 +976,7 @@
             <element signature="method#ConvertirListaAVer#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAAdj#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAPal#0;class#Palabra#0" expanded="false" />
+            <element signature="method#sanitize#0;class#Palabra#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -887,8 +1003,10 @@
             <element signature="method#PracticarAdjetivos#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
             <element signature="method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
+            <element signature="method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosAdj#0;class#Ejer#0" expanded="false" />
@@ -903,6 +1021,7 @@
             <element signature="method#EjercicioMatching#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#calificar#0;class#Ejer#0" expanded="false" />
             <element signature="method#calificar#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
@@ -924,11 +1043,12 @@
           <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#crearSustantivos#0;class#Sus#0" expanded="false" />
-            <element signature="e#25584#26645#0" expanded="false" />
-            <element signature="docComment;method#definir#0;class#Sus#0" expanded="false" />
+            <element signature="docComment;method#Sus#0;class#Sus#0" expanded="false" />
             <element signature="method#definir#0;class#Sus#0" expanded="false" />
-            <marker date="1557510204836" expanded="false" signature="25302:25427" ph="{...}" />
+            <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
+            <marker date="1557606568019" expanded="false" signature="27574:27699" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -950,15 +1070,13 @@
             <element signature="method#Ver#2;class#Ver#0" expanded="false" />
             <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
             <element signature="method#definir#0;class#Ver#0" expanded="false" />
-            <element signature="e#52251#52493#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-            <element signature="e#55016#55311#0" expanded="false" />
             <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
-            <marker date="1557505617986" expanded="false" signature="50833:50965" ph="{...}" />
-            <marker date="1557505617986" expanded="false" signature="55373:55639" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="50617:50749" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="55157:55423" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -974,9 +1092,7 @@
             <element signature="method#Adj#2;class#Adj#0" expanded="false" />
             <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
             <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
-            <element signature="e#11716#11977#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
-            <element signature="e#13399#13622#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
@@ -1008,7 +1124,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#108#109#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1020,14 +1139,12 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Pal#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
-            <element signature="e#7169#7428#0" expanded="false" />
-            <element signature="e#7806#8027#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-            <marker date="1557512239081" expanded="false" signature="7018:7154" ph="{...}" />
+            <marker date="1557572564618" expanded="false" signature="7095:7231" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1040,15 +1157,10 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getTema#0;class#Control#0" expanded="false" />
             <element signature="method#getTema#0;class#Control#0" expanded="false" />
-            <element signature="method#InicializarTemas#0;class#Control#0" expanded="false" />
+            <element signature="method#TemaExiste#0;class#Control#0" expanded="false" />
             <element signature="method#InicializarSustantivos#0;class#Control#0" expanded="false" />
-            <element signature="e#5056#5072#0" expanded="true" />
             <element signature="method#InicializarVerbos#0;class#Control#0" expanded="false" />
-            <element signature="e#5703#5719#0" expanded="true" />
             <element signature="method#InicializarAdjetivos#0;class#Control#0" expanded="false" />
-            <element signature="e#6243#6259#0" expanded="true" />
-            <element signature="method#InicializarPalabras#0;class#Control#0" expanded="false" />
-            <element signature="e#6799#6815#0" expanded="true" />
             <element signature="method#clrScreen#0;class#Control#0" expanded="false" />
             <element signature="method#scramble#0;class#Control#0" expanded="false" />
             <element signature="method#contiene#0;class#Control#0" expanded="false" />
@@ -1070,11 +1182,13 @@
           <caret line="49" column="64" lean-forward="true" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#agregarTag#0;class#Palabra#0" expanded="false" />
+            <element signature="method#agregarTag#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTodo#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTipo#0;class#Palabra#0" expanded="false" />
             <element signature="method#definir#0;class#Palabra#0" expanded="false" />
-            <element signature="e#4436#4437#0" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4965#4966#0" expanded="true" />
+            <element signature="e#5042#5043#0" expanded="true" />
             <element signature="method#TipoDePalabra#0;class#Palabra#0" expanded="false" />
             <element signature="method#aSus#0;class#Palabra#0" expanded="false" />
             <element signature="method#aVer#0;class#Palabra#0" expanded="false" />
@@ -1084,6 +1198,7 @@
             <element signature="method#ConvertirListaAVer#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAAdj#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAPal#0;class#Palabra#0" expanded="false" />
+            <element signature="method#sanitize#0;class#Palabra#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1110,8 +1225,10 @@
             <element signature="method#PracticarAdjetivos#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
             <element signature="method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
+            <element signature="method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosAdj#0;class#Ejer#0" expanded="false" />
@@ -1126,6 +1243,7 @@
             <element signature="method#EjercicioMatching#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#calificar#0;class#Ejer#0" expanded="false" />
             <element signature="method#calificar#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
@@ -1147,11 +1265,12 @@
           <caret line="59" column="59" lean-forward="false" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#crearSustantivos#0;class#Sus#0" expanded="false" />
-            <element signature="e#25584#26645#0" expanded="false" />
-            <element signature="docComment;method#definir#0;class#Sus#0" expanded="false" />
+            <element signature="docComment;method#Sus#0;class#Sus#0" expanded="false" />
             <element signature="method#definir#0;class#Sus#0" expanded="false" />
-            <marker date="1557510204836" expanded="false" signature="25302:25427" ph="{...}" />
+            <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
+            <marker date="1557606568019" expanded="false" signature="27574:27699" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1173,15 +1292,13 @@
             <element signature="method#Ver#2;class#Ver#0" expanded="false" />
             <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
             <element signature="method#definir#0;class#Ver#0" expanded="false" />
-            <element signature="e#52251#52493#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-            <element signature="e#55016#55311#0" expanded="false" />
             <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
-            <marker date="1557505617986" expanded="false" signature="50833:50965" ph="{...}" />
-            <marker date="1557505617986" expanded="false" signature="55373:55639" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="50617:50749" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="55157:55423" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1194,14 +1311,12 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Pal#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
-            <element signature="e#7169#7428#0" expanded="false" />
-            <element signature="e#7806#8027#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-            <marker date="1557512239081" expanded="false" signature="7018:7154" ph="{...}" />
+            <marker date="1557572564618" expanded="false" signature="7095:7231" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1228,7 +1343,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#108#109#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1243,9 +1361,7 @@
             <element signature="method#Adj#2;class#Adj#0" expanded="false" />
             <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
             <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
-            <element signature="e#11716#11977#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
-            <element signature="e#13399#13622#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
@@ -1263,15 +1379,10 @@
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getTema#0;class#Control#0" expanded="false" />
             <element signature="method#getTema#0;class#Control#0" expanded="false" />
-            <element signature="method#InicializarTemas#0;class#Control#0" expanded="false" />
+            <element signature="method#TemaExiste#0;class#Control#0" expanded="false" />
             <element signature="method#InicializarSustantivos#0;class#Control#0" expanded="false" />
-            <element signature="e#5056#5072#0" expanded="true" />
             <element signature="method#InicializarVerbos#0;class#Control#0" expanded="false" />
-            <element signature="e#5703#5719#0" expanded="true" />
             <element signature="method#InicializarAdjetivos#0;class#Control#0" expanded="false" />
-            <element signature="e#6243#6259#0" expanded="true" />
-            <element signature="method#InicializarPalabras#0;class#Control#0" expanded="false" />
-            <element signature="e#6799#6815#0" expanded="true" />
             <element signature="method#clrScreen#0;class#Control#0" expanded="false" />
             <element signature="method#scramble#0;class#Control#0" expanded="false" />
             <element signature="method#contiene#0;class#Control#0" expanded="false" />
@@ -1293,11 +1404,13 @@
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#agregarTag#0;class#Palabra#0" expanded="false" />
+            <element signature="method#agregarTag#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTodo#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTipo#0;class#Palabra#0" expanded="false" />
             <element signature="method#definir#0;class#Palabra#0" expanded="false" />
-            <element signature="e#4436#4437#0" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4965#4966#0" expanded="true" />
+            <element signature="e#5042#5043#0" expanded="true" />
             <element signature="method#TipoDePalabra#0;class#Palabra#0" expanded="false" />
             <element signature="method#aSus#0;class#Palabra#0" expanded="false" />
             <element signature="method#aVer#0;class#Palabra#0" expanded="false" />
@@ -1307,6 +1420,7 @@
             <element signature="method#ConvertirListaAVer#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAAdj#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAPal#0;class#Palabra#0" expanded="false" />
+            <element signature="method#sanitize#0;class#Palabra#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1333,8 +1447,10 @@
             <element signature="method#PracticarAdjetivos#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
             <element signature="method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
+            <element signature="method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosAdj#0;class#Ejer#0" expanded="false" />
@@ -1349,6 +1465,7 @@
             <element signature="method#EjercicioMatching#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#calificar#0;class#Ejer#0" expanded="false" />
             <element signature="method#calificar#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
@@ -1381,15 +1498,13 @@
             <element signature="method#Ver#2;class#Ver#0" expanded="false" />
             <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
             <element signature="method#definir#0;class#Ver#0" expanded="false" />
-            <element signature="e#52251#52493#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-            <element signature="e#55016#55311#0" expanded="false" />
             <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
             <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
-            <marker date="1557505617986" expanded="false" signature="50833:50965" ph="{...}" />
-            <marker date="1557505617986" expanded="false" signature="55373:55639" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="50617:50749" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="55157:55423" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1400,11 +1515,12 @@
           <caret line="904" column="30" lean-forward="true" selection-start-line="904" selection-start-column="30" selection-end-line="904" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#crearSustantivos#0;class#Sus#0" expanded="false" />
-            <element signature="e#25584#26645#0" expanded="false" />
-            <element signature="docComment;method#definir#0;class#Sus#0" expanded="false" />
+            <element signature="docComment;method#Sus#0;class#Sus#0" expanded="false" />
             <element signature="method#definir#0;class#Sus#0" expanded="false" />
-            <marker date="1557510204836" expanded="false" signature="25302:25427" ph="{...}" />
+            <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
+            <marker date="1557606568019" expanded="false" signature="27574:27699" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1420,9 +1536,7 @@
             <element signature="method#Adj#2;class#Adj#0" expanded="false" />
             <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
             <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
-            <element signature="e#11716#11977#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
-            <element signature="e#13399#13622#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
@@ -1440,14 +1554,12 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Pal#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
-            <element signature="e#7169#7428#0" expanded="false" />
-            <element signature="e#7806#8027#0" expanded="false" />
             <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#definir#0;class#Pal#0" expanded="false" />
             <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
             <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
             <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-            <marker date="1557512239081" expanded="false" signature="7018:7154" ph="{...}" />
+            <marker date="1557572564618" expanded="false" signature="7095:7231" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1474,62 +1586,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="1312" column="2" lean-forward="false" selection-start-line="1312" selection-start-column="2" selection-end-line="1312" selection-end-column="2" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#agregarParticipio#0;class#Ver#0" expanded="false" />
-            <element signature="method#agregarHilfsverb#0;class#Ver#0" expanded="false" />
-            <element signature="method#agregarImperativo#0;class#Ver#0" expanded="false" />
-            <element signature="method#agregarPreterito#0;class#Ver#0" expanded="false" />
-            <element signature="method#agregarPreterito#1;class#Ver#0" expanded="false" />
-            <element signature="method#agregarImperativo#1;class#Ver#0" expanded="false" />
-            <element signature="method#Ver#0;class#Ver#0" expanded="false" />
-            <element signature="method#Ver#1;class#Ver#0" expanded="false" />
-            <element signature="method#Ver#2;class#Ver#0" expanded="false" />
-            <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
-            <element signature="method#definir#0;class#Ver#0" expanded="false" />
-            <element signature="e#52251#52493#0" expanded="false" />
-            <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-            <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-            <element signature="e#55016#55311#0" expanded="false" />
-            <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
-            <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
-            <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
-            <marker date="1557505617986" expanded="false" signature="50833:50965" ph="{...}" />
-            <marker date="1557505617986" expanded="false" signature="55373:55639" ph="{...}" />
+            <element signature="e#108#109#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Lista.java">
+    <entry file="file://$PROJECT_DIR$/src/Adj.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        <state relative-caret-position="2457">
+          <caret line="203" column="26" lean-forward="false" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Lista#0;class#Lista#0" expanded="false" />
-            <element signature="class#IteradorDeLista#0;class#Lista#0" expanded="false" />
-            <element signature="e#1147#1148#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-            <element signature="e#1407#1408#0" expanded="true" />
-            <element signature="e#1498#1499#0" expanded="true" />
-            <element signature="method#escojerAleatorio#0;class#Lista#0" expanded="false" />
-            <element signature="method#main#0;class#Lista#0" expanded="false" />
+            <element signature="method#Adj#0;class#Adj#0" expanded="false" />
+            <element signature="method#Adj#1;class#Adj#0" expanded="false" />
+            <element signature="method#Adj#2;class#Adj#0" expanded="false" />
+            <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
+            <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
+            <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
+            <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
+            <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
+            <marker date="1557512216355" expanded="false" signature="12038:12347" ph="{...}" />
+            <marker date="1557512216355" expanded="false" signature="13681:14221" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="e#108#109#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Pal#0;class#Pal#0" expanded="false" />
+            <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
+            <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
+            <element signature="method#definir#0;class#Pal#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
+            <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
+            <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
+            <marker date="1557572564618" expanded="false" signature="7095:7231" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ejer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="545" column="133" lean-forward="false" selection-start-line="545" selection-start-column="133" selection-end-line="545" selection-end-column="133" />
+        <state relative-caret-position="1309">
+          <caret line="1224" column="78" lean-forward="false" selection-start-line="1224" selection-start-column="78" selection-end-line="1224" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#ListaEjerciciosSus#0;class#Ejer#0" expanded="false" />
@@ -1548,8 +1665,10 @@
             <element signature="method#PracticarAdjetivos#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
             <element signature="method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
+            <element signature="method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ejerciciosAdj#0;class#Ejer#0" expanded="false" />
@@ -1564,6 +1683,7 @@
             <element signature="method#EjercicioMatching#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#calificar#0;class#Ejer#0" expanded="false" />
             <element signature="method#calificar#0;class#Ejer#0" expanded="false" />
+            <element signature="docComment;method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirTema#0;class#Ejer#0" expanded="false" />
             <element signature="docComment;method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
             <element signature="method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
@@ -1579,17 +1699,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Palabra.java">
+    <entry file="file://$PROJECT_DIR$/src/Lista.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="280">
+          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Lista#0;class#Lista#0" expanded="false" />
+            <element signature="class#IteradorDeLista#0;class#Lista#0" expanded="false" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="e#1202#1203#0" expanded="true" />
+            <element signature="e#1407#1408#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="method#escojerAleatorio#0;class#Lista#0" expanded="false" />
+            <element signature="method#main#0;class#Lista#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="852" column="52" lean-forward="true" selection-start-line="852" selection-start-column="52" selection-end-line="852" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#agregarParticipio#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarHilfsverb#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarImperativo#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarPreterito#0;class#Ver#0" expanded="false" />
+            <element signature="method#agregarPreterito#1;class#Ver#0" expanded="false" />
+            <element signature="method#agregarImperativo#1;class#Ver#0" expanded="false" />
+            <element signature="method#Ver#0;class#Ver#0" expanded="false" />
+            <element signature="method#Ver#1;class#Ver#0" expanded="false" />
+            <element signature="method#Ver#2;class#Ver#0" expanded="false" />
+            <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
+            <element signature="method#definir#0;class#Ver#0" expanded="false" />
+            <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
+            <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
+            <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
+            <element signature="method#OrganizacióndeTags#0;class#Ver#0" expanded="false" />
+            <marker date="1557595405324" expanded="false" signature="50617:50749" ph="{...}" />
+            <marker date="1557595405324" expanded="false" signature="55157:55423" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Palabra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="92" column="67" lean-forward="false" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#agregarTag#0;class#Palabra#0" expanded="false" />
+            <element signature="method#agregarTag#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTodo#0;class#Palabra#0" expanded="false" />
             <element signature="method#buscarTipo#0;class#Palabra#0" expanded="false" />
             <element signature="method#definir#0;class#Palabra#0" expanded="false" />
-            <element signature="e#4436#4437#0" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4965#4966#0" expanded="true" />
+            <element signature="e#5042#5043#0" expanded="true" />
             <element signature="method#TipoDePalabra#0;class#Palabra#0" expanded="false" />
             <element signature="method#aSus#0;class#Palabra#0" expanded="false" />
             <element signature="method#aVer#0;class#Palabra#0" expanded="false" />
@@ -1599,93 +1767,39 @@
             <element signature="method#ConvertirListaAVer#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAAdj#0;class#Palabra#0" expanded="false" />
             <element signature="method#ConvertirListaAPal#0;class#Palabra#0" expanded="false" />
+            <element signature="method#sanitize#0;class#Palabra#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+        <state relative-caret-position="-1511">
+          <caret line="217" column="0" lean-forward="false" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#crearSustantivos#0;class#Sus#0" expanded="false" />
-            <element signature="e#25584#26645#0" expanded="false" />
-            <element signature="docComment;method#definir#0;class#Sus#0" expanded="false" />
+            <element signature="docComment;method#Sus#0;class#Sus#0" expanded="false" />
             <element signature="method#definir#0;class#Sus#0" expanded="false" />
-            <marker date="1557510204836" expanded="false" signature="25302:25427" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Adj.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="203" column="26" lean-forward="false" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Adj#0;class#Adj#0" expanded="false" />
-            <element signature="method#Adj#1;class#Adj#0" expanded="false" />
-            <element signature="method#Adj#2;class#Adj#0" expanded="false" />
-            <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
-            <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
-            <element signature="e#11716#11977#0" expanded="false" />
-            <element signature="method#imprimirListaChido#0;class#Adj#0" expanded="false" />
-            <element signature="e#13399#13622#0" expanded="false" />
-            <element signature="docComment;method#definir#0;class#Adj#0" expanded="false" />
-            <element signature="docComment;method#escojerAleatorio#0;class#Adj#0" expanded="false" />
-            <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
-            <marker date="1557512216355" expanded="false" signature="12038:12347" ph="{...}" />
-            <marker date="1557512216355" expanded="false" signature="13681:14221" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Pal#0;class#Pal#0" expanded="false" />
-            <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
-            <element signature="e#7169#7428#0" expanded="false" />
-            <element signature="e#7806#8027#0" expanded="false" />
-            <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
-            <element signature="method#definir#0;class#Pal#0" expanded="false" />
-            <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
-            <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-            <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-            <marker date="1557512239081" expanded="false" signature="7018:7154" ph="{...}" />
+            <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
+            <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
+            <marker date="1557606568019" expanded="false" signature="27574:27699" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Control.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="365" column="56" lean-forward="false" selection-start-line="365" selection-start-column="56" selection-end-line="365" selection-end-column="56" />
+        <state relative-caret-position="652">
+          <caret line="484" column="65" lean-forward="true" selection-start-line="484" selection-start-column="65" selection-end-line="484" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getTema#0;class#Control#0" expanded="false" />
             <element signature="method#getTema#0;class#Control#0" expanded="false" />
-            <element signature="method#InicializarTemas#0;class#Control#0" expanded="false" />
+            <element signature="method#TemaExiste#0;class#Control#0" expanded="false" />
             <element signature="method#InicializarSustantivos#0;class#Control#0" expanded="false" />
-            <element signature="e#5056#5072#0" expanded="true" />
             <element signature="method#InicializarVerbos#0;class#Control#0" expanded="false" />
-            <element signature="e#5703#5719#0" expanded="true" />
             <element signature="method#InicializarAdjetivos#0;class#Control#0" expanded="false" />
-            <element signature="e#6243#6259#0" expanded="true" />
-            <element signature="method#InicializarPalabras#0;class#Control#0" expanded="false" />
-            <element signature="e#6799#6815#0" expanded="true" />
             <element signature="method#clrScreen#0;class#Control#0" expanded="false" />
             <element signature="method#scramble#0;class#Control#0" expanded="false" />
             <element signature="method#contiene#0;class#Control#0" expanded="false" />

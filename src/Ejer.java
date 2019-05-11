@@ -434,23 +434,33 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     //Consola que te deja elejir una cantidad de ejercicios/preguntas dado un ArrayList<E>
     //Contiene un desface de 1, dado que el tamaño total de la lista inclye la palabra nula al comienzo, cuya no se utiliza.
 
+    /**
+     * Consola que te deja elejir una cantidad de algo, dado un tamaño máximo.
+     * @param tamañoTotal el número máximo que se puede elejir (inclusivo)
+     * @param mensaje Un mensaje que se dirá al principio y que se repetirá hasta que se elija una cantidad viable
+     * @param sc el scanner
+     * @return La cantidad como un int
+     * @throws SecurityException si se dice 'cerrar'.
+     */
     public static int ElejirCantidad (int tamañoTotal, String mensaje, Scanner sc) {
 
         int número;
         while (true) {
             System.out.println(mensaje);
             String intento = sc.nextLine();
+            if (intento.equals("cerrar")) {throw new SecurityException("Cerrando aplicación"); }
+
             try {
                 número = Integer.parseInt(intento); //Procesa input del usuario. Regresa un entero funcional.
                 if (número < 1) {
                     System.out.println("El número " + número + " es demasiado chico. ");
                     continue;
-                } else if (número > tamañoTotal-1) {
+                } else if (número > tamañoTotal) {
                     System.out.println("El número " + número + " es demasiado grande. ");
                     continue;
                 } // Aquí sabemos que el número si es valido para el ejercicio.
             } catch (NumberFormatException e) { //Oye, eso no es un numero...
-                System.out.println("'" + intento + "' no es un número válido. ");
+                System.out.println("'" + intento + "' no es un número válido. Diga 'cerrar' para cerrar la consola");
                 continue;
             }
             break;
@@ -478,16 +488,20 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         try {
             //tema = Sus.ElejirTema(sc); //Echa un error si no funciona.
             tema = Ejer.ElejirTema("Sus", sc);
-        } catch (NullPointerException e){
-            return; //Ya dice que se acabo...
+        } catch (SecurityException e){
+            return; //usuario dijo 'cerrar'
         }
 
 
         ArrayList<Sus> listaDeSustantivosTema = Palabra.ConvertirListaASus(Control.getTema(tema, Sus.Sus).lista); //La lista de sustantivos del tema
 
-        //int número = Sus.ElejirCantidad(listaDeSustantivosTema, sc); //La cantidad de sustantivos que se practicarán.
-        int número = Ejer.ElejirCantidad(listaDeSustantivosTema.size(), "¿Cuántos deséa practicar?", sc);
-
+        System.out.println("Hay " + listaDeSustantivosTema.size() + " sustantivos en el tema '" + tema + "'. ");
+        int número = -1;
+        try {
+            número = Ejer.ElejirCantidad(listaDeSustantivosTema.size(), "¿Cuántos deséa practicar?", sc);
+        } catch (SecurityException e) {
+            return; //Dijo 'cerrar'
+        }
 
         ArrayList<Sus> listaSustantivos = Sus.escojerAleatorio(listaDeSustantivosTema, número);
         //Ahora la lista tiene sustantivos aleatorios del tema elejido, sin dobles, y sin errores :LUL:
@@ -1156,8 +1170,15 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     }
 
 
-    //Consola que te deja elejir un tema de la lista de temas de una palabra general.
-    //Echa NullPointerException si el usuario dice 'cerrar'
+
+    //GENERAL
+    /**
+     * Consola que te deja elejir un tema de los usados por algún tipo de palabra.
+     * @param tipoDePalabra el tipo de palabra
+     * @param sc el Scanner
+     * @return un String con el tema elejido
+     * @throws SecurityException si se dice 'cerrar'
+     */
     public static String ElejirTema(String tipoDePalabra, Scanner sc) {
         Palabra.sanitize(tipoDePalabra);
 
@@ -1166,7 +1187,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             System.out.println("Favor de elejir un tema: ");
             String intento = sc.nextLine();
 
-            switch (intento) {
+            switch (intento) { //detecta casos especiales
                 case "listar temas":
                     switch (tipoDePalabra) {
                         case "Sus": for(Lista actual : Control.Sustantivos) {System.out.print(actual.nombre + ", ");} break;
@@ -1174,37 +1195,21 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                         case "Adj": for(Lista actual : Control.Adjetivos) {System.out.print(actual.nombre + ", ");} break;
                         case "Pal": for(Lista actual : Control.Palabras) {System.out.print(actual.nombre + ", ");} break;
                     }
+                    System.out.println();
                     continue;
                 case "cerrar":
-                    throw new NullPointerException("Ejercicio cerrado");
+                    throw new SecurityException("Ejercicio cerrado");
             } //Solo hay dos inputs raros que pueden ocurrir aqui.
 
-            try {
-                /**
-                int tamaño = 0;
-                switch (tipoDePalabra) {
-                    case "Sus": tamaño = Sus.ListaTema(intento).size(); break;
-                    case "Ver": tamaño = Ver.ListaTema(intento).size(); break;
-                    case "Adj": tamaño = Adj.ListaTema(intento).size(); break;
-                    case "Pal": tamaño = Pal.ListaTema(intento).size(); break;
-                }//Qué hemos hecho aquí? x.ListaTema echa un error NullPointerException si el tema que le das no existe.
-                //Queremos encontrar un tema que si exista, obi. PERO también necesitamos asegurarnos de que no sea un tema vasio,
-                //porue esta lista se usará en un ejercicio y no podemos dar el examen si no hay palabras.
-                //Osea que: Si tamaño = ... echa error, quiere decir que intento no existe. Pero si tamaño < 2, quiere decir
-                //que es un tema vasio, que tampoco nos sirve.
 
-                if (tamaño <= 1) {throw new NumberFormatException("Error: Esta lista está vasia.");}
-                */
-                tema = intento; //Le dice al programa que si funcionó. Si no existe, se saldrá arribita.
-            } catch (NumberFormatException e) {
-                System.out.println(e.getLocalizedMessage());
-                continue;
-            }catch (NullPointerException e) {
+            if (Control.TemaExiste(intento, tipoDePalabra)) {
+                tema = intento; //Regresa el tema
+                break;
+            } else { //te dice que vielvas a intentar
                 System.out.print("El tema '" + intento + "' no se encuentra. Diga 'listar temas' para ver los temas.");
                 System.out.println(" Diga 'cerrar' para cerrar el ejercicio. ");
                 continue;
             }
-            break;
         }
         return tema;
     }
@@ -1212,7 +1217,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
     /**
      * Consola que te deja elejir una palabra de un tipo especificado.
-     * Echa NullPointerException si se cierra. Sabe que hacer si hay más de un resultado
+     * @throws NullPointerException si se cierra. Sabe que hacer si hay más de un resultado
      * @param tipoDePalabra el tipo de palabra.
      * @param sc el scanner
      * @return la palabra elejida.

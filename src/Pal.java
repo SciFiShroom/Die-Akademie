@@ -36,6 +36,10 @@ public class Pal extends Palabra{
     public String getSignificado() {return this.significado;}
 
 
+    //todo: Noch ein paar,
+    //todo: einigen?
+    //todo: jedoch = aunque
+
 
     /**Créa todas las palabras.
      *

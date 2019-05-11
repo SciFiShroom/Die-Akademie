@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
 public class Control {
 
     //NumberFormatExceptio = hice algo mal y el yo del pasado me lo está diciendo
@@ -50,27 +51,65 @@ public class Control {
     }
 
 
+    public static boolean TemaExiste(String tema, String tipoDePalabra) {
+        Palabra.sanitize(tipoDePalabra);
+
+
+        switch (tipoDePalabra) {
+            case Sus.Sus:
+                for (Lista actual : Control.Sustantivos) {
+                    if (actual.getNombre().equals(tema)) { return true; }
+                }
+                break;
+
+            case Ver.Ver:
+                for (Lista actual : Control.Verbos) {
+                    if (actual.getNombre().equals(tema)) { return true; }
+                }
+                break;
+
+            case Adj.Adj:
+                for (Lista actual : Control.Adjetivos) {
+                    if (actual.getNombre().equals(tema)) { return true; }
+                }
+                break;
+
+            case Pal.Pal:
+                for (Lista actual : Control.Sustantivos) {
+                    if (actual.getNombre().equals(tema)) { return true; }
+                }
+                break;
+        }
+
+        return false;
+    }
+
 
     //inicializa los temas de tödo el programa
-    public static void InicializarTemas() {
+    public static int InicializarTemas() {
         String[] Temas = {
-                "comida", "fruta", "vegetal", "país", "ciudades",
+                "comida", "fruta", "verdura", "país", "ciudades",
                 "capital", "test", "cuerpo", "letras", "tiempo",
                 "clima", "día", "año", "figuras", "ropa",
                 "escuela", "tecnología", "casa", "mueble", "médico",
                 "ciudad", "medidas", "transporte", "espcias", "cocina",
-                "bebidas", "materiales",
+                "bebida", "materiales", "trabajo", "platillo",
 
                 "moverse", "básico", "modal",
                 "menos_básico", "misceláneo",
-                "expresarse", "vista", "tienda", "auxiliar",
-                "objeto", "mente",
+                "comunicación", "vista", "tienda", "auxiliar",
+                "objeto", "mente", "escritura",
 
                 "color", "aspecto", "personalidad",
 
                 "conjunciones", "interrogativos", "pronombres", "preposiciones", "acusativo",
                 "dativo", "wechsel"
         };
+        int num = Temas.length;
+
+        Arrays.sort(Temas); //opcional pero mejor para el usuario
+        //System.out.println("TEMAS: " + Arrays.toString(Temas));
+
 
         //Nos aseguramos de que no haya entradas dobles.
         for (int i = 0; i < Temas.length; i++) {
@@ -100,11 +139,15 @@ public class Control {
         Control.Verbos = listaDeVerbos;
         Control.Adjetivos = listaDeAdjetivos;
         Control.Palabras = listaDePals;
+
+        return num;
     }
 
 
     // Ejecuta la inicialización de los sustantivos. Créa la lista de temas, cuyas tienen los sustantivos.
     public static void InicializarSustantivos() {
+        //long comienzo = System.nanoTime();
+
         Sus.crearSustantivos(); //esto crea todos los sustantivos, y se meten automáticamente a la lista Control.Sustantivos y Control.SustantivosListaSingular.
 
         //Hay que quitar las listas de los temas vacíos.
@@ -114,7 +157,12 @@ public class Control {
         }
         Control.Sustantivos = ListasNoVacías;
 
-        System.out.println("SUSTANTIVOS: " + Control.SustantivosListaSingular.size() + " SUSTANTIVOS CREADOS, " + Control.Sustantivos.size() + " TEMAS USADOS");
+
+        //long fin = System.nanoTime();
+        //double duración = ((double)fin - comienzo)/1000000;
+
+        System.out.println("SUSTANTIVOS: " + Control.SustantivosListaSingular.size() + " sustantivos creados, " + Control.Sustantivos.size() + " temas utilizados. ");
+        //System.out.println("")
     }
     public static void InicializarVerbos() {
         Ver.crearVerbos(); //Crea y organiza todos los verbos en Control.Verbos Y Control.VerbosListaSingular
@@ -126,7 +174,7 @@ public class Control {
         }
         Control.Verbos = ListasNoVacías;
 
-        System.out.println("VERBOS: " + Control.VerbosListaSingular.size() + " VERBOS CREADOS, " + Control.Verbos.size() + " TEMAS USADOS");
+        System.out.println("VERBOS: " + Control.VerbosListaSingular.size() + " verbos creados, " + Control.Verbos.size() + " temas utilizados");
     }
     public static void InicializarAdjetivos() {
         Adj.crearAdjetivos();
@@ -138,7 +186,7 @@ public class Control {
         }
         Control.Adjetivos = ListasNoVacías;
 
-        System.out.println("ADJETIVOS: " + Control.AdjetivosListaSingular.size() + " ADJETIVOS CREADOS, " + Control.Adjetivos.size() + " TEMAS USADOS");
+        System.out.println("ADJETIVOS: " + Control.AdjetivosListaSingular.size() + " adjetivos creados, " + Control.Adjetivos.size() + " temas utilizados");
     }
     public static void InicializarPalabras() {
         Pal.crearPalabras();
@@ -150,7 +198,7 @@ public class Control {
         }
         Control.Palabras = ListasNoVacías;
 
-        System.out.println("PALABRAS: " + Control.PalabrasListaSingular.size() + " PALABRAS CREADAS, " + Control.Palabras.size() + " TEMAS USADOS");
+        System.out.println("PALABRAS: " + Control.PalabrasListaSingular.size() + " palabras creadas, " + Control.Palabras.size() + " temas utilizados");
     }
 
 
@@ -248,12 +296,14 @@ public class Control {
     public static void revisarVer(){
         ArrayList<String> listaSignificados = new ArrayList<String>();
         for (Palabra actual : Control.VerbosListaSingular) {
+            //Revisión de significados:
             if (listaSignificados.contains(actual.getSignificado())) {
                 System.out.println("El significado " + actual.getSignificado() + " es repetido. " + actual.getNombre());
             } else {
                 listaSignificados.add(actual.getSignificado());
             }
 
+            //Varios verbos no tendrán tödo. Aquí se veran todos los casos.
             if (actual instanceof Ver) {
                 Ver verActual = (Ver) actual;
                 if (verActual.presente == null) {System.out.println("El verbo '" + verActual.verbo+ "' no tiene presente. ");}
@@ -261,6 +311,9 @@ public class Control {
                 if (verActual.imperativo == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene imperativo. ");}
                 if (verActual.preterito == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene preterito. ");}
             }
+
+            //Ningún verbo debería de tener parámetros escritos con mayúsculas
+            //pero no creo que esto importe tanto.
         }
     }
     public static void revisarAdj(){
@@ -277,11 +330,30 @@ public class Control {
     public static void revisarSus(){
         ArrayList<String> listaSignificados = new ArrayList<String>();
         for (Palabra actual : Control.SustantivosListaSingular) {
+            Sus susActual = actual.aSus();
+
+            //Revisión de parámetros: A ningún sustantivo le debería de faltar algo.
+            if (susActual.plural == null) {System.out.println("El sustantivo '" + susActual.getNombre() + "' no tien plural");}
+
+
+            //Revisión de significados: No debería haber dobles
             if (listaSignificados.contains(actual.getSignificado())) {
                 System.out.println("El significado " + actual.getSignificado() + " es repetido: " + actual.getNombre());
             } else {
                 listaSignificados.add(actual.getSignificado());
             }
+
+            //Revisión de capitalización: Todos los sustantivos se capitalizan.
+            if (!Character.isUpperCase(actual.getNombre().charAt(0))) {
+                System.out.println("El sustantivo " + actual.getNombre() + " no está capitalizado. ");
+            }
+
+            //También revisamos la capitalización de los plurales.
+
+            if (!Character.isUpperCase(susActual.plural.charAt(0))) {
+                System.out.println("El sustantivo '" + susActual.getNombre() + "' tiene un plural sin capitalizar");
+            }
+
         }
     }
     public static void revisarPal(){
@@ -347,39 +419,53 @@ public class Control {
     }
 
 
-    public static void Inicialización() {
-        InicializarTemas();
+    public static void Inicialización(boolean revisiónDePalabras, boolean activarConsola) {
+        int numDeTemas = InicializarTemas(); //ejecuta inicialización y guarda el número de temas.
 
+        long comienzoInicialización = System.nanoTime();
 
         InicializarSustantivos();
         InicializarVerbos();
         InicializarAdjetivos();
         InicializarPalabras();
+
+        int numDePalabras = Control.SustantivosListaSingular.size() + Control.VerbosListaSingular.size()
+                + Control.AdjetivosListaSingular.size() + Control.PalabrasListaSingular.size();
+
+        System.out.println("TOTAL: " + numDePalabras + " PALABRAS CREADAS, " + numDeTemas + " TEMAS USADOS");
+
+
+        if (revisiónDePalabras) {
+            Control.revisarVer();
+            Control.revisarAdj();
+            Control.revisarSus();
+            Control.revisarPal();
+        }
+
+
+        long finInicialización = System.nanoTime();
+        double duración = ((double)(finInicialización - comienzoInicialización))/1000000; //ms
+        System.out.println("Iniciaización completada en " + duración + " ms");
+
+        if (activarConsola) {
+            Control.consola();
+        }
     }
 
 
     public static void main(String[] args) {
-        Inicialización();
-        //Control.consola();
+        Control.Inicialización(false, false);
 
-        //fixed a bug where .tags would not initialize properly
-        //fixed a bug where several tags were misspelled
-        //fixed a bug where empty topic deletion during initialization didn't work
-        /**
-        Control.revisarVer();
-        Control.revisarAdj();
-        Control.revisarSus();
-        Control.revisarPal();
-        */
+        //Fixed a bug where Ejer.ElejirTema() crashed if given an invalid input
+        //Added boolean Control.TemaExiste(). Te dice si existe el tema o no de manera sencilla.
+        //Added exit to Ejer.ElejirCantidad
+
+
 
         //todo: crear Ejer.ConsolaDefinir(String tipoDePalabra, Scanner sc)
+        //todo: Agregar palabras titulares (Der Haus, Der Essen, etc. )
+        //todo: agregarle javadoc con @throws a todas las funciónes
 
-        //todo: Cambios se hicieron a los métodos listartemas y elejir temas. Ahora son parte de la clase Ejer.
-        //todo: Si se agrega un tipo de palabra nuevo (Lo cual lo dudo, por lo menos por ahora) recuerda actualizar esos métodos,
-        //todo: ya que si no lo haces el programa no reconocerá el tipo de palabra.
-
-
-        //todo: Alomejor agregar algún indicador a Lista que te diga si agregas algo que no deberías sin crashear?
 
         //Todo: cambiar NullPointerExceptions a NumberFormatExceptions para evitar problemas.
 
@@ -387,22 +473,17 @@ public class Control {
 
         //Ver.OrganizacióndeTags();
 
-        //todo: Estandarizar los tags usados, para poder hacer ejercicios con TODAS las palabras que tengan los mismos tags, independientemente del tipo de palabra.
 
-        //todo: Agregar método para revisar que los sustantivos emíezen con mayuscula y que las demás palabras no.
 
         //todo: Agregar parser que lea la funcion crear[cosa]() y la ponga en un documento .txt
         //todo: agregar algo que lea un documento .txt y crée las palabras a partir de ello.
 
         //todo: Lehrer, Student, Professor,...???
 
-        //todo: noch ein paar
 
         //todo: Agregar palabras indicativas (Fruta, ciudad, especias, escuela, ...) a todas las listas.
         //todo: Organizar "Marcadores" en todos los diccionarios.
         //todo: Acabar de ordenar los verbos :pepeEyes:
-
-        //todo: modularizar esto; agregarlo como opción buleana a inicializarX();
 
         //todo: Si a una palabra se le añade un tag que ya tine, el programa debería de echar un error.
 
@@ -419,10 +500,9 @@ public class Control {
 
         //todo: Agregar imperativo y conjugacion preterito a definicion verbo
         //todo: Investigar si es posible imprimir texto con color. Ayudaría con el control y en la enseñanza.
-        //todo: Organizar todos.
+
         //todo: Checar nennen y ernennen; lassen
 
-        //todo: Habrá alguna manera de modularizar la definición de los temas???
 
 //todo: werfen y ziehen???
         //todo: agregar preterito a los verbos. Crear algún método para ver cuales verbos no tienen preterito / participio / etc.

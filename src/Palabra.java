@@ -8,13 +8,23 @@ public class Palabra {
     public String palabra;
 
     //reemplaza al tagAdd previo
+
+    /**
+     * Método universal para agregar una Tag. Funciona aún si no tiene ninguna tag, o si aún no se inicializan sus tags.
+     * @param newTag el nuevo tag
+     * @throws NumberFormatException si se trata de añadir una tag que ya tiene.
+     */
     public void agregarTag(String newTag) {
+
         String[] current;
-        if (this.tags == null || this.tags.length == 0) {
+        if (this.tags == null || this.tags.length == 0) { //Aún no se inicializa la palabra
             current = new String[1];
             current[0] = newTag;
             this.tags = current;
-        } else {
+        } else { //ya tiene tags
+            //Revisamos que no tenga ya la tag.
+            if (Control.contiene(this.tags, newTag)) {throw new NumberFormatException("Error: La palabra '" + this.getNombre() + "' tiene la Tag '" + newTag + "' doble. ");}
+
             current = new String[this.tags.length + 1];
             for (int i = 0; i < this.tags.length; i++) {
                 current[i] = this.tags[i];
@@ -22,6 +32,8 @@ public class Palabra {
             current[this.tags.length] = newTag;
             this.tags = current;
         }
+
+
 
         Control.getTema(newTag, this.TipoDePalabra()).add(this);
 
