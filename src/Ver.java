@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 public class Ver extends Palabra{
     public static final String Ver = "Ver";
+    public static final String Verbo = "Verbo";
     public static final String nullEntry = "---";
 
 
@@ -977,9 +978,7 @@ public class Ver extends Palabra{
         //romper
         //robar
 
-        //tanzen
         //zuzamenbrucht?
-        //cantar
         //festejar
         //
 
@@ -1136,6 +1135,21 @@ public class Ver extends Palabra{
         Ver aufschreiben = new Ver("auf", schreiben, "apuntar", T);
 
         //todo: Marcador. Comida
+
+
+        //todo: Marcador. Arte (Bellas artes, etc. )
+        T = new String[]{"arte"};
+
+        //Ver cantar, bailar
+        Ver singen = new Ver("singen", "sing", "cantar", T);
+        singen.agregarImperativo();
+        singen.agregarPreterito(new String[]{"sang", "sangst", "sang", "sangen", "sangt", "sangen"});
+        singen.agregarParticipio("gesungen");
+
+        Ver tanzen = new Ver("tanzen", new String[]{"tanze", "tanzt", "tanzt", "tanzen", "tanzt", "tanzen"}, "bailar", T);
+        tanzen.agregarParticipio("getanzt");
+        tanzen.agregarImperativo("tanz", "tanzt");
+        tanzen.agregarPreterito("tanzt");
 
 
 

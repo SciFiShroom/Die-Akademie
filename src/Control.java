@@ -4,8 +4,7 @@ import java.util.Arrays;
 public class Control {
 
     //NumberFormatExceptio = hice algo mal y el yo del pasado me lo está diciendo
-    //SecurityException = Error, pero uno que estoy esperando (catched)
-    //NullPointerException = user closed window.
+    //SecurityException = Error, pero uno que estoy esperando (catched). También lo uso para cerrar ventanas / consolas.
     //todo: Fix exceptions lul
 
 
@@ -93,7 +92,7 @@ public class Control {
                 "clima", "día", "año", "figuras", "ropa",
                 "escuela", "tecnología", "casa", "mueble", "médico",
                 "ciudad", "medidas", "transporte", "espcias", "cocina",
-                "bebida", "materiales", "trabajo", "platillo",
+                "bebida", "materiales", "trabajo", "platillo", "arte",
 
                 "moverse", "básico", "modal",
                 "menos_básico", "misceláneo",
@@ -456,14 +455,34 @@ public class Control {
     public static void main(String[] args) {
         Control.Inicialización(false, false);
 
-        //Fixed a bug where Ejer.ElejirTema() crashed if given an invalid input
-        //Added boolean Control.TemaExiste(). Te dice si existe el tema o no de manera sencilla.
-        //Added exit to Ejer.ElejirCantidad
+        //Se reescribió Ejer.ejercicios[]. Ahora es solo un método.
+        //Fixed a bug where Lista.escojerAleatorio didn't prevent doubles.
+        //added toString() a Lista.java.
+        //se agrego .toString() a Palabra.java
+        //Se reorganizaron y actualizaron las consolas Ejer.practicar[].
+
+        //Scanner sc = new Scanner(System.in);
+        //Ejer.EjerciciosPalabrasSimples("Sus Vocabulario", sc);
+
+        /**
+         * Mi WishList
+         * - ejercicio que te enseñe a decir la hora, medir tiempo, y utilizar un reloj en alemán
+         * - ejercicio que te enseñe a utilizar las preposiciones y verbos de objetos en sus contextos.
+         * - ejercicio que te enseñe las declinaciones de los articulos y de los adjetivos.
+         * - ejercicio(s) que te enseñen a conjugar verbos
+         * - ejercicios que te enseñen los pronombres posesivos.
+         * - El abecedario alemán
+         * - Los países y sus capitales
+         *    - Geografía en alemán?
+         * - ejercicio que te enseñe a escribir los oficios CON Géneros (actor vs. actriz)
+         * (proyecto) Constructor de oraciones coherentes.
+         */
 
 
+        //todo: Agregar nombreSencillo y significadoSencillo, + funciones, a todas las palabras.
 
         //todo: crear Ejer.ConsolaDefinir(String tipoDePalabra, Scanner sc)
-        //todo: Agregar palabras titulares (Der Haus, Der Essen, etc. )
+        //todo: Agregar palabras titulares (Der Haus, Der Essen, etc.)
         //todo: agregarle javadoc con @throws a todas las funciónes
 
 
@@ -518,11 +537,6 @@ public class Control {
 
 
          */
-
-        //todo: BUG: en la consola de elejir cantidad, no hay manera de salirse con cerrar...
-        //todo: Arreglar silbrig y tras palabras confuzas
-
-        //todo: Asegurarse que el comando ElejurCantidad no se rompa si la lista solo tiene la palabra nula y nada mas.
 
 
         //todo: imprimir lista tema crashéa cuando se cierra manualmente on el comando 'cerrar'. También debería darte la opción de listar todos los temas.

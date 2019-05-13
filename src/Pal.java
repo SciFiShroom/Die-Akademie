@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 public class Pal extends Palabra{
     public static final String Pal = "Pal";
+    public static final String Palabra = "Palabra";
     public static final String nullEntry = "---";
     //para todas las palabras chicas que también nos tenemos que aprender.
 

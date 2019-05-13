@@ -65,6 +65,17 @@ public class Palabra {
     public String getNombre() {throw new NumberFormatException("teneis los cojones cuadrados");}
     public String getSignificado(){throw new NumberFormatException("Ostras, ¿qué quereis?");}
 
+    //revisar que getNombre no tenga que ser gtNombreSimple
+    //y, cómo arreglaremos el asunto de palabras con os significados?
+
+    public String getSignificadoSimple() {
+        return this.getSignificado().split("\\[")[0];
+    }
+
+    public String getNombreSimple() {
+        return this.getNombre().split("\\[")[0];
+    }
+
     //método para buscar una palabra en una lista de palabras
     public static Palabra[] buscarTodo(String Nombre) {
         ArrayList<Palabra> Resultados = new ArrayList<Palabra>();
@@ -140,6 +151,14 @@ public class Palabra {
 
         throw new NumberFormatException("Error: Tipo de palabra no reconocido");
     }
+    public String TipoDePalabraCompleto() {
+        if (this instanceof Sus) {return Sus.Sustantivo;}
+        if (this instanceof Ver) {return Ver.Verbo;}
+        if (this instanceof Adj) {return Adj.Adjetivo;}
+        if (this instanceof Pal) {return Pal.Palabra;}
+
+        throw new NumberFormatException("Error: Tipo de palabra no reconocido");
+    }
 
 
     //Transforman una Palabra a su tipo específico.
@@ -207,5 +226,8 @@ public class Palabra {
         throw new NumberFormatException("Error: Tipo de palabra no reconocido");
     }
 
-
+    @Override
+    public String toString() {
+        return this.getNombreSimple();
+    }
 }

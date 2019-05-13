@@ -67,32 +67,76 @@ public class Lista<E> implements Iterable<E>{
     }
 
 
-    //todo: Revisar de que la función funcione.
     //Escoje "num" valores aleatorios de una Lista, sin repeticiones, y los revuelve. Regresa una lista nueva.
     public static Lista escojerAleatorio(Lista input, int num) {
         if (input.size() < num) {throw new NumberFormatException("Error: Num excede tamaño de lista input");}
 
         Lista revuelta = new Lista("out mah bois"); //La lista con los valores revueltos
-        Lista<Integer> indices = new Lista<Integer>("Indices q güai"); //La lsita de indices
+        boolean[] indices = new boolean[input.size()];
 
         for (int i = 0; i < num; i++) { //'num' iteraciones
-            Integer índice = (Integer)(int)(input.size()*Math.random()); //Un número aleatorio entre 0 y input.size() - 1
+            int índice = (int)(input.size()*Math.random()); //Un número aleatorio entre 0 y input.size() - 1
             //Si Math.Random() == 1.0000000000, se rompe tödo.
 
-            if (índice == input.size() || indices.contains(índice)) {
+            if (índice == input.size() || indices[índice]) {
                 i--;
                 continue;
             } // Esto se asegura de que la índice sea válida.
             //También se asegura de que no aya entradas dobles. Si la índice pasa el filtro, se agrega.
             revuelta.add(input.get(índice));
+            indices[índice] = true;
         }
         return revuelta;
     }
+
+    public String toString() {return this.toString(false);}
+    public String toString(boolean conNombre) {
+        String out = "";
+
+        if (conNombre) {out += this.getNombre() + ": ";}
+
+        out += "[";
+        for (int i = 0; i < this.size() - 1; i++) {
+            out += this.get(i).toString() + ", ";
+        }
+        out += this.get(this.size()-1).toString() + "]";
+        return out;
+    }
+
+    public String[][] toStringChido(boolean print) {
+        System.out.println("aún no");
+        /**
+
+
+        if (print) {
+            Control.arrPrint();
+            return null;
+        } else {
+            return
+        }*/
+        return null;
+    }
+
 
 
 
     public static void main(String[] args) {
         //System.out.println("y the fuck u runnin from here?");
+        //Control.Inicialización(false, false);
+
+        Lista<Integer> intento = new Lista<Integer>("listota");
+
+        for (int i = 1; i < 11; i++) {
+            intento.add(i);
+        }
+
+        System.out.println(intento.toString(false));
+
+        Lista<Integer> segundo = Lista.escojerAleatorio(intento, 10);
+
+        System.out.println(segundo.toString(false));
+
+
 
         /**
         Lista intento1 = new Lista("cosas");
@@ -108,6 +152,7 @@ public class Lista<E> implements Iterable<E>{
         System.out.println(intento2.get(1));
          */
 
+        /**
         //Ejemplo de iteración.
         Lista<String> chido = new Lista("chido");
         for (int i = 0; i <= 5; i++) {
@@ -118,6 +163,7 @@ public class Lista<E> implements Iterable<E>{
             System.out.print(actual + ", ");
         }
         System.out.println("]");
+        */
 
         //ejemplo de como funcionan los tipos.
         /*

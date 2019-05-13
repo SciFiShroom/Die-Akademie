@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 public class Sus extends Palabra{
     public static final String Sus = "Sus";
+    public static final String Sustantivo = "Sustantivo";
     public static final String nullEntry = "---";
 
 
@@ -340,8 +341,8 @@ public class Sus extends Palabra{
 
 
         //todo: Marcador: La ropa
-        //La ropa
         T = new String[]{"ropa"};
+        Sus kleidung = new Sus("Kleidung", "Kleidungen", "F", "ropa", T);
 
         Sus badeanzug = new Sus("Badeanzug", "Badeanzüge", "M", "traje de baño", T);
         Sus hemd = new Sus("Hemd", "Hemden", "N", "camisa", T);
@@ -362,8 +363,9 @@ public class Sus extends Palabra{
 
 
         //todo: Marcador. La casa
-        //[   La casa]
         T = new String[]{"casa"};
+        Sus haus = new Sus("Haus", "Häuser", "N", "casa", T);
+        haus.agregarTag("ciudad");
 
         Sus erdgeschoß = new Sus("Erdgeschoß", "Erdgeschoße", "N", "planta baja", T);
         Sus dachgeschoß = new Sus("Dachgeschoß", "Dachgeschoße", "N", "ático", T);
@@ -390,15 +392,16 @@ public class Sus extends Palabra{
         Sus miete = new Sus("Miete", "Mieten", "F", "renta", T);
         Sus kaution = new Sus("Kaution", "Kautionen", "F", "fianza", T);
 
-        //[---La casa]
 
 
         //todo: Marcador : La ciudad
         T = new String[]{"ciudad"};
+        Sus stadt = new Sus("Stadt", "Städte", "F", "ciudad", T);
+        Sus großstadt = new Sus("Großstadt", "Großstädte", "F", "ciudad grande", T);
+        Sus großstadtleben = new Sus("Großstadtleben", "Großstadtleben", "N", "vida en una ciudad grande", T);
 
         Sus Wohnung = new Sus("Wohnung", "Wohnungen", "F", "departamento [empieza con 'w']", T);
         Sus apartment = new Sus("Apartment", "Apartments", "N", "departamento [empieza con 'a']", T);
-        Sus Haus = new Sus("Haus", "Häuser", "N", "casa", T);
         Sus wohngemeinschaft = new Sus("Wohngemeinschaft", "Wohngemeinschaften", "F", "piso compartido", T);
         Sus wolkenkratzer = new Sus("Wolkenkratzer", "Wolkenkratzer", "M", "rascacielos", T);
         Sus gebëude = new Sus("Gebäude", "Gebäude", "N", "edificio", T);
@@ -408,14 +411,14 @@ public class Sus extends Palabra{
 
         Sus bar = new Sus("Bar", "Bars", "F", "bar", T);
         Sus museum = new Sus("Museum", "Museen", "N", "museo", T);
+        museum.agregarTag("arte");
+
         Sus krankenhaus = new Sus("Krankenhaus", "Krankenhäuser", "N", "hospital", T);
         krankenhaus.agregarTag("médico");
 
         Sus dorf = new Sus("Dorf", "Dörfer", "N", "pueblo", T);
 
-        Sus stadt = new Sus("Stadt", "Städte", "F", "ciudad", T);
-        Sus großstadt = new Sus("Großstadt", "Großstädte", "F", "ciudad grande", T);
-        Sus großstadtleben = new Sus("Großstadtleben", "Großstadtleben", "N", "vida en una ciudad grande", T);
+
         Sus verkehr = new Sus("Verkehr", nullEntry, "N", "tráfico", T);
 
         Sus Baustelle = new Sus("Baustelle", "Baustellen", "F", "construcción [sitio]", T);

@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 public class Adj extends Palabra{
     public static final String Adj = "Adj";
+    public static final String Adjetivo = "Adjetivo";
     public static final String nullEntry = "---";
 
 
@@ -142,6 +143,8 @@ public class Adj extends Palabra{
     //todo: Lista de adjetivos con esta propiedad: orange, rosa,
 
     //todo: Adjetivos que arreglar: silber(silbrig, silbriger, silbrigsten),
+
+    //todo: durstig.
 
     public static void crearAdjetivos() {
         String[] Tags;

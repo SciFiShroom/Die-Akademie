@@ -3,7 +3,10 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
+    public static final String nullEntry = "---";
 
+
+    //todo: Actualizar estos
     //SUSTANTIVOS
     /**
      * Lista los ejercicios / comandos de la consola PracticarSustantivos()
@@ -96,28 +99,19 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
             boolean entendido = false;
             switch (comando) {
-                case "ejercicios":
-                    ListaEjerciciosSus();
 
-                    entendido = true;
-                    break;
-                case "cerrar":
-                    activo = false;
+                case "practicar géneros": Ejer.EjerciciosPalabrasSimples("Sus Géneros", sc);           entendido = true; break;
 
-                    entendido = true;
-                    break;
-                case "practicar géneros":
-                    Ejer.ejerciciosSus("géneros", sc);
-                    System.out.println("Cerrando ejercicio.");
+                case "practicar plurales": Ejer.EjerciciosPalabrasSimples("Sus Plurales", sc);         entendido = true; break;
 
-                    entendido = true;
-                    break;
-                case "practicar plurales":
-                    Ejer.ejerciciosSus("plurales", sc);
-                    System.out.println("Cerrando ejercicio");
+                case "practicar significados": Ejer.EjerciciosPalabrasSimples("Sus Significados", sc); entendido = true; break ;
 
-                    entendido = true;
-                    break;
+                case "practicar vocabulario": Ejer.EjerciciosPalabrasSimples("Sus Vocaulario", sc);    entendido = true; break;
+
+                case "ejercicios": ListaEjerciciosSus();                                                      entendido = true; break;
+
+                case "cerrar": activo = false;                                                                entendido = true; break;
+
                 case "imprimir lista tema":
                     throw new NumberFormatException("Aún no me programan!");
                     /**
@@ -142,20 +136,10 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
                     entendido = true;
                     break;*/
-                case "practicar significados":
-                    Ejer.ejerciciosSus("significados", sc);
-                    //Ejer.practicarSignificadoSus(sc);
-                    System.out.println("Cerrando ejercicio");
 
-                    entendido = true;
-                    break;
-                case "practicar vocabulario":
-                    Ejer.ejerciciosSus("vocabulario", sc);
-                    System.out.println("Cerrando ejercicio");
 
-                    entendido = true;
-                    break;
                 case "listar temas":
+                    System.out.println("Un segundo...");
                     for (Lista actual : Control.Sustantivos) {System.out.print(actual.nombre + ", ");}
 
                     entendido = true;
@@ -196,16 +180,16 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
             boolean entendido = false;
             switch (comando) {
-                case "ejercicios":
-                    ListaEjerciciosVer();
+                case "ejercicios": ListaEjerciciosVer();                                                      entendido = true; break;
 
-                    entendido = true;
-                    break;
-                case "cerrar":
-                    activo = false;
+                case "cerrar": activo = false;                                                                entendido = true; break;
 
-                    entendido = true;
-                    break;
+                case "practicar significados": Ejer.EjerciciosPalabrasSimples("Ver Significados", sc); entendido = true; break;
+
+                case "practicar vocabulario": Ejer.EjerciciosPalabrasSimples("Ver Vocabulario", sc);   entendido = true; break;
+
+                case "practicar participios": Ejer.EjerciciosPalabrasSimples("Ver Participios", sc);   entendido = true; break;
+
                 case "imprimir lista tema":
                     throw new NumberFormatException("Aún no me programan!");
                     /**
@@ -230,24 +214,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     }
                     entendido = true;
                     break;*/
-                case "practicar significados":
-                    Ejer.ejerciciosVer("significados", sc);
-                    System.out.println("Cerrando ejercicio");
 
-                    entendido = true;
-                    break;
-                case "practicar vocabulario":
-                    Ejer.ejerciciosVer("vocabulario", sc);
-                    System.out.println("Cerrando ejercicio");
-
-                    entendido = true;
-                    break;
-                case "practicar participios":
-                    Ejer.ejerciciosVer("participios", sc);
-                    System.out.println("Cerrando ejercicio");
-
-                    entendido = true;
-                    break;
                 case "listar temas":
                     for (Lista actual : Control.Verbos) {System.out.print(actual.nombre + ", ");}
 
@@ -286,16 +253,18 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
             boolean entendido = false;
             switch (comando) {
-                case "ejercicios":
-                    Ejer.ListaEjerciciosAdj();
+                case "ejercicios": Ejer.ListaEjerciciosAdj();                                                        entendido = true; break;
 
-                    entendido = true;
-                    break;
-                case "cerrar":
-                    activo = false;
+                case "cerrar": activo = false;                                                                       entendido = true; break;
 
-                    entendido = true;
-                    break;
+                case "practicar significados": Ejer.EjerciciosPalabrasSimples(Adj.Adj + " Significados", sc); entendido = true; break;
+
+                case "practicar vocabulario": Ejer.EjerciciosPalabrasSimples(Adj.Adj + " Vocabulario", sc);   entendido = true; break;
+
+                case "practicar comparativo": Ejer.EjerciciosPalabrasSimples(Adj.Adj + " Comparativos", sc);  entendido = true; break;
+
+                case "practcar superlativos": Ejer.EjerciciosPalabrasSimples(Adj.Adj + " Superlativos", sc);  entendido = true; break;
+
                 case "imprimir lista tema":
                     throw new NumberFormatException("Aún no me programan!");
                     /**
@@ -321,20 +290,12 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     entendido = true;
                     break;
                      */
-                case "practicar significados":
-                    Ejer.ejerciciosAdj("significados", sc);
-                    System.out.println("Cerrando ejercicio");
-                    entendido = true;
-                    break;
-                case "practicar vocabulario":
-                    Ejer.ejerciciosAdj("vocabulario", sc);
-                    System.out.println("Cerrando ejercicio");
-                    entendido = true;
-                    break;
+
                 case "listar temas":
                     for (Lista actual : Control.Adjetivos) {System.out.print(actual.nombre + ", ");}
                     entendido = true;
                     break;
+
                 case "enseñar tema":
                     //Ejer.EnseñarAdjetivos(Adj.ElejirTema(sc), sc);
                     //Ejer.EnseñarAdjetivos(Ejer.ElejirTema("Adj", sc), sc);
@@ -367,14 +328,14 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
             boolean entendido = false;
             switch (comando) {
-                case "ejercicios":
-                    Ejer.ListaEjerciciosPal();
-                    entendido = true;
-                    break;
-                case "cerrar":
-                    activo = false;
-                    entendido = true;
-                    break;
+                case "ejercicios": Ejer.ListaEjerciciosPal();                                                        entendido = true; break;
+
+                case "cerrar": activo = false;                                                                       entendido = true; break;
+
+                case "practicar significados": Ejer.EjerciciosPalabrasSimples(Pal.Pal + " Significados", sc); entendido = true; break;
+
+                case "practicar vocabulario": Ejer.EjerciciosPalabrasSimples(Pal.Pal + " Significados", sc);  entendido = true; break;
+
                 case "imprimir lista tema":
                     throw new NumberFormatException("Aún no me programan!");
                     /**
@@ -398,16 +359,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     }
                     entendido = true;
                     break;*/
-                case "practicar significados":
-                    Ejer.ejerciciosPal("significados", sc);
-                    System.out.println("Cerrando ejercicio");
-                    entendido = true;
-                    break;
-                case "practicar vocabulario":
-                    Ejer.ejerciciosPal("vocabulario", sc);
-                    System.out.println("Cerrando ejercicio");
-                    entendido = true;
-                    break;
+
                 case "listar temas":
                     for (Lista actual : Control.Palabras) {System.out.print(actual.nombre + ", ");}
                     entendido = true;
@@ -471,13 +423,12 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
 
 
-    //SUSTANTIVOS
+    //Estos ya no se usan.
     /**
      * Ejecuta varios ejercicios de los sustantivos
      * @param ejercicio el ejercicio que se practicará. (generos, plurales, significados, vocabulario)
      * @param sc el escaneador
      */
-
     public static void ejerciciosSus(String ejercicio, Scanner sc) {
         if (!ejercicio.equals("géneros") && !ejercicio.equals("plurales") && !ejercicio.equals("significados") && !ejercicio.equals("vocabulario") ) {
             System.out.println("El ejercicio '" + ejercicio + "' no existe");
@@ -565,10 +516,8 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             return;
         }
     }
-
-    //VERBOS
     /**
-     * Ejecuta varios ejercicios de los sustantivos
+     * Ejecuta varios ejercicios de los verbos
      * @param ejercicio el ejercicio que se practicará. (significados, vocabulario)
      * @param sc el escaneador
      */
@@ -651,8 +600,6 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             return;
         }
     }
-
-    //ADJETIVOS
     /**
      * Ejecuta varios ejercicios de los adjetivos
      * @param ejercicio el ejercicio que se practicará. (significados, vocabulario)
@@ -742,10 +689,8 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             return;
         }
     }
-
-    //PALABRAS
     /**
-     * Ejecuta varios ejercicios de los adjetivos
+     * Ejecuta varios ejercicios de las palabras (Pal)
      * @param ejercicio el ejercicio que se practicará. (significados, vocabulario)
      * @param sc el escaneador
      */
@@ -818,6 +763,184 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     }
 
 
+
+    /**
+     * Consola de ejercicios simples para Sus, Ver, Pal, y Adj. Todos funcionan mediante Ejer.EjercicioSimple y Ejer.EjercicioMatching
+     * @param ejercicio el ejercicio que quieres hacer (la clave del ejercicio)
+     * @param sc el scanner.
+     * @throws NumberFormatException si se le pasa un ejercicio equivocado / no existente, o si otro error ocurre.
+     */
+    public static void EjerciciosPalabrasSimples(String ejercicio, Scanner sc) {
+        //El String "ejercicio" será único para cada ejercicio. Seguirá la siguiente leyenda:
+
+        String tipoDePalabra = ejercicio.split(" ")[0]; //"Sus", "Ver", ...
+        Palabra.sanitize(tipoDePalabra);
+
+
+        boolean ejercicioExiste = false;
+        switch (ejercicio) {
+            case "Sus Significados": ejercicioExiste = true; break;
+            case "Ver Significados": ejercicioExiste = true; break;
+            case "Adj Significados": ejercicioExiste = true; break;
+            case "Pal Significados": ejercicioExiste = true; break;
+
+            case "Sus Vocabulario": ejercicioExiste = true; break;
+            case "Adj Vocabulario": ejercicioExiste = true; break;
+            case "Ver Vocabulario": ejercicioExiste = true; break;
+            case "Pal Vocabulario": ejercicioExiste = true; break;
+
+            case "Sus Géneros": ejercicioExiste = true; break;
+            case "Sus Plurales": ejercicioExiste = true; break;
+
+            case "Ver Participios": ejercicioExiste = true; break;
+
+            case "Adj Comparativos": ejercicioExiste = true; break;
+            case "Adj Superlativos": ejercicioExiste = true; break;
+        }
+        if (!ejercicioExiste) {throw new NumberFormatException("Error: El ejercicio '" + ejercicio + "' no existe. ");}
+
+
+        //Se eljie un tema
+        String tema;
+        try {
+            tema = Ejer.ElejirTema(tipoDePalabra, sc);
+        } catch (SecurityException e) { //dijo "cerrar"
+            System.out.println("Cerrando ejercicio");
+            return;
+        }
+
+
+        //la lista de palabras completa
+        Lista listaDePalabrasCompleta = Control.getTema(tema, tipoDePalabra);
+
+
+        System.out.println("Hay " + listaDePalabrasCompleta.size() + " palabras en el tema '" + tema + "'. ");
+        int num = -1;
+        try {
+            num = Ejer.ElejirCantidad(listaDePalabrasCompleta.size(), "¿Cuántos deséa practicar?", sc);
+        } catch (SecurityException e) {
+            System.out.println("Cerrando ejercicio");
+            return;
+        }
+
+        //la lista de palabras utilizadas en el ejercicio (escogidas aleatoriamente)
+        Lista<Palabra> listaDePalabrasUsadas = Lista.escojerAleatorio(listaDePalabrasCompleta, num);
+
+
+        String[] preguntas = new String[num];
+        String[] respuestasCorrectas = new String[num];
+        String[] respuestasUsuario = new String[num];
+        double calificación;
+
+
+        for (int i = 0; i < num; i++) {
+            Palabra actual = listaDePalabrasUsadas.get(i);
+
+            if (ejercicio.split(" ")[1].equals("Significados")) {
+                preguntas[i] = actual.getNombre();
+                respuestasCorrectas[i] = actual.getSignificadoSimple();
+                continue;
+            } else if (ejercicio.split(" ")[1].equals("Vocabulario")) {
+                preguntas[i] = actual.getSignificado();
+                respuestasCorrectas[i] = actual.getNombreSimple();
+                continue;
+            } else if (ejercicio.equals("Sus Géneros")) {
+                Sus susActual = actual.aSus();
+                preguntas[i] = susActual.getNombre();
+                respuestasCorrectas[i] = susActual.género;
+                continue;
+            } else if (ejercicio.equals("Sus Plurales")) {
+                Sus susActual = actual.aSus();
+                preguntas[i] = susActual.getNombre();
+                respuestasCorrectas[i] = susActual.plural;
+                continue;
+            } else if (ejercicio.equals("Ver Participios")) {
+                Ver verActual = actual.aVer();
+                preguntas[i] = verActual.getNombre();
+                respuestasCorrectas[i] = verActual.participio;
+                continue;
+            } else if (ejercicio.equals("Adj Comparativos")) {
+                Adj adjActual = actual.aAdj();
+                preguntas[i] = adjActual.getNombre();
+                respuestasCorrectas[i] = adjActual.comparativo;
+                continue;
+            } else if (ejercicio.equals("Adj Superlativos")) {
+                Adj adjActual = actual.aAdj();
+                preguntas[i] = adjActual.getNombre();
+                respuestasCorrectas[i] = adjActual.superlativo;
+                continue;
+            }
+
+            //si estámos aquí, no reconocimos bien el ejercicio.
+            throw new NumberFormatException("Error: El ejercicio" + ejercicio + "parece estar incompleto.");
+        }
+
+
+        //para el display más abajo
+        switch (tipoDePalabra) {
+            case Sus.Sus: tipoDePalabra = Sus.Sustantivo; break;
+            case Ver.Ver: tipoDePalabra = Ver.Verbo; break;
+            case Adj.Adj: tipoDePalabra = Adj.Adjetivo; break;
+            case Pal.Pal: tipoDePalabra = Pal.Palabra; break;
+        }
+
+
+        //Aquí comienza el ejercicio.
+        try {
+
+            switch (ejercicio.split(" ")[1]) {
+                case "Significados":
+                    respuestasUsuario = Ejer.EjercicioMatching(preguntas, respuestasCorrectas, tipoDePalabra,"Significado", nullEntry, sc);
+                    calificación = Ejer.calificar(preguntas, respuestasUsuario, respuestasCorrectas, "Significado");
+                    System.out.println("Calificación final: " + calificación);
+                    return;
+                case "Vocabulario":
+                    respuestasUsuario = Ejer.EjercicioSimple(preguntas, "Significado", tipoDePalabra, nullEntry, sc);
+                    calificación = Ejer.calificar(preguntas, respuestasUsuario, respuestasCorrectas, tipoDePalabra);
+                    System.out.println("Calificación final: " + calificación);
+                    System.out.println("NOTA: Es posible que hayas escrito un sustantivo sinonimo. Esta calificación puede estar equivocada");
+                    return;
+                case "Género":
+                    respuestasUsuario = Ejer.EjercicioSimple(preguntas, "Sustantivo", "Género (M, F, N, o P)", nullEntry, sc);
+                    calificación = Ejer.calificar(preguntas, respuestasUsuario, respuestasCorrectas, "Género");
+                    System.out.println("Calificación final: " + calificación);
+                    return;
+                case "Plurales":
+                    respuestasUsuario = Ejer.EjercicioSimple(preguntas, "Sustantivo", "Plural", nullEntry, sc);
+                    calificación = Ejer.calificar(preguntas, respuestasUsuario, respuestasCorrectas, "Plural");
+                    System.out.println("Calificación final: " + calificación);
+                    return;
+                case "Participios":
+                    respuestasUsuario = Ejer.EjercicioSimple(preguntas, "Verbo", "Participio", nullEntry, sc);
+                    calificación = Ejer.calificar(preguntas, respuestasUsuario, respuestasCorrectas, "Participio");
+                    System.out.println("Calificación final: " + calificación);
+                    return;
+                case "Comparativos":
+                    respuestasUsuario = Ejer.EjercicioSimple(preguntas, "Adjetivo", "Comparativo", nullEntry, sc);
+                    calificación = Ejer.calificar(preguntas, respuestasUsuario, respuestasCorrectas, "Comparativo");
+                    System.out.println("Calificación final: " + calificación);
+                    return;
+                case "Superlativos":
+                    respuestasUsuario = Ejer.EjercicioSimple(preguntas, "Adjetivo", "Superlativo", nullEntry, sc);
+                    calificación = Ejer.calificar(preguntas, respuestasUsuario, respuestasCorrectas, "Superlativo");
+                    System.out.println("Calificación final: " + calificación);
+                    return;
+            }
+
+        } catch (SecurityException e) {
+            System.out.println("Cerrando el ejercicio");
+            return;
+        }
+
+        //Si llegamos aquí, es que no se reconoció el ejercicio en el switch arribita.
+        throw new NumberFormatException("Error: No reconocí bien el ejercicio '" + ejercicio + "'. Reclámale a Alberto");
+
+    }
+
+
+
+
+
     //SUS, VER, ADJ, O PAL
     /**
      * Intenta enseñarte un tema.
@@ -864,7 +987,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     //GENERAL
     /**
      * Ejercicio simple, de preguntas y resuestas. Contiene su propia consola.
-     * throws NullPointerException if closed forcefully.
+     * @throws SecurityException si se dice "cerrar"
      * @param preguntas String array con las preguntas.
      * @param questionType //Indicador de pregunta
      * @param answertype //Indicaor de respuesta
@@ -895,7 +1018,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         System.out.println("Comenzando ejercicio");
         System.out.println("Diga '[número] = [respuesta]' para marcar su respuesta. ");
         System.out.println("Diga 'cerrar ejercicio' para cerrar el ejercicio.");
-        System.out.println("Diga 'entregar' para acabar el ejercicio. ");
+        System.out.println("Diga 'entregar' para entregar el ejercicio. ");
 
 
 
@@ -908,7 +1031,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                 try {
                     String respuesta = sc.nextLine(); //Lo que responde el usuario
                     switch (respuesta) {
-                        case "cerrar ejercicio": throw new NullPointerException("Ejercicio terminado");
+                        case "cerrar ejercicio": throw new SecurityException("Ejercicio terminado");
                         case "entregar":
                             String[] respuestas2 = new String[preguntas.length];
                             for (int i = 0; i < preguntas.length; i++) {
