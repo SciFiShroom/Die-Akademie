@@ -2,7 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Palabra {
-    public static final String nullEntry = "---";
+    public static final String nullEntry = Control.entradaNula;
 
     public String[] tags;
     public String palabra;
@@ -71,7 +71,6 @@ public class Palabra {
     public String getSignificadoSimple() {
         return this.getSignificado().split("\\[")[0];
     }
-
     public String getNombreSimple() {
         return this.getNombre().split("\\[")[0];
     }
@@ -230,4 +229,9 @@ public class Palabra {
     public String toString() {
         return this.getNombreSimple();
     }
+
+
+    public Lista<Palabra> sinónimos; //palabras que significan exactamete lo mismo, sin ninguna diferencia en contexto o uso.
+    public Lista<Palabra> significados; //Se añaden otros significados. Esta es fácil de implementar.
+    //todo: mayhaps a name hashmap?
 }

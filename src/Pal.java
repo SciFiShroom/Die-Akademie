@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Pal extends Palabra{
     public static final String Pal = "Pal";
     public static final String Palabra = "Palabra";
-    public static final String nullEntry = "---";
+    public static final String nullEntry = Control.entradaNula;
     //para todas las palabras chicas que también nos tenemos que aprender.
 
 
@@ -197,6 +197,14 @@ public class Pal extends Palabra{
         Pal zwischen = new Pal("zwischen", "entre", Tags);
 
         //[-Preposiciones]
+
+        //otras palabras
+        //Tags = new String[]{"aún no se"};
+
+        //immer,
+        //Pal niemand = new Pal("niemand", "nadie", Tags);
+        //Pal alles = new Pal("alles", "todos [gente]", Tags);
+
     }
 
 

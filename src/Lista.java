@@ -13,6 +13,9 @@ public class Lista<E> implements Iterable<E>{
         this.nombre = Nombre;
         lista = new ArrayList<E>();
     }
+    public <E> Lista() {
+        lista = new ArrayList<E>();
+    }
 
     /**
     public Lista(String nombreNuevo) {
@@ -118,6 +121,25 @@ public class Lista<E> implements Iterable<E>{
     }
 
 
+    /**
+     * Método que concatena dos listas.
+     * @param a la primera lista.
+     * @param b la seguna lista
+     * @return la lista concatenada.
+     */
+    public static Lista concatenar(Lista a, Lista b) {
+        Lista out = new Lista();
+
+        for (int i = 0; i < a.size(); i++) {
+            out.add(a.get(i));
+        }
+
+        for (int i = 0; i < b.size(); i++) {
+            out.add(b.get(i));
+        }
+
+        return out;
+    }
 
 
     public static void main(String[] args) {

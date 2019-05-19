@@ -3,7 +3,8 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
-    public static final String nullEntry = "---";
+    public static final String nullEntry = Control.entradaNula;
+    public static final String noAplica = "[N/A]";
 
 
     //todo: Actualizar estos
@@ -939,6 +940,15 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
 
 
+    public static void ConsolaDefinirTipo(String tipoDePalabra, Scanner sc) {
+        Palabra.sanitize(tipoDePalabra);
+
+        System.out.println("Abriendo consola de definiciones. ");
+        System.out.println("Diga 'cerrar consola' para cerrar la consola");
+
+        //todo: agregar sinónimos, y agregar más de un significado a una palabra.
+
+    }
 
 
     //SUS, VER, ADJ, O PAL

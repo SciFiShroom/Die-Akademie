@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Sus extends Palabra{
     public static final String Sus = "Sus";
     public static final String Sustantivo = "Sustantivo";
-    public static final String nullEntry = "---";
+    public static final String nullEntry = Control.entradaNula;
 
 
     //---------------------------[PARAMETROS]-----------------------------------
@@ -82,6 +82,7 @@ public class Sus extends Palabra{
         Sus orange = new Sus ("Orange", "Orangen", "F", "naranja", T);
         Sus traube = new Sus("Traube", "Trauben", "F", "uva", T);
         Sus limette = new Sus("Limette", "Limetten", "F", "limón [verde]", T);
+        Sus birne = new Sus("Birne", "Birnen", "F", "pera", T);
         //pera, papaya, guayaba, guanabana, mandarina(?), toronja, zandía, melón, kiwi, mango, cereza, fresa, "apricot", todas las moras.
 
 
@@ -90,17 +91,25 @@ public class Sus extends Palabra{
         Sus gemüse = new Sus("Gemüse", "Gemüse", "N", "verdura", T);
 
         Sus karotte = new Sus("Karotte", "Karotten", "F", "zanahoria", T);
+        Sus zwiebel = new Sus("Zwiebel", "Zwiebeln", "F", "cebolla", T);
+
         //pepino, pepinillo, pimiento, cebolla, papa,
+
 
 
         //todo: Marcador. Comida (Solo cosas básicas, no platillos)
         T = new String[]{"comida"};
-
         Sus essen = new Sus("Essen", "Essen", "N", "comida", T);
 
         Sus avocado = new Sus("Avocado", "Avocados", "F", "aguacate", T);
         Sus käse = new Sus("Käse", "Käse", "M", "queso", T);
-        //sopa, todas las carnes, coctel, hamburguesa, h o d d o g, ensalada, lechuga, jamón, huevos, sandwich, champiñon,
+        Sus salat2 = new Sus("Salat", "Salate", "M", "lechuga", T);
+        Sus champignon = new Sus("Champignon", "Champignons", "M", "champiñon", T);
+        Sus ei = new Sus("Ei", "Eier", "N", "huevo", T);
+        Sus schinken = new Sus("Schinken", "Schinken", "M", "jamón", T);
+
+
+        //todas las carnes, coctel, hamburguesa, h o d d o g, , , jamón, sandwich,
         //cebolla, zanahoria,
         //espaguetti, ravioles,
         //EIN FETUCCINI ALFREDO
@@ -113,41 +122,127 @@ public class Sus extends Palabra{
         Sus gericht = new Sus("Gericht", "Gerichte", "N", "platillo", T);
 
         Sus suppe = new Sus("Suppe", "Suppen", "F", "sopa", T);
+        Sus salat = new Sus("Salat", "Salate", "M", "ensalada", T);
+
 
 
 
         //todo: Marcador: Especias
         T = new String[]{"especias"};
-        //nuez moscada, asafrán, sal, pimienta, cilantro, oregano, ajo, albaca, tomillo, canela, azúcar, curry
+        //nuez moscada, asafrán,  oregano, ajo,  curry
+        Sus salz = new Sus("Salz", "Salze", "N", "sal", T);
+        Sus pfeffer = new Sus("Pfeffer", "Pfeffer", "M", "pimienta", T);
+        Sus basilikum = new Sus("Basilikum", nullEntry, "N", "albahaca", T);
+        Sus thymian = new Sus("Thymian", "Thymiane", "M", "tomillo", T);
+        Sus koriander = new Sus("Koriander", "Koriander", "M", "cilantro", T);
+        Sus zimt = new Sus("Zimt", "Zimte", "M", "canela", T);
+        Sus zucker = new Sus("Zucker", "Zucker", "M", "azúcar", T);
+        Sus muskatnuss = new Sus("Muskatnuss", "Muskatnüsse", "F", "nuez moscada", T);
+        Sus safran = new Sus("Safran", "Safrane", "M", "azafrán", T);
+        Sus knoblauch = new Sus("Knoblauch", nullEntry, "M", "ajo", T);
 
 
-
-        //todo: Marcador. Cocina
+        //todo: Marcador. La cocina
         T = new String[]{"cocina"};
         Sus küche = new Sus("Küche", "Küchen", "F", "cocina", T);
 
         Sus plato = new Sus("Teller", "Teller", "M", "plato", T);
-        Sus geschirr = new Sus("Geschirr", "Geschirre", "N", "vajilla", T);
+        Sus gabel = new Sus("Gabel", "Gabeln", "F", "tenedor", T);
+        Sus messer = new Sus("Messer", "Messer", "N", "cuchillo", T);
+        Sus geschirr = new Sus("Geschirr", "Geschirre", "N", "vajilla [cosas de mesa]", T);
+        Sus besteck = new Sus("Besteck", "Bestecke", "N", "cubierto", T);
+
+        Sus löffel = new Sus("Löffel", "Löffel", "M", "cuchara", T);
+        Sus suppenlöffel = new Sus("Suppenlöffel", "Suppenlöffel", "M", "cuchara sopera", T);
+        Sus messlöffel = new Sus("Messlöffel", "Messlöffel", "M", "cuchara medidora", T);
+        Sus schöpflöffel = new Sus("Schöpflöffel", "Schöpflöffel", "M", "cucharón", T);
+
+        Sus tasse = new Sus("Tasse", "Tassen", "F", "taza", T);
+        Sus pfanne = new Sus("Pfanne", "Pfannen", "F", "sartén", T);
+        Sus kochtopf = new Sus("Kochtopf", "Kochtöpfe", "M", "olla", T);
         Sus mörser = new Sus("Mörser", "Mörser", "M", "molcajete", T);
-        //taza, cuchara, cuchillo, sartén, olla, tenedor, mesa, silla, estufa, refrigerador, cafetera, tetera, vitral, topper?,
-        //servilleta, salero, pimientero, colador, exprimidor, m o l c a j e t e,
+        Sus kaffeemaschine = new Sus("Kaffeemaschine", "Kaffeemaschinen", "F", "cafetera", T);
+        Sus teekanne = new Sus("Teekanne", "Teekannen", "F", "tetera", T);
+        Sus kanne = new Sus("Kanne", "Kannen", "F", "jarra", T);
+        Sus mikrowelle = new Sus("Mikrowelle", "Mikrowellen", "F", "microondas", T);
+        Sus toaster = new Sus("Toaster", "Toaster", "M","tostador", T);
+        Sus serviette = new Sus("Serviette", "Servietten", "F", "servilleta", T);
+        Sus salzstreuer = new Sus("Salzstreuer", "Salzstreuer", "M", "salero", T);
+        Sus pfefferstreuer = new Sus("Pfefferstreuer", "Pfefferstreuer", "M", "pimientero", T);
+        Sus seiher = new Sus("Seiher", "Seiher", "M", "colador [para pasta]", T);
+        Sus sieb = new Sus("Sieb", "Siebe", "N", "colador [líquidos]", T);
+        Sus zitronenpresse = new Sus("Zitronenpresse", "Zitronenpressen", "F", "exprimidor [de limones]", T);
+        //vitral, topper?
+
+
+
+        //todo: Marcador. Muebles de la cocina.
+        T = new String[]{"cocina", "mueble"};
+
+        Sus herd = new Sus("Herd", "Herde", "M", "estufa", T);
+        Sus backofen = new Sus("Backofen", "Backöfen", "M", "horno [para cocinar]", T);
+        Sus stuhl = new Sus("Stuhl", "Stühle", "M", "silla", T);
+        Sus tisch = new Sus("Tisch", "Tische", "M", "mesa", T);
+        Sus kühlschrank = new Sus("Kühlschrank", "Kühlschränke", "M", "refrigerador", T);
+
 
 
         //todo: Marcador. Bebidas
         T = new String[]{"bebida"};
         Sus getränk = new Sus("Getränk", "Getränke", "N", "bebida", T);
+        //tequila?, A T O L E, glüwein??? whisky?
 
         Sus kaffee = new Sus("Kaffee", "Kaffees", "M", "café [bebida]", T);
-        //agua, leche, jugo, vino, cerveza, tequila?, té, refresco, agua mineral,  A T O L E, glüwein??? whisky?
+        Sus wasser = new Sus("Wasser", "Wasser", "N", "agua", T);
+        Sus milch = new Sus("Milch", nullEntry, "F", "leche", T);
+        Sus bier = new Sus("Bier", "Biere", "N", "cerveza", T);
+        Sus wein = new Sus("Wein", "Weine", "M", "vino", T);
+        Sus tee = new Sus("Tee", "Tees", "M", "té", T);
+        Sus mineralwasser = new Sus("Mineralwasser", "Mineralwässer", "N", "agua mineral", T);
+        Sus saft = new Sus("Saft", "Säfte", "M", "jugo", T);
+        Sus erfrischung = new Sus("Erfrischung", "Erfrischungen", "F", "refresco", T);
+        Sus apfelwein = new Sus("Apfelwein", "Apfelweine", "M", "sidra", T);
 
-        //[---bebidas]
+
+        //todo: Marcador. Salir con amigos
+        T = new String[]{"amigos"};
+
+        Sus restaurant = new Sus("Restaurant", "Restaurants", "N", "restaurante", T);
+        restaurant.agregarTag("ciudad");
+        Sus bar = new Sus("Bar", "Bars", "F", "bar", T);
+        bar.agregarTag("ciudad");
+        Sus kino = new Sus("Kino", "Kinos", "N", "cine", T);
+        kino.agregarTag("ciudad");
+
+        Sus bowling = new Sus("Bowling", nullEntry, "N", "boliche", T);
+        Sus menü = new Sus("Menü", "Menüs", "N", "menú" ,T);
+        Sus trinkgeld = new Sus("Trinkgeld", "Trinkgelder", "N", "propina", T);
+        Sus radio = new Sus("Radio", "Radios", "N", "radio", T);
+        Sus vorspeise = new Sus("Vorspeise", "Vorspeisen", "F", "entrada [comida]", T);
+        // efectivo vs tarjeta, disco?
+        //Mesa para cuatro, ???
+
+
+        //todo: Marcador. Fiestas y festivos
+        T = new String[]{"festivos"};
+        Sus fest = new Sus("Fest", "Feste", "N", "fiesta", T);
+        fest.agregarTag("amigos");
+        Sus brauch = new Sus("Brauch", "Bräuche", "M", "costumbre", T);
+        Sus feiertag = new Sus("Feiertag", "Feiertage", "M", "día festivo", T);
+
+        Sus Ostern = new Sus("Ostern", "Ostern", "N", "Pascua", T);
+        Sus halloween = new Sus("Halloween", nullEntry, nullEntry, "Halloween", T);
+        Sus valentinstag = new Sus("Valentinstag", "Valentinstage", "M", "día de San Valentín", T);
+        Sus Weilnachten= new Sus("Weilnachten", "Weilnachten", "N", "Navidad", T);
+        Sus geburstag = new Sus("Geburstag", "Geburstage", "M", "cumpleaños", T);
+        Sus oktoberfest = new Sus("Oktoberfest", "Oktoberfeste", "N", "Oktoberfest", T);
+        Sus karneval = new Sus("Karneval", "Karnevale", "M", "carnaval", T);
+
 
 
         //---------------------------PAISES, CIUDADES, Y SUS MONUMENTOS-------------------------------------------------
         //todo: Marcador. Países, ciudades, y monumentos
         T = new String[]{"país"};
-
-        Sus país = new Sus("Land", "Länder", "N", "país", T);
         String[] Tags2 = {"capital", "ciudad"};
 
         HashMap<Sus, Sus> Naciones = new HashMap<Sus, Sus>();
@@ -179,6 +274,7 @@ public class Sus extends Palabra{
         //El cuerpo y sus partes (suena raro pero así será)------------------------------------------------
         //todo: Marcador
         T = new String[]{"cuerpo"};
+        Sus körper = new Sus("Körper", "Körper", "M", "cuerpo", T);
 
         Sus arm = new Sus("Arm", "Arme", "M", "brazo", T);
         Sus auge = new Sus("Auge", "Augen", "N", "ojo", T);
@@ -196,7 +292,6 @@ public class Sus extends Palabra{
         Sus kehle = new Sus("Kehle", "Kehlen", "F", "garganta", T);
         Sus knie = new Sus("Knie", "Knie", "N", "rodilla", T);
         Sus kopf = new Sus("Kopf", "Köpfe", "M", "cabeza", T);
-        Sus körper = new Sus("Körper", "Körper", "M", "cuerpo", T);
         Sus körperteil = new Sus("Körperteil", "Körperteile", "M", "parte el cuerpo", T);
         Sus magen = new Sus("Magen", "Mägen", "M", "estómago", T);
         Sus mund = new Sus("Mund", "Münder", "M", "boca", T);
@@ -272,6 +367,8 @@ public class Sus extends Palabra{
 
         //todo: Marcador
         T = new String[]{"clima"};
+        Sus wetter = new Sus("Wetter", nullEntry, "N", "tiempo [clima]", T); //= tiempo [clima]
+        Sus klima = new Sus("Klima", "Klimas", "N", "clima", T); //= clima. ¿Existe alguna diferencia?
 
         Sus regen = new Sus ("Regen", "Regen", "M", "lluvia", T);
         Sus platzregnen = new Sus("Platzregnen", "Platzregnen", "M", "aguacero", T);
@@ -346,7 +443,7 @@ public class Sus extends Palabra{
 
         Sus badeanzug = new Sus("Badeanzug", "Badeanzüge", "M", "traje de baño", T);
         Sus hemd = new Sus("Hemd", "Hemden", "N", "camisa", T);
-        Sus hose = new Sus("Hose", "hosen", "F", "pantalón", T);
+        Sus hose = new Sus("Hose", "Hosen", "F", "pantalón", T);
         Sus hut = new Sus("Hut", "Hüte", "M", "sombrero", T);
         Sus jacke = new Sus("Jacke", "Jacken", "F", "chamarra", T);
         Sus kleid = new Sus("Kleid", "Kleider", "N", "vestido", T);
@@ -399,17 +496,17 @@ public class Sus extends Palabra{
         Sus stadt = new Sus("Stadt", "Städte", "F", "ciudad", T);
         Sus großstadt = new Sus("Großstadt", "Großstädte", "F", "ciudad grande", T);
         Sus großstadtleben = new Sus("Großstadtleben", "Großstadtleben", "N", "vida en una ciudad grande", T);
+        Sus Haupstadt = new Sus("Haupstadt", "Hauptstädte", "F", "capital [ciudad]", T);
 
         Sus Wohnung = new Sus("Wohnung", "Wohnungen", "F", "departamento [empieza con 'w']", T);
         Sus apartment = new Sus("Apartment", "Apartments", "N", "departamento [empieza con 'a']", T);
         Sus wohngemeinschaft = new Sus("Wohngemeinschaft", "Wohngemeinschaften", "F", "piso compartido", T);
         Sus wolkenkratzer = new Sus("Wolkenkratzer", "Wolkenkratzer", "M", "rascacielos", T);
-        Sus gebëude = new Sus("Gebäude", "Gebäude", "N", "edificio", T);
+        Sus gebäude = new Sus("Gebäude", "Gebäude", "N", "edificio", T);
 
         Sus mitbewohner = new Sus("Mitbewohner [Wohnung]", "Mitbewohnernen", "M", "compañero de piso", T);
         Sus mitbewohner2 = new Sus("Mitbewohner [Haus]", "Mitbewohnernen", "M", "vecino", T);
 
-        Sus bar = new Sus("Bar", "Bars", "F", "bar", T);
         Sus museum = new Sus("Museum", "Museen", "N", "museo", T);
         museum.agregarTag("arte");
 
@@ -417,8 +514,6 @@ public class Sus extends Palabra{
         krankenhaus.agregarTag("médico");
 
         Sus dorf = new Sus("Dorf", "Dörfer", "N", "pueblo", T);
-
-
         Sus verkehr = new Sus("Verkehr", nullEntry, "N", "tráfico", T);
 
         Sus Baustelle = new Sus("Baustelle", "Baustellen", "F", "construcción [sitio]", T);
@@ -428,14 +523,20 @@ public class Sus extends Palabra{
         //[---La ciudad]
 
 
+
+        //todo: Marcador. Geografía.
+        T = new String[]{"geografía"};
+        Sus land = new Sus("Land", "Länder", "N", "país", T);
+        //frontera, río, oceano, mar, jungla, desierto, planicia, bosque, cueva, playa, lago, cañon, montaña, volcán, ...
+        //...pero es más importante saber decir "Voy a llegar tarde", y eso aún no lo se...
+
+
         //todo: Marcador
         //[Los muebles y cosas de la casa]
         T = new String[]{"mueble"}; //y cosas
 
         Sus bett = new Sus("Bett", "Betten", "N", "cama", T);
-        Sus stuhl = new Sus("Stuhl", "Stühle", "M", "silla", T);
-        Sus tisch = new Sus("Tisch", "Tische", "M", "mesa", T);
-        Sus kühlschrank = new Sus("Kühlschrank", "Kühlschränke", "M", "refrigerador", T);
+
         Sus kommode = new Sus("Kommode", "Kommoden", "F", "cómoda", T);
         Sus sofa = new Sus("Sofa", "Sofas", "N", "sofá", T);
 
@@ -462,10 +563,6 @@ public class Sus extends Palabra{
 
         Sus schule = new Sus("Schule", "Schulen", "F", "escuela", T);
 
-
-        Sus buch = new Sus("Buch", "Bücher", "N", "libro", T);
-        Sus entwurf = new Sus("Entwurf", "Entwürfe", "M", "borrador [escritura]", T);
-        Sus feder = new Sus("Feder", "Federn", "F", "pluma [escritura]", T);
         Sus filzstift = new Sus("Filzstift", "Filzstifte", "M",  "plumón", T);
         Sus klasse = new Sus("Klasse", "Klassen", "F", "clase", T);
         Sus klassenzimmer = new Sus("Klassenzimmer", "Klassenzimmer", "N", "aula", T);
@@ -473,8 +570,10 @@ public class Sus extends Palabra{
         korridor.agregarTag("casa");
         Sus kreide = new Sus("Kreide", "Kreiden", "F", "gis", T);
         Sus kurs = new Sus("Kurs", "Kurse", "M", "curso", T);
-        //Sus lehrer = new Sus("Lehrer", "maestro", Tags);
-        //Sus professor = new Sus("Professor", "profesor", Tags);
+        Sus lehrer = new Sus("Lehrer", "Lehrer", "M","maestro", T);
+        Sus lehrerin = new Sus("Lehrerin", "Lehrerinnen", "F", "maestra", T);
+        Sus professor = new Sus("Professor", "Professoren", "M", "profesor", T);
+        Sus professorin = new Sus("Professorin", "Professoninnen", "F", "profesora", T);
         Sus radiergummi = new Sus("Radiergummi", "Radiergummis", "M", "borrador [para lápiz]", T);
         Sus rechner = new Sus("Rechner", "Rechner", "M", "calculadora", T);
         rechner.agregarTag("tecnología");
@@ -492,9 +591,12 @@ public class Sus extends Palabra{
         //todo: Marcador
         //[La tecnología]
         T = new String[]{"tecnología"};
+        Sus technologie = new Sus("Technologie", "Technologien", "F", "tecnología", T);
 
         Sus fernseher = new Sus("Fernseher", "Fernseher", "N", "tele", T);
         Sus handy = new Sus("Handy", "Handys", "N", "teléfono", T);
+        Sus elektrizität = new Sus("Elektrizität", nullEntry, "F", "electricidad", T);
+        Sus Kabel = new Sus("Kabel", "Kabel", "N", "cable [eléctrico]", T);
         //electricidad, cable, laptop?
 
         //[/La tecnología]
@@ -524,7 +626,7 @@ public class Sus extends Palabra{
 
         //[Viajar]
 
-        //hotel, aeropuerto, "hostel", atracción, estación de autobuses
+        //hotel, aeropuerto, "hostal", atracción, estación de autobuses
         //también tendrá reserbr, viajar, conocer, ...
 
         //[---Viajar]
@@ -535,7 +637,9 @@ public class Sus extends Palabra{
         //HANS, GIBT MIR DAS HAMMER
 
         //[Construcción (pero no demolición)
+        //todo: Marcador. Materiales
         T = new String[]{"materiales"};
+        Sus material = new Sus("Material", "Materialien", "N", "material", T);
 
         Sus stein = new Sus("Stein", "Steine", "M", "piedra", T);
         Sus ziegelstein = new Sus("Ziegelstein", "Ziegelsteine", "M", "ladrillo", T);
@@ -550,6 +654,7 @@ public class Sus extends Palabra{
 
         //todo: Marcador. El trabajo
         T = new String[]{"trabajo"};
+        Sus arbeit = new Sus("Arbeit", "Arbeiten", "F", "trabajo [empleo]", T);
 
         Sus stärke = new Sus("Stärke", "Stärken", "F", "fuerza [punto fuerte]", T);
         Sus schwäche = new Sus("Schwäche", "Schwächen", "F", "debilidad [punto débil]", T);
@@ -560,25 +665,45 @@ public class Sus extends Palabra{
         Sus ausbildung = new Sus("Ausbildung", "Ausbildungen", "F", "formación [educación, entrenamiento]", T);
 
         Sus vorstellungsgespräch = new Sus("Vorstellungsgespräch", "Vorstellungsgespräche", "N", "entrevista [a cara]", T);
+        Sus firma = new Sus("Firma", "Firmen", "F", "empresa", T);
 
 
 
         //todo: Marcdor. Escritura.
         T = new String[]{"escritura"};
+        Sus schrift = new Sus("Schrift", "Schriften", "F", "escritura", T);
 
-        buch.agregarTag("escritura");
+        Sus buch = new Sus("Buch", "Bücher", "N", "libro", T);
+        Sus entwurf = new Sus("Entwurf", "Entwürfe", "M", "borrador [escritura]", T);
         Sus bleistift = new Sus("Bleistift", "Bleistifte", "M", "lápiz", T);
+        Sus feder = new Sus("Feder", "Federn", "F", "pluma [escritura]", T);
         tafel.agregarTag("escritura");
         Sus wörterbuch = new Sus("Wörterbuch", "Wörterbücher", "N", "diccionario", T);
         Sus schreibheft = new Sus("Schreibheft", "Schreibhefte", "N", "cuaderno", T);
+        Sus presse = new Sus("Presse", "Pressen", "F", "prensa", T);
+        Sus abschnitt = new Sus("Abschnitt", "Abschnitte", "M", "párrafo", T);
+        Sus seite = new Sus("Seite", "Seiten", "F", "página", T);
+        Sus handschrift = new Sus("Handschrift", "Handschriften", "F", "letra [aparencia]", T);
+
+        Sus buchstabe = new Sus("Buchstabe", "Buchstaben", "M", "letra [carácter]", T);
+        Sus wort = new Sus("Wort", "Wörter", "N", "palabra", T);
+
+        Sus vokal = new Sus("Vokal", "Vokale", "M", "vocal [palabras]", T);
+        Sus konsonant = new Sus("Konsonant", "Konsonanten", "M", "consonante", T);
+        Sus genus = new Sus("Genus", "Genera", "N", "género [palabra]", T);
+        Sus plural = new Sus("Plural", "Plurale", "M", "plural", T);
+        Sus grammatik = new Sus("Grammatik", "Grammatiken", "F", "gramática", T);
+        Sus rechtschreibfehler = new Sus("Rechtschreibfehler", "Rechtschreibfehler", "M", "falta de ortografía", T);
+        //todo: Buchstabieren = deletrear
 
         //todo: Marcador.
         //Los oficios
-        //jardinero, panadero, poliía, ...
+        //jardinero, panadero, policía, ...
 
 
         //todo: Marcador. comunicación
         T = new String[]{"comunicación"};
+        Sus kommunikation = new Sus("Kommunikation", nullEntry, "F", "comunicación", T);
 
         Sus sprache = new Sus("Sprache", "Sprachen", "F", "idioma", T);
         Sus muttersprache = new Sus("Muttersprache", "Muttersprachen", "F", "idioma materno", T);
@@ -587,6 +712,7 @@ public class Sus extends Palabra{
         Sus telefongespräch = new Sus("Telefongespräch", "Telefongespräche", "N", "conversación telefónica", T);
         Sus diskussion = new Sus("Diskussion", "Diskussionen", "F", "discusión", T);
 
+        //palabra, párrafo, página, letra, ortografía, gramática,
 
     }
     //todo: mar

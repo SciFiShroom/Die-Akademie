@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Adj extends Palabra{
     public static final String Adj = "Adj";
     public static final String Adjetivo = "Adjetivo";
-    public static final String nullEntry = "---";
+    public static final String nullEntry = Control.entradaNula;
 
 
 

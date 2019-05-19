@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Ver extends Palabra{
     public static final String Ver = "Ver";
     public static final String Verbo = "Verbo";
-    public static final String nullEntry = "---";
+    public static final String nullEntry = Control.entradaNula;
 
 
 
@@ -59,14 +59,14 @@ public class Ver extends Palabra{
     } //Manual
 
 
-    public void agregarPreterito(String Base) {
+    public void agregarPreterito(String e_est_e_en_et_en) {
         this.preterito = new String[6];
-        this.preterito[0] = Base + "e";
-        this.preterito[1] = Base + "est";
-        this.preterito[2] = Base + "e";
-        this.preterito[3] = Base + "en";
-        this.preterito[4] = Base + "et";
-        this.preterito[5] = Base + "en";
+        this.preterito[0] = e_est_e_en_et_en + "e";
+        this.preterito[1] = e_est_e_en_et_en + "est";
+        this.preterito[2] = e_est_e_en_et_en + "e";
+        this.preterito[3] = e_est_e_en_et_en + "en";
+        this.preterito[4] = e_est_e_en_et_en + "et";
+        this.preterito[5] = e_est_e_en_et_en + "en";
     }// -e, -est, -e, -en, -et, -en
 
 
@@ -82,6 +82,7 @@ public class Ver extends Palabra{
 
 
     public void agregarImperativo() {
+        //x no se usa, pero tienes que meterle algo
         this.imperativo = new String[3];
         this.imperativo[0] = this.base;
         this.imperativo[1] = this.base + "t";
@@ -1151,6 +1152,16 @@ public class Ver extends Palabra{
         tanzen.agregarImperativo("tanz", "tanzt");
         tanzen.agregarPreterito("tanzt");
 
+        Ver malen = new Ver("malen", "mal", "pintar [un cadro]", T);
+        malen.agregarPreterito("mält");
+        malen.agregarImperativo("mal", "malt");
+        malen.agregarParticipio("gemalt");
+
+        Ver üben = new Ver("üben", "üb", "practicar", T);
+        üben.agregarParticipio("geübt");
+        üben.agregarImperativo("üb", "übt");
+        üben.agregarPreterito("übt");
+
 
 
     }
@@ -1162,7 +1173,14 @@ public class Ver extends Palabra{
     //Define un verbo
     @Override
     public void definir() {
-        System.out.println(this.verbo + " - " + this.significado);
+
+        if (!this.TienePrefijo) {
+            System.out.println(this.prefijo + "|" + this.raiz.getNombre() + " - " + this.significado);
+        } else {
+            System.out.println(this.verbo + " - " + this.significado);
+        }
+
+
         String[][] arr = new String[3][2];
         arr[0][0] = "      ich " + this.presente[0];
         arr[1][0] = "       du " + this.presente[1];

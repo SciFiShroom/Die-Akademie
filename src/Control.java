@@ -2,12 +2,33 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
 public class Control {
+    public static final String entradaNula = "---";
+    public static final String quePex = "?????";
 
     //NumberFormatExceptio = hice algo mal y el yo del pasado me lo está diciendo
     //SecurityException = Error, pero uno que estoy esperando (catched). También lo uso para cerrar ventanas / consolas.
     //todo: Fix exceptions lul
 
 
+    public static final String[] Temas = new String[]{
+            "comida", "fruta", "verdura", "país", //"ciudades",
+            "capital", /**"test",*/ "cuerpo", /**"letras",*/ "tiempo",
+            "clima", "día", "año", "figuras", "ropa",
+            "escuela", "tecnología", "casa", "mueble", "médico",
+            "ciudad", "medidas", "transporte", "especias", "cocina",
+            "bebida", "materiales", "trabajo", "platillo", "arte",
+            "geografía", "amigos", "festivos",
+
+            "moverse", "básico", "modal",
+            "menos_básico", "misceláneo",
+            "comunicación", "vista", "tienda", "auxiliar",
+            "objeto", "mente", "escritura",
+
+            "color", "aspecto", "personalidad",
+
+            "conjunciones", "interrogativos", "pronombres", "preposiciones", "acusativo",
+            "dativo", "wechsel"
+    };
 
     //Estos se inicializan en el Main de Control. (Hasta abajo)
     public static ArrayList<Lista<Palabra>> Sustantivos; //La lista se guarde como variable estatica.
@@ -74,7 +95,7 @@ public class Control {
                 break;
 
             case Pal.Pal:
-                for (Lista actual : Control.Sustantivos) {
+                for (Lista actual : Control.Palabras) {
                     if (actual.getNombre().equals(tema)) { return true; }
                 }
                 break;
@@ -86,24 +107,7 @@ public class Control {
 
     //inicializa los temas de tödo el programa
     public static int InicializarTemas() {
-        String[] Temas = {
-                "comida", "fruta", "verdura", "país", "ciudades",
-                "capital", "test", "cuerpo", "letras", "tiempo",
-                "clima", "día", "año", "figuras", "ropa",
-                "escuela", "tecnología", "casa", "mueble", "médico",
-                "ciudad", "medidas", "transporte", "espcias", "cocina",
-                "bebida", "materiales", "trabajo", "platillo", "arte",
 
-                "moverse", "básico", "modal",
-                "menos_básico", "misceláneo",
-                "comunicación", "vista", "tienda", "auxiliar",
-                "objeto", "mente", "escritura",
-
-                "color", "aspecto", "personalidad",
-
-                "conjunciones", "interrogativos", "pronombres", "preposiciones", "acusativo",
-                "dativo", "wechsel"
-        };
         int num = Temas.length;
 
         Arrays.sort(Temas); //opcional pero mejor para el usuario
@@ -141,6 +145,54 @@ public class Control {
 
         return num;
     }
+
+
+
+    public static void OrganizaciónTemas(int n) {
+        int alt;
+        if (Control.Temas.length % n == 0) {
+            alt = Control.Temas.length / n;
+        } else {
+            alt = 1+(Control.Temas.length / n);
+        }
+        String[][] out = new String[alt][n];
+
+        int counter = 0;
+        for (int i = 0; i < alt; i++) {
+            for (int j = 0; j < n; j++) {
+                if (counter < Control.Temas.length) {
+                    int numSus = -1;
+                    int numVer = -1;
+                    int numAdj = -1;
+                    int numPal = -1;
+
+                    try { numSus = Control.getTema(Temas[counter], Sus.Sus).size();
+                    } catch (NumberFormatException e) { numSus = 0; }
+
+                    try { numVer = Control.getTema(Temas[counter], Ver.Ver).size();
+                    } catch (NumberFormatException e) { numVer = 0; }
+
+                    try { numAdj = Control.getTema(Temas[counter], Adj.Adj).size();
+                    } catch (NumberFormatException e) { numAdj = 0; }
+
+                    try { numPal = Control.getTema(Temas[counter], Pal.Pal).size();
+                    } catch (NumberFormatException e) { numPal = 0; }
+
+                    int numTotal = numAdj + numPal + numSus + numVer;
+
+                    out[i][j] = Control.Temas[counter] + ": " + numSus + "S " + numVer + "V " + numAdj + "A " + numPal + "P = " + numTotal;
+                    counter++;
+                } else {
+                    out[i][j] = " ";
+                }
+            }
+        }
+
+        Control.arrPrint(out);
+
+    }
+
+
 
 
     // Ejecuta la inicialización de los sustantivos. Créa la lista de temas, cuyas tienen los sustantivos.
@@ -200,7 +252,45 @@ public class Control {
         System.out.println("PALABRAS: " + Control.PalabrasListaSingular.size() + " palabras creadas, " + Control.Palabras.size() + " temas utilizados");
     }
 
+    public static void InicializarTodo() {
+        Sus.crearSustantivos();
+        Ver.crearVerbos();
+        Adj.crearAdjetivos();
+        Pal.crearPalabras();
 
+
+        ArrayList<Lista<Palabra>> ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Sustantivos) { if (actual.size() > 0) {ListasNoVacías.add(actual); }}
+        Control.Sustantivos = ListasNoVacías;
+        System.out.println("SUSTANTIVOS: " + Control.SustantivosListaSingular.size() + " sustantivos creados, " + Control.Sustantivos.size() + " temas utilizados. ");
+
+        ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Verbos) { if (actual.size() > 0) {ListasNoVacías.add(actual); }}
+        Control.Verbos = ListasNoVacías;
+        System.out.println("VERBOS: " + Control.VerbosListaSingular.size() + " verbos creados, " + Control.Verbos.size() + " temas utilizados");
+
+        ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Adjetivos) { if (actual.size() > 0) {ListasNoVacías.add(actual); }}
+        Control.Adjetivos = ListasNoVacías;
+        System.out.println("ADJETIVOS: " + Control.AdjetivosListaSingular.size() + " adjetivos creados, " + Control.Adjetivos.size() + " temas utilizados");
+
+        ListasNoVacías = new ArrayList<Lista<Palabra>>();
+        for (Lista<Palabra> actual : Control.Palabras) { if (actual.size() > 0) {ListasNoVacías.add(actual); }}
+        Control.Palabras= ListasNoVacías;
+        System.out.println("PALABRAS: " + Control.PalabrasListaSingular.size() + " palabras creadas, " + Control.Palabras.size() + " temas utilizados");
+
+
+        //revisión de tags no usados
+
+        for (String tema : Control.Temas) {
+            if (TemaExiste(tema, Sus.Sus) || TemaExiste(tema, Ver.Ver) || TemaExiste(tema, Adj.Adj) || TemaExiste(tema, Pal.Pal)) {
+                continue;
+            }
+
+            throw new NumberFormatException("Error: El tema '" + tema + "' no es utilizado");
+        }
+
+    }
 
 
 
@@ -274,8 +364,6 @@ public class Control {
 
 
 
-
-
     public static void comandos() {
         System.out.println("-comandos: Imprime esta lista. ");
         System.out.println("-hola: Dice ¡Hola!");
@@ -302,8 +390,8 @@ public class Control {
                 listaSignificados.add(actual.getSignificado());
             }
 
-            //Varios verbos no tendrán tödo. Aquí se veran todos los casos.
             if (actual instanceof Ver) {
+                //Varios verbos no tendrán tödo. Aquí se veran todos los casos.
                 Ver verActual = (Ver) actual;
                 if (verActual.presente == null) {System.out.println("El verbo '" + verActual.verbo+ "' no tiene presente. ");}
                 if (verActual.participio == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene participio. ");}
@@ -365,6 +453,129 @@ public class Control {
             }
         }
     }
+    public static void revisiónCompleta() {
+        int numeroDeErrores = 0;
+
+        System.out.println("----------------Revisión de palabras-------------------");
+        ArrayList<String> listaSignificados = new ArrayList<String>();
+        ArrayList<String> listaNombres = new ArrayList<String>();
+
+        Lista<Palabra> todasLasPalabras = Lista.concatenar(SustantivosListaSingular, Lista.concatenar(VerbosListaSingular, Lista.concatenar(AdjetivosListaSingular, PalabrasListaSingular)));
+
+        for (Palabra actual : todasLasPalabras) {
+            if (actual.getNombreSimple().equals("")) {
+                System.out.println("ERROR: Palabra sin nombre. Tags: " + Arrays.toString(actual.tags));
+                numeroDeErrores++;
+                continue;
+            }
+            if(actual.getSignificadoSimple().equals("")) {
+                System.out.println("ERROR: Palabra sin significado. " + actual.getNombre());
+                numeroDeErrores++;
+                continue;
+            }
+
+
+
+            if (listaNombres.contains(actual.getNombre())) {
+                System.out.println("El nombre " + actual.getNombre() + " es repetido. " + actual.getNombre()); numeroDeErrores++;
+            } else {
+                listaNombres.add(actual.getSignificado());
+            }
+
+            if (listaSignificados.contains(actual.getSignificado())) {
+                System.out.println("El significado " + actual.getSignificado() + " es repetido. " + actual.getNombre()); numeroDeErrores++;
+            } else {
+                listaSignificados.add(actual.getSignificado());
+            }
+
+
+            String[] analysisNombre = actual.getNombreSimple().split("");
+            String[] analysisSignificado = actual.getSignificadoSimple().split("");
+
+            for (String sim : analysisNombre) {
+                switch (sim) {
+                    //case "[":
+                    //case "]":
+                    case "(":
+                    case ")":
+                    case "?":
+                    case " ": System.out.println("La palabra '" + actual.getNombre() + "' tiene carácteres raros. "); numeroDeErrores++;
+                }
+            }
+
+            for (String sim : analysisSignificado) {
+                switch (sim) {
+                    //se utilizan '[' y '*]' frecuentemente
+                    case "(":
+                    case ")":
+                    //case " ":
+                    case "?": System.out.println("La palabra '" + actual.getNombre() + "' tiene carácteres raros en el significado."); numeroDeErrores++;
+                }
+            }
+
+
+
+            if (actual instanceof Ver) {
+
+                //Varios verbos no tendrán tödo. Aquí se veran todos los casos.
+                Ver verActual = (Ver) actual;
+                if (verActual.presente == null) {
+                    System.out.println("El verbo '" + verActual.verbo+ "' no tiene presente. ");
+                    numeroDeErrores++;
+                }
+                if (verActual.participio == null) {
+                    System.out.println("El verbo '" + verActual.verbo + "' no tiene participio. ");
+                    numeroDeErrores++;
+                }
+                if (verActual.imperativo == null) {
+                    System.out.println("El verbo '" + verActual.verbo + "' no tiene imperativo. ");
+                    numeroDeErrores++;
+                }
+                if (verActual.preterito == null) {
+                    System.out.println("El verbo '" + verActual.verbo + "' no tiene preterito. ");
+                    numeroDeErrores++;
+                }
+
+            } else if (actual instanceof Sus) {
+
+                Sus susActual = (Sus) actual;
+                if (susActual.plural == null) {
+                    System.out.println("El sustantivo '" + susActual.getNombre() + "' no tien plural");
+                    numeroDeErrores++;
+                }
+
+                //Revisión de capitalización: Todos los sustantivos se capitalizan.
+                if (!Character.isUpperCase(susActual.getNombre().charAt(0))) {
+                    System.out.println("El sustantivo " + actual.getNombre() + " no está capitalizado. ");
+                    numeroDeErrores++;
+                }
+
+                //También revisamos la capitalización de los plurales.
+                if (!susActual.plural.equals(entradaNula) && !Character.isUpperCase(susActual.plural.charAt(0))) {
+                    System.out.println("El sustantivo '" + susActual.getNombre() + "' tiene un plural sin capitalizar");
+                    numeroDeErrores++;
+                }
+
+            } else if (actual instanceof Adj) {
+
+                Adj adjActual = (Adj) actual;
+                if (adjActual.comparativo == null) {
+                    System.out.println("El adjetivo '" + adjActual.getNombre() + "' no tiene comparativo");
+                    numeroDeErrores++;
+                }
+                if (adjActual.superlativo == null) {
+                    System.out.println("El adjetivo '" + adjActual.getNombre() + "' no tiene superlativo");
+                    numeroDeErrores++;
+                }
+
+            } else if (actual instanceof Pal) {
+
+                //no hay nada aquí
+            }
+        }
+
+        System.out.println("-------------------Revisión de palabras completada exitosamente: " + numeroDeErrores + " errores detectados-----------------------------");
+    }
 
 
     public static void consola() {
@@ -423,10 +634,12 @@ public class Control {
 
         long comienzoInicialización = System.nanoTime();
 
-        InicializarSustantivos();
-        InicializarVerbos();
-        InicializarAdjetivos();
-        InicializarPalabras();
+
+        //InicializarSustantivos();
+        //InicializarVerbos();
+        //InicializarAdjetivos();
+        //InicializarPalabras();
+        InicializarTodo();
 
         int numDePalabras = Control.SustantivosListaSingular.size() + Control.VerbosListaSingular.size()
                 + Control.AdjetivosListaSingular.size() + Control.PalabrasListaSingular.size();
@@ -435,11 +648,15 @@ public class Control {
 
 
         if (revisiónDePalabras) {
-            Control.revisarVer();
+            /**Control.revisarVer();
             Control.revisarAdj();
             Control.revisarSus();
-            Control.revisarPal();
+            Control.revisarPal();*/
+
+            Control.revisiónCompleta();
         }
+
+
 
 
         long finInicialización = System.nanoTime();
@@ -453,16 +670,17 @@ public class Control {
 
 
     public static void main(String[] args) {
-        Control.Inicialización(false, false);
+        Control.Inicialización(true, false);
 
-        //Se reescribió Ejer.ejercicios[]. Ahora es solo un método.
-        //Fixed a bug where Lista.escojerAleatorio didn't prevent doubles.
-        //added toString() a Lista.java.
-        //se agrego .toString() a Palabra.java
-        //Se reorganizaron y actualizaron las consolas Ejer.practicar[].
+        //OrganizaciónTemas(5);
 
-        //Scanner sc = new Scanner(System.in);
-        //Ejer.EjerciciosPalabrasSimples("Sus Vocabulario", sc);
+        //se arreglo el método Control.revisiónCompleta()
+        //hay que arreglar la cosa de significados dobles.
+        //se reescribió Control.Inicialización(). Ahora es un método general.
+        //hay que agregar un método .parseSimple() que formatée los nombres y significados no simples.
+        //ya que ahorita, .getNombreSimple incluye " " antes del "[". en la versión actual.
+        //se agregaron varios sustantivos nuevos en los temas de comida y cocina.
+        //se agregó Control.OrganizaciónTemas(int anchura), que te deja ver como se utilizan los temas.
 
         /**
          * Mi WishList
@@ -479,12 +697,41 @@ public class Control {
          */
 
 
-        //todo: Agregar nombreSencillo y significadoSencillo, + funciones, a todas las palabras.
+        /**
+         * Palabras Wishlist
+         * ahorita
+         * aquí
+         * ayá (o allá?)
+         * esto
+         * eso (y "aquello" que?)
+         * despues de
+         * se hará despues.
+         * antes
+         * más tarde
+         * más temprano
+         *
+         * mañana
+         * ayer
+         *
+         * siempre
+         * todo
+         * nada
+         * nunca
+         * un poco
+         * normalmente / a menudo
+         *
+         *
+         */
+
+
+
+
 
         //todo: crear Ejer.ConsolaDefinir(String tipoDePalabra, Scanner sc)
         //todo: Agregar palabras titulares (Der Haus, Der Essen, etc.)
         //todo: agregarle javadoc con @throws a todas las funciónes
 
+        //todo: Asegurarse que getNombre no tenga símbolos raros.
 
         //Todo: cambiar NullPointerExceptions a NumberFormatExceptions para evitar problemas.
 
@@ -504,10 +751,8 @@ public class Control {
         //todo: Organizar "Marcadores" en todos los diccionarios.
         //todo: Acabar de ordenar los verbos :pepeEyes:
 
-        //todo: Si a una palabra se le añade un tag que ya tine, el programa debería de echar un error.
-
-        //Definir palabra debería de saber que hacer si 'nullEntry' aparece
-        //asegurarse de que palabras con 'nullEntry' no entren a los ejercicios que lo necesitan.
+        //todo: Definir palabra debería de saber que hacer si 'nullEntry' aparece
+        //todo: asegurarse de que palabras con 'nullEntry' no entren a los ejercicios que lo necesitan.
 
         //todo: enseñar tema debería continuar con otros temas despues de terminar.
         //todo: BUG: ENSEÑAR TEMA NO UTILIZA TODAS LAS PALABRAS (SE SALTA UNA)
@@ -534,8 +779,6 @@ public class Control {
         und: y          A y B
         wenn: si [en caso de que]        Si A, entonces B
         ob: si [No es wenn]         Si A.
-
-
          */
 
 
