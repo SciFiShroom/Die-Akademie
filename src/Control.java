@@ -17,7 +17,7 @@ public class Control {
             "escuela", "tecnología", "casa", "mueble", "médico",
             "ciudad", "medidas", "transporte", "especias", "cocina",
             "bebida", "materiales", "trabajo", "platillo", "arte",
-            "geografía", "amigos", "festivos",
+            "geografía", "amigos", "festivos", "gramática",
 
             "moverse", "básico", "modal",
             "menos_básico", "misceláneo",
@@ -669,9 +669,32 @@ public class Control {
     }
 
 
+
+    public static void schnellBedeutung() {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            String palActual = sc.nextLine();
+            if (palActual.equals("cerrar")) {return;}
+
+            Palabra[] arrActual = Palabra.buscarTodo(palActual);
+            for (Palabra actual : arrActual) {actual.definir();}
+
+        }
+
+
+    }
+
+
     public static void main(String[] args) {
         Control.Inicialización(true, false);
 
+
+        //Sus intento1 = new Sus("el sus", "el plur", "N", "el sig", new String[]{"comida", "verdura"});
+        //System.out.println(Arrays.toString(intento1.tags));
+
+
+        Control.schnellBedeutung();
         //OrganizaciónTemas(5);
 
         //se arreglo el método Control.revisiónCompleta()
@@ -684,6 +707,7 @@ public class Control {
 
         /**
          * Mi WishList
+         * - consola que te deje definir o buscar palabras velozmente.
          * - ejercicio que te enseñe a decir la hora, medir tiempo, y utilizar un reloj en alemán
          * - ejercicio que te enseñe a utilizar las preposiciones y verbos de objetos en sus contextos.
          * - ejercicio que te enseñe las declinaciones de los articulos y de los adjetivos.
@@ -699,6 +723,11 @@ public class Control {
 
         /**
          * Palabras Wishlist
+         * telefonieren
+         * falls
+         * ausdrücken = expresarse. chido
+         * Tender la cama = Das Bett Machen
+         *
          * ahorita
          * aquí
          * ayá (o allá?)
@@ -743,9 +772,6 @@ public class Control {
 
         //todo: Agregar parser que lea la funcion crear[cosa]() y la ponga en un documento .txt
         //todo: agregar algo que lea un documento .txt y crée las palabras a partir de ello.
-
-        //todo: Lehrer, Student, Professor,...???
-
 
         //todo: Agregar palabras indicativas (Fruta, ciudad, especias, escuela, ...) a todas las listas.
         //todo: Organizar "Marcadores" en todos los diccionarios.

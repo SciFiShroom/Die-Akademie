@@ -98,7 +98,7 @@ public class Adj extends Palabra{
     public String comparativo;
     public String superlativo;
     public String significado;
-    public String[] tags;
+    //public String[] tags;
 
 
 

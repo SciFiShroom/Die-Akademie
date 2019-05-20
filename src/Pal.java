@@ -27,7 +27,7 @@ public class Pal extends Palabra{
 
     public String palabra; //La palabra en Alemán
     public String significado; //El significado de la palabra.
-    public String[] tags; //Los tags (tipo de palabra, u otro tema. )
+    //public String[] tags; //Los tags (tipo de palabra, u otro tema. )
 
 
     @Override
@@ -203,8 +203,8 @@ public class Pal extends Palabra{
 
         //immer,
         //Pal niemand = new Pal("niemand", "nadie", Tags);
-        //Pal alles = new Pal("alles", "todos [gente]", Tags);
-
+        //Pal alles = new Pal("alles", "todos [gente]", Tags); REVISAR A GÜIGÜI
+        // zu viel = demasiado.
     }
 
 

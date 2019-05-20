@@ -1,8 +1,12 @@
 import java.util.Arrays;
 public class test {
 
-
-    public static boolean emmpiezaConMayuscula(String input) {
+    /**
+     * @param input also hi
+     * @param thing hi
+     * @return hiii
+     */
+    public static boolean emmpiezaConMayuscula(String input, String thing) {
         return Character.isUpperCase(input.charAt(0));
     }
 
@@ -11,7 +15,6 @@ public class test {
         String[] listota = new String[]{"Hola", "que", "pex?"};
 
         System.out.println(Control.contiene(listota, "Hola"));
-
 
 
     }

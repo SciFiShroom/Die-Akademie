@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Palabra {
     public static final String nullEntry = Control.entradaNula;
@@ -34,30 +35,7 @@ public class Palabra {
         }
 
 
-
         Control.getTema(newTag, this.TipoDePalabra()).add(this);
-
-
-        /**
-        ArrayList<Lista<Palabra>> listaTematica = null;
-        boolean entendido = false;
-
-        if (this instanceof Sus) {listaTematica = Control.Sustantivos; entendido = true;}
-        if (this instanceof Ver) {listaTematica = Control.Verbos; entendido = true;}
-        if (this instanceof Adj) {listaTematica = Control.Adjetivos; entendido = true;}
-        if (this instanceof Pal) {listaTematica = Control.Palabras; entendido = true;}
-        if(!entendido) {throw new NumberFormatException("Error: Tipo de palabra no reconocido");}
-
-
-        for (Lista<Palabra> actual : listaTematica) {
-            if (actual.nombre.equals(newTag)) {
-                actual.add(this);
-                return; //Termina la busqueda en cuanto se encuentre la lista correcta
-            }
-        }
-
-        //Si no se encuentra, echa un error.
-        throw new NullPointerException("Error: Tag '" + newTag + "' no reconocida");*/
     }
 
     //todo: Agregar método de significado largo, que incluya []. Haz que .getSignificado() no los incluya.
@@ -80,19 +58,19 @@ public class Palabra {
         ArrayList<Palabra> Resultados = new ArrayList<Palabra>();
 
         for (Palabra actual: Control.SustantivosListaSingular) {
-            if (actual.getNombre().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
 
         for (Palabra actual: Control.VerbosListaSingular) {
-            if (actual.getNombre().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
 
         for (Palabra actual: Control.AdjetivosListaSingular) {
-            if (actual.getNombre().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
 
         for (Palabra actual: Control.PalabrasListaSingular) {
-            if (actual.getNombre().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
 
         Palabra[] out = new Palabra[Resultados.size()];
