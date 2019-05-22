@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Arrays;
 public class Pal extends Palabra{
     public static final String Pal = "Pal";

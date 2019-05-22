@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Arrays;
 public class Adj extends Palabra{
     public static final String Adj = "Adj";
@@ -153,7 +152,7 @@ public class Adj extends Palabra{
 
         Adj rot = new Adj("rot", "röter", "rötesten", "rojo", Tags);
 
-        Adj orange = new Adj("orange", "naranja", Tags);
+        Adj orange = new Adj("orange", "naranja [Adj.]", Tags);
         orange.actualizarDeclinación(false);
 
         Adj gelb= new Adj("gelb", "amarillo", Tags);
@@ -229,6 +228,9 @@ public class Adj extends Palabra{
 
         Adj gut = new Adj("gut", "besser", "besten", "bueno", Tags);
         gut.agregarTag("personalidad");
+
+        Adj hart = new Adj("hart", "härter", "härtesten", "duro", Tags);
+
         Adj heiß = new Adj("heiß", "caliente", Tags);
 
         Adj hoch = new Adj("hoch", "höher", "höchsten", "alto [acaba con 'h']", Tags);
@@ -284,10 +286,12 @@ public class Adj extends Palabra{
 
         Adj schwer = new Adj("schwer", "pesado", Tags);
 
-        Adj spät = new Adj("spät", "tarde", Tags);
+        Adj spät = new Adj("spät", "tarde [Adj.]", Tags);
 
         Adj stark = new Adj("stark", "stärker", "stärksten", "fuerte", Tags);
         stark.agregarTag("aspecto");
+
+        Adj stolz = new Adj("stolz", "stolzer", "stolzesten", "orgulloso", Tags);
 
         Adj traurig = new Adj("traurig", "triste", Tags);
         traurig.agregarTag("personalidad");
@@ -298,9 +302,7 @@ public class Adj extends Palabra{
 
         Adj trocken = new Adj("trocken", "seco", Tags);
 
-
         Adj viel = new Adj("viel", "mehr", "meisten", "mucho", Tags);
-
 
         Adj warm = new Adj("warm", "wärmer", "wärmsten", "cálido", Tags);
 

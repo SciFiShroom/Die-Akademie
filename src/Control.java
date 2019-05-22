@@ -17,7 +17,8 @@ public class Control {
             "escuela", "tecnología", "casa", "mueble", "médico",
             "ciudad", "medidas", "transporte", "especias", "cocina",
             "bebida", "materiales", "trabajo", "platillo", "arte",
-            "geografía", "amigos", "festivos", "gramática",
+            "geografía", "amigos", "festivos", "gramática", "conocidos",
+            "planta", "animal", "profesiónes",
 
             "moverse", "básico", "modal",
             "menos_básico", "misceláneo",
@@ -477,13 +478,13 @@ public class Control {
 
 
             if (listaNombres.contains(actual.getNombre())) {
-                System.out.println("El nombre " + actual.getNombre() + " es repetido. " + actual.getNombre()); numeroDeErrores++;
+                System.out.println("El nombre '" + actual.getNombre() + "' es repetido. " + actual.getNombre()); numeroDeErrores++;
             } else {
                 listaNombres.add(actual.getSignificado());
             }
 
             if (listaSignificados.contains(actual.getSignificado())) {
-                System.out.println("El significado " + actual.getSignificado() + " es repetido. " + actual.getNombre()); numeroDeErrores++;
+                System.out.println("El significado '" + actual.getSignificado() + "' es repetido. " + actual.getNombre()); numeroDeErrores++;
             } else {
                 listaSignificados.add(actual.getSignificado());
             }
@@ -493,23 +494,15 @@ public class Control {
             String[] analysisSignificado = actual.getSignificadoSimple().split("");
 
             for (String sim : analysisNombre) {
-                switch (sim) {
-                    //case "[":
-                    //case "]":
-                    case "(":
-                    case ")":
-                    case "?":
-                    case " ": System.out.println("La palabra '" + actual.getNombre() + "' tiene carácteres raros. "); numeroDeErrores++;
+                if (sim.equals(" ") || Control.carácterEsRaro(sim.charAt(0), true)) {
+                    System.out.println("La palabra '" + actual.getNombre() + "' tiene carácteres raros. ");
+                    numeroDeErrores++;
                 }
             }
 
             for (String sim : analysisSignificado) {
-                switch (sim) {
-                    //se utilizan '[' y '*]' frecuentemente
-                    case "(":
-                    case ")":
-                    //case " ":
-                    case "?": System.out.println("La palabra '" + actual.getNombre() + "' tiene carácteres raros en el significado."); numeroDeErrores++;
+                if (Control.carácterEsRaro(sim.charAt(0), false)) {
+                    System.out.println("La palabra '" + actual.getNombre() + "' tiene carácteres raros en el significado."); numeroDeErrores++;
                 }
             }
 
@@ -546,7 +539,7 @@ public class Control {
 
                 //Revisión de capitalización: Todos los sustantivos se capitalizan.
                 if (!Character.isUpperCase(susActual.getNombre().charAt(0))) {
-                    System.out.println("El sustantivo " + actual.getNombre() + " no está capitalizado. ");
+                    System.out.println("El sustantivo '" + actual.getNombre() + "' no está capitalizado. ");
                     numeroDeErrores++;
                 }
 
@@ -576,6 +569,61 @@ public class Control {
 
         System.out.println("-------------------Revisión de palabras completada exitosamente: " + numeroDeErrores + " errores detectados-----------------------------");
     }
+
+
+
+    public static boolean carácterEsRaro(char c, boolean checarAcentos) {
+        //àèìòù
+        //ÀÈÌÒÙ
+        //âêîôû
+        //ÂÊÎÔÛ
+        switch (c) {
+            case '(':
+            case ')':
+            case '?':
+            case '¿':
+            case '.':
+            case ',':
+            case 'à':
+            case 'è':
+            case 'ì':
+            case 'ò':
+            case 'ù':
+            case 'À':
+            case 'È':
+            case 'Ì':
+            case 'Ò':
+            case 'Ù':
+            case 'â':
+            case 'ê':
+            case 'î':
+            case 'ô':
+            case 'û':
+            case 'Â':
+            case 'Ê':
+            case 'Î':
+            case 'Ô':
+            case 'Û': return true;
+        }
+
+        if (checarAcentos) {
+            switch (c) {
+                case 'á':
+                case 'Á':
+                case 'é':
+                case 'É':
+                case 'í':
+                case 'Í':
+                case 'ó':
+                case 'Ó':
+                case 'ú':
+                case 'Ú': return true;
+            }
+        }
+
+        return false;
+    }
+
 
 
     public static void consola() {
@@ -678,6 +726,7 @@ public class Control {
             if (palActual.equals("cerrar")) {return;}
 
             Palabra[] arrActual = Palabra.buscarTodo(palActual);
+            if (arrActual == null) {System.out.println("No se encontro '" + palActual + "'. "); continue; }
             for (Palabra actual : arrActual) {actual.definir();}
 
         }
@@ -688,13 +737,45 @@ public class Control {
 
     public static void main(String[] args) {
         Control.Inicialización(true, false);
+        //verificar que a los verbos no se les pueda agregar algo si yá se les agregó.
+        //Planetarium [Planetarien] NNN
+//verkehrsmittel; fiarse. no acabaremos, te lo apuesto.
+//q pex con dauern y el imperaivo...
+        //estoy para la encuesta. Me podeis haber avisado. Le mande un correo ya hace tiempo, y uno esta mañana.
+        //Pues no lo he podido leer. Teneis que dcirme con anticipacion...
+        //equis de. flipante
+        //kleingeld = dinero suelto.
+        //Dicke -n (F)  grosor.
+        //Viga [madera] = Balken -'' M
+        //Viga [metal] = Träger -'' M
+        //Ver unterrichten = dar clases de. Er unterricht Deutsch  =el da classes de alemán.
+        //"No importa que el resultado no salga bien, siempre y cuando los signos sean correctos"
 
+        //agregar método que se asegure que los significados no estén capitalisados.
+        //müde = Adj = cansado
 
         //Sus intento1 = new Sus("el sus", "el plur", "N", "el sig", new String[]{"comida", "verdura"});
         //System.out.println(Arrays.toString(intento1.tags));
 
 
-        Control.schnellBedeutung();
+        //agregar string estática Vocabulario en Ejer; modularizar las firmas de los métodos "Sus vocabulario"; hacer lista de ejers utilizando esto.
+
+        //profesiones acadpemicas:
+        //T = new String[]{"estudio"};
+        //Medizin = medicina;
+        //Lehramt = "profesión docente" = profesor pero más chido
+        //Maschinenbau = Ingeniería Mecánica
+        //Physik = física
+        //Jura = derecho
+        //Lehrer = maestro (ya lo tenemos)
+        //Anwalt (Anwältin) Abogado
+        //Zukunft = futuro
+
+
+
+
+        //Morgen?
+        //Control.schnellBedeutung();
         //OrganizaciónTemas(5);
 
         //se arreglo el método Control.revisiónCompleta()

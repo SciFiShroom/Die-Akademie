@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 public class Ver extends Palabra{
     public static final String Ver = "Ver";
     public static final String Verbo = "Verbo";
@@ -408,15 +407,7 @@ public class Ver extends Palabra{
         geben.agregarPreterito(new String[]{"gab", "gabst", "gab", "gaben", "gabt", "gaben"});
         geben.agregarImperativo("gib", "gebt");
 
-        Ver glauben = new Ver("glaube", "glaub", "creer", T);
-        glauben.agregarParticipio("geglaubt");
-        glauben.agregarPreterito("glaubt");
-        glauben.agregarImperativo("glaub", "glaubt");
 
-        Ver kennen = new Ver("kennen", "kenn", "conocer", T);
-        kennen.agregarParticipio("gekannt");
-        kennen.agregarPreterito("kannt");
-        kennen.agregarImperativo();
 
         Ver kommen = new Ver("kommen", "komm", "venir", T);
         kommen.agregarParticipio("gekommen");
@@ -471,6 +462,7 @@ public class Ver extends Palabra{
         //todo: Marcador. Comunicación
         T = new String[]{"comunicación"};
 
+
         Ver bestehen = new Ver("bestehen [empieza con 'i']", new String[]{"bestehe", "bestehst", "besteht", "bestehen", "besteht", "bestehen"}, "insistir", T);
         bestehen.agregarParticipio("bestanden");
         bestehen.agregarPreterito(new String[]{"bestand", "bestandest", "bestand", "bestanden", "bestandet", "bestanden"});
@@ -507,6 +499,8 @@ public class Ver extends Palabra{
         sprechen.agregarPreterito(new String[]{"sprach", "sprachst", "sprach", "sprachen", "spracht", "sprachen"});
         sprechen.agregarImperativo("sprich", "sprecht");
 
+        Ver aussprechen = new Ver("aus", sprechen, "pronunciar", T);
+
         Ver reden = new Ver("reden", new String[]{"rede", "redest", "redet", "reden", "redet", "reden"}, "hablar [de algo]", T);
         reden.agregarParticipio("geredet");
         reden.agregarPreterito("redet");
@@ -518,7 +512,7 @@ public class Ver extends Palabra{
         rufen.agregarPreterito(new String[]{"rief", "riefst", "rief", "riefen", "rieft", "riefen"});
         //[---Expresarse]
 
-        Ver vorstellen = new Ver("vor", stellen, "presentar [a una persona]", T);
+        Ver vorstellen = new Ver("vor", stellen, "presentar [a alguien]", T);
 
 
         //todo: Marcador
@@ -569,8 +563,15 @@ public class Ver extends Palabra{
         //[La Mente]
         T = new String[]{"mente"};
 
-        glauben.agregarTag("mente");
-        kennen.agregarTag("mente");
+        Ver glauben = new Ver("glaube", "glaub", "creer", T);
+        glauben.agregarParticipio("geglaubt");
+        glauben.agregarPreterito("glaubt");
+        glauben.agregarImperativo("glaub", "glaubt");
+
+        Ver kennen = new Ver("kennen", "kenn", "conocer", T);
+        kennen.agregarParticipio("gekannt");
+        kennen.agregarPreterito("kannt");
+        kennen.agregarImperativo();
 
         Ver denken = new Ver("denken", "denk", "pensar", T);
         denken.agregarParticipio("gedacht");
@@ -598,9 +599,23 @@ public class Ver extends Palabra{
         wissen.agregarPreterito("wusst");
         wissen.agregarImperativo("wisse", "wisst");
 
+        Ver hoffen = new Ver("hoffen", "hoff", "esperar [tener esperanza]", T);
+        hoffen.agregarImperativo("hoff", "hofft");
+        hoffen.agregarParticipio("gehofft");
+        hoffen.agregarPreterito("hofft");
+
+        Ver vergessen = new Ver("vergessen", new String[]{"vergesse", "vergisst", "vergisst", "vergessen", "vergesst", "vergessen"}, "olvidar", T);
+        vergessen.agregarParticipio("vergessen");
+        vergessen.agregarImperativo("vergiss", "vergesst");
+        vergessen.agregarPreterito(new String[]{"vergaß", "vergaßest", "vergaß", "vergaßen", "vergaßt", "vergaßen"});
+
+        Ver verstehen = new Ver("verstehen", "versteh", "entender", T);
+        verstehen.agregarParticipio("verstanden");
+        verstehen.agregarImperativo();
+        verstehen.agregarPreterito(new String[]{"verstand", "verstandest", "verstand", "verstanden", "verstandet", "verstanden"});
 
 
-        //entender, olvidar, entender, confundir / estar confundido
+        //confundir / estar confundido
         //[---Mente]
 
 
@@ -724,8 +739,6 @@ public class Ver extends Palabra{
         ankommen.agregarHilfsverb("sein");
         ankommen.agregarTag("moverse");
 
-
-
         Ver beginnen = new Ver("beginnen", "beginn", "empezar", T);
         beginnen.agregarParticipio("begonnen");
         beginnen.agregarPreterito(new String[]{"begann", "begannst", "begann", "begannen", "begannt", "begannen"});
@@ -742,6 +755,15 @@ public class Ver extends Palabra{
         bieten.agregarImperativo("biet", "bietet");
 
         Ver darstellen = new Ver("dar", stellen, "representar", T);
+
+        Ver dauern = new Ver("dauern", new String[]{"dauere", "dauerst", "dauert", "dauern", "dauert", "dauern"}, "tardar [durar tiempo]", T);
+        dauern.agregarPreterito("dauert");
+        //dauern.agregarImperativo(new String[]{dauere, dauert});
+        dauern.agregarParticipio("gedauert");
+
+        Ver dauern2 = new Ver("dauern", new String[]{"dauere", "dauerst", "dauert", "dauern", "dauert", "dauern"}, "durar", T);
+        dauern2.agregarPreterito("dauert");
+        dauern2.agregarParticipio("gedauert");
 
         Ver entsprechen = new Ver("entsprechen", new String[]{"entspreche", "entsprichst", "entspricht", "entsprechen", "entsprecht", "entsprechen"}, "corresponder", T);
         entsprechen.agregarParticipio("entsprochen");
@@ -776,6 +798,12 @@ public class Ver extends Palabra{
         fallen.agregarPreterito(new String[]{"fiel", "fielst", "fiel", "fielen", "fielt", "fielen"});
         fallen.agregarImperativo("fall", "fallt");
 
+        Ver fließen = new Ver("fließen", new String[]{"fließe", "fließt", "fließt", "fließen", "fließt", "fließen"}, "fluir", T);
+        fließen.agregarHilfsverb("sein");
+        fließen.agregarPreterito(new String[]{"floß", "floßt", "floß", "flossen", "floßt", "flossen"});
+        fließen.agregarParticipio("geflossen");
+        fließen.agregarImperativo("fließ", "fließt");
+
         Ver führen = new Ver("führen", "führ", "dirigir", T);
         führen.agregarParticipio("geführt");
         führen.agregarImperativo();
@@ -796,7 +824,10 @@ public class Ver extends Palabra{
         gewinnen.agregarImperativo();
         gewinnen.agregarPreterito(new String[]{"gewann", "gewannst", "gewann", "gewannen", "gewannt", "gewannen"});
 
-
+        Ver gründen = new Ver("gründen", new String[]{"gründe", "gründest", "gründet", "gründen", "gründet", "gründen"}, "fundar [crear]", T);
+        gründen.agregarParticipio("gegründet");
+        gründen.agregarPreterito("gründet");
+        gründen.agregarImperativo("gründ", "gründet");
 
         Ver lachen = new Ver("lachen", "lach", "reirse", T);
         lachen.agregarParticipio("gelacht");
@@ -809,6 +840,12 @@ public class Ver extends Palabra{
         laufen.agregarTag("moverse");
         laufen.agregarImperativo("lauf", "lauft");
         laufen.agregarPreterito(new String[]{"lief", "liefst", "lief", "liefen", "lieft", "liefen"});
+
+
+        Ver rechnen = new Ver("rechnen", new String[]{"rechne", "rechnest", "rechnet", "rechnen", "rechnet", "rechnen"}, "calcular", T);
+        //rechnen.agregarImperativo("rechne", "rechnet");
+        rechnen.agregarPreterito("rechnet");
+        rechnen.agregarParticipio("gerechnet");
 
         Ver reisen = new Ver("reisen", new String[]{"reise", "reist", "reist", "reisen", "reist", "reisen"}, "viajar", T);
         reisen.agregarHilfsverb("sein");
@@ -837,6 +874,11 @@ public class Ver extends Palabra{
         Ver einschlafen = new Ver("ein", schlafen, "dormirse", T);
         einschlafen.agregarHilfsverb("sein");
         einschlafen.agregarTag("casa");
+
+        Ver sorgen = new Ver("sorgen", "sorg", "preocuparse", T);
+        sorgen.agregarParticipio("gesorgt");
+        sorgen.agregarImperativo("sorg", "sorgt");
+        sorgen.agregarPreterito("sorgt");
 
         Ver aufstehen = new Ver("auf", stehen, "pararse [levantarse]", T);
         aufstehen.agregarHilfsverb("sein");
@@ -915,10 +957,7 @@ public class Ver extends Palabra{
         fragen.agregarPreterito("fragt");
         fragen.agregarImperativo("frag", "fragt");
 
-        Ver verstehen = new Ver("verstehen", "versteh", "entender", T);
-        verstehen.agregarParticipio("verstanden");
-        verstehen.agregarImperativo();
-        verstehen.agregarPreterito(new String[]{"verstand", "verstandest", "verstand", "verstanden", "verstandet", "verstanden"});
+
 
         Ver fehlen = new Ver("fehlen", "fehl", "faltar", T);
         fehlen.agregarParticipio("gefehlt");
@@ -967,10 +1006,7 @@ public class Ver extends Palabra{
         bedeuten.agregarPreterito("bedeutet");
         bedeuten.agregarImperativo("bedeut", "bedeutet");
 
-        Ver vergessen = new Ver("vergessen", new String[]{"vergesse", "vergisst", "vergisst", "vergessen", "vergesst", "vergessen"}, "olvidar", T);
-        vergessen.agregarParticipio("vergessen");
-        vergessen.agregarImperativo("vergiss", "vergesst");
-        vergessen.agregarPreterito(new String[]{"vergaß", "vergaßest", "vergaß", "vergaßen", "vergaßt", "vergaßen"});
+
 
         //notieren: Cotizar o apuntar.
 
@@ -1351,23 +1387,6 @@ public class Ver extends Palabra{
     }
 
 
-
-    //CONSOLA
-    /**
-     * Regresa la lista de verbos del tema indicado, dado la lista completa "Verbos" [Control.Verbos]
-     * Echa un NullPointerException si el tema no se encuentra
-     * @param tema el tema cuya lista necesitas
-     * @return un ArrayList<Ver> de todos los verbos del tema elejido.
-     */
-
-    /**
-    public static Lista<Ver> ListaTema(String tema) {
-        for (Lista<Ver> actual : Control.Verbos) {
-            if (actual.get(0).verbo.equals(tema)) {return actual;}
-        }
-        throw new NullPointerException("El tema '" + tema + "' no se encuentra. Diga 'listar temas verbos' para ver los temas. ");
-    }
-*/
 
 
     //CONSOLA

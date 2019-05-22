@@ -107,7 +107,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
                 case "practicar significados": Ejer.EjerciciosPalabrasSimples("Sus Significados", sc); entendido = true; break ;
 
-                case "practicar vocabulario": Ejer.EjerciciosPalabrasSimples("Sus Vocaulario", sc);    entendido = true; break;
+                case "practicar vocabulario": Ejer.EjerciciosPalabrasSimples("Sus Vocabulario", sc);   entendido = true; break;
 
                 case "ejercicios": ListaEjerciciosSus();                                                      entendido = true; break;
 
