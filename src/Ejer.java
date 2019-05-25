@@ -1372,7 +1372,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             String intento = sc.nextLine();
             if (intento.equals("cerrar")) {throw new NullPointerException("Cerrando. ");}
 
-            resultados = Palabra.buscarTipo(intento, tipoDePalabra);
+            resultados = Palabra.buscarNombreTipo(intento, tipoDePalabra);
 
             if (resultados.length == 0) { //No se encontró nada.
                 System.out.println("La palabra '" + intento + "' no se encuentra. ");

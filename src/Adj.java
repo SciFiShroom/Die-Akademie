@@ -23,6 +23,10 @@ public class Adj extends Palabra{
         for (String current: Tags) {
             this.agregarTag(current);
         }
+
+
+
+        Control.RevisarColisiones(this);
     }
 
 
@@ -77,7 +81,7 @@ public class Adj extends Palabra{
         //System.out.println(this.adjetivo + ", " + this.comparativo + ", " + this.superlativo);
 
 
-
+        Control.RevisarColisiones(this);
     } //constructor con solo el adjetivo que crea el comparativo + superlativo
 
 
@@ -91,6 +95,11 @@ public class Adj extends Palabra{
         for (String current: Tags) {
             this.agregarTag(current);
         }
+
+
+
+
+        Control.RevisarColisiones(this);
     } //Constructor sin comparativo o superlativo
 
     public String adjetivo;

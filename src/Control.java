@@ -21,7 +21,7 @@ public class Control {
             "geografía", "amigos", "festivos", "gramática", "conocidos",
             "planta", "profesiónes", "estudios", "calendario",
 
-            //"test",
+            "test",
 
             "moverse", "básico", "modal",
             "menos_básico", "misceláneo",
@@ -197,6 +197,8 @@ public class Control {
     }
 
 
+
+
     /**
      * Método global que revisa colisiones al inicializar las palabras. Si existen colisiones el .getNombre o .getSignificado, se les informará
      * a todas las palabras que colisionen.
@@ -223,8 +225,8 @@ public class Control {
 
 
         //Hacemos exactamente lo mismo con actual.getSignificado();
-        if (listaDeSignificados.containsKey(palabraActual.getSignificado())) { //Hemos encontrado una colisión
-            Palabra indicador = listaDeSignificados.get(palabraActual.getSignificado()); //la primera palabra con este significado que se agregó
+        if (listaDeSignificados.containsKey(palabraActual.getSignificadoSimple())) { //Hemos encontrado una colisión
+            Palabra indicador = listaDeSignificados.get(palabraActual.getSignificadoSimple()); //la primera palabra con este significado que se agregó
 
             for (Palabra actual : indicador.colisionesSignificado) {
                 actual.colisionesSignificado.add(palabraActual);
@@ -236,7 +238,7 @@ public class Control {
 
         } else { //No se ha detectado ninguna colisión.
             //Esta palabra servirá como indicador. Todas las demás palabras se revisarán contra esta palabra.
-            listaDeSignificados.put(palabraActual.getSignificado(), palabraActual);
+            listaDeSignificados.put(palabraActual.getSignificadoSimple(), palabraActual);
         }
 
 
@@ -425,7 +427,10 @@ public class Control {
         System.out.println("-practicar sustantivos: Arranca los ejercicios de los sustantivos");
         System.out.println("-practicar verbos: Arranca los ejercicios de los verbos");
         System.out.println("-practicar adjetivos: Arranca los ejercicios de los adjetivos");
-        System.out.println("-practicar palabras misceláneas: Arranca los ejercicios de palabras miscelánes (interrogativos preposiciones, etc.)");
+        System.out.println("-practicar palabras: Arranca los ejercicios de palabras miscelánes (interrogativos, preposiciones, etc.)");
+        System.out.println("-buscador: Enciende el buscador. <WIP>");
+        System.out.println("-listar temas: Lista todos los temas, y muestra que tipo de palabras los usan.");
+
         System.out.println();
 
         //System.out.println();
@@ -692,36 +697,24 @@ public class Control {
             String comando = sc.nextLine();
             System.out.println();
             switch(comando) {
-                case "hola":
-                    System.out.println("¡Hola!");
-                    entendido = true;
-                    break;
-                case "cerrar":
-                    System.out.println("Cerrando aplicación.");
-                    activo = false;
-                    entendido = true;
-                    break;
-                case "comandos":
-                    Control.comandos();
-                    entendido = true;
-                    break;
-                //case "listar temas sustantivos": Sus.ListarTemas(); break;
-                case "practicar sustantivos":
-                    Ejer.PracticarSustantivos(sc);
-                    entendido = true;
-                    break;
-                case "practicar verbos":
-                    Ejer.PracticarVerbos(sc);
-                    entendido = true;
-                    break;
-                case "practicar adjetivos":
-                    Ejer.PracticarAdjetivos(sc);
-                    entendido = true;
-                    break;
-                case "practicar palabras":
-                    Ejer.PracticarPalabras(sc);
-                    entendido = true;
-                    break;
+                case "hola": System.out.println("¡Hola!");                                  entendido = true; break;
+
+                case "cerrar": System.out.println("Cerrando aplicación."); activo = false;  entendido = true; break;
+
+                case "comandos": Control.comandos();                                        entendido = true; break;
+
+                case "practicar sustantivos": Ejer.PracticarSustantivos(sc);                entendido = true; break;
+
+                case "practicar verbos": Ejer.PracticarVerbos(sc);                          entendido = true; break;
+
+                case "practicar adjetivos": Ejer.PracticarAdjetivos(sc);                    entendido = true; break;
+
+                case "practicar palabras": Ejer.PracticarPalabras(sc);                      entendido = true; break;
+
+                case "buscador": Control.schnellBedeutung(sc);                              entendido = true; break;
+
+                case "listar temas": Control.OrganizaciónTemas(6);/**el num no importa*/ entendido = true; break;
+
             }
             if(!entendido) {
                 System.out.println("Comando '" + comando + "' no reconocido. Diga 'comandos' para la lista de comandos");
@@ -771,16 +764,50 @@ public class Control {
 
 
 
-    public static void schnellBedeutung() {
-        Scanner sc = new Scanner(System.in);
+    public static void schnellBedeutung(Scanner sc) {
+        System.out.println("Comenzando buscador. Ingrese la palabra o significado. ");
+        System.out.println("Diga 'cerrar buscador' para cerrar el buscador.");
 
         while (true) {
-            String palActual = sc.nextLine();
-            if (palActual.equals("cerrar")) {return;}
+            String input = sc.nextLine();
+            if (input.equals("cerrar buscador")) {
+                System.out.println("Cerrando buscador.");
+                return;
+            }
 
-            Palabra[] arrActual = Palabra.buscarTodo(palActual);
-            if (arrActual == null) {System.out.println("No se encontro '" + palActual + "'. "); continue; }
-            for (Palabra actual : arrActual) {actual.definir();}
+            Palabra[] listaNom = new Palabra[0];
+            Palabra[] listaDef = new Palabra[0];
+
+            try {
+                listaNom = Palabra.buscarNombre(input);
+            } catch (SecurityException e) {}
+
+            try {
+                listaDef = Palabra.buscarSignificadoSimple(input);
+            } catch (SecurityException e) {}
+
+
+            if (listaNom.length == 0 && listaDef.length == 0) {
+                System.out.println("No se encontro '" + input + "'. Diga 'cerrar buscador' para cerrar el buscador.");
+                continue;
+            }
+
+            //Si encontramos algo
+
+            if (listaNom.length != 0) {
+                System.out.println("Palabra '" + input + "' en alemán:");
+                for (Palabra actual : listaNom) {
+                    actual.definir(); System.out.println();
+                }
+            }
+
+            if (listaDef.length != 0) {
+                System.out.println("Palabras en alemán que signifiquen '" + input + "':");
+                for (Palabra actual : listaDef) {
+                    actual.definir();
+                }
+            }
+
 
         }
 
@@ -792,6 +819,8 @@ public class Control {
         Control.Inicialización(true, false);
 
 
+        //Agregar otros parámetros al buscador (plurales, participios, etc. )
+        //Agregarle opción a los métodos definir() para incluir una indentación.
         //Control.OrganizaciónTemas(7);
 
 

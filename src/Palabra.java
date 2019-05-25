@@ -69,43 +69,98 @@ public class Palabra {
     //y, cómo arreglaremos el asunto de palabras con os significados?
 
     public String getSignificadoSimple() {
-        return this.getSignificado().split("\\[")[0];
+        String sinCorchetes = this.getSignificado().split("\\[")[0];
+        //Es posible que tenga " " perdidos. Se los quitaremos de manera general:
+
+        String[] palabras = sinCorchetes.split(" ");
+        String out = palabras[0];
+        for (int i = 1; i < palabras.length; i++) {
+            out += " " + palabras[i];
+        }
+
+        return out;
     }
     public String getNombreSimple() {
         return this.getNombre().split("\\[")[0];
     }
 
     //método para buscar una palabra en una lista de palabras
-    public static Palabra[] buscarTodo(String Nombre) {
-        ArrayList<Palabra> Resultados = new ArrayList<Palabra>();
+    public static Palabra[] buscarNombre(String Nombre) {
 
-        for (Palabra actual: Control.SustantivosListaSingular) {
-            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
+        //Se busca la palabra "NOMBRE" en la lista de pabras alemánas
+        if (Control.listaDeNombres.containsKey(Nombre)) {
+
+            Palabra hallazgo = Control.listaDeNombres.get(Nombre);
+            Palabra[] resultados = new Palabra[hallazgo.colisionesNombre.size() + 1]; //la lista no incluye la palabra misma.
+            for (int i = 0; i < hallazgo.colisionesNombre.size(); i++) {
+                resultados[i] = hallazgo.colisionesNombre.get(i);
+            }
+            resultados[resultados.length - 1] = hallazgo;
+            return resultados;
         }
 
-        for (Palabra actual: Control.VerbosListaSingular) {
-            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
-        }
-
-        for (Palabra actual: Control.AdjetivosListaSingular) {
-            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
-        }
-
-        for (Palabra actual: Control.PalabrasListaSingular) {
-            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
-        }
-
-        //System.out.println("Tamaño = " + Resultados.size());
-        for (Palabra actual : Resultados) {System.out.println(actual.getNombre() + ", ");}
-
-        Palabra[] out = new Palabra[Resultados.size()];
-        for (int i = 0; i < out.length; i++) {out[i] = Resultados.get(i);}
-        return out;
+        throw new SecurityException("Error: No se encontró la palabra '" + Nombre + "'");
     }
 
-    public static Palabra[] buscarTipo(String Nombre, String tipo) {
+    //método para buscar un significado en una lista de palabras
+    public static Palabra[] buscarSignificadoSimple(String Significado) {
+
+        //igual que buscarNombre(nom);
+        if (Control.listaDeSignificados.containsKey(Significado)) {
+
+            Palabra hallazgo = Control.listaDeSignificados.get(Significado);
+            Palabra[] resultados = new Palabra[hallazgo.colisionesSignificado.size() + 1]; //la lista no incluye la palabra misma.
+            for (int i = 0; i < hallazgo.colisionesSignificado.size(); i++) {
+                resultados[i] = hallazgo.colisionesSignificado.get(i);
+            }
+            resultados[resultados.length - 1] = hallazgo;
+            return resultados;
+        }
+
+        throw new SecurityException("Error: No se encontró ninguna palabra con significado '" + Significado + "'");
+    }
+
+
+    /**
+     * Método que busca una palabra Nombre, pero que sólo regresa las palabras e tipo Tipo.
+     * @param Nombre el Nombre que se busca.
+     * @param tipo el tipo de palabra.
+     * @throws SecurityException si no se encuentra nada (Se podría cambiar a regresar null, pero...esto me gusta. )
+     * @throws SecurityException si se encuentran palabras Nombre, pero ninguna que sea de tipo Tipo.
+     * @return una Palabra[] con todos los resultados que se hayan encontrado.
+     */
+    public static Palabra[] buscarNombreTipo(String Nombre, String tipo) {
         Palabra.sanitize(tipo);
 
+        Palabra[] todo;
+        try { //Hay que asegurarnos de que existan
+            todo = Palabra.buscarNombre(Nombre);
+        } catch (SecurityException e) {
+            throw e;
+        }
+
+        int numDeTipo = 0;
+        for (Palabra actual : todo) {
+            if (actual.TipoDePalabra().equals(tipo)) {numDeTipo++;}
+        }
+
+        if (numDeTipo == 0) { //También necesita haber del tipo que buscamos
+            throw new SecurityException("Error: No se encontró la palabra '" + Nombre + "' de tipo " + tipo);
+        }
+
+        //Si llegamos aquí, existen las palabras que buscamos.
+        Palabra[] out = new Palabra[numDeTipo];
+
+        int counter = 0;
+        for (Palabra actual : todo) {
+            if (actual.TipoDePalabra().equals(tipo)) {
+                out[counter] = actual;
+                counter++;
+            }
+        }
+
+        return out;
+        /**
         Lista<Palabra> ListaDeTipo = new Lista<Palabra>(nullEntry);
         ArrayList<Palabra> Resultados = new ArrayList<Palabra>();
 
@@ -123,8 +178,19 @@ public class Palabra {
 
         Palabra[] out = new Palabra[Resultados.size()];
         for (int i = 0; i < out.length; i++) {out[i] = Resultados.get(i);}
-        return out;
+        return out;*/
     }
+
+
+    /**
+     *
+     * @param input
+     * @return todos los resultados.
+     */
+    public static Palabra[] buscadorUsuario(String input) {
+        return null;
+    }
+
 
 
     //Define una palabra, a detalle. Overridden.

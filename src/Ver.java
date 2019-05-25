@@ -121,6 +121,9 @@ public class Ver extends Palabra{
         for (String current : Tags) {
             this.agregarTag(current);
         }
+
+
+        Control.RevisarColisiones(this);
     }
 
 
@@ -163,6 +166,10 @@ public class Ver extends Palabra{
         }
 
         Raiz.ramas.add(this);
+
+
+
+        Control.RevisarColisiones(this);
     }
 
 
@@ -191,6 +198,11 @@ public class Ver extends Palabra{
 
 
         this.base = e_st_t_en_t_en;
+
+
+
+
+        Control.RevisarColisiones(this);
     }
 
 

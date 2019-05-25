@@ -76,14 +76,14 @@ public class Sus extends Palabra{
     public static void crearSustantivos() {
         String[] T; //los tags
 
+
         /**
         T = new String[]{"test"};
         Sus t1 = new Sus("Test", "111", "N", "Test", T);
         Sus t2 = new Sus("Test", "222", "N", "Test", T);
         Sus t3 = new Sus("Test", "333", "N", "Test", T);
         Sus t4 = new Sus("Test", "444", "N", "Test", T);
-        Sus t5 = new Sus("Test", "555", "N", "Test", T);
-        */
+        Sus t5 = new Sus("Test", "555", "N", "Test", T);*/
 
 
         //todo: Marcador. Fruta, Comida
@@ -110,8 +110,10 @@ public class Sus extends Palabra{
         //Lo revisé; en alemán "paprika" singnifica el pimiento que conozemos y adoramos.
         Sus paprika = new Sus("Paprika", "Paprikas", "M", "pimiento", T);
         Sus kartoffel = new Sus("Kartoffel", "Kartoffeln", "F", "papa", T);
+        Sus rübe = new Sus("Rübe", "Rüben", "F", "betabel", T);
 
-        //pepino, pepinillo, , , ,
+        //pepino, pepinillo
+        //brócoli, elote/maíz, coliflor, apio, espinaca, espárrago, alcachofa, frijol, chícharo, rábano, "cebolleta"
 
 
 
@@ -125,7 +127,7 @@ public class Sus extends Palabra{
         Sus champignon = new Sus("Champignon", "Champignons", "M", "champiñon", T);
         Sus ei = new Sus("Ei", "Eier", "N", "huevo", T);
         Sus schinken = new Sus("Schinken", "Schinken", "M", "jamón", T);
-
+        Sus jitomate;
 
 
         //todas las carnes, coctel, hamburguesa, h o d d o g, , , , sandwich,
@@ -160,6 +162,8 @@ public class Sus extends Palabra{
         Sus muskatnuss = new Sus("Muskatnuss", "Muskatnüsse", "F", "nuez moscada", T);
         Sus safran = new Sus("Safran", "Safrane", "M", "azafrán", T);
         Sus knoblauch = new Sus("Knoblauch", nullEntry, "M", "ajo", T);
+        Sus ingwer = new Sus("Ingwer", nullEntry, "M", "jengibre", T);
+
 
 
         //todo: Marcador. La cocina
@@ -987,17 +991,17 @@ public class Sus extends Palabra{
         switch (this.género) {
             case "M":
                 System.out.print("Der ");
-                System.out.println(this.sustantivo + " (" + this.plural + ") " + this.significado);
+                System.out.println(this.sustantivo + " (" + this.plural + "): " + this.significado);
                 System.out.println("MASCULINO");
                 break;
             case "F":
                 System.out.print("Die ");
-                System.out.println(this.sustantivo + " (" + this.plural + ") " + this.significado);
+                System.out.println(this.sustantivo + " (" + this.plural + "): " + this.significado);
                 System.out.println("FEMENINO");
                 break;
             case "N":
                 System.out.print("Das ");
-                System.out.println(this.sustantivo + " (" + this.plural + ") " + this.significado);
+                System.out.println(this.sustantivo + " (" + this.plural + "): " + this.significado);
                 System.out.println("NEUTRO");
                 break;
         }

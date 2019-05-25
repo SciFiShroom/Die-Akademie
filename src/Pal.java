@@ -20,6 +20,10 @@ public class Pal extends Palabra{
         for (String current : Tags) {
             this.agregarTag(current);
         }
+
+
+
+        Control.RevisarColisiones(this);
     }
 
 
@@ -46,6 +50,13 @@ public class Pal extends Palabra{
      */
     public static void crearPalabras() {
         String[] Tags;
+
+
+        Tags = new String[]{"test"};
+        Adj test = new Adj("Test", "Tester", "Testen", "test", Tags);
+
+
+
 
         //[Conjunciones]
         Tags = new String[]{"conjunciones"};
