@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.HashMap;
 public class Control {
     public static final String entradaNula = "---";
     public static final String quePex = "?????";
@@ -11,14 +12,16 @@ public class Control {
 
 
     public static final String[] Temas = new String[]{
-            "comida", "fruta", "verdura", "país", //"ciudades",
-            "capital", /**"test",*/ "cuerpo", /**"letras",*/ "tiempo",
-            "clima", "día", "año", "figuras", "ropa",
+            "comida", "fruta", "verdura", "país", "ciudades",
+            "capital", "animal", "cuerpo", /**"letras",*/ "tiempo",
+            "clima", "figuras", "ropa",
             "escuela", "tecnología", "casa", "mueble", "médico",
             "ciudad", "medidas", "transporte", "especias", "cocina",
             "bebida", "materiales", "trabajo", "platillo", "arte",
             "geografía", "amigos", "festivos", "gramática", "conocidos",
-            "planta", "animal", "profesiónes",
+            "planta", "profesiónes", "estudios", "calendario",
+
+            //"test",
 
             "moverse", "básico", "modal",
             "menos_básico", "misceláneo",
@@ -192,6 +195,56 @@ public class Control {
         Control.arrPrint(out);
 
     }
+
+
+    /**
+     * Método global que revisa colisiones al inicializar las palabras. Si existen colisiones el .getNombre o .getSignificado, se les informará
+     * a todas las palabras que colisionen.
+     * @param palabraActual la palabra que se está revisando.
+     */
+    public static void RevisarColisiones(Palabra palabraActual) {
+        //Aquí se revisarán las palabras, y marcarémos todas las colisiones. Toda palabra sabrá las otras palabras que colisionan.
+
+        if (listaDeNombres.containsKey(palabraActual.getNombre())) { //Hemos encontrado una colisión
+            Palabra indicador = listaDeNombres.get(palabraActual.getNombre()); //la primera palabra con este nombre que se agregó
+
+            for (Palabra actual : indicador.colisionesNombre) {
+                actual.colisionesNombre.add(palabraActual);
+                palabraActual.colisionesNombre.add(actual);
+            }
+
+            palabraActual.colisionesNombre.add(indicador);
+            indicador.colisionesNombre.add(palabraActual);
+
+        } else { //No se ha detectado ninguna colisión.
+            //Esta palabra servirá como indicador. Todas las demás palabras se revisarán contra esta palabra.
+            listaDeNombres.put(palabraActual.getNombre(), palabraActual);
+        }
+
+
+        //Hacemos exactamente lo mismo con actual.getSignificado();
+        if (listaDeSignificados.containsKey(palabraActual.getSignificado())) { //Hemos encontrado una colisión
+            Palabra indicador = listaDeSignificados.get(palabraActual.getSignificado()); //la primera palabra con este significado que se agregó
+
+            for (Palabra actual : indicador.colisionesSignificado) {
+                actual.colisionesSignificado.add(palabraActual);
+                palabraActual.colisionesSignificado.add(actual);
+            }
+
+            palabraActual.colisionesSignificado.add(indicador);
+            indicador.colisionesSignificado.add(palabraActual);
+
+        } else { //No se ha detectado ninguna colisión.
+            //Esta palabra servirá como indicador. Todas las demás palabras se revisarán contra esta palabra.
+            listaDeSignificados.put(palabraActual.getSignificado(), palabraActual);
+        }
+
+
+
+    }
+    public static HashMap<String, Palabra> listaDeNombres = new HashMap<String, Palabra>();
+    public static HashMap<String, Palabra> listaDeSignificados = new HashMap<String, Palabra>();
+    //Estas listas contienen una copia de cada nombre/significado. Si hay dobles, la palabra te lo dirá con .tieneColisiones();
 
 
 
@@ -737,15 +790,21 @@ public class Control {
 
     public static void main(String[] args) {
         Control.Inicialización(true, false);
-        //verificar que a los verbos no se les pueda agregar algo si yá se les agregó.
-        //Planetarium [Planetarien] NNN
-//verkehrsmittel; fiarse. no acabaremos, te lo apuesto.
-//q pex con dauern y el imperaivo...
+
+
+        //Control.OrganizaciónTemas(7);
+
+
+        //todo: Verificar que las profesiones estén correctas.
+        //todo: iterator doesn't work correctly.
+        // verkehrsmittel; fiarse.
+        // agregar verificador para la generación de los ADJ
+        // q pex con dauern y el imperaivo...
         //estoy para la encuesta. Me podeis haber avisado. Le mande un correo ya hace tiempo, y uno esta mañana.
         //Pues no lo he podido leer. Teneis que dcirme con anticipacion...
         //equis de. flipante
         //kleingeld = dinero suelto.
-        //Dicke -n (F)  grosor.
+        //Anchura? Altura? Profundidad, peso, ...temperatura, regla, termómetro, báscula
         //Viga [madera] = Balken -'' M
         //Viga [metal] = Träger -'' M
         //Ver unterrichten = dar clases de. Er unterricht Deutsch  =el da classes de alemán.

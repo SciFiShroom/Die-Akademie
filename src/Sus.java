@@ -55,6 +55,9 @@ public class Sus extends Palabra{
         for (String current : Tags) {
             this.agregarTag(current);
         }
+
+        //Nuevo método que le dice a las palabras con qué colisionan. Ocurre durante la inicialización.
+        Control.RevisarColisiones(this);
     }
 
     //---------------------------[---CONSTRUCTORES]-----------------------------
@@ -72,6 +75,15 @@ public class Sus extends Palabra{
     //todo:
     public static void crearSustantivos() {
         String[] T; //los tags
+
+        /**
+        T = new String[]{"test"};
+        Sus t1 = new Sus("Test", "111", "N", "Test", T);
+        Sus t2 = new Sus("Test", "222", "N", "Test", T);
+        Sus t3 = new Sus("Test", "333", "N", "Test", T);
+        Sus t4 = new Sus("Test", "444", "N", "Test", T);
+        Sus t5 = new Sus("Test", "555", "N", "Test", T);
+        */
 
 
         //todo: Marcador. Fruta, Comida
@@ -95,8 +107,11 @@ public class Sus extends Palabra{
 
         Sus karotte = new Sus("Karotte", "Karotten", "F", "zanahoria", T);
         Sus zwiebel = new Sus("Zwiebel", "Zwiebeln", "F", "cebolla", T);
+        //Lo revisé; en alemán "paprika" singnifica el pimiento que conozemos y adoramos.
+        Sus paprika = new Sus("Paprika", "Paprikas", "M", "pimiento", T);
+        Sus kartoffel = new Sus("Kartoffel", "Kartoffeln", "F", "papa", T);
 
-        //pepino, pepinillo, pimiento, cebolla, papa,
+        //pepino, pepinillo, , , ,
 
 
 
@@ -112,8 +127,9 @@ public class Sus extends Palabra{
         Sus schinken = new Sus("Schinken", "Schinken", "M", "jamón", T);
 
 
-        //todas las carnes, coctel, hamburguesa, h o d d o g, , , jamón, sandwich,
-        //cebolla, zanahoria,
+
+        //todas las carnes, coctel, hamburguesa, h o d d o g, , , , sandwich,
+        //, ,
         //espaguetti, ravioles,
         //EIN FETUCCINI ALFREDO
         //enchilada, mollete, quesadilla, torta, pambazo, alambre, fajita, mole, gordita, taco, empanada, tamal; muegano, rosca, concha, pan de muerto, mantecada, tlayuda, tasajo(?),
@@ -123,6 +139,7 @@ public class Sus extends Palabra{
         //todo: Marcador. Platillos
         T = new String[]{"platillo"};
         Sus gericht = new Sus("Gericht", "Gerichte", "N", "platillo", T);
+        Sus speise = new Sus("Speise", "Speisen", "F", "platillo", T);
 
         Sus suppe = new Sus("Suppe", "Suppen", "F", "sopa", T);
         Sus salat = new Sus("Salat", "Salate", "M", "ensalada", T);
@@ -246,7 +263,7 @@ public class Sus extends Palabra{
         //---------------------------PAISES, CIUDADES, Y SUS MONUMENTOS-------------------------------------------------
         //todo: Marcador. Países, ciudades, y monumentos
         T = new String[]{"país"};
-        String[] Tags2 = {"capital", "ciudad"};
+        String[] Tags2 = {"capital", "ciudades"};
 
         HashMap<Sus, Sus> Naciones = new HashMap<Sus, Sus>();
 
@@ -257,7 +274,7 @@ public class Sus extends Palabra{
         Naciones.put(ottawa, kanada);
 
         Sus eeuu = new Sus("Vereinigten Staaten", nullEntry, "P", "los Estados Unidos", T);
-        Sus washington = new Sus("Washington D.C.", nullEntry, nullEntry, "Washington D.C.", Tags2);
+        Sus washington = new Sus("Washington", nullEntry, nullEntry, "Washington", Tags2);
         Naciones.put(washington, eeuu);
 
         Sus mexiko = new Sus("Mexiko", nullEntry, nullEntry, "México", T);
@@ -311,23 +328,20 @@ public class Sus extends Palabra{
         //Las letras--------
 
 
-        //todo: Marcador
-        //EL tiempo y las estaciones del año
-        T = new String[]{"tiempo", "día"};
+        //todo: Marcador. EL tiempo
+        T = new String[]{"tiempo"};
+        Sus zeit = new Sus("Zeit", "Zeiten", "F", "tiempo", T);
 
-        Sus montag = new Sus("Montag", "Montage", "M", "lunes", T);
-        Sus dienstag = new Sus("Dienstag", "Dienstage", "M", "martes", T);
-        Sus mittwoch = new Sus("Mittwoch", "Mittwoche", "M", "miércoles", T);
-        Sus donnerstag = new Sus("Donnerstag", "Donnerstage", "M", "jueves", T);
-        Sus freitag = new Sus("Freitag", "Freitage", "M", "viernes", T);
-        Sus samstag = new Sus("Samstag", "Samstage", "M", "sábado", T);
-        Sus sonntag = new Sus("Sonntag", "Sonntage", "M", "domingo", T);
-        Sus wochenende = new Sus("Wochenende", "Wochenenden", "N", "fin de semana", T);
-        Sus woche = new Sus("Woche", "Wochen", "F", "semana", T);
+        Sus vergangenheiet = new Sus("Vergangenheit", nullEntry, "F", "pasado [época]", T);
+        Sus zukunft = new Sus("Zukunft", nullEntry, "F", "futuro [época]", T);
+        Sus gegenwart = new Sus("Gegenwart", nullEntry, "F", "presente [ahorita]", T);
+        //no parese haber traducciones para "temporada" o "época"...
+
+        Sus augenblick = new Sus("Augenblick", "Augenblicke", "M", "momento [tiempo]", T);
+
 
         Sus morgen = new Sus("Morgen", "Morgen", "M", "mañana", T);
         Sus abend = new Sus("Abend", "Abende", "M", "tarde [Sus.]", T);
-        Sus tag = new Sus("Tag", "Tage", "M", "día", T);
         Sus nacht = new Sus("Nacht", "Nächte", "F", "noche", T);
 
         Sus stunde = new Sus("Stunde", "Stunden", "F", "hora", T);
@@ -335,8 +349,17 @@ public class Sus extends Palabra{
         Sus sekunde = new Sus("Sekunde", "Sekunden", "F", "segundo [tiempo]", T);
 
 
-        //todo: Marcador
-        T = new String[]{"tiempo", "año"};
+
+
+        //todo: Marcador. El calendario.
+        T = new String[]{"calendario"};
+        Sus kalender = new Sus("Kalender", "Kalender", "M", "calendario", T);
+
+        Sus jahr = new Sus("Jahr", "Jahre", "N", "año", T);
+        Sus monat = new Sus("Monat", "Monate", "M", "mes", T);
+        Sus tag = new Sus("Tag", "Tage", "M", "día", T);
+        Sus wochentag = new Sus("Wochentag", "Wochentage", "M", "día de la semana", T);
+        Sus jahrezeit = new Sus("Jahrezeit", "Jahrezeiten", "F", "estación del año", T);
 
         Sus januar = new Sus("Januar", "Januare", "M", "enero", T);
         Sus februar = new Sus("Februar", "Februare", "M", "febrero", T);
@@ -351,21 +374,31 @@ public class Sus extends Palabra{
         Sus november = new Sus("November", "November", "M", "noviembre", T);
         Sus dezember = new Sus("Dezember", "Dezember", "M", "diciembre", T);
 
-        Sus monat = new Sus("Monat", "Monate", "M", "mes", T);
-        Sus jahr = new Sus("Jahr", "Jahre", "N", "año", T);
-
-
-        //todo: Marcador
-        T = new String[]{"tiempo", "clima"};
-
         Sus sommer = new Sus("Sommer", "Sommer", "M", "verano", T);
-        sommer.agregarTag("año");
+        sommer.agregarTag("clima");
         Sus winter = new Sus("Winter", "Winter", "M", "invierno", T);
-        winter.agregarTag("año");
+        winter.agregarTag("clima");
         Sus herbst = new Sus("Herbst", "Herbste", "M", "otoño", T);
-        herbst.agregarTag("año");
+        herbst.agregarTag("clima");
         Sus frühling = new Sus("Frühling", "Frühlinge", "M", "primavera", T);
-        frühling.agregarTag("año");
+        frühling.agregarTag("clima");
+
+        Sus montag = new Sus("Montag", "Montage", "M", "lunes", T);
+        Sus dienstag = new Sus("Dienstag", "Dienstage", "M", "martes", T);
+        Sus mittwoch = new Sus("Mittwoch", "Mittwoche", "M", "miércoles", T);
+        Sus donnerstag = new Sus("Donnerstag", "Donnerstage", "M", "jueves", T);
+        Sus freitag = new Sus("Freitag", "Freitage", "M", "viernes", T);
+        Sus samstag = new Sus("Samstag", "Samstage", "M", "sábado", T);
+        Sus sonntag = new Sus("Sonntag", "Sonntage", "M", "domingo", T);
+        Sus wochenende = new Sus("Wochenende", "Wochenenden", "N", "fin de semana", T);
+        Sus woche = new Sus("Woche", "Wochen", "F", "semana", T);
+
+
+
+
+
+        //todo: Transporte
+        //fahrrad, auto, autobús, avión, tren, tranvía, patín, metro, barco (bote? lancha? traginera?)
 
 
         //todo: Marcador
@@ -398,6 +431,9 @@ public class Sus extends Palabra{
         jahr.agregarTag("medidas");
         woche.agregarTag("medidas");
         monat.agregarTag("medidas");
+        Sus dicke = new Sus("Dicke", "Dicken", "F", "grosor", T);
+        Sus waage = new Sus("Waage", "Waagen", "F", "balanza", T);
+
 
         /**
         Sus meter = new Sus("Meter", "Meter", "X", "metro [medida]", Tags);
@@ -499,7 +535,7 @@ public class Sus extends Palabra{
         T = new String[]{"tienda"};
         Sus geschäft = new Sus("Geschäft", "Geschäfte", "N", "tienda [negocio]", T);
         geschäft.agregarTag("ciudad");
-        Sus bargel = new Sus("Bargeld", nullEntry, "N", "efectivo [dinero]", T);
+        Sus bargeld = new Sus("Bargeld", nullEntry, "N", "efectivo [dinero]", T);
         //Pagar en efectivo = bar bezahlen. Bar aquí = adj. "en efectivo", bezahlen = pagar.
 
 
@@ -515,9 +551,9 @@ public class Sus extends Palabra{
         Sus haupstadt = new Sus("Haupstadt", "Hauptstädte", "F", "capital [ciudad]", T);
         Sus dorf = new Sus("Dorf", "Dörfer", "N", "pueblo", T);
         Sus stadtzentrum = new Sus("Stadtzentrum", "Stadtzentren", "N", "centro [de la ciudad]", T);
-        Sus Altstadt = new Sus("Altstadt", "Altstädte", "F", "centro antiguo [de una ciudad]", T);
+        Sus altstadt = new Sus("Altstadt", "Altstädte", "F", "centro antiguo [de una ciudad]", T);
 
-        Sus Wohnung = new Sus("Wohnung", "Wohnungen", "F", "departamento [empieza con 'w']", T);
+        Sus wohnung = new Sus("Wohnung", "Wohnungen", "F", "departamento [empieza con 'w']", T);
         Sus apartment = new Sus("Apartment", "Apartments", "N", "departamento [empieza con 'a']", T);
         Sus wohngemeinschaft = new Sus("Wohngemeinschaft", "Wohngemeinschaften", "F", "piso compartido", T);
         Sus wolkenkratzer = new Sus("Wolkenkratzer", "Wolkenkratzer", "M", "rascacielos", T);
@@ -532,6 +568,7 @@ public class Sus extends Palabra{
         Sus kunstmuseum = new Sus("Kunstmuseum", "Kunstmuseen", "N", "museo de arte", T);
         kunstmuseum.agregarTag("arte");
         Sus geschichtsmuseum = new Sus("Geschichtsmuseum", "Geschichtsmuseen", "N", "museo de historia", T);
+        Sus planetarium = new Sus("Planetarium", "Panetarien", "N", "planetario", T);
         Sus krankenhaus = new Sus("Krankenhaus", "Krankenhäuser", "N", "hospital", T);
         krankenhaus.agregarTag("médico");
         Sus platz = new Sus("Platz", "Plätze", "M", "plaza [ciudad]", T);
@@ -543,9 +580,9 @@ public class Sus extends Palabra{
 
         Sus verkehr = new Sus("Verkehr", nullEntry, "N", "tráfico", T);
         Sus straßenlaterne = new Sus("Straßenlaterne", "Straßenlaternen", "F", "farol [de calle]", T);
-        Sus Baustelle = new Sus("Baustelle", "Baustellen", "F", "construcción [sitio]", T);
-        Sus Altbau = new Sus("Altbau", "Altbauten", "M", "edificio nuevo", T);
-        Sus Neubau = new Sus("Neubau", nullEntry, "M", "edificio viejo", T);
+        Sus baustelle = new Sus("Baustelle", "Baustellen", "F", "construcción [sitio]", T);
+        Sus altbau = new Sus("Altbau", "Altbauten", "M", "edificio nuevo", T);
+        Sus neubau = new Sus("Neubau", nullEntry, "M", "edificio viejo", T);
 
         //[---La ciudad]
 
@@ -674,7 +711,7 @@ public class Sus extends Palabra{
         Sus klausur = new Sus("Klausur", "Klausuren", "F", "examen [escrito]", T);
 
 
-        //todo: Marcador
+        //todo: Marcador: Tecnología y programación.
         //[La tecnología]
         T = new String[]{"tecnología"};
         Sus technologie = new Sus("Technologie", "Technologien", "F", "tecnología", T);
@@ -682,7 +719,9 @@ public class Sus extends Palabra{
         Sus fernseher = new Sus("Fernseher", "Fernseher", "N", "tele", T);
         Sus handy = new Sus("Handy", "Handys", "N", "teléfono", T);
         Sus elektrizität = new Sus("Elektrizität", nullEntry, "F", "electricidad", T);
-        Sus Kabel = new Sus("Kabel", "Kabel", "N", "cable [eléctrico]", T);
+        Sus kabel = new Sus("Kabel", "Kabel", "N", "cable [eléctrico]", T);
+        Sus testatur = new Sus("Tastatur", "Tastaturen", "F", "teclado [computadora]", T);
+        Sus skalar = new Sus("Skalar", "Skalare", "M", "escalar [valor]", T);
         //laptop?
 
         //[/La tecnología]
@@ -814,7 +853,7 @@ public class Sus extends Palabra{
         Sus adjektiv = new Sus("Adjektiv", "Adjektive", "N", "adjetivo", T);
         Sus präposition = new Sus("Präposition", "Präpositionen", "F", "preposición", T);
 
-        //todo: Buchstabieren = deletrear
+
 
         //todo: Marcador. Las profesiones
         T = new String[]{"profesiónes"};
@@ -882,7 +921,7 @@ public class Sus extends Palabra{
 
 
 
-        T = new String[]{"profesiónes"};
+        T = new String[]{"profesiónes", "estudios"};
         Sus archäologe = new Sus("Archäologe", "Archáologe", "M", "arqueólogo", T);
         Sus astronom = new Sus("Astronom", "Astronomen", "M", "astrónomo", T);
         Sus biologe = new Sus("Biologe", "Biologen", "M", "biólogo", T);
@@ -894,6 +933,10 @@ public class Sus extends Palabra{
         Sus wissenschaftler = new Sus("Wissenschaftler", "Wissenschaftler", "M", "científico", T);
 
 
+        //todo: Marcador. Los Estudios
+        T = new String[]{"estudios"};
+        Sus studium = new Sus("Studium", nullEntry, "N", "carrera [universitaria]", T);
+        //biollogía, astronomía, ...
 
 
 
@@ -923,6 +966,8 @@ public class Sus extends Palabra{
         //todo: Mrcador. Animales
         T = new String[]{"animal"};
         Sus katze = new Sus("Katze", "Katzen", "F", "gato", T);
+
+
 
 
     }
@@ -1016,25 +1061,7 @@ public class Sus extends Palabra{
     }
 
 
-    /**
-     * Apuntes:
-     *
-     * El programa tiene una lista de sustantivos llamado Control.Sustantivos.
-     * Esta lista contiene listas de cada tema que reconoce el programa.
-     * La primer enrada en la lista de cada tema es un sustantivo nulo que le sirve al programa como indicador del tema.
-     * Esto se usa para el control y distribución de sustantivos.
-     *
-     * Todos los temas tienen un ArrayList y un String publico y estatico.
-     * Esto se genera manualmente hasta arriba
-     * Se agregan a la lista de listas de sustantivos en la función GeneradorSus.
-     *
-     * Los Sustantivos se agregan manualmente. Tags se agregan manualmente.
-     * Cada sustantivo se inicializa con un String[] de Tags.
-     * Cada tag que se agrega a un sustantivo lo mete a la lista del tema.
-     *
-     * Cada tema se inicializa en el area "LISTA TEMAS"
-     * Se tiene que agregar manualmente a generadorSus Y a tagAdd.
-     */
+
 }
 
 

@@ -311,6 +311,13 @@ public class Adj extends Palabra{
 
         //</Básico>------------------------------------
 
+
+        //todo: Marcador. Comida
+        Tags = new String[]{"comida"};
+
+        Adj salzig = new Adj("salzig", "salado", Tags);
+        Adj scharf = new Adj("scharf", "schärfer", "schärfsten", "picante", Tags);
+
     }
 
 

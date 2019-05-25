@@ -6,7 +6,29 @@ public class Palabra {
     public static final String nullEntry = Control.entradaNula;
 
     public String[] tags;
-    public String palabra;
+
+
+    //-----------------------------MÉTODOS DE COLISIONES--------------------------------------
+
+    public ArrayList<Palabra> colisionesSignificado = new ArrayList<Palabra>();
+    public ArrayList<Palabra> colisionesNombre = new ArrayList<Palabra>();
+
+    public boolean tieneColisionesNombre() {
+        if (this.colisionesNombre != null) {
+            return (this.colisionesNombre.size() > 0);
+        }
+        return false;
+    }
+
+    public boolean tieneColisionesSignificado() {
+        if (this.colisionesSignificado != null) {
+            return (this.colisionesSignificado.size() > 0);
+        }
+        return false;
+    }
+    //----------------------------------------------------------------------------------------
+
+
 
     //reemplaza al tagAdd previo
 
@@ -58,20 +80,23 @@ public class Palabra {
         ArrayList<Palabra> Resultados = new ArrayList<Palabra>();
 
         for (Palabra actual: Control.SustantivosListaSingular) {
-            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
 
         for (Palabra actual: Control.VerbosListaSingular) {
-            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
 
         for (Palabra actual: Control.AdjetivosListaSingular) {
-            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
 
         for (Palabra actual: Control.PalabrasListaSingular) {
-            if (actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
+            if (actual.getNombre().equals(Nombre) || actual.getNombreSimple().equals(Nombre)) {Resultados.add(actual);}
         }
+
+        //System.out.println("Tamaño = " + Resultados.size());
+        for (Palabra actual : Resultados) {System.out.println(actual.getNombre() + ", ");}
 
         Palabra[] out = new Palabra[Resultados.size()];
         for (int i = 0; i < out.length; i++) {out[i] = Resultados.get(i);}
