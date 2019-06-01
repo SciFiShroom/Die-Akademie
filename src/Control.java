@@ -14,12 +14,13 @@ public class Control {
     public static final String[] Temas = new String[]{
             "comida", "fruta", "verdura", "país", "ciudades",
             "capital", "animal", "cuerpo", /**"letras",*/ "tiempo",
-            "clima", "figuras", "ropa",
+            "clima", "figuras", "ropa", "deporte", "viajar",
             "escuela", "tecnología", "casa", "mueble", "médico",
             "ciudad", "medidas", "transporte", "especias", "cocina",
             "bebida", "materiales", "trabajo", "platillo", "arte",
             "geografía", "amigos", "festivos", "gramática", "conocidos",
-            "planta", "profesiónes", "estudios", "calendario",
+            "planta", "profesiónes", "estudios", "calendario", "acuático",
+            "física", "anatomía", "ingeniería", "ciencia",
 
             "test",
 
@@ -439,79 +440,6 @@ public class Control {
 
 
     //Revisan repeticiones en los significados de las palabras respectivas.
-    public static void revisarVer(){
-        ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Palabra actual : Control.VerbosListaSingular) {
-            //Revisión de significados:
-            if (listaSignificados.contains(actual.getSignificado())) {
-                System.out.println("El significado " + actual.getSignificado() + " es repetido. " + actual.getNombre());
-            } else {
-                listaSignificados.add(actual.getSignificado());
-            }
-
-            if (actual instanceof Ver) {
-                //Varios verbos no tendrán tödo. Aquí se veran todos los casos.
-                Ver verActual = (Ver) actual;
-                if (verActual.presente == null) {System.out.println("El verbo '" + verActual.verbo+ "' no tiene presente. ");}
-                if (verActual.participio == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene participio. ");}
-                if (verActual.imperativo == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene imperativo. ");}
-                if (verActual.preterito == null) {System.out.println("El verbo '" + verActual.verbo + "' no tiene preterito. ");}
-            }
-
-            //Ningún verbo debería de tener parámetros escritos con mayúsculas
-            //pero no creo que esto importe tanto.
-        }
-    }
-    public static void revisarAdj(){
-
-        ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Palabra actual : Control.AdjetivosListaSingular) {
-            if (listaSignificados.contains(actual.getSignificado())) {
-                System.out.println("El significado " + actual.getSignificado() + " es repetido: " + actual.getNombre());
-            } else {
-                listaSignificados.add(actual.getSignificado());
-            }
-        }
-    }
-    public static void revisarSus(){
-        ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Palabra actual : Control.SustantivosListaSingular) {
-            Sus susActual = actual.aSus();
-
-            //Revisión de parámetros: A ningún sustantivo le debería de faltar algo.
-            if (susActual.plural == null) {System.out.println("El sustantivo '" + susActual.getNombre() + "' no tien plural");}
-
-
-            //Revisión de significados: No debería haber dobles
-            if (listaSignificados.contains(actual.getSignificado())) {
-                System.out.println("El significado " + actual.getSignificado() + " es repetido: " + actual.getNombre());
-            } else {
-                listaSignificados.add(actual.getSignificado());
-            }
-
-            //Revisión de capitalización: Todos los sustantivos se capitalizan.
-            if (!Character.isUpperCase(actual.getNombre().charAt(0))) {
-                System.out.println("El sustantivo " + actual.getNombre() + " no está capitalizado. ");
-            }
-
-            //También revisamos la capitalización de los plurales.
-
-            if (!Character.isUpperCase(susActual.plural.charAt(0))) {
-                System.out.println("El sustantivo '" + susActual.getNombre() + "' tiene un plural sin capitalizar");
-            }
-
-        }
-    }
-    public static void revisarPal(){
-        ArrayList<String> listaSignificados = new ArrayList<String>();
-        for (Palabra actual : Control.PalabrasListaSingular) {
-            if (listaSignificados.contains(actual.getSignificado())) {
-                System.out.println("El significado " + actual.getSignificado() + " es repetido: " + actual.getNombre());
-            } else {
-                listaSignificados.add(actual.getSignificado());
-            }
-        }
-    }
     public static void revisiónCompleta() {
         int numeroDeErrores = 0;
 
@@ -536,15 +464,15 @@ public class Control {
 
 
             if (listaNombres.contains(actual.getNombre())) {
-                System.out.println("El nombre '" + actual.getNombre() + "' es repetido. " + actual.getNombre()); numeroDeErrores++;
+                //System.out.println("El nombre '" + actual.getNombre() + "' es repetido. " + actual.getNombre()); numeroDeErrores++;
             } else {
-                listaNombres.add(actual.getSignificado());
+                //listaNombres.add(actual.getSignificado());
             }
 
             if (listaSignificados.contains(actual.getSignificado())) {
-                System.out.println("El significado '" + actual.getSignificado() + "' es repetido. " + actual.getNombre()); numeroDeErrores++;
+                //System.out.println("El significado '" + actual.getSignificado() + "' es repetido. " + actual.getNombre()); numeroDeErrores++;
             } else {
-                listaSignificados.add(actual.getSignificado());
+                //listaSignificados.add(actual.getSignificado());
             }
 
 
@@ -605,6 +533,12 @@ public class Control {
                 if (!susActual.plural.equals(entradaNula) && !Character.isUpperCase(susActual.plural.charAt(0))) {
                     System.out.println("El sustantivo '" + susActual.getNombre() + "' tiene un plural sin capitalizar");
                     numeroDeErrores++;
+                }
+
+                //Esto podría irse, pero...
+                if (susActual.género.equals(entradaNula)) {
+                    //System.out.println("¿Seguro que " + susActual.sustantivo + " no tiene género?");
+                    //numeroDeErrores++;
                 }
 
             } else if (actual instanceof Adj) {
@@ -770,6 +704,9 @@ public class Control {
 
         while (true) {
             String input = sc.nextLine();
+
+            if (input.equals("cerrar")) { System.out.println("[Diga 'cerrar buscador' para cerrar el buscador]"); }
+
             if (input.equals("cerrar buscador")) {
                 System.out.println("Cerrando buscador.");
                 return;
@@ -801,10 +738,12 @@ public class Control {
                 }
             }
 
+            System.out.println();
+
             if (listaDef.length != 0) {
                 System.out.println("Palabras en alemán que signifiquen '" + input + "':");
                 for (Palabra actual : listaDef) {
-                    actual.definir();
+                    actual.definir(); System.out.println();
                 }
             }
 
@@ -818,15 +757,19 @@ public class Control {
     public static void main(String[] args) {
         Control.Inicialización(true, false);
 
+        //todo: Agregar método para hallar palabras con significados múltiples, sinónimos. etc.
 
         //Agregar otros parámetros al buscador (plurales, participios, etc. )
-        //Agregarle opción a los métodos definir() para incluir una indentación.
+        //Agregarle opción a los métodos definir() para incluir una indentación y número
+        //todo: Declinación del sustantivo y del artículo...¿Cómo funcionan?
         //Control.OrganizaciónTemas(7);
 
+        //ziehen está chingado
 
+        //todo: agergar otros parámetros al buscardor
         //todo: Verificar que las profesiones estén correctas.
         //todo: iterator doesn't work correctly.
-        // verkehrsmittel; fiarse.
+        //fiarse.
         // agregar verificador para la generación de los ADJ
         // q pex con dauern y el imperaivo...
         //estoy para la encuesta. Me podeis haber avisado. Le mande un correo ya hace tiempo, y uno esta mañana.
@@ -839,32 +782,13 @@ public class Control {
         //Ver unterrichten = dar clases de. Er unterricht Deutsch  =el da classes de alemán.
         //"No importa que el resultado no salga bien, siempre y cuando los signos sean correctos"
 
-        //agregar método que se asegure que los significados no estén capitalisados.
-        //müde = Adj = cansado
-
-        //Sus intento1 = new Sus("el sus", "el plur", "N", "el sig", new String[]{"comida", "verdura"});
-        //System.out.println(Arrays.toString(intento1.tags));
 
 
         //agregar string estática Vocabulario en Ejer; modularizar las firmas de los métodos "Sus vocabulario"; hacer lista de ejers utilizando esto.
 
-        //profesiones acadpemicas:
-        //T = new String[]{"estudio"};
-        //Medizin = medicina;
-        //Lehramt = "profesión docente" = profesor pero más chido
-        //Maschinenbau = Ingeniería Mecánica
-        //Physik = física
-        //Jura = derecho
-        //Lehrer = maestro (ya lo tenemos)
-        //Anwalt (Anwältin) Abogado
-        //Zukunft = futuro
 
+        //Agregar indicadores a Sus, Ver, y Adj que indiquen si es regular o no un parámetro.
 
-
-
-        //Morgen?
-        //Control.schnellBedeutung();
-        //OrganizaciónTemas(5);
 
         //se arreglo el método Control.revisiónCompleta()
         //hay que arreglar la cosa de significados dobles.
@@ -876,7 +800,6 @@ public class Control {
 
         /**
          * Mi WishList
-         * - consola que te deje definir o buscar palabras velozmente.
          * - ejercicio que te enseñe a decir la hora, medir tiempo, y utilizar un reloj en alemán
          * - ejercicio que te enseñe a utilizar las preposiciones y verbos de objetos en sus contextos.
          * - ejercicio que te enseñe las declinaciones de los articulos y de los adjetivos.
@@ -892,61 +815,34 @@ public class Control {
 
         /**
          * Palabras Wishlist
-         * telefonieren
-         * falls
          * ausdrücken = expresarse. chido
          * Tender la cama = Das Bett Machen
+         * Der Fall (Fälle): caso [en el caso de; En el mejor de los casos; Esto es un caso especial; por si acaso, ...]
          *
-         * ahorita
          * aquí
          * ayá (o allá?)
          * esto
          * eso (y "aquello" que?)
-         * despues de
-         * se hará despues.
-         * antes
-         * más tarde
-         * más temprano
-         *
-         * mañana
-         * ayer
-         *
          * siempre
-         * todo
+         * tödo
          * nada
          * nunca
          * un poco
          * normalmente / a menudo
          *
-         *
+         * comunicar [unir] = verbinden; comunicar [informar] = mitteilen
          */
 
-
-
-
-
         //todo: crear Ejer.ConsolaDefinir(String tipoDePalabra, Scanner sc)
-        //todo: Agregar palabras titulares (Der Haus, Der Essen, etc.)
         //todo: agregarle javadoc con @throws a todas las funciónes
-
-        //todo: Asegurarse que getNombre no tenga símbolos raros.
 
         //Todo: cambiar NullPointerExceptions a NumberFormatExceptions para evitar problemas.
 
-        //todo: Revisar revisar verbos: Los significados tienen ")"?
-
-        //Ver.OrganizacióndeTags();
 
 
-
-        //todo: Agregar parser que lea la funcion crear[cosa]() y la ponga en un documento .txt
-        //todo: agregar algo que lea un documento .txt y crée las palabras a partir de ello.
-
-        //todo: Agregar palabras indicativas (Fruta, ciudad, especias, escuela, ...) a todas las listas.
         //todo: Organizar "Marcadores" en todos los diccionarios.
         //todo: Acabar de ordenar los verbos :pepeEyes:
 
-        //todo: Definir palabra debería de saber que hacer si 'nullEntry' aparece
         //todo: asegurarse de que palabras con 'nullEntry' no entren a los ejercicios que lo necesitan.
 
         //todo: enseñar tema debería continuar con otros temas despues de terminar.
@@ -955,34 +851,12 @@ public class Control {
 
         //todo: enthülle
         //todo: gritar, susurrar,...
-        //todo: Conjunciones
 
-        //todo: Agregar imperativo y conjugacion preterito a definicion verbo
-        //todo: Investigar si es posible imprimir texto con color. Ayudaría con el control y en la enseñanza.
-
+        //todo: Agregar imperativo y conjugacion preterito a definicion
         //todo: Checar nennen y ernennen; lassen
+        //
+        // todo: werfen y ziehen???
 
-
-//todo: werfen y ziehen???
-        //todo: agregar preterito a los verbos. Crear algún método para ver cuales verbos no tienen preterito / participio / etc.
-        /*
-        aber: pero      A, pero B
-        sondern: sino   no A, sino B
-        oder: o         A o B
-        denn: porque    A porque B
-        weil: porque    A porque B
-        und: y          A y B
-        wenn: si [en caso de que]        Si A, entonces B
-        ob: si [No es wenn]         Si A.
-         */
-
-
-        //todo: imprimir lista tema crashéa cuando se cierra manualmente on el comando 'cerrar'. También debería darte la opción de listar todos los temas.
-        //todo: Definir debería de incluir la frase "Temas" cuando lista los temas.
-        //todo: Agregar las letras
-
-
-        //todo: Tabmién hay que averiguar como funcionarán las conjugaciones. Créo que deberíamos de tener funciones que te den la conjugacion correcta de un verbo, a diferencia de lo que hemos estado haciendo (ej. Ver.significado... deberia ser Ver.conjugar(xxx) = String conjugado. )
 
     }
 }

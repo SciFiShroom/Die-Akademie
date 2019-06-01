@@ -228,9 +228,9 @@ public class Adj extends Palabra{
         Adj gesund = new Adj("gesund", "sano", Tags);
         gesund.agregarTag("aspecto");
 
-        Adj glücklich = new Adj("glücklich [acaba con 'z']", "feliz", Tags);
+        Adj glücklich = new Adj("glücklich", "feliz", Tags);
         glücklich.agregarTag("personalidad");
-        Adj glücklich2 = new Adj("glücklich [acaba con 'o']", "afortunado", Tags);
+        Adj glücklich2 = new Adj("glücklich", "afortunado", Tags);
         glücklich2.agregarTag("personalidad"    );
 
         Adj groß = new Adj("groß", "größer", "größten", "grande", Tags);
@@ -267,6 +267,8 @@ public class Adj extends Palabra{
         Adj leicht = new Adj("leicht", "ligero", Tags);
 
         Adj leise = new Adj("leise", "silencioso", Tags);
+
+        Adj müde = new Adj("müde", "cansado", Tags);
 
         Adj nah = new Adj("nah", "näher", "nächsten", "cerca", Tags);
 
@@ -327,57 +329,14 @@ public class Adj extends Palabra{
         Adj salzig = new Adj("salzig", "salado", Tags);
         Adj scharf = new Adj("scharf", "schärfer", "schärfsten", "picante", Tags);
 
+
+        //todo: Marcador. Tiempo
+        //temprano, tarde, mañana, ayer, ...antes, despues de, ahorita
     }
 
 
-    /**
-     * Consola que te deja elejir un tema de la lista de temas de los Adj.
-     * ECHA NullPointerException si el usuario dice 'cerrar'
-     * @param sc el scanner
-     * @return el tema elejido
-     */
-    /**
-     public static String ElejirTema(Scanner sc) {
-     String tema;
-     while (true) {
-     System.out.println("Favor de elejir un tema: ");
-     String intento = sc.nextLine();
-
-     switch (intento) {
-     case "listar temas": Adj.ListarTemas(); continue;
-     case "cerrar": throw new NullPointerException("Ejercicio cerrado");
-     } //Solo hay dos inputs raros que pueden ocurrir aqui.
-
-     try {
-     Adj.ListaTema(intento);
-     tema = intento; //Le dice al programa que si funcionó. Si no existe, se saldrá arribita.
-     } catch (NullPointerException e) {
-     System.out.print("El tema '" + intento + "' no se encuentra. Diga 'listar temas' para ver los temas.");
-     System.out.println(" Diga 'cerrar' para cerrar el ejercicio. ");
-     continue;
-     }
-     break;
-     }
-     return tema;
-     }
-     */
 
 
-    /**
-     * Busca la lista de adjetivos el tema elejido de la lista Control.Adjetivos.
-     * Echa NullPointerException si no se encuentra una lista con el tem indicado.
-     * @param tema el tema elejido
-     * @return la lista en formato ArrayList<Adj>
-     */
-    /**
-    public static Lista<Adj> ListaTema(String tema) {
-        for (Lista<Adj> actual : Control.Adjetivos) {
-            if (actual.get(0).adjetivo.equals(tema)) {return actual;}
-        }
-        //System.out.println("El tema '" + tema + "' no se encuentra. Diga 'listar temas sustantivos' para ver los temas. ");
-        throw new NullPointerException();
-    }
-*/
 
     //Imprime una lista de sustantivos con formateo chido
     public static void imprimirListaChido(ArrayList<Adj> tema) {
@@ -406,42 +365,6 @@ public class Adj extends Palabra{
     }
 
 
-    /**
-     * Consola que te deja elejir un adjetivo de la lista Control.Adjetivos.
-     * ECHA NullPointerException si el usuario dice 'cerrar'
-     * @param sc el escaneador
-     * @return el adjetivo si se encuentra
-     */
-
-    /**
-    public static Adj ElejirAdjetivo(Scanner sc) {
-        Adj out;
-        System.out.println("Favor de elejir un adjetivo:");
-        while (true) {
-            String intento = sc.nextLine();
-            if (intento.equals("cerrar")) {throw new NullPointerException("Cerrando. ");}
-            out = Adj.buscar(intento);
-            if (out == null) {
-                System.out.println("El adjetivo'" + intento + "' no se encuentra. Asgurese que el adjetivo esté escrito sin declinación.");
-                continue;
-            }
-            break;
-        }
-        return out;
-    }
-*/
-
-
-
-
-    //Imprime la lista de todos los temas
-    /**
-    public static void ListarTemas() {
-        for (ArrayList<Adj> current : Control.Adjetivos) {
-            System.out.print(current.get(0).adjetivo + ", ");
-        }
-    }
-     */
 
     //Define un adjetivo
     @Override
@@ -450,35 +373,10 @@ public class Adj extends Palabra{
         System.out.println("Comparativo: " + this.comparativo + ", Superlativo: " + this.superlativo);
         System.out.println(Arrays.toString(this.tags));
         System.out.println("Aún no acabo con esto...");
+
+        System.out.println("Temas: " + Arrays.toString(this.tags));
     }
 
-
-    /**
-     //Consola que te deja elejir una cantidad de ejercicios/preguntas dado un ArrayList<E>
-     public static int ElejirCantidad (ArrayList<Adj> listaAdjetivos, Scanner sc) {
-     System.out.println("Hay " + (listaAdjetivos.size()-1) + " verbos en este tema.");
-     int número;
-     while (true) {
-     System.out.println("¿Cuántos deséa practicar?");
-     String intento = sc.nextLine();
-     try {
-     número = Integer.parseInt(intento); //Procesa input del usuario. Regresa un entero funcional.
-     if (número < 1) {
-     System.out.println("El número " + número + " es demasiado chico. ");
-     continue;
-     } else if (número > listaAdjetivos.size()-1) {
-     System.out.println("El número " + número + " es demasiado grande. ");
-     continue;
-     } // Aquí sabemos que el número si es valido para el ejercicio.
-     } catch (NumberFormatException e) { //Oye, eso no es un numero...
-     System.out.println("'" + intento + "' no es un número válido. ");
-     continue;
-     }
-     break;
-     }
-     return número;
-     }
-     */
 
     //Escoje aleatoriamente 'número' verbos de una lista de verbos.
     public static ArrayList<Adj> escojerAleatorio(ArrayList<Adj> listaAdjetivos, int número) {
@@ -505,8 +403,6 @@ public class Adj extends Palabra{
         }
         return lista;
     }
-
-
 
 
 }

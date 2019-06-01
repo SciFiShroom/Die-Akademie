@@ -170,11 +170,12 @@ public class Pal extends Palabra{
         //[Preposiciones]
         Tags = new String[]{"preposiciones", "acusativo"};
 
-        Pal durch = new Pal("durch [AKK]", "a través de", Tags);
-        Pal für = new Pal("für [AKK]", "para", Tags);
-        Pal gegen = new Pal("gegen [AKK]", "contra", Tags);
-        Pal ohne = new Pal("ohne [AKK]", "sin", Tags);
-        Pal um = new Pal("um [AKK]", "a las [hora]", Tags);
+        //Todas utilizan el akusativ, yy NO el dativ, porque así es.
+        Pal durch = new Pal("durch", "a través de", Tags);
+        Pal für = new Pal("für", "para", Tags);
+        Pal gegen = new Pal("gegen", "contra", Tags);
+        Pal ohne = new Pal("ohne", "sin", Tags);
+        Pal um = new Pal("um", "a las [hora]", Tags);
 
 
         Tags = new String[]{"preposiciones", "dativo"};
@@ -215,6 +216,19 @@ public class Pal extends Palabra{
         //Pal niemand = new Pal("niemand", "nadie", Tags);
         //Pal alles = new Pal("alles", "todos [gente]", Tags); REVISAR A GÜIGÜI
         // zu viel = demasiado.
+        //jemand = alguien, niemand = nadie. Alles = todos.
+        //falls = en caso de que; si
+
+        /*
+        aber: pero      A, pero B
+        sondern: sino   no A, sino B
+        oder: o         A o B
+        denn: porque    A porque B
+        weil: porque    A porque B
+        und: y          A y B
+        wenn: si [en caso de que]        Si A, entonces B
+        ob: si [No es wenn]         Si A.
+         */
     }
 
 
@@ -305,7 +319,7 @@ public class Pal extends Palabra{
     @Override
     public void definir() {
         System.out.println(this.palabra + ": " + this.significado);
-        System.out.println(Arrays.toString(this.tags));
+        System.out.println("Temas: " + Arrays.toString(this.tags));
     }
 
 
