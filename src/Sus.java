@@ -127,15 +127,17 @@ public class Sus extends Palabra{
         Sus champignon = new Sus("Champignon", "Champignons", "M", "champiñon", T);
         Sus ei = new Sus("Ei", "Eier", "N", "huevo", T);
         Sus schinken = new Sus("Schinken", "Schinken", "M", "jamón", T);
-        Sus jitomate;
-
+        Sus tomate = new Sus("Tomate", "Tomaten", "F", "jitomate", T);
+        Sus butter = new Sus("Butter", nullEntry, "F", "mantequilla", T);
+        Sus toastbrot = new Sus("Toastbrot", "Toastbrote", "N", "pan tostado", T);
+        Sus soße = new Sus("Soße", "Soßen", "F", "salsa [condimento]", T);
 
         //todas las carnes, coctel, hamburguesa, h o d d o g, , , , sandwich,
         //, ,
         //espaguetti, ravioles,
         //EIN FETUCCINI ALFREDO
-        //enchilada, mollete, quesadilla, torta, pambazo, alambre, fajita, mole, gordita, taco, empanada, tamal; muegano, rosca, concha, pan de muerto, mantecada, tlayuda, tasajo(?),
-        //sandwhich, hamburguesa, hotdog, BBQ?, alitas, hash browns, pancakes,
+        //enchilada, mollete, quesadilla, sinchronizada, torta, pambazo, alambre, fajita, mole, gordita, taco, empanada, tamal; muegano, rosca, concha, pan de muerto, mantecada, tlayuda, tasajo(?),
+        //sandwhich, hamburguesa, hotdog, BBQ?, alitas, hash browns, pancakes, pulled pork
 
 
         //todo: Marcador. Platillos
@@ -211,6 +213,7 @@ public class Sus extends Palabra{
         Sus stuhl = new Sus("Stuhl", "Stühle", "M", "silla", T);
         Sus tisch = new Sus("Tisch", "Tische", "M", "mesa", T);
         Sus kühlschrank = new Sus("Kühlschrank", "Kühlschränke", "M", "refrigerador", T);
+        Sus geschirrspüler = new Sus("Geschirrspüler", "Geschirrspüler", "M", "lavatrastes", T);
 
 
 
@@ -1039,6 +1042,20 @@ public class Sus extends Palabra{
         Sus diskussion = new Sus("Diskussion", "Diskussionen", "F", "discusión", T);
         Sus erklärung = new Sus("Erklärung", "Erklärungen", "F", "explicación", T);
         Sus artikulation = new Sus("Artikulation", "Artikulationen", "F", "articulación [al hablar]", T);
+
+
+
+        //todo: Marcador. Todos los idiomas
+        T = new String[]{"idiomas"};
+
+        Sus deutsch;
+        Sus englisch;
+        Sus spanisch;
+        Sus französisch;
+        Sus arabisch;
+        Sus chinesisch;
+        //japonés, coreano, portugués, italiano, ...
+
 
 
 

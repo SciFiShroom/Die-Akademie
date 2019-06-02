@@ -421,6 +421,20 @@ public class Control {
 
 
 
+    public static String quitarSufijo(String string, String sufijo) {
+        if (string != null && sufijo != null) {
+            if (string.endsWith(sufijo)) {
+                return string.substring(0, string.length() - sufijo.length());
+            } else {
+                throw new NumberFormatException("Error: El sufijo '" + sufijo + "' no se encuentra en la palabra '" + string + "'");
+            }
+        } else {
+            throw new NumberFormatException("Error: Parametro null lel");
+        }
+    }
+
+
+
     public static void comandos() {
         System.out.println("-comandos: Imprime esta lista. ");
         System.out.println("-hola: Dice ¡Hola!");
@@ -755,7 +769,7 @@ public class Control {
 
 
     public static void main(String[] args) {
-        Control.Inicialización(true, false);
+        Control.Inicialización(true, true);
 
         //todo: Agregar método para hallar palabras con significados múltiples, sinónimos. etc.
 
@@ -782,7 +796,8 @@ public class Control {
         //Ver unterrichten = dar clases de. Er unterricht Deutsch  =el da classes de alemán.
         //"No importa que el resultado no salga bien, siempre y cuando los signos sean correctos"
 
-
+//todo: Imperativo con verbos separables
+        //agregar explicación para leben vs wohnen.
 
         //agregar string estática Vocabulario en Ejer; modularizar las firmas de los métodos "Sus vocabulario"; hacer lista de ejers utilizando esto.
 
@@ -829,7 +844,7 @@ public class Control {
          * nunca
          * un poco
          * normalmente / a menudo
-         *
+         * que pex con fangen
          * comunicar [unir] = verbinden; comunicar [informar] = mitteilen
          */
 

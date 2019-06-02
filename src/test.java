@@ -10,10 +10,13 @@ public class test {
 
 
     public static void main(String[] args) {
-        Control.Inicialización(false, false);
+        //Control.Inicialización(false, false);
 
 
+        System.out.println(Control.quitarSufijo("arbeitest", "este"));
 
+
+        /**
          Lista<Palabra> lista = Control.getTema("test", "Sus");
          Sus[] Tests = new Sus[5];
          for (int i = 0; i < 5; i++) {Tests[i] = lista.get(i).aSus();}
@@ -25,7 +28,7 @@ public class test {
                  System.out.print(actual.colisionesSignificado.get(j).aSus().plural + " ");
              }
              System.out.println();
-         }
+         }*/
 
 
         /**

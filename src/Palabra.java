@@ -303,4 +303,20 @@ public class Palabra {
     public Lista<Palabra> sinónimos; //palabras que significan exactamete lo mismo, sin ninguna diferencia en contexto o uso.
     public Lista<Palabra> significados; //Se añaden otros significados. Esta es fácil de implementar.
     //todo: mayhaps a name hashmap?
+
+
+
+    public String[] descripción;
+    public void agregarDescripción(String[] Descripción) {
+        if (this.descripción!= null && this.descripción.length != 0) {
+            throw new NumberFormatException("Error: Descripción ya agregada a la palabra '" + this.getNombre() + "'");
+        } //Ya se agregó una descripción
+
+        this.descripción = Descripción;
+    }
+
+    public void agregarDescripción(String Descripción) {
+        agregarDescripción(new String[]{Descripción});
+    }
+
 }

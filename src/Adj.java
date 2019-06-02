@@ -328,6 +328,7 @@ public class Adj extends Palabra{
 
         Adj salzig = new Adj("salzig", "salado", Tags);
         Adj scharf = new Adj("scharf", "schärfer", "schärfsten", "picante", Tags);
+        Adj süß = new Adj("süß", "dulce", Tags);
 
 
         //todo: Marcador. Tiempo
