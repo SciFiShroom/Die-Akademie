@@ -1,6 +1,12 @@
+import java.awt.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+
 public class test {
 
 
@@ -9,11 +15,23 @@ public class test {
     }
 
 
+
+
+
+
     public static void main(String[] args) {
+
+
+        Lector.lector("intento1.txt");
+
+
+
+
+
         //Control.Inicialización(false, false);
 
 
-        System.out.println(Control.quitarSufijo("arbeitest", "este"));
+        //System.out.println(Control.quitarSufijo("arbeitest", "este"));
 
 
         /**

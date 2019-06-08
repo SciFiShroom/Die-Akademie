@@ -27,7 +27,7 @@ public class Control {
             "moverse", "básico", "modal",
             "menos_básico", "misceláneo",
             "comunicación", "vista", "tienda", "auxiliar",
-            "objeto", "mente", "escritura",
+            "objeto", "mente", "escritura", "preguntas",
 
             "color", "aspecto", "personalidad",
 
@@ -857,6 +857,7 @@ public class Control {
 
         //todo: Organizar "Marcadores" en todos los diccionarios.
         //todo: Acabar de ordenar los verbos :pepeEyes:
+        //todo: Método que revise que la detección de errores de declaraciones si funcione
 
         //todo: asegurarse de que palabras con 'nullEntry' no entren a los ejercicios que lo necesitan.
 

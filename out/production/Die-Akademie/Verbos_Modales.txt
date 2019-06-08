@@ -1,0 +1,12 @@
+---Lección: Los Verbos Modales---
+Los verbos modales son verbos especiales que...describen aspectos de una acción, como necesidad o permiso.
+Hay solo 6:
+ - dürfen:
+ - können:
+ - wollen:
+ - sollen:
+ - müssen:
+ - mögen:
+
+Ingrése uno de los verbos para aprender más de el.
+GOTO input

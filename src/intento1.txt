@@ -1,0 +1,28 @@
+//Mensaje oculto Ó_Ó
+//Este archivito sirve para verificar que el lector funcione.
+¡Hola!
+/**Varios mensajes ocultos
+guau cuantos son
+*/esto tambien para no hacernos la vida difícil.
+¿Qué cuentas?
+//Las pausas se imprimen como una fila vasía.
+{P}
+Vaya vaya vaya
+//
+//
+//
+Hay tres opciones. 1, 2, y 3. Escoje una:
+GOTO input
+
+
+Marcador 1
+1!
+fin
+
+Marcador 2
+2!!
+fin
+
+Marcador 3
+3!!!
+fin

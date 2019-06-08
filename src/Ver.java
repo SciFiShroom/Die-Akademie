@@ -20,10 +20,8 @@ public class Ver extends Palabra{
     public String significado; //El significado del verbo
 
 
-
-    public String[] presente; //La manera mas facil y modular de guardar la información del verbo. Es con String[] de 1 por 6: ich; du; er,sie,es; wir; ihr; Sie = 6
-    //El presente se agrega en la construcciòn del verbo.
-
+    public boolean tienePresenteRegular;
+    public String[] presente; //Indikativ präsens. Se agrega obligatoriamente en la definición del verbo.
 
 
 
@@ -34,7 +32,8 @@ public class Ver extends Palabra{
 
 
 
-    public String participio; //Básicamente el pasado (Ich habe gegessen...)
+    public boolean tieneParticipioRegular; //?
+    public String participio; //Partizip Perfekt. Básicamente el pasado (Ich habe gegessen...)
     public void agregarParticipio(String Participio) {
         if (Participio.equals("haben") || Participio.equals("sein")) {throw new NullPointerException("Créo que te has equivocado con el verbo " + this.verbo);}
         if (this.participio != null) {throw new NumberFormatException("Error: Un participio ya se ha agregado al verbo " + this.verbo);}
@@ -54,6 +53,7 @@ public class Ver extends Palabra{
 
 
 
+    public boolean tieneImperativoRegular;
     public String[] imperativo; //En general, du = Base = yo-presente menos la 'e' (Komm!), ihr = ihr (Kommt!), sie = Sie (Kommen!)
     public void agregarImperativoNuevo(String REG) {
         if (!REG.equals(reg)) {
@@ -88,8 +88,8 @@ public class Ver extends Palabra{
 
 
 
-
-    public String[] preterito; //El pasado
+    public boolean tienePreteritoRegular;
+    public String[] preterito; //Indikativ präteritum; El pasado
     public void agregarPreterito(String[] Preterito) {
         if (this.preterito != null) {throw new NumberFormatException("Error: El preterito ya se agregó al verbo " + this.verbo);}
 
@@ -114,15 +114,42 @@ public class Ver extends Palabra{
         this.preterito[5] = e_est_e_en_et_en + "en";
     }// -e, -est, -e, -en, -et, -en
 
-    //---------------------------[---PARAMETROS]--------------------------------
+
+
+    public boolean tieneKonjunktivRegular;
+    public String[] konjunktivPreterito; //Aparte de el Indikativ präsens, Indikative präteritum, partizip perfekt, y los imperativos, es la única dimension que nos falta.
+    public void agregarKonjunktivPreterito(String[] KonjunktivPreterto) {
+        if (this.konjunktivPreterito != null) {
+            throw new NumberFormatException("Error: Ya se ha agregado el Konjunktiv. ");
+        }
+
+        this.tieneKonjunktivRegular = false;
+
+
+        if (KonjunktivPreterto.length != 6) {
+            throw new NumberFormatException("Error de decaración de Konjunktiv");
+        }
+
+        this.konjunktivPreterito = KonjunktivPreterto;
+    }
+    public void agregarKonjunktivPreterito(String e_est_e_en_et_en) {
+        if (this.konjunktivPreterito != null) {
+            throw new NumberFormatException("Error: Ya se ha agregado el Konjunktiv. ");
+        }
+
+        this.tieneKonjunktivRegular = true;
+
+        this.konjunktivPreterito = new String[6];
+        konjunktivPreterito[0] = e_est_e_en_et_en + "e";
+        konjunktivPreterito[1] = e_est_e_en_et_en + "est";
+        konjunktivPreterito[2] = e_est_e_en_et_en + "e";
+        konjunktivPreterito[3] = e_est_e_en_et_en + "en";
+        konjunktivPreterito[4] = e_est_e_en_et_en + "et";
+        konjunktivPreterito[5] = e_est_e_en_et_en + "en";
+    }
+
+
     //---------------------------[PARÁMETROS DE CONTROL]------------------------
-
-    public boolean tienePresenteRegular;
-    public boolean tieneImperativoRegular; //!
-    public boolean tienePreteritoRegular;
-    public boolean tieneParticipioRegular; //?
-
-    //---------------------------[---PARÁMETROS DE CONTROL]------------------------
     //-------------------------[PARÁMETROS PARA VERBOS SEPARABLES]------------------------
     public Ver raiz = null; //Por ejemplo, en el verbo ansprechen, raiz = sprechen
     public void agregarRaiz(Ver Raiz) {
@@ -144,6 +171,7 @@ public class Ver extends Palabra{
 
 
     //---------------------------[CONSTRUCTORES]--------------------------------
+
 
     //Constructor para verbos normales. Solo se incluyen las conjugaciones presente (präsens). Las demás se agregan despues.
     public Ver(String Verbo, String[] Präsens, String Significado, String[] Tags) {
@@ -338,24 +366,27 @@ public class Ver extends Palabra{
     public static void crearVerbos() {
         String[] T;
 
-        //[Auxiliares]
+        //todo: Marcador. Los tres verbos auxiliares.
         T = new String[]{"auxiliar"};
         Ver haben = new Ver("haben", new String[]{"habe", "hast", "hat", "haben", "habt", "haben"}, "tener", T);
         haben.agregarParticipio("gehabt");
         haben.agregarPreterito("hatt");
+        haben.agregarKonjunktivPreterito("hätt");
         haben.agregarImperativoNuevo(reg);
 
         Ver sein = new Ver("sein", new String[]{"bin", "bist", "ist", "sind", "seid", "sind"}, "ser", T);
+        sein.agregarHilfsverb("sein");
         sein.agregarParticipio("gewesen");
         sein.agregarPreterito(new String[]{"war", "warst", "war", "waren", "wart", "waren"});
+        sein.agregarKonjunktivPreterito("wär");
         sein.imperativo = new String[]{"sei", "seid", "seien"};
-        sein.agregarHilfsverb("sein");
 
         Ver werden = new Ver("werden", new String[]{"werde", "wirst", "wird", "werden", "werdet", "werden"}, "llegar a ser", T);
+        werden.agregarHilfsverb("sein");
         werden.agregarParticipio("geworden");
         werden.agregarPreterito("wurde");
+        werden.agregarKonjunktivPreterito("würd");
         werden.agregarImperativoNuevo(reg);
-        werden.agregarHilfsverb("sein");
 
         //[---Auxiliares]
 
@@ -372,31 +403,37 @@ public class Ver extends Palabra{
         Ver können = new Ver("können", new String[]{"kann", "kannst", "kann", "können", "könnt", "können"}, "poder", T);
         können.agregarParticipio("gekonnt");
         können.agregarPreterito("konnt");
+        können.agregarKonjunktivPreterito("könnt");
         können.imperativo = NoTienenImperativo;
 
         Ver dürfen = new Ver("dürfen", new String[]{"darf", "darfst", "darf", "dürfen", "dürft", "dürfen"}, "tener permiso", T);
         dürfen.agregarParticipio("gedurft");
         dürfen.agregarPreterito("durft");
+        dürfen.agregarKonjunktivPreterito("dürft");
         dürfen.imperativo = NoTienenImperativo;
 
         Ver mögen = new Ver("mögen", new String[]{"mag", "magst", "mag", "mögen", "mögt", "mögen"}, "gustar", T);
         mögen.agregarParticipio("gemocht");
         mögen.agregarPreterito("mocht");
+        mögen.agregarKonjunktivPreterito("möcht");
         mögen.imperativo = NoTienenImperativo;
 
         Ver müssen = new Ver("müssen", new String[]{"muss", "musst", "muss", "müssen", "müsst", "müssen"}, "tener que", T);
         müssen.agregarParticipio("gemusst");
         müssen.agregarPreterito("musst");
+        müssen.agregarKonjunktivPreterito("müsst");
         müssen.imperativo = NoTienenImperativo;
 
         Ver sollen = new Ver("sollen", new String[]{"soll", "sollst", "soll", "sollen", "sollt", "sollen"}, "deber", T);
         sollen.agregarParticipio("gesollt");
         sollen.agregarPreterito("sollt");
+        sollen.agregarKonjunktivPreterito("sollt");
         sollen.imperativo = NoTienenImperativo;
 
         Ver wollen = new Ver("wollen", new String[]{"will", "willst", "will", "wollen", "wollt", "wollen"}, "querer [hacer algo]", T);
         wollen.agregarParticipio("gewollt");
         wollen.agregarPreterito("wollt");
+        wollen.agregarKonjunktivPreterito("wollt");
         wollen.imperativo = NoTienenImperativo;
 
 
@@ -540,23 +577,7 @@ public class Ver extends Palabra{
         lassen.agregarPreterito(new String[]{"ließ", "ließest", "ließ", "ließen", "ließt", "ließen"});
         lassen.agregarImperativoNuevo("lass", "lasst", "lassen");
 
-        Ver leben = new Ver("leben", "leb", "vivir [en un país]", T);
-        leben.agregarParticipio("gelebt");
-        leben.agregarPreterito("lebte");
-        leben.agregarImperativoNuevo(reg);
-
         Ver teilnehmen = new Ver("teil", nehmen, "participar", T);
-
-        Ver wohnen = new Ver("wohnen", "wohn", "vivir [en una casa]", T);
-        wohnen.agregarParticipio("gewohnt");
-        wohnen.agregarTag("casa");
-        wohnen.agregarPreterito("wohnt");
-        wohnen.agregarImperativoNuevo(reg);
-
-        Ver spielen = new Ver("spielen", "spiel", "jugar", T);
-        spielen.agregarParticipio("gespielt");
-        spielen.agregarPreterito("spielt");
-        spielen.agregarImperativoNuevo(reg);
 
         Ver spielen2 = new Ver("spielen", "spiel", "tocar [un instrumento, una canción]", T);
         spielen2.agregarParticipio("gespielt");
@@ -583,15 +604,42 @@ public class Ver extends Palabra{
         //--------------------------------/basicos
 
 
-        //preguntar, responder, explicar, clarificar, cuestionar,
+        //, , , , cuestionar,
+        //todo: Marcador. Preguntas, explicaciones, ...
+        T = new String[]{"preguntas"};
+        Ver antworten = new Ver("antworten", "antwort", est, "contestar; responder [a alguien]", T);
+        antworten.agregarPreterito("antwortet");
+        antworten.agregarParticipio("geantwortet");
+        antworten.agregarImperativoNuevo(reg);
+        antworten.agregarDescripción(new String[]{"'antworten' significa contestarle a alguien, y por lo tanto rige acusativo. ", "Para contestar algo (ej. una pregunta), se usaría beantworten.", "'Er antwortet der Lehrerin'"});
 
-        //todo: Marcador. Comunicación
-        T = new String[]{"comunicación"};
+        Ver beantworten = new Ver("beantworten", "beantwort", est, "contestar; responder [algo]", T);
+        beantworten.agregarParticipio("beantwortet");
+        beantworten.agregarPreterito("beantwortet");
+        beantworten.agregarImperativoNuevo(reg);
+        beantworten.agregarDescripción(new String[]{"'beantworten' significa 'contestar algo', y por lo tanto rige acusativo. ", "Para contestarle a alguien (ej. a un profesor), se utilizaría antworten", "Ich beantworte seine Frage."});
 
-        Ver bestehen = new Ver("bestehen", "besteh", "insistir", T);
-        bestehen.agregarParticipio("bestanden");
-        bestehen.agregarPreterito(new String[]{"bestand", "bestandest", "bestand", "bestanden", "bestandet", "bestanden"});
-        bestehen.agregarImperativoNuevo(reg);
+        Ver beraten = new Ver("beraten", new String[]{"berate", "berätst", "berät", "beraten", "beratet", "beraten"}, "aconsejar", T);
+        beraten.agregarParticipio("beraten");
+        beraten.agregarPreterito(new String[]{"beriet", "betietest", "beriet", "berieten", "berietet", "berieten"});
+        beraten.agregarImperativoNuevo(reg);
+
+        Ver zweifeln = new Ver("zweifeln", new String[]{"zweifele", "zweifelst", "zweifelt", "zweifeln", "zweifelt", "zweifeln"}, "dudar [que]", T);
+        zweifeln.agregarParticipio("gezweifelt");
+        zweifeln.agregarPreterito("zweifelt");
+        zweifeln.agregarImperativoNuevo("zweifele", "zweifelt", "zweifeln");
+        zweifeln.agregarDescripción(new String[]{"Se puede usar sin objeto [Ich zweifel.], o con un objeto [Ich zweifel an...].", " Generalmente, se usa 'bezweifeln' cuando existe un objeto.", "'Ich zweifle an der Richtigkeit dieser Aussage'"});
+
+        Ver bezweifeln = new Ver("bezweifeln", new String[]{"bezweifele", "bezweifelst", "bezweifelt", "bezweifeln", "bezweifelt", "bezweifeln"}, "dudar [de], T", T);
+        bezweifeln.agregarParticipio("bezweifelt");
+        bezweifeln.agregarPreterito("bezweifelt");
+        bezweifeln.agregarImperativoNuevo("bezweifele", "bezweifelt", "bezweifeln");
+        bezweifeln.agregarDescripción(new String[]{"'Bezweifeln' asume que existe un objeto.", " 'Ich bezweifle die Richtigkeit dieser Aussage.' "});
+
+        Ver fragen = new Ver("fragen", "frag", "preguntar", T);
+        fragen.agregarParticipio("gefragt");
+        fragen.agregarPreterito("fragt");
+        fragen.agregarImperativoNuevo(reg);
 
         Ver erklären = new Ver("erklären", "erklär", "explicar", T);
         erklären.agregarParticipio("erklärt");
@@ -603,6 +651,17 @@ public class Ver extends Palabra{
         klären.agregarParticipio("geklärt");
         klären.agregarPreterito("klärt");
         klären.agregarImperativoNuevo(reg);
+
+
+
+
+        //todo: Marcador. Comunicación
+        T = new String[]{"comunicación"};
+
+        Ver bestehen = new Ver("bestehen", "besteh", "insistir", T);
+        bestehen.agregarParticipio("bestanden");
+        bestehen.agregarPreterito(new String[]{"bestand", "bestandest", "bestand", "bestanden", "bestandet", "bestanden"});
+        bestehen.agregarImperativoNuevo(reg);
 
         Ver heißen = new Ver("heißen", "heiß", "llamarse", T);
         heißen.agregarParticipio("geheißen");
@@ -711,11 +770,12 @@ public class Ver extends Palabra{
 
 
         //todo: Marcador. El agua.
-//nadar, ahogarse, secar, mojar, pescar, empapar(??)
+        // nadar, ahogarse, secar, mojar, pescar, empapar(??)
 
-        //[La Mente]
+
+
+        //todo: Marcador. La mente.
         T = new String[]{"mente"};
-
         Ver glauben = new Ver("glaube", "glaub", "creer", T);
         glauben.agregarParticipio("geglaubt");
         glauben.agregarPreterito("glaubt");
@@ -777,12 +837,28 @@ public class Ver extends Palabra{
         //[Cuerpo]
         T = new String[]{"cuerpo"};
 
-
-
         Ver hören = new Ver("hören", "hör", "oir", T);
         hören.agregarParticipio("gehört");
         hören.agregarPreterito("hört");
         hören.agregarImperativoNuevo(reg);
+
+        Ver heilen = new Ver("heilen", "heil", "sanar; curar", T);
+        heilen.agregarHilfsverb("sein");
+        heilen.agregarParticipio("geheilt");
+        heilen.agregarPreterito("heilt");
+        heilen.agregarImperativoNuevo(reg);
+
+        Ver erkranken = new Ver("erkranken", "erkrank", "enfermarse", T);
+        erkranken.agregarHilfsverb("sein");
+        erkranken.agregarParticipio("erkrankt");
+        erkranken.agregarPreterito("erkrankte");
+        erkranken.agregarImperativoNuevo(reg);
+        //genesen = heilen??
+
+        Ver überleben = new Ver("überleben", "überleb", "sobrevivir", T);
+        überleben.agregarParticipio("überlebt");
+        überleben.agregarPreterito("überlebt");
+        überleben.agregarImperativoNuevo(reg);
 
 
         //Ver schmecken = new Ver();
@@ -887,6 +963,12 @@ public class Ver extends Palabra{
         //todo: Marcador
         //<menos básico>----------------------------------------------------------------------------------------------------------------------
         T = new String[]{"menos_básico"};
+
+        Ver ackern = new Ver("ackern", new String[]{"ackere", "ackerst", "ackert", "ackern", "ackert", "ackern"}, "arar", T);
+        ackern.agregarParticipio("geackert");
+        ackern.agregarPreterito("ackert");
+        ackern.agregarKonjunktivPreterito(new String[]{"ackere", "ackerst", "ackere", "ackern", "ackert", "ackern"});
+        ackern.agregarImperativoNuevo("ackere", "ackert", "ackern");
 
         Ver beginnen = new Ver("beginnen", "beginn", "empezar", T);
         beginnen.agregarParticipio("begonnen");
@@ -1104,10 +1186,7 @@ public class Ver extends Palabra{
         //ESCUELA------------------------------------------------------
         T = new String[]{"escuela"};
 
-        Ver fragen = new Ver("fragen", "frag", "preguntar", T);
-        fragen.agregarParticipio("gefragt");
-        fragen.agregarPreterito("fragt");
-        fragen.agregarImperativoNuevo(reg);
+
 
         Ver fehlen = new Ver("fehlen", "fehl", "faltar", T);
         fehlen.agregarParticipio("gefehlt");
@@ -1165,8 +1244,6 @@ public class Ver extends Palabra{
         //Ver berechnen;
         //Ver bewerten;
         //Ver untersuchen;
-
-        //Ver halten
 
         //romper
         //robar
@@ -1298,6 +1375,8 @@ public class Ver extends Palabra{
         toasten.agregarPreterito("toastet");
         toasten.agregarImperativoNuevo(reg);
 
+        //räuchern; salar?
+
         //braten, schmoren, und grllen und frittieren
 
 
@@ -1412,7 +1491,35 @@ public class Ver extends Palabra{
 
         //todo: Marcador. Deportes
         T = new String[]{"deporte"};
+        Ver spielen = new Ver("spielen", "spiel", "jugar", T);
+        spielen.agregarParticipio("gespielt");
+        spielen.agregarPreterito("spielt");
+        spielen.agregarImperativoNuevo(reg);
 
+
+
+
+        //todo: Marcador. La ciudad.
+        T = new String[]{"ciudad"};
+        Ver mieten = new Ver("mieten", "miet", est, "alquilar; rentar", T);
+        mieten.agregarParticipio("gemietet");
+        mieten.agregarPreterito("mietet");
+        mieten.agregarImperativoNuevo(reg);
+
+        Ver leben = new Ver("leben", "leb", "vivir", T);
+        leben.agregarParticipio("gelebt");
+        leben.agregarPreterito("lebte");
+        leben.agregarImperativoNuevo(reg);
+        leben.agregarDescripción(new String[]{"Sinonimo con 'wohnen'. En general, 'leben' se usa para indicar que vives en un país o en una ciudad.", "'Mein Bruder lebt in München.'"});
+
+        Ver wohnen = new Ver("wohnen", "wohn", "vivir [en una casa]", T);
+        wohnen.agregarParticipio("gewohnt");
+        wohnen.agregarTag("casa");
+        wohnen.agregarPreterito("wohnt");
+        wohnen.agregarImperativoNuevo(reg);
+        wohnen.agregarDescripción(new String[]{"Sinonimo con 'leben'. En general se usa para indicar la vivienda, o la calle en la que vives.", "'Ich wohne in Schlossstraße', 'Er wohnt in einer kleinen Wohnung'"});
+
+        Ver limpiar;
 
 
 
@@ -1462,75 +1569,6 @@ public class Ver extends Palabra{
 
 
 
-    //Imprime la lista de todos los temas
-    /**
-    public static void ListarTemas() {
-        for (ArrayList<Ver> current : Control.Verbos) {
-            System.out.print(current.get(0).verbo + ", ");
-        }
-    }
-    */
-
-    //CONSOLA
-    /**
-     * Consola que te deja elejir un tema de la lista de temas de los verbos.
-     * Echa un NullPointerException si el usuario dice 'cerrar'
-     * @param sc el scanner
-     * @return
-     */
-    //que honda con esto
-
-    /**
-     public static String ElejirTema(Scanner sc) {
-     String tema;
-     System.out.println("Diga 'listar temas' para ver los temas. Diga 'cerrar' para cerrar la consola. ");
-     while (true) {
-     System.out.println("Favor de elejir un tema: ");
-     String intento = sc.nextLine();
-
-     switch (intento) {
-     case "listar temas": Ver.ListarTemas(); continue;
-     case "cerrar": throw new NullPointerException("Ejercicio cerrado");
-     } //Solo hay dos inputs raros que pueden ocurrir aqui.
-
-     try {
-     Ver.ListaTema(intento); //No se utiliza esta lista, pero nos dice si existe el tema.
-     tema = intento; //Le dice al programa que si funcionó. Si no existe, se saldrá arribita.
-     } catch (NullPointerException e) { //El tema no existe
-     System.out.print("El tema '" + intento + "' no se encuentra. Diga 'listar temas' para ver los temas.");
-     System.out.println(" Diga 'cerrar' para cerrar el ejercicio. ");
-     continue;
-     }
-     break;
-     }
-     return tema;
-     }
-     */
-
-    //CONSOLA
-    /**
-     * Consola que te deja elejir un verbo de la lista completa de todos los verbos [Control.Verbos]
-     * ECHA NullPointerException si el usuario dice 'cerrar' <-------
-     * @param sc el Scanner
-     * @return El verbo elejido
-     */
-    /**
-    public static Ver ElejirVerbo(Scanner sc) {
-        Ver out;
-        System.out.println("Favor de elejir un verbo:");
-        while (true) {
-            String intento = sc.nextLine();
-            if (intento.equals("cerrar")) {throw new NullPointerException("Cerrando. ");}
-            out = Ver.buscar(intento);
-            if (out == null) {
-                System.out.println("El verbo '" + intento + "' no se encuentra. Asgúrese que el verbo sea infinitivo y de no capitalizar ninguna letra.");
-                continue;
-            }
-            break;
-        }
-        return out;
-    }
-     */
 
 
 

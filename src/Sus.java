@@ -171,6 +171,10 @@ public class Sus extends Palabra{
 
 
 
+        Sus erdnuss = new Sus("Erdnuss", "Erdnüsse", "F", "cacahuate", T);
+
+
+
         //todo: Marcador. La cocina
         T = new String[]{"cocina"};
         Sus küche = new Sus("Küche", "Küchen", "F", "cocina", T);
@@ -721,7 +725,7 @@ public class Sus extends Palabra{
         //Sus arzhelferin = new Sus("Arzthelferin", "Arzthelfernen", );
         Sus schmerz = new Sus("Schmerz", "Schmerzen", "M", "dolor", T);
         Sus termin = new Sus("Termin", "Termine", "M", "cita [para el médico]", T);
-
+        Sus krankheit = new Sus("Krankheit", "Krankheiten", "F", "enfermedad", T);
 
 
         //[---El médico]
@@ -1040,9 +1044,8 @@ public class Sus extends Palabra{
         Sus gespräch = new Sus("Gespräch", "Gespräche", "N", "conversación", T);
         Sus telefongespräch = new Sus("Telefongespräch", "Telefongespräche", "N", "conversación telefónica", T);
         Sus diskussion = new Sus("Diskussion", "Diskussionen", "F", "discusión", T);
-        Sus erklärung = new Sus("Erklärung", "Erklärungen", "F", "explicación", T);
         Sus artikulation = new Sus("Artikulation", "Artikulationen", "F", "articulación [al hablar]", T);
-
+        Sus rede = new Sus("Rede", "Reden", "F", "discurso", T);
 
 
         //todo: Marcador. Todos los idiomas
@@ -1065,6 +1068,9 @@ public class Sus extends Palabra{
 
         Sus blume = new Sus("Blume", "Blumen", "F", "flor", T);
         Sus rasen = new Sus("Rasen", "Rasen", "M", "pasto", T);
+        Sus samen = new Sus("Samen", "Samen", "M", "semilla", T);
+        Sus wurzel = new Sus("Wurzel", "Wurzeln", "F", "raíz", T);
+
 
 
 
@@ -1119,6 +1125,13 @@ public class Sus extends Palabra{
         Sus gewicht = new Sus("Gewicht", nullEntry, "N", "peso [FIS]", T);
 
         //Ernst = seriedad / gravedad / peso [de un tema / una situación]
+
+
+        //todo: Marcador. ???
+        T = new String[]{"preguntas"};
+        Sus zweifel = new Sus("Zweifel", "Zweifel", "M", "duda", T);
+        Sus frage = new Sus("Frage", "Fragen", "F", "pregunta", T);
+        Sus erklärung = new Sus("Erklärung", "Erklärungen", "F", "explicación", T);
     }
     //todo: mar
     //todo: ca
