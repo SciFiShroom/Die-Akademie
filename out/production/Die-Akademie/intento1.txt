@@ -1,28 +1,43 @@
-//Mensaje oculto Ó_Ó
-//Este archivito sirve para verificar que el lector funcione.
+Test comentarios: No debería de aparecer nada antes del '¡Hola!'
+//Comentario 1
+//Comentario 2
+/**   [3]
+Comentario 4
+
+Comentaio 5
+*/ Comentario 6
 ¡Hola!
-/**Varios mensajes ocultos
-guau cuantos son
-*/esto tambien para no hacernos la vida difícil.
-¿Qué cuentas?
-//Las pausas se imprimen como una fila vasía.
+
+Verificación de GOTO: Si se finaliza el documento, hubo error.
+GOTO a
+fin
+Marcador a
+¡Parece que funcionó bien! :)
+
+Verificación del comando '{P}': Presiona 'intr' o 'enter' o como se llame
 {P}
-Vaya vaya vaya
-//
-//
-//
+
+
+Comprobación de funcionalidad del comando 'GOTO input':
 Hay tres opciones. 1, 2, y 3. Escoje una:
 GOTO input
 
 
 Marcador 1
 1!
-fin
+GOTO final
 
 Marcador 2
 2!!
-fin
+GOTO final
 
 Marcador 3
 3!!!
+GOTO final
+
+
+Marcador final
+q chido.
+verificación del comando 'fin': No deberías de poder leer el mensaje secreto.
 fin
+Secreto: (^ᴥ^)

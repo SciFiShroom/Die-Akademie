@@ -1,12 +1,53 @@
 ---Lección: Los Verbos Modales---
-Los verbos modales son verbos especiales que...describen aspectos de una acción, como necesidad o permiso.
+Los verbos modales son verbos especiales que, en general, describen aspectos de una acción, como necesidad o permiso.
 Hay solo 6:
- - dürfen:
- - können:
- - wollen:
- - sollen:
- - müssen:
- - mögen:
+ - dürfen: tener permiso, estar permitido
+ - können: poder
+ - wollen: querer (hacer algo)
+ - sollen: deber de
+ - müssen: tener que, necesitar que
+ - mögen:  gustar (algo, hacer algo)
+
+Al igual que el español, los verbos modales en alemán no tienen impeativo.
+Antes de verlos a detalle, hay que aprender como funcionan gramaticalmente:
+{P}
+
+La gran diferencia entre los verbos modales en español y alemán es que
+los verbos modales cambian el orden de las palabras en una oración.
+
+En una oración normal, el orden es igual que el español (Sujeto - Verbo - Objeto):
+     "(Yo) compro [un libro]."
+       |     |        |
+     "Ich  kaufe  [ein Buch]."
+
+Pero cuando se utiliza un verbo modal, el verbo modal toma la posición del verbo,
+y el predicado se va hasta el final de la oración:
+     "(Yo) quiero  comprar  [un libro]."
+       |     |            ╳
+     "Ich  will [ein Buch]  kaufen."
+{P}
+Siempre va al final el verbo, sin importar que tan larga sea la oración.
+     "Necesito comprarle a mi hermano un regalo de cumpleaños."
+                              <==>
+     "Ich    muss     meinem Bruder  ein Geburtstagsgeschenk   kaufen."
+     [Yo] [necesito] [a mi hermano] [un regalo de cumpleaños] [comprar]
+//       |       |             |         |          |                |
+{P}
+
+Al igual que el español, el predicado se escribe en infinitivo cuando se usa un verbo modal.
+    compro -> comprar;    kaufe -> kaufen
+
+Esto también le aplica a los verbos separables, que se quedan pegados. [Véase 'Verbos Separables']
+                           [teil|nehmen = participar]
+    "(Yo) PARTICIPO en el concurso."      "(Yo) quiero PARTICIPAR en el concurso"
+    "Ich NEHME am Wettbewerb TEIL."       "Ich will am Wettbewerb TEILNEHMEN."
+{P}
+
+
+----
+Todos los verbos modales tienen sus usos o casos especiales, y por lo tanto es importante
+estudiar cada uno individualmente.
 
 Ingrése uno de los verbos para aprender más de el.
+(dürfen, können, wollen, sollen, müssen, mögen)
 GOTO input

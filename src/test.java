@@ -22,8 +22,12 @@ public class test {
     public static void main(String[] args) {
 
 
-        Lector.lector("intento1.txt");
+        //Lector.lector("intento1.txt");
 
+
+        String test = "Marcador ABC";
+        System.out.println("'" + test.substring(0,9) + "' ; " + test.length());
+        System.out.println("'" + test.substring(9, test.length()) + "'");
 
 
 
@@ -89,7 +93,7 @@ public class test {
          */
 
 
-        HashMap<String, String> intento1 = new HashMap<String, String>();
+        //HashMap<String, String> intento1 = new HashMap<String, String>();
 
         /** Funcionalidad básica
         intento1.put("1", "uno");
