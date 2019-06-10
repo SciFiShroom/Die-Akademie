@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -6,6 +7,24 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     public static final String nullEntry = Control.entradaNula;
     public static final String noAplica = "[N/A]";
 
+
+    private static HashMap<String, String> Lecciones = new HashMap<String, String>();
+    public static void listarLecciones() {
+        System.out.print("[");
+        for (String lec : Lecciones.keySet()) {
+            System.out.print(lec + ", ");
+        }
+        System.out.println("]");
+    }
+
+    //Inicializa Ejer.java. Solo se necesita activar una vez al comienzo.
+    public static void main(String[] args) {
+
+        //Inicializacón de las lecciones:
+        Lecciones = new HashMap<String, String>();
+        Lecciones.put("Verbos Modales", "./src/Verbos_Modales.txt");
+
+    }
 
     //todo: Actualizar estos
     //SUSTANTIVOS
@@ -381,6 +400,38 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         }
         System.out.println("Cerrando consola de palabras misceláneas. Regresando a la consola principal");
     }
+
+    //LECCIONES
+    /**
+     * Consola dedicada para la ejecución de las lecciones.
+     * Se cierra cuando se dice 'cerrar'. q sorpresa :P
+     * El formato de la consola es distinta a las superiores. ¿Alomejor vale la pena cambiar las de arriba también?
+     * @param sc El scanner universal
+     */
+    public static void Lecciones(Scanner sc) {
+        System.out.println("Consola de lecciones. Diga 'lecciones' para ver la lista de lecciones disponibles.");
+
+        while (true) {
+            System.out.println("¿Qué quiere hacer?");
+            String comando = sc.nextLine();
+
+            switch (comando) {
+                case "cerrar": System.out.println("Cerrando consola de lecciones. Regresando a consola principal."); return;
+
+                case "lecciones": Ejer.listarLecciones(); continue;
+
+                case "verbos modales": Lector temp = new Lector(Lecciones.get("Verbos Modales"), true); continue;
+            }
+
+
+            //Si estamos aquí, no se reconoció el comando.
+            System.out.println("Comando '" + comando + "' no se reconoció. Diga 'comandos' para la lista de comandos");
+        }
+    }
+
+
+
+
 
 
     //GENERAL; EJERCICIOS

@@ -911,6 +911,7 @@ public class Sus extends Palabra{
         Sus plural = new Sus("Plural", "Plurale", "M", "plural", T);
         Sus substantiv = new Sus("Substantiv", "Subtantive", "N", "sustantivo", T);
         Sus verb = new Sus("Verb", "Verben", "N", "verbo", T);
+        Sus modalverb = new Sus("Modalverb", "Modalverben", "N", "verbo modal", T);
         Sus adverb = new Sus("Adverb", "Adverbien", "N", "adverbio", T);
         Sus adjektiv = new Sus("Adjektiv", "Adjektive", "N", "adjetivo", T);
         Sus präposition = new Sus("Präposition", "Präpositionen", "F", "preposición", T);
@@ -1132,6 +1133,14 @@ public class Sus extends Palabra{
         Sus zweifel = new Sus("Zweifel", "Zweifel", "M", "duda", T);
         Sus frage = new Sus("Frage", "Fragen", "F", "pregunta", T);
         Sus erklärung = new Sus("Erklärung", "Erklärungen", "F", "explicación", T);
+
+
+
+
+
+
+
+        Sus gewissen = new Sus("Gewissen", "Gewissen", "N", "conciencia", new String[]{"misceláneo"});
     }
     //todo: mar
     //todo: ca

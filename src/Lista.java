@@ -64,7 +64,7 @@ public class Lista<E> implements Iterable<E>{
 
 
         public void remove() {
-            throw new NullPointerException("ostia morro que me habeis ditcho?");
+            throw new NullPointerException("¿Cómo le hiciste para llegar aquí?");
         }
 
     }

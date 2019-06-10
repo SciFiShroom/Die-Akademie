@@ -420,29 +420,49 @@ public class Control {
     }
 
 
+    public static boolean empiezaCon(String raíz, String prefijo) {
+        if (raíz == null || prefijo == null) {
+            return false;
+        } else if (prefijo.length() > raíz.length()) {
+            return false;
+        }
 
-    public static String quitarSufijo(String string, String sufijo) {
-        if (string != null && sufijo != null) {
-            if (string.endsWith(sufijo)) {
-                return string.substring(0, string.length() - sufijo.length());
+        return (raíz.substring(0, prefijo.length()).equals(prefijo));
+    }
+    public static String quitarPrefijo(String raíz, String prefijo)  {
+        if (!empiezaCon(raíz, prefijo)) {
+            throw new NumberFormatException("Error: La raíz '" + raíz + "' no empieza con prefijo '" + prefijo + "'.");
+        } else {
+            return raíz.substring(prefijo.length(), raíz.length());
+        }
+    }
+    public static String quitarSufijo(String raíz, String sufijo) {
+        if (raíz != null && sufijo != null) {
+            if (raíz.endsWith(sufijo)) {
+                return raíz.substring(0, raíz.length() - sufijo.length());
             } else {
-                throw new NumberFormatException("Error: El sufijo '" + sufijo + "' no se encuentra en la palabra '" + string + "'");
+                throw new NumberFormatException("Error: El sufijo '" + sufijo + "' no se encuentra en la palabra '" + raíz + "'");
             }
         } else {
             throw new NumberFormatException("Error: Parametro null lel");
         }
     }
+    public static boolean acabaCon(String raíz, String sufijo) {
+        return raíz.endsWith(sufijo);
+        //No sabía que ya existía este comando ... :P
+    }
 
 
 
     public static void comandos() {
-        System.out.println("-comandos: Imprime esta lista. ");
+        System.out.println("-comandos: Imprime esta lista.");
         System.out.println("-hola: Dice ¡Hola!");
-        System.out.println("-cerrar: Cierra la aplicación. ");
+        System.out.println("-cerrar: Cierra la aplicación.");
         System.out.println("-practicar sustantivos: Arranca los ejercicios de los sustantivos");
         System.out.println("-practicar verbos: Arranca los ejercicios de los verbos");
         System.out.println("-practicar adjetivos: Arranca los ejercicios de los adjetivos");
         System.out.println("-practicar palabras: Arranca los ejercicios de palabras miscelánes (interrogativos, preposiciones, etc.)");
+        System.out.println("-practicar lecciones: Activa la consola de las lecciones gramaticales del alemán.");
         System.out.println("-buscador: Enciende el buscador. <WIP>");
         System.out.println("-listar temas: Lista todos los temas, y muestra que tipo de palabras los usan.");
 
@@ -632,6 +652,8 @@ public class Control {
 
 
 
+
+
     public static void consola() {
         Scanner sc = new Scanner(System.in); //Este es es scanner que leerá lo que escribe el usuario.
         Control.clrScreen();
@@ -659,6 +681,8 @@ public class Control {
 
                 case "practicar palabras": Ejer.PracticarPalabras(sc);                      entendido = true; break;
 
+                case "practicar lecciones": Ejer.Lecciones(sc);                             entendido = true; break;
+
                 case "buscador": Control.schnellBedeutung(sc);                              entendido = true; break;
 
                 case "listar temas": Control.OrganizaciónTemas(6);/**el num no importa*/ entendido = true; break;
@@ -672,6 +696,8 @@ public class Control {
 
 
     public static void Inicialización(boolean revisiónDePalabras, boolean activarConsola) {
+        Ejer.main(null); //Inicializa las lecciones
+
         int numDeTemas = InicializarTemas(); //ejecuta inicialización y guarda el número de temas.
 
         long comienzoInicialización = System.nanoTime();
@@ -770,9 +796,13 @@ public class Control {
 
     public static void main(String[] args) {
         Control.Inicialización(true, true);
+        //Lector intento1 = new Lector("./src/Verbos_Modales.txt", true);
 
         //todo: Agregar método para hallar palabras con significados múltiples, sinónimos. etc.
 
+        //todo: Añadirle ">>" al display cada vez que queramos enseñar algo.
+        //todo: Actualizar consolas, tan bien chafas
+        //    todo: De hecho, nos vendría bien hacer una clase nueva de consolas.
         //Agregar otros parámetros al buscador (plurales, participios, etc. )
         //Agregarle opción a los métodos definir() para incluir una indentación y número
         //todo: Declinación del sustantivo y del artículo...¿Cómo funcionan?
@@ -846,6 +876,7 @@ public class Control {
          * normalmente / a menudo
          * que pex con fangen
          * comunicar [unir] = verbinden; comunicar [informar] = mitteilen
+         * agregar o revisar [enthülle, gritar, susurrar, nennen, ernennen, lassen, werfen, ziehen]
          */
 
         //todo: crear Ejer.ConsolaDefinir(String tipoDePalabra, Scanner sc)
@@ -855,7 +886,6 @@ public class Control {
 
 
 
-        //todo: Organizar "Marcadores" en todos los diccionarios.
         //todo: Acabar de ordenar los verbos :pepeEyes:
         //todo: Método que revise que la detección de errores de declaraciones si funcione
 
@@ -864,14 +894,6 @@ public class Control {
         //todo: enseñar tema debería continuar con otros temas despues de terminar.
         //todo: BUG: ENSEÑAR TEMA NO UTILIZA TODAS LAS PALABRAS (SE SALTA UNA)
         //      ENSEÑAR TEMA OBJETO ENSEÑA 16 VERBOS PERO TENEMOS 17 (SE SALTÓ LIEGEN)
-
-        //todo: enthülle
-        //todo: gritar, susurrar,...
-
-        //todo: Agregar imperativo y conjugacion preterito a definicion
-        //todo: Checar nennen y ernennen; lassen
-        //
-        // todo: werfen y ziehen???
 
 
     }

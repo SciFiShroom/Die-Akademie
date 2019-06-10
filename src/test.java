@@ -23,11 +23,17 @@ public class test {
 
 
         //Lector.lector("intento1.txt");
+        String test = "\\P";
+        System.out.print(test);
 
+        String intento1 = "GOTO A";
+        String prefijo = "GOTO ";
 
-        String test = "Marcador ABC";
-        System.out.println("'" + test.substring(0,9) + "' ; " + test.length());
-        System.out.println("'" + test.substring(9, test.length()) + "'");
+        System.out.println("'" + Control.quitarPrefijo(intento1, prefijo) + "'");
+
+        //String test = "Marcador ABC";
+        //System.out.println("'" + test.substring(0,9) + "' ; " + test.length());
+        //System.out.println("'" + test.substring(9, test.length()) + "'");
 
 
 

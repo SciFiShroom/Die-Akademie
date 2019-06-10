@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
-
 public class Lector {
 
     public File archivo; //El archivo .txt
@@ -14,6 +13,44 @@ public class Lector {
     public int tamaño; //Cantidad de filas en el texto
 
 
+    //Indicador Comando
+    public static final String Comando = "\\";
+
+    //-------------------Parámetros solitarios-------------------------
+    //Crea una pausa; El programa no continua hasta que se presione 'intr'
+    public static final String Pausa = Comando + "P";
+
+    //Finaliza la lectura del texto.
+    public static final String Fin = Comando + "Fin";
+
+
+    //-----------------Misc------------------------
+    //Indica que la respuesta del usuario se leerá.
+    public static final String Input = "input";
+
+    //String que le dice al usuario que se espera su respuesta
+    public static final String PromptUsuario = ">>";
+
+    //---------Parámetros que esperan algo más [Nota el espacio]---------------
+
+    //Lleva al usuario al marcador indicado (Marcador va despues de Lector.Goto)
+    public static final String Goto = Comando + "Goto ";
+
+    //Indica ruta a Goto. Igual que 'lbl' en BASIC.
+    public static final String Marcador = Comando + "Marcador ";
+
+    //Define la palabra en alemán.
+    public static final String Definir = Comando + "Def ";
+
+
+    //----------------Comentarios------------------------------------------
+    public static final String Comentario = "//";
+    public static final String ComentarioCom = "/**";
+    public static final String ComentarioFin = "*/";
+
+
+
+
     public Lector(String Archivo, boolean ejecutar) {
         //File archivo = new File("./src/" + Archivo);
 
@@ -21,12 +58,15 @@ public class Lector {
         archivo = new File(Archivo);
         try {
             sc = new Scanner(archivo);
+        } catch (NullPointerException e) {
+            throw new NumberFormatException("Error: Se recibió un archivo nulo. ");
         } catch (FileNotFoundException e) {
             throw new NumberFormatException("Error: El archivo '" + Archivo + "' no se encuentra. [Syntaxis ~ ./src/texto.txt]");
         } //Si salimos el Scanner del archivo ya estará funcional.
 
 
         //Revisa que los marcadores estén forateados correctamente, y crea un mapa con sus posiciones.
+        RevisiónSintaxis();
         RevisiónGoto();
         //¡MUY IMPORTANTE!
 
@@ -51,15 +91,15 @@ public class Lector {
                 líneaActual++;
 
                 //Detectamos los marcadores
-                if (fila.length() >= 9 && fila.substring(0, 9).equals("Marcador ")) {
+                if (Control.empiezaCon(fila, Marcador)) {
                     //¡Hallamos un marcador!
-                    String clave = fila.substring(9, fila.length());
+                    String clave = Control.quitarPrefijo(fila, Marcador);
 
                     if (clave.equals("")) {
                         throw new NumberFormatException("Error: Marcador sin clave.");
                     } else if (controlGoto.containsKey(clave)) {
                         throw new NumberFormatException("Error: Existen dos marcadores con clave '" + clave + "'. Líneas " + controlGoto.get(clave) + " y " + líneaActual);
-                    } else if (clave.substring(clave.length()-1, clave.length()).equals(" ")) {
+                    } else if (clave.endsWith(" ")) {
                         throw new NumberFormatException("Error: Clave acaba con un espacio ' '.");
                     }
 
@@ -77,10 +117,10 @@ public class Lector {
             while(revisiónMarcadores.hasNextLine()) {
 
                 String fila = revisiónMarcadores.nextLine();
-                if (fila.length() > 4 && fila.substring(0,5).equals("GOTO ") ) {
+                if (fila.startsWith(Lector.Goto)) {
 
-                    String clave = fila.substring(5, fila.length());
-                    if (!clave.equals("input") && !controlGoto.containsKey(clave)) {
+                    String clave = Control.quitarPrefijo(fila, Lector.Goto);
+                    if (!clave.equals(Lector.Input) && !controlGoto.containsKey(clave)) {
 
                         throw new NumberFormatException("Error: No existe marcador '" + fila.substring(5, fila.length())
                                 + "'. [Línea " + líneaActual + "]");
@@ -98,6 +138,44 @@ public class Lector {
     }
 
 
+    public void RevisiónSintaxis() {
+        try {
+            Scanner sc = new Scanner(archivo);
+
+            int linActual = 0;
+            while(sc.hasNextLine()) {
+                String fila = sc.nextLine();
+                linActual++;
+
+                if (fila.startsWith(Comando)) {
+
+                    if (fila.startsWith(Pausa)) {
+                        if (!fila.equals(Pausa)) { //debe de ser exacto
+                            throw new NumberFormatException("Error de declaración de comando 'pausa'; línea " + linActual);
+                        } else {continue;}
+                    } else if (fila.startsWith(Goto)) {
+                        continue; //Goto y Marcador se revisan por separado en .revisiónGoto()
+                    } else if (fila.startsWith(Marcador)) {
+                        continue;
+                    } else if (fila.startsWith(Fin)) {
+                        if (!fila.equals(Fin)) { //debe que ser exacto
+                            throw new NumberFormatException("Error de declaración de comando 'fin'; línea " + linActual);
+                        } else {continue;}
+                    } else if (fila.startsWith(Definir)) {
+                        if (fila.equals(Definir)) { //...debe de haber algo que definir, ¿no?
+                            throw new NumberFormatException("Error de declaración de comando 'definir'; línea " + linActual);
+                        } else {continue;}
+                    }
+
+                    throw new NumberFormatException("Error de declaración: Comando no reconocido en línea " + linActual);
+
+
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new NumberFormatException("HOW COULD THIS HAPPEN TO MEEEEE");
+        }
+    }
 
 
     public void Goto(int línea) {
@@ -133,21 +211,22 @@ public class Lector {
         int línea = 0;
         while (sc.hasNextLine()) {
             String fila = sc.nextLine();
-            //Comentarios: No se imprimen
-            if (fila.length() > 1 && fila.substring(0,2).equals("//")) {
+
+            //---------------------Comentarios: No se imprimen--------------------------
+            //Comentario básico
+            if (Control.empiezaCon(fila, Comentario)) {
                 continue;
             }
 
             //Inicia comentario largo
-            if (fila.length() > 2 && fila.substring(0,3).equals("/**")) {
+            if (Control.empiezaCon(fila, ComentarioCom)) {
                 if (!imprimir) {throw new NumberFormatException("Error: Iniciaste un comentario, pero una ya estaba activo. Línea " + línea);}
                 imprimir = false;
                 continue;
             }
 
             //Termina un comentario largo
-
-            if (fila.length() > 1 && fila.substring(0,2).equals("*/")) {
+            if (Control.empiezaCon(fila, ComentarioFin)) {
                 if (imprimir) {
                     throw new NumberFormatException("Error: Ningún comentario iniciado. Línea " + línea);
                 }
@@ -155,44 +234,54 @@ public class Lector {
                 continue;
             }
 
-            //Pausa
-            if (fila.equals("{P}")) {
-                String ignórame = usuario.nextLine();
-                continue;
-            }
-
-            //Finalizar el documento
-            if (fila.equals("fin")) {
-                return;
-            }
-
-            //Control GOTO
-            if (fila.length() > 4 && fila.substring(0, 5).equals("GOTO ")) {
-                String clave = fila.substring(5, fila.length());
-
-                if (clave.equals("input")) {
-                    String lugar;
-                    while (true) {
-                        System.out.print(">>");
-                        lugar = usuario.nextLine();
-                        if (controlGoto.containsKey(lugar)) {
-                            break;
-                        } else {
-                            System.out.println("No se encuentra el marcador '" + lugar + "'.");
-                        }
-                    }
-                    Goto(controlGoto.get(lugar));
-                } else {
-                    Goto(controlGoto.get(clave));
+            if (fila.startsWith(Lector.Comando)) {
+                //Pausa
+                if (fila.equals(Lector.Pausa)) {
+                    String ignórame = usuario.nextLine();
+                    continue;
                 }
 
-                continue;
+                //Finalizar el documento
+                if (fila.equals(Lector.Fin)) {
+                    return;
+                }
+
+                //Control GOTO
+                if (Control.empiezaCon(fila, Goto)) {
+                    String clave = Control.quitarPrefijo(fila, Goto);
+
+                    if (clave.equals(Lector.Input)) {
+                        String lugar;
+                        while (true) {
+                            System.out.print(Lector.PromptUsuario);
+                            lugar = usuario.nextLine();
+                            if (controlGoto.containsKey(lugar)) {
+                                break;
+                            } else {
+                                System.out.println("No se encuentra el marcador '" + lugar + "'.");
+                            }
+                        }
+                        Goto(controlGoto.get(lugar));
+                    } else {
+                        //System.out.println("La clave es '" + clave + "'");
+                        Goto(controlGoto.get(clave));
+                    }
+
+                    continue;
+                }
+
+
+                //Si llegamos aquí, la fila empieza con Lector.Comando, pero no se reconoció el comando. Asumiremos que es un error de formatéo.
+                throw new NumberFormatException("Error de formateo en fila " + línea + "; '" + fila + "'");
             }
+
+
 
 
 
             if (imprimir) {
                 System.out.println(fila);
+                //En un instante podríamos agregar comentarios después de una línea normal, pero podría causar errores durante el formateo de la línea.
             }
             línea++;
         }

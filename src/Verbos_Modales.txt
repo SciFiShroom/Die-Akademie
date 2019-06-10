@@ -1,53 +1,170 @@
+\Goto Comienzo
+\Marcador cerrar
+\Fin
+
+
+
+
+\Marcador Comienzo
 ---Lección: Los Verbos Modales---
-Los verbos modales son verbos especiales que, en general, describen aspectos de una acción, como necesidad o permiso.
-Hay solo 6:
- - dürfen: tener permiso, estar permitido
- - können: poder
+Componentes: (Ingrese uno, o diga 'cerrar')
+ - Introducción (y Präsens)
+ - Perfekt
+// - Präteritum
+// - Dürfen
+ - Können
+// - Wollen
+// - Sollen
+// - Müssen
+// - Mögen
+\Goto input
+
+
+
+
+
+
+\Marcador Introducción
+---Introducción y Präsens---
+(Presione 'Intr' para seguir)
+
+Los verbos modales son verbos especiales que, en general, describen aspectos de una acción,
+como necesidad, capacidad, o permiso.
+
+En español, tenemos 4 verbos modales: tener que, deber, poder, o querer.
+En alemán, hay 6:
+ - dürfen: poder, tener permiso, estar permitido
+ - können: poder, ser capaz de
  - wollen: querer (hacer algo)
  - sollen: deber de
  - müssen: tener que, necesitar que
  - mögen:  gustar (algo, hacer algo)
+\P
 
 Al igual que el español, los verbos modales en alemán no tienen impeativo.
-Antes de verlos a detalle, hay que aprender como funcionan gramaticalmente:
-{P}
+Antes de verlos a detalle, hay que aprender como funcionan gramaticalmente. Continuamos con el Präsens:
+\P
 
 La gran diferencia entre los verbos modales en español y alemán es que
 los verbos modales cambian el orden de las palabras en una oración.
 
-En una oración normal, el orden es igual que el español (Sujeto - Verbo - Objeto):
+En una oración normal, el orden es igual que el español: [Sujeto][Verbo][Objeto]
      "(Yo) compro [un libro]."
        |     |        |
      "Ich  kaufe  [ein Buch]."
+\P
 
 Pero cuando se utiliza un verbo modal, el verbo modal toma la posición del verbo,
-y el predicado se va hasta el final de la oración:
+y el predicado se va hasta el final de la oración.
+
+Es decir, las oraciones serán de forma [Sujeto][Modal][Objeto][Verbo]
      "(Yo) quiero  comprar  [un libro]."
        |     |            ╳
      "Ich  will [ein Buch]  kaufen."
-{P}
-Siempre va al final el verbo, sin importar que tan larga sea la oración.
+
+
+Al igual que el español, el predicado se escribe en infinitivo cuando se usa un verbo modal,
+y el modal se conjuga normalmente.
+
+      compro -> comprar,    necesitar -> necesito
+       kaufe -> kaufen         müssen -> muss
+\P
+
+
+Siempre va al final el verbo normal, sin importar que tan larga sea la oración.
      "Necesito comprarle a mi hermano un regalo de cumpleaños."
                               <==>
-     "Ich    muss     meinem Bruder  ein Geburtstagsgeschenk   kaufen."
-     [Yo] [necesito] [a mi hermano] [un regalo de cumpleaños] [comprar]
-//       |       |             |         |          |                |
-{P}
+     "Ich   muss     meinem Bruder  ein Geburtstagsgeschenk   kaufen."
+       |      |           |                    |                |
+     [Yo][necesito][a mi hermano] [un regalo de cumpleaños] [comprar]
 
-Al igual que el español, el predicado se escribe en infinitivo cuando se usa un verbo modal.
-    compro -> comprar;    kaufe -> kaufen
 
 Esto también le aplica a los verbos separables, que se quedan pegados. [Véase 'Verbos Separables']
                            [teil|nehmen = participar]
     "(Yo) PARTICIPO en el concurso."      "(Yo) quiero PARTICIPAR en el concurso"
     "Ich NEHME am Wettbewerb TEIL."       "Ich will am Wettbewerb TEILNEHMEN."
-{P}
+\P
 
 
-----
 Todos los verbos modales tienen sus usos o casos especiales, y por lo tanto es importante
 estudiar cada uno individualmente.
+\P
+Fin de la introducción
+\Goto Comienzo
 
-Ingrése uno de los verbos para aprender más de el.
-(dürfen, können, wollen, sollen, müssen, mögen)
-GOTO input
+
+
+
+
+
+\Marcador Perfekt
+---Perfect---
+[Vease tambien la lección 'Perfekt']
+
+Cuando solo tenemos a un verbo modal, se trata como si fuera un verbo normal:
+      "(Yo) he comido eso."           "(Yo) he querido eso."
+     "Ich habe das gegessen."        "Ich habe das gewollen."
+       |   |    |     |                |   |    |     |
+      [Yo][he][eso][comido]           [Yo][he][eso][querido]
+\P
+
+Cuando se utiliza el verbo modal con un verbo normal, la estructura cambia.
+El verbo normal se escribe en infinitivo, y el verbo modal se escribe al final, también en infinitivo:
+      "El ha querido volar"                "No he podido comprarlo"
+     "Er hat fliegen wollen"           "Ich habe es nicht kaufen können"
+      |   |     |      |                 |   |   |   |      |      |
+     [El][ha][volar][querer]           [Yo][he][eso][no][comprar][poder]
+
+
+Estas dos construcciones casi nunca se usan, y es mucho más común utilizar el Präteritum para expresar el pasado.
+\P
+
+Fin del Perfekt
+\Goto Comienzo
+
+
+
+
+\Marcador Präteritum
+---Präteritum---
+
+\Goto Comienzo
+
+
+
+
+
+\Marcador Dürfen
+¡Aún no me escriben!
+\Goto Comienzo
+
+
+
+\Marcador Können
+---Können---
+\Def können
+\Goto Comienzo
+
+
+
+\Marcador Sollen
+¡Aún no me escriben!
+\Goto Comienzo
+
+
+
+\Marcador Wollen
+¡Aún no me escriben!
+\Goto Comienzo
+
+
+
+\Marcador Müssen
+¡Aún no me escriben!
+\Goto Comienzo
+
+
+
+\Marcador Mögen
+¡Aún no me escriben!
+\Goto Comienzo

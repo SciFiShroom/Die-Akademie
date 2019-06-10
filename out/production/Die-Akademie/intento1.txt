@@ -9,35 +9,35 @@ Comentaio 5
 ¡Hola!
 
 Verificación de GOTO: Si se finaliza el documento, hubo error.
-GOTO a
-fin
-Marcador a
+\GOTO a
+\Fin
+\M a
 ¡Parece que funcionó bien! :)
 
 Verificación del comando '{P}': Presiona 'intr' o 'enter' o como se llame
-{P}
+\P
 
 
 Comprobación de funcionalidad del comando 'GOTO input':
 Hay tres opciones. 1, 2, y 3. Escoje una:
-GOTO input
+\GOTO input
 
 
-Marcador 1
+\M 1
 1!
-GOTO final
+\GOTO final
 
-Marcador 2
+\M 2
 2!!
-GOTO final
+\GOTO final
 
-Marcador 3
+\M 3
 3!!!
-GOTO final
+\GOTO final
 
 
-Marcador final
+\M final
 q chido.
 verificación del comando 'fin': No deberías de poder leer el mensaje secreto.
-fin
+\Fin
 Secreto: (^ᴥ^)
