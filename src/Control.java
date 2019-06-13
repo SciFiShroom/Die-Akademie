@@ -419,6 +419,32 @@ public class Control {
         //we good
     }
 
+    //convierte un String[] ineal a un String[][] bidimensional con anchura 'anchura'
+    public static String[][] bidimensional(String[] input, int anchura) {
+        int numDeValores = input.length;
+        int alturaFinal = -1;
+        if (numDeValores % anchura == 0) {
+            alturaFinal = (numDeValores / anchura);
+        } else {
+            alturaFinal = 1 + (numDeValores / anchura);
+        }
+
+        String[][] arr = new String[alturaFinal][anchura];
+
+        for (int i = 0; i < alturaFinal; i++) {
+            for (int j = 0; j < anchura; j++) {
+                int numActual = j + (i*anchura);
+                if (numActual >= input.length) {
+                    arr[i][j] = "";
+                } else {
+                    arr[i][j] = input[numActual];
+                }
+            }
+        }
+        return arr;
+    }
+
+
 
     public static boolean empiezaCon(String raíz, String prefijo) {
         if (raíz == null || prefijo == null) {
@@ -696,7 +722,7 @@ public class Control {
 
 
     public static void Inicialización(boolean revisiónDePalabras, boolean activarConsola) {
-        Ejer.main(null); //Inicializa las lecciones
+        Ejer.Inicialización(); //Inicializa las lecciones
 
         int numDeTemas = InicializarTemas(); //ejecuta inicialización y guarda el número de temas.
 
@@ -737,7 +763,7 @@ public class Control {
     }
 
 
-
+    //todo: Convertir esto a una Consola()
     public static void schnellBedeutung(Scanner sc) {
         System.out.println("Comenzando buscador. Ingrese la palabra o significado. ");
         System.out.println("Diga 'cerrar buscador' para cerrar el buscador.");
@@ -795,8 +821,23 @@ public class Control {
 
 
     public static void main(String[] args) {
-        Control.Inicialización(true, true);
-        //Lector intento1 = new Lector("./src/Verbos_Modales.txt", true);
+        Control.Inicialización(true, false);
+
+
+        //Ejer.imprimirTema("casa", "Sus");
+
+        //Consola ejerciciosSus = new Consola("Ejercicios de Sustantivos", new String[]{"h"}, "???");
+        /**
+         * Cada comando debe de tener una clave única y universalmente leible.
+         * Cada comando también debería de tener un identificador para el usuario.
+         *    Ej. "practicar vocabulario" en la consola de los verbos no es igual a "practicar vocabulario" en la consola de los sustantivos.
+         *    Por lo tanto, nombraríamos a uno "Sus Vocabulario" y el otro "Ver Vocabulario", pero tendrían la misma clave. Tödo dependería
+         *    de donde se accede.
+         *
+         *    Existirá un Hashmap que dado la clave del programa, regrese el nombre simple (No inyectivo).
+         *    Al inicializar cada consola, se le pasará la lista de claves de comandos que debería tener.
+         */
+
 
         //todo: Agregar método para hallar palabras con significados múltiples, sinónimos. etc.
 

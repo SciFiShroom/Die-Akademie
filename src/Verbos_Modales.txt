@@ -11,12 +11,10 @@ Componentes: (Ingrese uno, o diga 'cerrar')
  - Introducción (y Präsens)
  - Perfekt
 // - Präteritum
-// - Dürfen
- - Können
-// - Wollen
+ - DK (Dürfen y Können)
+ - MW (Mögen y Wollen)//Aún sin Wollen
 // - Sollen
 // - Müssen
-// - Mögen
 \Goto input
 
 
@@ -134,16 +132,36 @@ Fin del Perfekt
 
 
 
-\Marcador Dürfen
-¡Aún no me escriben!
+\Marcador DK
+---Dürfen y Können---
+
+Los verbos modales 'dürfen' y 'können' se traducen como 'poder' en español.
+Pero lo que implican es muy diferente:.
+
+'Können' significa poder, en el sentido de tener la abilidad de.
+
+     "Yo PUEDO comprar la comida"     ->     "Ich KANN das essen kaufen."
+     "Aquí se puede comer bien."      ->     "Hier KANN man gut essen"
+     "¿Puedo ver tus apuntes?"        ->     "Kann ich deine Notizen sehen?"
+
+Como se puede ver, 'können' trae la connotación de estar capacitado, para
+llevar alguna acción a cabo.
+\P
+
+'Dürfen' significa poder, en el sentido de tener permiso.
+
+     "No se PUEDE correr en la alberca"  ->  "Mann DARF nicht bei dem Pool laufen."
+     "¿Nos PODEMOS estacionar aquí?"     ->  "DÜRFEN wir hier parken?"
+
+Su uso implica la existencia de alguna regla, reglamiento, ley,
+u otra autoridad que permite o prohibe una acción.
+\P
+
+En general, la palabra 'können' suele usarse con más frecuencia que 'dürfen',
+pero sí es importante poder distinguir entre las dos.
 \Goto Comienzo
 
 
-
-\Marcador Können
----Können---
-\Def können
-\Goto Comienzo
 
 
 
@@ -153,8 +171,18 @@ Fin del Perfekt
 
 
 
-\Marcador Wollen
-¡Aún no me escriben!
+\Marcador MW
+---Mögen y Wollen---
+
+La palabra 'mögen' significa 'gustar', con las mismas connotaciones que en el español.
+
+Puede significar gusto instantáneo:
+     "Me GUSTA el chocolate"       ->   "Ich MAG Schokolade"
+     "No me GUSTÓ la película."    ->   "Ich MOCHTE den Film nicht."
+
+Pero también trae la connotación de deseo cuando se utiliza en Konjunktiv II:
+     "¿Te GUSTARÍA ir al parque?"  ->   "MÖCHTEST du in den Park gehen?"
+
 \Goto Comienzo
 
 
@@ -163,8 +191,3 @@ Fin del Perfekt
 ¡Aún no me escriben!
 \Goto Comienzo
 
-
-
-\Marcador Mögen
-¡Aún no me escriben!
-\Goto Comienzo

@@ -131,6 +131,7 @@ public class Sus extends Palabra{
         Sus butter = new Sus("Butter", nullEntry, "F", "mantequilla", T);
         Sus toastbrot = new Sus("Toastbrot", "Toastbrote", "N", "pan tostado", T);
         Sus soße = new Sus("Soße", "Soßen", "F", "salsa [condimento]", T);
+        Sus schokolade = new Sus("Schokolade", "Schokoladen", "F", "chocolate", T);
 
         //todas las carnes, coctel, hamburguesa, h o d d o g, , , , sandwich,
         //, ,
@@ -763,10 +764,13 @@ public class Sus extends Palabra{
         rechner2.agregarTag("tecnología");
         Sus rucksack = new Sus("Rucksack", "Rucksäcke", "M", "mochila", T);
         Sus schreibtisch = new Sus("Schreibtisch", "Schreibtische", "M", "escritório", T);
-        Sus tafel = new Sus("Tafel", "Tafeln", "F", "pizarra", T);
+        Sus tafel = new Sus("Tafel", "Tafeln", "F", "pizzarón", T);
         tafel.agregarTag("escritura");
         Sus lehrbuch = new Sus("Lehrbuch", "Lehrbücher", "N", "libro de texto", T);
         lehrbuch.agregarTag("escritura");
+        Sus notiz = new Sus("Notiz", "Notizen", "F", "apunte", T);
+        notiz.agregarTag("escritura");
+
 
         Sus prüfung = new Sus("Prüfung", "Prüfungen", "F", "examen [general]", T);
         Sus klausur = new Sus("Klausur", "Klausuren", "F", "examen [escrito]", T);

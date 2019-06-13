@@ -21,6 +21,9 @@ public class test {
 
     public static void main(String[] args) {
 
+        String[] nums = new String[]{"UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE", "DIEZ", "ONCE"};
+        Control.arrPrint(Control.bidimensional(nums, 3));
+
 
         //Lector.lector("intento1.txt");
         String test = "\\P";

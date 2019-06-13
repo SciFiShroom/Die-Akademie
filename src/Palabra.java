@@ -281,6 +281,14 @@ public class Palabra {
         return out;
     }
 
+    //Lo mismo pero con una Lista
+    public static Lista<Sus> ConvertirListaASus(Lista<Palabra> original) {
+        Lista out = new Lista<Sus>(original.nombre);
+        out.lista = ConvertirListaASus(original.lista);
+        return out;
+    }
+
+
 
     //Usa esta función para asegurarte de que no haya tipos de palabras invalidas.
     public static void sanitize(String palabra) {

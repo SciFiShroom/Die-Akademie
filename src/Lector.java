@@ -280,8 +280,9 @@ public class Lector {
 
 
             if (imprimir) {
-                System.out.println(fila);
-                //En un instante podríamos agregar comentarios después de una línea normal, pero podría causar errores durante el formateo de la línea.
+                String sinComentarios = fila.split(Comentario)[0];
+                System.out.println(sinComentarios);
+
             }
             línea++;
         }
