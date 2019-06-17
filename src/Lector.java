@@ -270,13 +270,9 @@ public class Lector {
                     continue;
                 }
 
-
                 //Si llegamos aquí, la fila empieza con Lector.Comando, pero no se reconoció el comando. Asumiremos que es un error de formatéo.
                 throw new NumberFormatException("Error de formateo en fila " + línea + "; '" + fila + "'");
             }
-
-
-
 
 
             if (imprimir) {
@@ -286,7 +282,6 @@ public class Lector {
             }
             línea++;
         }
-
     }
 
 

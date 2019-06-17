@@ -55,7 +55,6 @@ public class Consola {
             //Hay solo dos comandos especiales que interactúan con la consola, que cada consola tendrá: 'cerrar' y 'listar comandos'
             if (comando.equals("cerrar")) {
                 System.out.println("Cerrando consola " + nombre);
-                sc.close();
                 return;
             }
             if (comando.equals("listar comandos")) {

@@ -7,6 +7,15 @@ public class Palabra {
 
     public String[] tags;
 
+    public Lista<String> lecciones;
+
+    public void agregarLección(String lección) {
+        if (lecciones.contains(lección)) {
+            throw new NumberFormatException("Error: La palabra '" + this.getNombre() + "' ya tene la lección '" + lección + "' agregada.");
+        } else {
+            lecciones.add(lección);
+        }
+    }
 
     //-----------------------------MÉTODOS DE COLISIONES--------------------------------------
 
@@ -302,10 +311,11 @@ public class Palabra {
         throw new NumberFormatException("Error: Tipo de palabra no reconocido");
     }
 
+
     @Override
     public String toString() {
         return this.getNombreSimple();
-    }
+    } //Se usa en Lista
 
 
     public Lista<Palabra> sinónimos; //palabras que significan exactamete lo mismo, sin ninguna diferencia en contexto o uso.

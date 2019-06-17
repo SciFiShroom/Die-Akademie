@@ -687,6 +687,7 @@ public class Sus extends Palabra{
         Sus fauna = new Sus("Fauna", "Faunen", "F", "fauna", T);
 
         T = new String[]{"geografía", "acuático"};
+        Sus atoll = new Sus("Atoll", "Atolle", "N", "atolón", T);
         Sus strand = new Sus("Strand", "Strände", "M", "playa", T);
         Sus küste = new Sus("Küste", "Küsten", "F", "costa", T);
         Sus meer = new Sus("Meer", "Meeree", "N", "mar", T);
@@ -1159,14 +1160,17 @@ public class Sus extends Palabra{
     //Define un sustantivo
     @Override
     public void definir() {
-        String mensaje;
+        System.out.print("Sus.| ");
+        String mensaje = this.sustantivo;
         if (!this.plural.equals(nullEntry)) { //tiene plural
-            mensaje = this.sustantivo + " (" + this.plural + "): " + this.significado;
+            mensaje += " (pl. " + this.plural + "): ";
         } else if (!this.género.equals("P")) { //No tiene plural y no es plural la palabra misma
-            mensaje = this.sustantivo + " (sin plural): " + this.significado;
+            mensaje += " (sin plural): ";
         } else { //La palabra misma ya es plural
-            mensaje = this.sustantivo + "(Pl.): " + this.significado;
+            mensaje += " (Pl.): ";
         }
+
+        mensaje += this.significado;
 
         switch (this.género) {
             case "M":
@@ -1186,6 +1190,9 @@ public class Sus extends Palabra{
                 System.out.println("PLURAL");
         }
 
+        if (this.descripción != null) {
+            Control.arrPrint(Control.bidimensional(this.descripción,1));
+        }
         System.out.println("Temas: " + Arrays.toString(this.tags));
     }
 

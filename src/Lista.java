@@ -38,7 +38,11 @@ public class Lista<E> implements Iterable<E>{
     public E get(int i) {
         return (E)this.lista.get(i);
     }
-
+    public void add(E[] cosas) {
+        for (E objetoActual : cosas) {
+            this.add(objetoActual);
+        }
+    }
 
 
     public Iterator iterator() {
@@ -92,6 +96,11 @@ public class Lista<E> implements Iterable<E>{
         return revuelta;
     }
 
+    //Revuelve los valores de una lista.
+    public void revolver() {
+        this.lista = Lista.escojerAleatorio(this, this.size()).lista;
+    }
+
     public String toString() {return this.toString(false);}
     public String toString(boolean conNombre) {
         String out = "";
@@ -99,10 +108,14 @@ public class Lista<E> implements Iterable<E>{
         if (conNombre) {out += this.getNombre() + ": ";}
 
         out += "[";
-        for (int i = 0; i < this.size() - 1; i++) {
-            out += this.get(i).toString() + ", ";
+        if (this.size() != 0) {
+            for (int i = 0; i < this.size() - 1; i++) {
+                out += this.get(i).toString() + ", ";
+            }
+            out += this.get(this.size()-1).toString() + "]";
+        } else {
+            out += "]";
         }
-        out += this.get(this.size()-1).toString() + "]";
         return out;
     }
 

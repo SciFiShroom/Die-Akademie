@@ -729,12 +729,6 @@ public class Ver extends Palabra{
         laufen.agregarImperativoNuevo("lauf", "lauft", "laufen");
         laufen.agregarPreterito(new String[]{"lief", "liefst", "lief", "liefen", "lieft", "liefen"});
 
-        Ver reisen = new Ver("reisen", new String[]{"reise", "reist", "reist", "reisen", "reist", "reisen"}, "viajar", T);
-        reisen.agregarHilfsverb("sein");
-        reisen.agregarParticipio("gereist");
-        reisen.agregarImperativoNuevo(reg);
-        reisen.agregarPreterito("reist");
-
         Ver besichtigen = new Ver("besichtigen", "besichtig", "visitar [lugar]", T);
         besichtigen.agregarParticipio("besichtigt");
         besichtigen.agregarPreterito("besichtigt");
@@ -1392,11 +1386,6 @@ public class Ver extends Palabra{
 
         //Ver anfangen = new Ver("an", fangen, "empezar", new String[]{"básico"});
 
-        Ver reservieren = new Ver("reservieren", "reservier", "reservar", T);
-        reservieren.agregarParticipio("reserviert");
-        reservieren.agregarPreterito("reserviert");
-        reservieren.agregarImperativoNuevo(reg);
-
         Ver parken = new Ver("parken", "park", "estacionar", T);
         parken.agregarParticipio("geparkt");
         parken.agregarPreterito("parkt");
@@ -1430,10 +1419,22 @@ public class Ver extends Palabra{
         //perdonar, disculpar, evangelizar, rezar, ??? comulgar, bautizar, cazar[se]; amar,
 
         //todo: Marcador. Viajar
-        //T = new String[]{viajar};
+        T = new String[]{"viajar"};
         //poner reservieren aqui
         //fahren, gehen; manejar???
         //recuerda que cuando hagamos el sistema para ejecutar exámenes de varios tipos de palabras, no importará que haya pocas palabras DE UN TIPO en una categoría.
+
+        Ver reservieren = new Ver("reservieren", "reservier", "reservar", T);
+        reservieren.agregarParticipio("reserviert");
+        reservieren.agregarPreterito("reserviert");
+        reservieren.agregarImperativoNuevo(reg);
+
+        Ver reisen = new Ver("reisen", new String[]{"reise", "reist", "reist", "reisen", "reist", "reisen"}, "viajar", T);
+        reisen.agregarHilfsverb("sein");
+        reisen.agregarParticipio("gereist");
+        reisen.agregarImperativoNuevo(reg);
+        reisen.agregarPreterito("reist");
+
 
 
         //todo: Marcador. Escritura

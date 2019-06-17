@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -21,10 +20,35 @@ public class test {
 
     public static void main(String[] args) {
 
+        /**
+        String uno = "definir [palabra]";
+        String input = "definir cosa";
+
+        System.out.println(Control.quitarPrefijo(input, "definir "));
+        System.out.println(uno.split("\\[")[0] + "'");
+        System.out.println();
+        System.out.println("'" + Control.quitarPrefijo(input, uno.split("\\[")[0]) + "'");
+*/
+
+
+        //String palabra =
+
+
+
+        //
+        //Control.arrPrint(Control.bidimensional(nums, 3));
+
         String[] nums = new String[]{"UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE", "DIEZ", "ONCE"};
-        Control.arrPrint(Control.bidimensional(nums, 3));
+        Lista<String> intento1 = new Lista<String>("hola");
+        intento1.add(nums);
 
+        System.out.println(intento1.toString(true));
 
+        intento1.revolver();
+
+        System.out.println(intento1.toString(true));
+
+        /**
         //Lector.lector("intento1.txt");
         String test = "\\P";
         System.out.print(test);
@@ -45,7 +69,7 @@ public class test {
 
 
         //System.out.println(Control.quitarSufijo("arbeitest", "este"));
-
+*/
 
         /**
          Lista<Palabra> lista = Control.getTema("test", "Sus");

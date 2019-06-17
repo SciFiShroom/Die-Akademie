@@ -350,14 +350,15 @@ public class Control {
     }
 
 
-
-    public static void clrScreen() {
+    //Borra la pantalla con 'n' líneas blancas
+    public static void clrScreen(int n) {
+        if (n < 1) {throw new NumberFormatException("Número invalido >:(");}
         int i = 0;
-        while (i < 10) {
+        while (i < n) {
             System.out.println();
             i++;
         }
-    } //Borra la pantalla
+    }
 
 
     //Returns a scrambled version of input string[]
@@ -682,7 +683,7 @@ public class Control {
 
     public static void consola() {
         Scanner sc = new Scanner(System.in); //Este es es scanner que leerá lo que escribe el usuario.
-        Control.clrScreen();
+        Control.clrScreen(20);
         boolean activo = true;
         System.out.println("¡Bienvenido a la academia!");
 
@@ -699,13 +700,26 @@ public class Control {
 
                 case "comandos": Control.comandos();                                        entendido = true; break;
 
-                case "practicar sustantivos": Ejer.PracticarSustantivos(sc);                entendido = true; break;
+                case "practicar sustantivos":
+                    //Ejer.PracticarSustantivos(sc);
+                    Ejer.ConsolaSus.activar();
+                    continue;
 
-                case "practicar verbos": Ejer.PracticarVerbos(sc);                          entendido = true; break;
+                case "practicar verbos":
+                    //Ejer.PracticarVerbos(sc);
+                    Ejer.ConsolaVer.activar();
+                    continue;
 
-                case "practicar adjetivos": Ejer.PracticarAdjetivos(sc);                    entendido = true; break;
+                case "practicar adjetivos":
+                    //Ejer.PracticarAdjetivos(sc);
+                    Ejer.ConsolaAdj.activar();
+                    continue;
 
-                case "practicar palabras": Ejer.PracticarPalabras(sc);                      entendido = true; break;
+                case "practicar palabras":
+                    //necesita un nombre menos ambiguo
+                    //Ejer.PracticarPalabras(sc);
+                    Ejer.ConsolaPal.activar();
+                    continue;
 
                 case "practicar lecciones": Ejer.Lecciones(sc);                             entendido = true; break;
 
@@ -722,35 +736,31 @@ public class Control {
 
 
     public static void Inicialización(boolean revisiónDePalabras, boolean activarConsola) {
-        Ejer.Inicialización(); //Inicializa las lecciones
-
-        int numDeTemas = InicializarTemas(); //ejecuta inicialización y guarda el número de temas.
-
         long comienzoInicialización = System.nanoTime();
 
 
-        //InicializarSustantivos();
-        //InicializarVerbos();
-        //InicializarAdjetivos();
-        //InicializarPalabras();
+        //ejecuta inicialización y guarda el número de temas.
+        int numDeTemas = InicializarTemas();
+
+
+        //Crea y formatéa todos los diccionarios en el programa.
+        //Esto debe de suceder despues de la inicialización de temas, pero antes que tödo lo demás.
         InicializarTodo();
 
         int numDePalabras = Control.SustantivosListaSingular.size() + Control.VerbosListaSingular.size()
                 + Control.AdjetivosListaSingular.size() + Control.PalabrasListaSingular.size();
-
         System.out.println("TOTAL: " + numDePalabras + " PALABRAS CREADAS, " + numDeTemas + " TEMAS USADOS");
 
 
+        //Método opcional que revisa los diccionarios y identifica errores posibles.
         if (revisiónDePalabras) {
-            /**Control.revisarVer();
-            Control.revisarAdj();
-            Control.revisarSus();
-            Control.revisarPal();*/
-
             Control.revisiónCompleta();
         }
 
 
+        //Inicializa las lecciones y los ejercicios.
+        //Debe suceder despues de la creación de los diccionarios.
+        Ejer.Inicialización();
 
 
         long finInicialización = System.nanoTime();
@@ -820,9 +830,14 @@ public class Control {
     }
 
 
-    public static void main(String[] args) {
-        Control.Inicialización(true, false);
 
+
+    public static void main(String[] args) {
+        Control.Inicialización(false, true);
+
+        //Ejer.ConsolaVer.activar();
+
+        //Ejer.EjecutarComando("listar temas", Ejer.ConsolaAdj.comandosDisponibles);
 
         //Ejer.imprimirTema("casa", "Sus");
 
