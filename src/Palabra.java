@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Palabra {
     public static final String nullEntry = Control.entradaNula;
+    public static final String PalabraInválida = "Error: Tipo de palabra invalida";
 
     public String[] tags;
 
@@ -299,16 +300,22 @@ public class Palabra {
 
 
 
-    //Usa esta función para asegurarte de que no haya tipos de palabras invalidas.
-    public static void sanitize(String palabra) {
-        switch (palabra) {
+    /**
+     * Usa esta función para asegurarte de que no haya tipos de palabras invalidas.
+     * Solo acepta Sus.Sus, Ver.Ver, ...
+     * @param tipoDePalabra el tipo de palabra que quieres verificar
+     * @throws NumberFormatException si no es válida la palabra.
+     */
+    public static void sanitize(String tipoDePalabra) {
+        switch (tipoDePalabra) {
             case Sus.Sus: return;
             case Ver.Ver: return;
             case Adj.Adj: return;
             case Pal.Pal: return;
         }
 
-        throw new NumberFormatException("Error: Tipo de palabra no reconocido");
+        System.out.println("Error: Tipo de palabra '" + tipoDePalabra + "' no reconocido");
+        throw new NumberFormatException(PalabraInválida);
     }
 
 

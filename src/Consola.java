@@ -22,7 +22,16 @@ public class Consola {
     public static final String inputUsuario = ">>";
 
 
-
+    /**
+     * Consola de uso general capáz de ejecutar los comandos en Ejer.java
+     * La validez de los comandos revisa al inicializar la consola.
+     * La consola se puede activar en cualquier instante, y se puede re-activar si se cerró en algún instante.
+     * @param Nombre el nombre de la consola.
+     * @param StartUp Mensaje que se imprime al actvar la consola
+     * @param Comandos Un String[] con las claves de los comandos cuyos pueden ser accedidos por la consola.
+     * @param MensajeIter Mensaje que se enseña cada iterción de la consola.
+     * @param activar se activa la consola inmediatamente si activar==cierto. Si no, usa .activar para activarla después.
+     */
     public Consola(String Nombre, String[] StartUp, String[] Comandos, String MensajeIter, boolean activar) {
         this.nombre = Nombre;
         this.mensajeIter = MensajeIter;

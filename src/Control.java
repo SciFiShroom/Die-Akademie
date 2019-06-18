@@ -5,13 +5,14 @@ import java.util.HashMap;
 public class Control {
     public static final String entradaNula = "---";
     public static final String quePex = "?????";
+    public static final String Tema = "Tema";
 
     //NumberFormatExceptio = hice algo mal y el yo del pasado me lo está diciendo
     //SecurityException = Error, pero uno que estoy esperando (catched). También lo uso para cerrar ventanas / consolas.
     //todo: Fix exceptions lul
 
 
-    public static final String[] Temas = new String[]{
+    public static final String[] TEMAS = new String[]{
             "comida", "fruta", "verdura", "país", "ciudades",
             "capital", "animal", "cuerpo", /**"letras",*/ "tiempo",
             "clima", "figuras", "ropa", "deporte", "viajar",
@@ -40,12 +41,13 @@ public class Control {
     public static ArrayList<Lista<Palabra>> Verbos;
     public static ArrayList<Lista<Palabra>> Adjetivos;
     public static ArrayList<Lista<Palabra>> Palabras;
+    public static ArrayList<Lista<Palabra>> Temas;
 
     //Se usan de ves en cuando, no son tan importantes. Contienen una de cada palabra, sin repeticiones.
-    public static Lista<Palabra> SustantivosListaSingular = new Lista<Palabra>("hallo!");
-    public static Lista<Palabra> VerbosListaSingular = new Lista<Palabra>("hallo!");
-    public static Lista<Palabra> AdjetivosListaSingular = new Lista<Palabra>("hallo!");
-    public static Lista<Palabra> PalabrasListaSingular = new Lista<Palabra>("hallo!");
+    public static Lista<Palabra> SustantivosListaSingular = new Lista<Palabra>();
+    public static Lista<Palabra> VerbosListaSingular = new Lista<Palabra>();
+    public static Lista<Palabra> AdjetivosListaSingular = new Lista<Palabra>();
+    public static Lista<Palabra> PalabrasListaSingular = new Lista<Palabra>();
 
     /**
      * regresa la lista del tema especificado, dado el tipo de palabra.
@@ -73,6 +75,19 @@ public class Control {
         } //Si nos salimos de aquí, buscan algo que no existe.
 
         throw new NumberFormatException("Error: El tipo de palabra " + tipoDePalabra + " no tiene el tema " + tema);
+    }
+
+    /**
+     * Regresa la lista de todas las palabras de un tema dado.
+     * @param tema el tema requerido
+     * @return la Lista<Palabra> del tema.
+     */
+    public static Lista<Palabra> getTema(String tema) {
+        for (Lista<Palabra> temaActual : Control.Temas) {
+            if (temaActual.getNombre().equals(tema)) {return temaActual;}
+        }
+
+        throw new NumberFormatException("Error: Tema no existe...?");
     }
 
 
@@ -113,17 +128,17 @@ public class Control {
     //inicializa los temas de tödo el programa
     public static int InicializarTemas() {
 
-        int num = Temas.length;
+        int num = TEMAS.length;
 
-        Arrays.sort(Temas); //opcional pero mejor para el usuario
-        //System.out.println("TEMAS: " + Arrays.toString(Temas));
+        Arrays.sort(TEMAS); //opcional pero mejor para el usuario
+        //System.out.println("TEMAS: " + Arrays.toString(TEMAS));
 
 
         //Nos aseguramos de que no haya entradas dobles.
-        for (int i = 0; i < Temas.length; i++) {
-            for (int j = i+1; j < Temas.length; j++) {
-                if (Temas[i].equals(Temas[j])) {
-                    throw new NullPointerException("Error: Existe una Tag duplicada: " + Temas[i]);
+        for (int i = 0; i < TEMAS.length; i++) {
+            for (int j = i+1; j < TEMAS.length; j++) {
+                if (TEMAS[i].equals(TEMAS[j])) {
+                    throw new NullPointerException("Error: Existe una Tag duplicada: " + TEMAS[i]);
                 }
             }
         }
@@ -135,7 +150,7 @@ public class Control {
         ArrayList<Lista<Palabra>> listaDePals = new ArrayList<Lista<Palabra>>();
 
         //Llenamos las listas generadas antemente
-        for (String temaActual : Temas) {
+        for (String temaActual : TEMAS) {
             listaDeSustantivos.add(new Lista<Palabra>(temaActual));
             listaDeVerbos.add(new Lista<Palabra>(temaActual));
             listaDeAdjetivos.add(new Lista<Palabra>(temaActual));
@@ -155,37 +170,37 @@ public class Control {
 
     public static void OrganizaciónTemas(int n) {
         int alt;
-        if (Control.Temas.length % n == 0) {
-            alt = Control.Temas.length / n;
+        if (Control.TEMAS.length % n == 0) {
+            alt = Control.TEMAS.length / n;
         } else {
-            alt = 1+(Control.Temas.length / n);
+            alt = 1+(Control.TEMAS.length / n);
         }
         String[][] out = new String[alt][n];
 
         int counter = 0;
         for (int i = 0; i < alt; i++) {
             for (int j = 0; j < n; j++) {
-                if (counter < Control.Temas.length) {
+                if (counter < Control.TEMAS.length) {
                     int numSus = -1;
                     int numVer = -1;
                     int numAdj = -1;
                     int numPal = -1;
 
-                    try { numSus = Control.getTema(Temas[counter], Sus.Sus).size();
+                    try { numSus = Control.getTema(TEMAS[counter], Sus.Sus).size();
                     } catch (NumberFormatException e) { numSus = 0; }
 
-                    try { numVer = Control.getTema(Temas[counter], Ver.Ver).size();
+                    try { numVer = Control.getTema(TEMAS[counter], Ver.Ver).size();
                     } catch (NumberFormatException e) { numVer = 0; }
 
-                    try { numAdj = Control.getTema(Temas[counter], Adj.Adj).size();
+                    try { numAdj = Control.getTema(TEMAS[counter], Adj.Adj).size();
                     } catch (NumberFormatException e) { numAdj = 0; }
 
-                    try { numPal = Control.getTema(Temas[counter], Pal.Pal).size();
+                    try { numPal = Control.getTema(TEMAS[counter], Pal.Pal).size();
                     } catch (NumberFormatException e) { numPal = 0; }
 
                     int numTotal = numAdj + numPal + numSus + numVer;
 
-                    out[i][j] = Control.Temas[counter] + ": " + numSus + "S " + numVer + "V " + numAdj + "A " + numPal + "P = " + numTotal;
+                    out[i][j] = Control.TEMAS[counter] + ": " + numSus + "S " + numVer + "V " + numAdj + "A " + numPal + "P = " + numTotal;
                     counter++;
                 } else {
                     out[i][j] = " ";
@@ -339,12 +354,28 @@ public class Control {
 
         //revisión de tags no usados
 
-        for (String tema : Control.Temas) {
+        for (String tema : Control.TEMAS) {
             if (TemaExiste(tema, Sus.Sus) || TemaExiste(tema, Ver.Ver) || TemaExiste(tema, Adj.Adj) || TemaExiste(tema, Pal.Pal)) {
                 continue;
             }
 
             throw new NumberFormatException("Error: El tema '" + tema + "' no es utilizado");
+        }
+
+        Temas = new ArrayList<Lista<Palabra>>();
+        for (String temaActual : TEMAS) {
+            Lista<Palabra> sus = new Lista<Palabra>();
+            Lista<Palabra> ver = new Lista<Palabra>();
+            Lista<Palabra> adj = new Lista<Palabra>();
+            Lista<Palabra> pal = new Lista<Palabra>();
+            if (Control.TemaExiste(temaActual, Sus.Sus)) {sus = Control.getTema(temaActual, Sus.Sus);}
+            if (Control.TemaExiste(temaActual, Ver.Ver)) {ver = Control.getTema(temaActual, Ver.Ver);}
+            if (Control.TemaExiste(temaActual, Adj.Adj)) {adj = Control.getTema(temaActual, Adj.Adj);}
+            if (Control.TemaExiste(temaActual, Pal.Pal)) {pal = Control.getTema(temaActual, Pal.Pal);}
+
+            Lista<Palabra> listaCompleta = Lista.concatenar(Lista.concatenar(Lista.concatenar(sus, ver), adj), pal);
+            listaCompleta.nombre = temaActual;
+            Temas.add(listaCompleta);
         }
 
     }
@@ -691,6 +722,7 @@ public class Control {
             boolean entendido = false;
 
             System.out.println("¿Qué quiere hacer?");
+            System.out.print(">>");
             String comando = sc.nextLine();
             System.out.println();
             switch(comando) {
@@ -720,6 +752,8 @@ public class Control {
                     //Ejer.PracticarPalabras(sc);
                     Ejer.ConsolaPal.activar();
                     continue;
+
+                case "practicar temas": Ejer.ConsolaTem.activar(); continue;
 
                 case "practicar lecciones": Ejer.Lecciones(sc);                             entendido = true; break;
 
@@ -835,6 +869,9 @@ public class Control {
     public static void main(String[] args) {
         Control.Inicialización(false, true);
 
+        //todo: Investigar a creación de ecepciones nuevas. Nos ayudaría un chorro...
+        //todo: En ejercicios de significados, se debería de displeyar el significado completo, no el simple.
+        //todo: make custom errors more clear and less ambiguous programs.
         //Ejer.ConsolaVer.activar();
 
         //Ejer.EjecutarComando("listar temas", Ejer.ConsolaAdj.comandosDisponibles);
@@ -868,7 +905,6 @@ public class Control {
 
         //todo: agergar otros parámetros al buscardor
         //todo: Verificar que las profesiones estén correctas.
-        //todo: iterator doesn't work correctly.
         //fiarse.
         // agregar verificador para la generación de los ADJ
         // q pex con dauern y el imperaivo...
@@ -882,7 +918,6 @@ public class Control {
         //Ver unterrichten = dar clases de. Er unterricht Deutsch  =el da classes de alemán.
         //"No importa que el resultado no salga bien, siempre y cuando los signos sean correctos"
 
-//todo: Imperativo con verbos separables
         //agregar explicación para leben vs wohnen.
 
         //agregar string estática Vocabulario en Ejer; modularizar las firmas de los métodos "Sus vocabulario"; hacer lista de ejers utilizando esto.

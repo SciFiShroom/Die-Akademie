@@ -1563,7 +1563,7 @@ public class Ver extends Palabra{
             System.out.print("Ningun imperativo agregado. ");
         }
 
-        System.out.println("Temas: " + Arrays.toString(this.tags));
+        System.out.println("TEMAS: " + Arrays.toString(this.tags));
     }
 
 

@@ -319,7 +319,7 @@ public class Pal extends Palabra{
     @Override
     public void definir() {
         System.out.println(this.palabra + ": " + this.significado);
-        System.out.println("Temas: " + Arrays.toString(this.tags));
+        System.out.println("TEMAS: " + Arrays.toString(this.tags));
     }
 
 

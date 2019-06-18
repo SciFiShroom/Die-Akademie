@@ -375,7 +375,7 @@ public class Adj extends Palabra{
         System.out.println(Arrays.toString(this.tags));
         System.out.println("Aún no acabo con esto...");
 
-        System.out.println("Temas: " + Arrays.toString(this.tags));
+        System.out.println("TEMAS: " + Arrays.toString(this.tags));
     }
 
 

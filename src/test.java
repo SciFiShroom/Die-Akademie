@@ -38,7 +38,16 @@ public class test {
         //
         //Control.arrPrint(Control.bidimensional(nums, 3));
 
-        String[] nums = new String[]{"UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE", "DIEZ", "ONCE"};
+        try {
+            throw new NumberFormatException("Error: Super mega no chido.");
+        } catch (NumberFormatException e) {
+            System.out.println("'" + e.getLocalizedMessage() + "'");
+        }
+
+
+
+        /**
+        String[] nums = new String[]{"1", "2", "3", "4", "5"};
         Lista<String> intento1 = new Lista<String>("hola");
         intento1.add(nums);
 
@@ -47,6 +56,11 @@ public class test {
         intento1.revolver();
 
         System.out.println(intento1.toString(true));
+
+        for (String actual : nums) {
+            System.out.println(actual + ", ");
+        }*/
+
 
         /**
         //Lector.lector("intento1.txt");

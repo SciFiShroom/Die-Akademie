@@ -1193,7 +1193,7 @@ public class Sus extends Palabra{
         if (this.descripción != null) {
             Control.arrPrint(Control.bidimensional(this.descripción,1));
         }
-        System.out.println("Temas: " + Arrays.toString(this.tags));
+        System.out.println("TEMAS: " + Arrays.toString(this.tags));
     }
 
 

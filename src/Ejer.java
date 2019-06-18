@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     public static final String nullEntry = Control.entradaNula;
     public static final String noAplica = "[N/A]";
+    public static final String Cerrando_Ejercicio = "Cerrando Ejercicio.";
 
 
 
@@ -67,6 +68,9 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     public static final String Definir_Palabra = "Definir_[Palabra]";
     public static final String Conjugar_Verbo = "Conjugar_[Verbo]";
 
+    public static final String Tema_Vocabulario = "Tema Vocabulario";
+    public static final String Tema_Significados = "Tema Significados";
+
     public static String[] TodosLosComandos = new String[]{
             Sus_Significados, Ver_Significados, Adj_Significados, Pal_Significados,
 
@@ -81,7 +85,9 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
             Sus_Plurales, Sus_Géneros, Ver_Participios, Adj_Comparativos, Adj_Superlativos,
 
-            Definir_Palabra, Conjugar_Verbo
+            Definir_Palabra, Conjugar_Verbo,
+
+            Tema_Vocabulario, Tema_Significados
     };
     //------------------------COMANDOS-------------------------------
 
@@ -133,6 +139,15 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         Lecciones.put("Verbos Modales", "./src/Verbos_Modales.txt");
 
 
+        //Nos aseguramos que TodosLosComandos no tenga repeticiones
+        String[] temp = TodosLosComandos.clone();
+        Arrays.sort(temp);
+        for (int i = 1; i < temp.length; i++) {
+            if (temp[i].equals(temp[i-1])) {
+                throw new NumberFormatException("Error: TodosLosComandos tiene el comando '" + temp[i] + "' repetido.");
+            }
+        }
+
         //Inicialización de los comandos. Sintaxis es <ClaveComando, InputUsuario>
         ComandosParse.put(Sus_Significados, "practicar significados");
         ComandosParse.put(Ver_Significados, "practicar significados");
@@ -167,6 +182,9 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
         ComandosParse.put(Definir_Palabra, "definir [palabra]");
         ComandosParse.put(Conjugar_Verbo, "conjugar [verbo]");
+
+        ComandosParse.put(Tema_Significados, "practicar significados");
+        ComandosParse.put(Tema_Vocabulario, "practicar vocabulario");
 
 
         //Inicialización de las descripciones de los comandos. Se utiliza en el comando "lsitar comandos".
@@ -205,9 +223,23 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         ComandosDescripción.put(Definir_Palabra, "Define la palabra alemana, o encuentra una palabra en aleman con el significado dado.");
         ComandosDescripción.put(Conjugar_Verbo, "Muestra las conjugaciones de verbo dado.");
 
+        ComandosDescripción.put(Tema_Vocabulario, "Dado palabras en español del tema elejido, escribirás las palabras en alemán.");
+        ComandosDescripción.put(Tema_Significados, "Dado palabras en alemán del tema elejido, escribirás sus significados en español.");
 
-        //Consolas:
-        ConsolaSus = new Consola("Ejercicios Sustantivos", new String[]{
+
+        //Se revisa que cada comando tenga una descripción y inputUsuario
+        for (String actual : TodosLosComandos) {
+            if (!ComandosParse.containsKey(actual)) {
+                throw new NumberFormatException("Error: Comando '" + actual + "' no tiene input del usuario.");
+            } else if (!ComandosDescripción.containsKey(actual)) {
+                throw new NumberFormatException("Error: Comando '" + actual + "' no tiene descripción.");
+            }
+        }
+
+
+        //Consolas: [Deben de inicializarse después de la inicialización de los comandos]
+        //Obviamente
+        Ejer.ConsolaSus = new Consola("Ejercicios Sustantivos", new String[]{
                 "Activando la consola de ejercicios de sustantivos.",
                 "Diga 'cerrar' para cerrar la consola. Diga 'listar comandos' para ver la lsta completa de comandos."
         }, new String[]{
@@ -263,12 +295,23 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                 Definir_Palabra,
                 Conjugar_Verbo
         }, "¿Qué quieres hacer?", false);
+
+        ConsolaTem = new Consola("Ejercicios de temas", new String[]{
+                "Activando la consola de ejercicios de temas.",
+                "Diga 'cerrar' para cerrar la consola. Diga 'listar comandos' para ver la lsta completa de comandos."
+        }, new String[]{
+                Tema_Significados,
+                Tema_Vocabulario,
+                Definir_Palabra,
+                Conjugar_Verbo
+        }, "¿Qué quieres hacer?", false);
     }
 
     public static Consola ConsolaSus;
     public static Consola ConsolaVer;
     public static Consola ConsolaAdj;
     public static Consola ConsolaPal;
+    public static Consola ConsolaTem;
 
 
     /**
@@ -298,8 +341,6 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                 break;
             }
         }
-        //NOTA: En algun instante se tendrá que revisar que ninguno de los comandos en ComandosDisponibles tenga el mismo inputUsuario que los demás.
-        //todo: Arreglar esto.
 
 
         if (clave.equals("")) { //No se reconoció el comando.
@@ -333,10 +374,10 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             case Adj_ListarTemas: Ejer.ListarTemas(Adj.Adj); return;
             case Pal_ListarTemas: Ejer.ListarTemas(Pal.Pal); return;
 
-            case Sus_EnseñarTema: Ejer.EnseñarTema(Sus.Sus);
-            case Ver_EnseñarTema: Ejer.EnseñarTema(Ver.Ver);
-            case Adj_EnseñarTema: Ejer.EnseñarTema(Adj.Adj);
-            case Pal_EnseñarTema: Ejer.EnseñarTema(Pal.Pal);
+            case Sus_EnseñarTema: Ejer.EnseñarTema(Sus.Sus); return;
+            case Ver_EnseñarTema: Ejer.EnseñarTema(Ver.Ver); return;
+            case Adj_EnseñarTema: Ejer.EnseñarTema(Adj.Adj); return;
+            case Pal_EnseñarTema: Ejer.EnseñarTema(Pal.Pal); return;
 
             case Definir_Palabra:
                 //just don't worry about the next line :)
@@ -345,6 +386,9 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             case Conjugar_Verbo:
                 throw new NumberFormatException("aún no me escriben :P lel jajaja");
                 //return;
+
+            case Tema_Significados: Ejer.EjerciciosPalabrasSimples(Tema_Significados); return;
+            case Tema_Vocabulario: Ejer.EjerciciosPalabrasSimples(Tema_Vocabulario);return;
         }
 
         throw new NumberFormatException("Error: El comando " + clave + " no se ha agregado.");
@@ -358,7 +402,8 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     //todo--------------------------------------------------/COMANDOS-----------------------------------------------------------------
 
 
-    //todo: Actualizar estos
+
+    //todo: Estos ya no se usan.
     //SUSTANTIVOS
     /**
      * Lista los ejercicios / comandos de la consola PracticarSustantivos()
@@ -367,7 +412,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         System.out.println();
         //System.out.println("-ejercicios: Imprime esta lista");
         //System.out.println("-cerrar: Cierra la consola de ejercicios de sustantivos. ");
-        System.out.println("-enseñar tema: Le intentará enseñar los sustantivos de algún tema elejido. ");
+        //System.out.println("-enseñar tema: Le intentará enseñar los sustantivos de algún tema elejido. ");
         //System.out.println("-practicar géneros: Dado un tema, practicarás el genero de los sustantivos.");
         //System.out.println("-practicar plurales: Dado un tema, practicarás los plurales de los sustantivos singulares.");
         //System.out.println("-practicar significados: Dado un tema practicarás los significados de los sustantivos. ");
@@ -386,7 +431,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         System.out.println();
         //System.out.println("-ejercicios: Imprime esta lista");
         //System.out.println("-cerrar: Cierra la consola de ejercicios de verbos. ");
-        System.out.println("-enseñar tema: Le intentará enseñar los verbos de algún tema elejido. ");
+        //System.out.println("-enseñar tema: Le intentará enseñar los verbos de algún tema elejido. ");
         //System.out.println("-practicar significados: Dado un tema practicarás los significados de los verbos. ");
         //System.out.println("-practicar vocabulario: Dado un verbo en espñol, escribir el verbo en alemán. ");
         //System.out.println("-practicar participios: Dado un verbo en alemán, escribir el participio correspondiente");
@@ -406,7 +451,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         //System.out.println("-cerrar: Cierra la consola de ejercicios de adjetivos.");
         //System.out.println("-practicar géneros: Dado un tema, practicarás el genero de los sustantivos.");
         //System.out.println("-practicar plurales: Dado un tema, practicarás los plurales de los sustantivos singulares.");
-        System.out.println("-enseñar tema: Le intentará enseñar los adjetivos de algún tema elejido. ");
+        //System.out.println("-enseñar tema: Le intentará enseñar los adjetivos de algún tema elejido. ");
         //System.out.println("-practicar significados: Dado un tema practicarás los significados de los adjetivos.");
         //System.out.println("-practicar vocabulario: Dado un adjetivo en espñol, escribir el adjetivo en alemán.");
         //System.out.println("-listar temas: Le enseña una lista de todos los temas.");
@@ -423,7 +468,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         System.out.println();
         //System.out.println("-ejercicios: Imprime esta lista");
         //System.out.println("-cerrar: Cierra la consola de ejercicios de adjetivos.");
-        System.out.println("-enseñar tema: Le intentará enseñar una lista de palabras");
+        //System.out.println("-enseñar tema: Le intentará enseñar una lista de palabras");
         //System.out.println("-practicar significados: Dado un tema practicarás los significados de las palabras.");
         //System.out.println("-practicar vocabulario: Dado una palabra en espñol, escribir la palabra en alemán.");
         //System.out.println("-listar temas: Le enseña una lista de todos los temas.");
@@ -431,6 +476,8 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         //System.out.println("-definir palabra: Definirá las palabras elejidas. ");
         System.out.println();
     }
+
+
 
 
 
@@ -534,7 +581,8 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
      * @return La cantidad como un int
      * @throws SecurityException si se dice 'cerrar'.
      */
-    public static int ElejirCantidad (int tamañoTotal, String mensaje, Scanner sc) {
+    public static int ElejirCantidad (int tamañoTotal, String mensaje) {
+        Scanner sc = new Scanner(System.in);
 
         int número;
         while (true) {
@@ -576,29 +624,33 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         //El String "ejercicio" será único para cada ejercicio. Seguirá la siguiente leyenda:
         Scanner sc = new Scanner(System.in);
 
-        String tipoDePalabra = ejercicio.split(" ")[0]; //"Sus", "Ver", ...
-        Palabra.sanitize(tipoDePalabra);
+        String tipoDePalabra = ejercicio.split(" ")[0]; //"Sus", "Ver", ..., "Tema"
+        try {
+            Palabra.sanitize(tipoDePalabra);
+        } catch (NumberFormatException e){ //No es Sus, Ver, ...
+            if (!tipoDePalabra.equals(Control.Tema)) {
+                throw e;
+            }
+        }
 
 
         boolean ejercicioEsValido = false;
         switch (ejercicio) {
-            case Sus_Significados : ejercicioEsValido = true; break;
-            case Ver_Significados : ejercicioEsValido = true; break;
-            case Adj_Significados : ejercicioEsValido = true; break;
-            case Pal_Significados : ejercicioEsValido = true; break;
-
-            case Sus_Vocabulario : ejercicioEsValido = true; break;
-            case Adj_Vocabulario : ejercicioEsValido = true; break;
-            case Ver_Vocabulario : ejercicioEsValido = true; break;
-            case Pal_Vocabulario : ejercicioEsValido = true; break;
-
-            case Sus_Géneros : ejercicioEsValido = true; break;
-            case Sus_Plurales : ejercicioEsValido = true; break;
-
-            case Ver_Participios : ejercicioEsValido = true; break;
-
-            case Adj_Comparativos : ejercicioEsValido = true; break;
-            case Adj_Superlativos : ejercicioEsValido = true; break;
+            case Sus_Significados :
+            case Ver_Significados :
+            case Adj_Significados :
+            case Pal_Significados :
+            case Sus_Vocabulario :
+            case Adj_Vocabulario :
+            case Ver_Vocabulario :
+            case Pal_Vocabulario :
+            case Sus_Géneros :
+            case Sus_Plurales :
+            case Ver_Participios :
+            case Adj_Comparativos :
+            case Adj_Superlativos :
+            case Tema_Significados:
+            case Tema_Vocabulario: ejercicioEsValido = true;
         }
         if (!ejercicioEsValido) {throw new NumberFormatException("Error: El ejercicio '" + ejercicio + "' no existe. ");}
 
@@ -608,19 +660,25 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         try {
             tema = Ejer.ElejirTema(tipoDePalabra);
         } catch (SecurityException e) { //dijo "cerrar"
-            System.out.println("Cerrando ejercicio");
+            System.out.println(Ejer.Cerrando_Ejercicio);
             return;
         }
 
 
         //la lista de palabras completa
-        Lista listaDePalabrasCompleta = Control.getTema(tema, tipoDePalabra);
+        Lista listaDePalabrasCompleta;
+        try {
+        listaDePalabrasCompleta = Control.getTema(tema, tipoDePalabra);
+        } catch (NumberFormatException e) { //
+            if (!e.getLocalizedMessage().equals(Palabra.PalabraInválida)) {throw e;}
+            listaDePalabrasCompleta = Control.getTema(tema);
+        }
 
 
         System.out.println("Hay " + listaDePalabrasCompleta.size() + " palabras en el tema '" + tema + "'. ");
         int num = -1;
         try {
-            num = Ejer.ElejirCantidad(listaDePalabrasCompleta.size(), "¿Cuántos deséa practicar?", sc);
+            num = Ejer.ElejirCantidad(listaDePalabrasCompleta.size(), "¿Cuántos deséa practicar?");
         } catch (SecurityException e) {
             System.out.println("Cerrando ejercicio");
             return;
@@ -685,6 +743,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             case Ver.Ver: tipoDePalabra = Ver.Verbo; break;
             case Adj.Adj: tipoDePalabra = Adj.Adjetivo; break;
             case Pal.Pal: tipoDePalabra = Pal.Palabra; break;
+            case Control.Tema: tipoDePalabra = "Palabra"; break;
         }
 
 
@@ -780,10 +839,10 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
 
             Palabra actual = listaDePalabras.get(i);
             switch (tipoDePalabra) {
-                case "Sus": actual.aSus();
-                case "Ver": actual.aVer();
-                case "Adj": actual.aAdj();
-                case "Pal": actual.aPal();
+                case "Sus": actual.aSus(); break;
+                case "Ver": actual.aVer(); break;
+                case "Adj": actual.aAdj(); break;
+                case "Pal": actual.aPal(); break;
             }
             actual.definir();
 
@@ -1110,44 +1169,63 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
     /**
      * Consola que te deja elejir un tema de los usados por algún tipo de palabra.
      * @param tipoDePalabra el tipo de palabra
+     *        Es capaz de aceptar "Tema" como su input, y eso dejará que se escoja un tema de todos los que haya.
      * @return un String con el tema elejido
      * @throws SecurityException si se dice 'cerrar'
      */
     public static String ElejirTema(String tipoDePalabra) {
-        Palabra.sanitize(tipoDePalabra);
+        try {
+            Palabra.sanitize(tipoDePalabra);
+        } catch (NumberFormatException e) { //Tipo de palabra no es válido
+            if (!tipoDePalabra.equals(Control.Tema)) {
+                throw e;
+            }
+        }
+
         Scanner sc = new Scanner(System.in);
 
-        String tema;
+
         while (true) {
             System.out.println("Favor de elejir un tema: ");
-            String intento = sc.nextLine();
+            String tema = sc.nextLine();
 
-            switch (intento) { //detecta casos especiales
+            switch (tema) { //detecta casos especiales
                 case "listar temas":
                     switch (tipoDePalabra) {
                         case Sus.Sus: for(Lista actual : Control.Sustantivos) {System.out.print(actual.nombre + ", ");} break;
                         case Ver.Ver: for(Lista actual : Control.Verbos) {System.out.print(actual.nombre + ", ");} break;
                         case Adj.Adj: for(Lista actual : Control.Adjetivos) {System.out.print(actual.nombre + ", ");} break;
                         case Pal.Pal: for(Lista actual : Control.Palabras) {System.out.print(actual.nombre + ", ");} break;
+                        case Control.Tema: System.out.print(Arrays.toString(Control.TEMAS)); break;
                     }
                     System.out.println();
                     continue;
                 case "cerrar":
-                    throw new SecurityException("Ejercicio cerrado");
+                    throw new SecurityException(Cerrando_Ejercicio);
             } //Solo hay dos inputs raros que pueden ocurrir aqui.
 
 
-            if (Control.TemaExiste(intento, tipoDePalabra)) {
-                tema = intento; //Regresa el tema
-                break;
+            if (!tipoDePalabra.equals(Control.Tema) && Control.TemaExiste(tema, tipoDePalabra)) {
+                return tema;
+            } else if (tipoDePalabra.equals(Control.Tema) && Control.contiene(Control.TEMAS, tema)) {
+                return tema;
             } else { //te dice que vielvas a intentar
-                System.out.print("El tema '" + intento + "' no se encuentra. Diga 'listar temas' para ver los temas.");
+                System.out.print("El tema '" + tema + "' no se encuentra. Diga 'listar temas' para ver los temas.");
                 System.out.println(" Diga 'cerrar' para cerrar el ejercicio. ");
                 continue;
             }
         }
-        return tema;
     }
+
+    /**
+     * Igual que ElejirTema(TipoDePalabra), pero te deja escojer de todos los temas.
+     * @return el tema elejido
+     * @throws SecurityException si se dice 'cerrar'
+     */
+    public static String ElejirTema() {
+        return Ejer.ElejirTema(Control.Tema);
+    }
+
 
 
     /**
@@ -1192,7 +1270,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
                     System.out.println((i+1) + ". " + resultados[i].getNombre() + ": " + resultados[i].getSignificado());
                 }
 
-                int respuesta = Ejer.ElejirCantidad(resultados.length, "¿Cuál buscas?", sc);
+                int respuesta = Ejer.ElejirCantidad(resultados.length, "¿Cuál buscas?");
                 return resultados[respuesta - 1];
 
             } else { //hay solo una palabra yuju
@@ -1213,7 +1291,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             case Pal.Pal: lista = Control.Palabras; break;
         }
 
-        System.out.println("Temas disponibles: ");
+        System.out.println("TEMAS disponibles: ");
 
         String[] out = new String[lista.size()];
         for (int i = 0; i < lista.size(); i++) {
@@ -1678,7 +1756,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         System.out.println("Hay " + listaDeSustantivosTema.size() + " sustantivos en el tema '" + tema + "'. ");
         int número = -1;
         try {
-            número = Ejer.ElejirCantidad(listaDeSustantivosTema.size(), "¿Cuántos deséa practicar?", sc);
+            número = Ejer.ElejirCantidad(listaDeSustantivosTema.size(), "¿Cuántos deséa practicar?");
         } catch (SecurityException e) {
             return; //Dijo 'cerrar'
         }
@@ -1773,7 +1851,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         ArrayList<Ver> listaDeVerbosTema = Palabra.ConvertirListaAVer(Control.getTema(tema, Ver.Ver).lista);
 
         //int número = Ver.ElejirCantidad(listaDeVerbosTema, sc); //La cantidad de verbos que se practicarán.
-        int número = Ejer.ElejirCantidad(listaDeVerbosTema.size(), "¿Cuántos deséa practicar?", sc); //La cantidad de verbos que se practicarán.
+        int número = Ejer.ElejirCantidad(listaDeVerbosTema.size(), "¿Cuántos deséa practicar?"); //La cantidad de verbos que se practicarán.
 
         ArrayList<Ver> listaVerbos = Ver.escojerAleatorio(listaDeVerbosTema, número);
         //Ahora la lista tiene verbos aleatorios del tema elejido, sin dobles, y sin errores :LUL:
@@ -1852,7 +1930,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         ArrayList<Adj> listaDeAdjetivosTema = Palabra.ConvertirListaAAdj(Control.getTema(tema, Adj.Adj).lista); //La lista de sustantivos del tema
 
         //int número = Adj.ElejirCantidad(listaDeAdjetivosTema, sc); //La cantidad de sustantivos que se practicarán.
-        int número = Ejer.ElejirCantidad(listaDeAdjetivosTema.size(), "¿Cuántos deséa practicar?", sc); //La cantidad de sustantivos que se practicarán.
+        int número = Ejer.ElejirCantidad(listaDeAdjetivosTema.size(), "¿Cuántos deséa practicar?"); //La cantidad de sustantivos que se practicarán.
 
         ArrayList<Adj> listaAdjetivos = Adj.escojerAleatorio(listaDeAdjetivosTema, número);
         //Ahora la lista tiene verbos aleatorios del tema elejido, sin dobles, y sin errores :LUL:
@@ -1943,7 +2021,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
         //int número = Pal.ElejirCantidad(listaDepalabrasTema, sc); //La cantidad de sustantivos que se practicarán.
 
         //todo: "Hay [num] de cosas en este tema"
-        int número = Ejer.ElejirCantidad(listaDepalabrasTema.size(), "¿Cuántos deséa practicar?", sc); //La cantidad de sustantivos que se practicarán.
+        int número = Ejer.ElejirCantidad(listaDepalabrasTema.size(), "¿Cuántos deséa practicar?"); //La cantidad de sustantivos que se practicarán.
 
         ArrayList<Pal> listaPalabras = Pal.escojerAleatorio(listaDepalabrasTema, número);
         //Ahora la lista tiene verbos aleatorios del tema elejido, sin dobles, y sin errores :LUL:
