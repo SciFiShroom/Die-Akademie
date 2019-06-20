@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 
+
 public class test {
 
 
@@ -31,6 +32,15 @@ public class test {
 */
 
 
+        try {
+            throw new TipoInválidoException("Error: Tipo de palabra inválida");
+        } catch (TipoInválidoException e) {
+            System.out.println("todo bien :)");
+        }
+
+
+
+
         //String palabra =
 
 
@@ -38,11 +48,13 @@ public class test {
         //
         //Control.arrPrint(Control.bidimensional(nums, 3));
 
+        /**
         try {
             throw new NumberFormatException("Error: Super mega no chido.");
         } catch (NumberFormatException e) {
             System.out.println("'" + e.getLocalizedMessage() + "'");
         }
+         */
 
 
 

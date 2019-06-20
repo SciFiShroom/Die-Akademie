@@ -12,8 +12,8 @@ Componentes: (Ingrese uno, o diga 'cerrar')
  - Perfekt
 // - Präteritum
  - DK (Dürfen y Können)
- - MW (Mögen y Wollen)//Aún sin Wollen
-// - Sollen
+ - MW (Mögen y Wollen)
+ - MS (Müssen y Sollen)
 // - Müssen
 \Goto input
 
@@ -141,8 +141,8 @@ Pero lo que implican es muy diferente:.
 'Können' significa poder, en el sentido de tener la abilidad de.
 
      "Yo PUEDO comprar la comida"     ->     "Ich KANN das essen kaufen."
-     "Aquí se puede comer bien."      ->     "Hier KANN man gut essen"
-     "¿Puedo ver tus apuntes?"        ->     "Kann ich deine Notizen sehen?"
+     "Aquí se PUEDE comer bien."      ->     "Hier KANN man gut essen"
+     "¿PUEDO ver tus apuntes?"        ->     "KANN ich deine Notizen sehen?"
 
 Como se puede ver, 'können' trae la connotación de estar capacitado, para
 llevar alguna acción a cabo.
@@ -165,9 +165,10 @@ pero sí es importante poder distinguir entre las dos.
 
 
 
-\Marcador Sollen
-¡Aún no me escriben!
-\Goto Comienzo
+
+
+
+
 
 
 
@@ -175,19 +176,75 @@ pero sí es importante poder distinguir entre las dos.
 ---Mögen y Wollen---
 
 La palabra 'mögen' significa 'gustar', con las mismas connotaciones que en el español.
-
 Puede significar gusto instantáneo:
-     "Me GUSTA el chocolate"       ->   "Ich MAG Schokolade"
+
+     "Me GUSTA el chocolate."      ->   "Ich MAG Schokolade."
      "No me GUSTÓ la película."    ->   "Ich MOCHTE den Film nicht."
 
 Pero también trae la connotación de deseo cuando se utiliza en Konjunktiv II:
+
      "¿Te GUSTARÍA ir al parque?"  ->   "MÖCHTEST du in den Park gehen?"
+
+
+La gran diferencia es que en español, el verbo gustar es reflexivo,
+mientras que en alemán no lo es.
+\P
+
+La palabra 'wollen' significa 'querer', en el sentido de desear algo.
+Recuerda que en alemán, la doble 'L' se pronuncia como una 'L' normal.
+
+     "¿QUIEREN salir a comer?"      ->  "WOLLEN sie essen gehen?"
+     "De niño, QUERÍA ser piloto."  ->  "Als Kind, WOLLTE ich Pilot werden."
+
+\P
+Hay muchas similaridades entre los dos verbos, y en varias ocasiones son intercambiables.
+
+     "¿Te gustaría un vino?"      "Möchtest du einen wein?"
+     "¿Quieres un vino?"          "Wills du einen wein?"
+
+Pero no son la misma palabra, y no siempre son intercambiables (como en el español).
+     "El quería verte."           "Er wollte dich sehen."
+                      pero nunca  "Er möchtest dich sehen."
 
 \Goto Comienzo
 
 
 
-\Marcador Müssen
-¡Aún no me escriben!
+\Marcador MS
+---Müssen y Sollen---
+
+Estos dos verbos se traducen al español como 'tener que' o 'deber'. La diferencia
+entre los dos es dificil de traducir al español, pero es importante conocerla.
+\P
+
+'Müssen' significa 'deber' o 'tener que', cuando tú eres la persona que decide que se necesita hacer.
+
+     "TENGO que ir de compras."      ->  "Ich MUSS einkaufen gehen."
+                                         [...Iré porque yo quiero ir]
+
+'Sollen' significa lo mismo, pero implica que alguien más es el que quiere que hagas algo.
+Puede ser una persona, una ley, una regla, etc.
+
+     "Mi mamá me dijo que fuera de compras"   -> "Meine Mutter sagte mir, ich SOLLE einkaufen gehen."
+                                                     [...Iré porque me lo piden]
+\P
+
+
+Para dar consejos, ambas palabras se pueden usar, pero también existen constumbres sobre
+cual se usa cuando.
+
+'Sollen' se utiliza cuando el consejo es positivo.
+
+     "Deberías venir conmigo."      -> "Du solltest mit mir kommen."
+     "¡Tienen que ver la película!" -> "Ihr sollt den Film sehen!"
+
+'Müssen' se utiliza cuando el consejo es interrogativo. También se utiliza en
+la construcción "Uno debe ...".
+//[Vease 'Man' en Lecciones]
+
+     "¿Tienes que trabajar mañana?"   -> "Musst du morgen arbeiten?"
+     "Uno debería tener su cuarto limpio."    ->   "Man muss ein seuberes Zimmer haben."
+
+
 \Goto Comienzo
 

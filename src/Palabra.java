@@ -56,7 +56,9 @@ public class Palabra {
             this.tags = current;
         } else { //ya tiene tags
             //Revisamos que no tenga ya la tag.
-            if (Control.contiene(this.tags, newTag)) {throw new NumberFormatException("Error: La palabra '" + this.getNombre() + "' tiene la Tag '" + newTag + "' doble. ");}
+            if (Control.contiene(this.tags, newTag)) {
+                throw new NumberFormatException("Error: La palabra '" + this.getNombre() + "' tiene la Tag '" + newTag + "' doble. ");
+            }
 
             current = new String[this.tags.length + 1];
             for (int i = 0; i < this.tags.length; i++) {
@@ -221,21 +223,21 @@ public class Palabra {
     }
 
 
-    public String TipoDePalabra() {
+    public String TipoDePalabra() throws TipoInválidoException{
         if (this instanceof Sus) {return Sus.Sus;}
         if (this instanceof Ver) {return Ver.Ver;}
         if (this instanceof Adj) {return Adj.Adj;}
         if (this instanceof Pal) {return Pal.Pal;}
 
-        throw new NumberFormatException("Error: Tipo de palabra no reconocido");
+        throw new TipoInválidoException("Error: Tipo de palabra no reconocido");
     }
-    public String TipoDePalabraCompleto() {
+    public String TipoDePalabraCompleto() throws TipoInválidoException{
         if (this instanceof Sus) {return Sus.Sustantivo;}
         if (this instanceof Ver) {return Ver.Verbo;}
         if (this instanceof Adj) {return Adj.Adjetivo;}
         if (this instanceof Pal) {return Pal.Palabra;}
 
-        throw new NumberFormatException("Error: Tipo de palabra no reconocido");
+        throw new TipoInválidoException("Error: Tipo de palabra no reconocido");
     }
 
 
@@ -304,9 +306,9 @@ public class Palabra {
      * Usa esta función para asegurarte de que no haya tipos de palabras invalidas.
      * Solo acepta Sus.Sus, Ver.Ver, ...
      * @param tipoDePalabra el tipo de palabra que quieres verificar
-     * @throws NumberFormatException si no es válida la palabra.
+     * @throws TipoInválidoException si no es válida la palabra.
      */
-    public static void sanitize(String tipoDePalabra) {
+    public static void sanitize(String tipoDePalabra) throws TipoInválidoException{
         switch (tipoDePalabra) {
             case Sus.Sus: return;
             case Ver.Ver: return;
@@ -314,8 +316,7 @@ public class Palabra {
             case Pal.Pal: return;
         }
 
-        System.out.println("Error: Tipo de palabra '" + tipoDePalabra + "' no reconocido");
-        throw new NumberFormatException(PalabraInválida);
+        throw new TipoInválidoException("Error: Tipo de palabra '" + tipoDePalabra + "' no reconocido");
     }
 
 

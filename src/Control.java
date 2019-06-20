@@ -755,9 +755,9 @@ public class Control {
 
                 case "practicar temas": Ejer.ConsolaTem.activar(); continue;
 
-                case "practicar lecciones": Ejer.Lecciones(sc);                             entendido = true; break;
+                case "practicar lecciones": Ejer.Lecciones();                             entendido = true; break;
 
-                case "buscador": Control.schnellBedeutung(sc);                              entendido = true; break;
+                case "buscador": Control.schnellBedeutung();                              entendido = true; break;
 
                 case "listar temas": Control.OrganizaciónTemas(6);/**el num no importa*/ entendido = true; break;
 
@@ -808,7 +808,9 @@ public class Control {
 
 
     //todo: Convertir esto a una Consola()
-    public static void schnellBedeutung(Scanner sc) {
+    public static void schnellBedeutung() {
+        Scanner sc = new Scanner(System.in);
+
         System.out.println("Comenzando buscador. Ingrese la palabra o significado. ");
         System.out.println("Diga 'cerrar buscador' para cerrar el buscador.");
 
