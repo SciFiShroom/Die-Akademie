@@ -528,6 +528,13 @@ public class Sus extends Palabra{
         Sus messglas = new Sus("Messglas", "Messgläser", "N", "probeta", T);
 
 
+        //todo: Marcador. Las finanzas.
+        T = new String[]{"finanzas"};
+        Sus münze = new Sus("Münze", "Münzen", "F", "moneda [ficha]", T);
+        Sus währung = new Sus("Währung", "Währungen", "F", "moneda [de un país]", T);
+        Sus schein = new Sus("Schein", "Scheine", "M", "billete", T);
+
+
 
         //todo: Marcador: La ropa
         T = new String[]{"ropa"};
@@ -571,6 +578,7 @@ public class Sus extends Palabra{
         Sus esszimmer = new Sus("Esszimmer", "Esszimmer", "N", "comedor", T);
         Sus badezimmer = new Sus("Badezimmer", "Badezimmer", "N", "baño [cuarto]", T);
         küche.agregarTag("casa");
+        Sus treppe = new Sus("Treppe", "Treppen", "F", "escalera", T);
 
         Sus terrasse = new Sus("Terrasse", "Terrassen", "F", "terraza", T);
         Sus hof = new Sus("Hof", "Höfe", "M", "patio", T);
@@ -633,7 +641,7 @@ public class Sus extends Palabra{
         Sus kathedrale = new Sus("Kathedrale", "Kathedralen", "N", "catedral", T);
 
 
-        Sus verkehr = new Sus("Verkehr", nullEntry, "N", "tráfico", T);
+        Sus verkehr = new Sus("Verkehr", nullEntry, "M", "tráfico", T);
         Sus straßenlaterne = new Sus("Straßenlaterne", "Straßenlaternen", "F", "farol [de calle]", T);
         Sus baustelle = new Sus("Baustelle", "Baustellen", "F", "construcción [sitio]", T);
         Sus altbau = new Sus("Altbau", "Altbauten", "M", "edificio nuevo", T);
@@ -797,19 +805,36 @@ public class Sus extends Palabra{
         Sus verkehrsmittel = new Sus("Verkehrsmittel", "Verkehrsmittel", "N", "medio de transporte", T);
 
         Sus auto = new Sus("Auto", "Autos", "N", "coche", T);
-        Sus flugzeug = new Sus("Flugzeug", "Flugzeuge", "N", "avión", T);
-        Sus fahrrad = new Sus("Fahrrad", "Fahrräder", "N", "bicicleta", T);
-        Sus laster = new Sus("Laster", "Laster", "M", "camión", T);
         Sus bus = new Sus("Bus", "Busse", "M", "autobús", T);
+        Sus fahrrad = new Sus("Fahrrad", "Fahrräder", "N", "bicicleta", T);
+        Sus flugzeug = new Sus("Flugzeug", "Flugzeuge", "N", "avión", T);
         Sus hubschrauber = new Sus("Hubschrauber", "Hubschrauber", "M", "helicóptero", T);
-        Sus u_bahn = new Sus("U-Bahn", "U-Bahnen", "F", "metro [transporte]", T);
+        Sus laster = new Sus("Laster", "Laster", "M", "camión", T);
         Sus motorrad = new Sus("Motorrad", "Motorräder", "N", "moto", T);
         Sus rollschuh = new Sus("Rollshuh", "Rollshuhe", "M", "patin [de ruedas]", T);
         Sus schlittschuh = new Sus("Schlittschuh", "Schlittschuhe", "M", "patín [de nieve]", T);
         Sus skateboard = new Sus("Skateboard", "Skateboards", "N", "patineta", T);
         Sus straßenbahn = new Sus("Straßenbahn", "Straßenbahnen", "F", "tranvía", T);
-        Sus zug = new Sus("Zug", "Züge", "M", "tren", T);
         Sus taxi = new Sus("Taxi", "Taxis", "N", "taxi", T);
+        taxi.agregarDescripción("Se traduce literalmente la expresión 'tomar un taxi' como 'ein Taxi nehmen'");
+
+        Sus u_bahn = new Sus("U-Bahn", "U-Bahnen", "F", "metro [transporte]", T);
+        Sus zug = new Sus("Zug", "Züge", "M", "tren", T);
+        //Subirse al camión == Stiegen in den Truck.
+
+        /**
+         * Steigen == subirse; Steigen == bajarse. Es complicado.
+         *
+         * Me subo al camión == Ich steige in den Bus.
+         * Me bajo del camión == Ich steige aus dem Bus.
+         *
+         * Me subo a la bicicleta == Ich steige auf das Fahrrad.
+         * Me bajo a la bibicleta == Ich steige von dem (vom) Fahrrad
+         *
+         * El verbo es irregular. Pasado es stiegen (No se confunde con Steigen).
+         * Partizip. = gestiegen.
+         *
+         */
 
 
 
@@ -1145,7 +1170,25 @@ public class Sus extends Palabra{
 
 
 
-        Sus gewissen = new Sus("Gewissen", "Gewissen", "N", "conciencia", new String[]{"misceláneo"});
+        T = new String[]{"misceláneo"};
+        Sus gewissen = new Sus("Gewissen", "Gewissen", "N", "conciencia", T);
+
+        Sus schlüssel = new Sus("Schlüssel", "Schlüssel", "M", "llave [de un candado]", T);
+        Sus schlüssel2 = new Sus("Schlüssel", "Schlüssel", "M", "clave", T);
+        Sus schlüsselring = new Sus("Schlüsselring", "Schlüsselringe", "M", "llavero", T);
+        Sus vorhängeschloss = new Sus("Vorhängeschloss", "Vorhängeschlösser", "M", "candado", T);
+
+        Sus steinbruch = new Sus("Steinbruch", "Steinbrüche", "M", "cantera", T);
+        Sus bruch = new Sus("Bruch", "Brüche", "M", "rotura", T);
+
+        Sus grabstein = new Sus("Grabstein", "Grabsteine", "M", "lápida", T);
+        Sus grube = new Sus("Grube", "Gruben", "F", "fosa", T);
+
+
+
+
+        //Sus erwachsener = new Sus("Erwachsene", "Erwachsener", "adulto", T);
+
     }
     //todo: mar
     //todo: ca
@@ -1195,6 +1238,27 @@ public class Sus extends Palabra{
         }
         System.out.println("TEMAS: " + Arrays.toString(this.tags));
     }
+
+
+    /**
+     * Funcion queu crea el Nominativo singular de un sustantivo. Ej. Palabra 'Apfel' regresa "Der Apfel".
+     * @return un string listo, calientito, y sin azúcar.
+     */
+    public String NominativoSingular() {
+        String out = "";
+        switch (this.género) {
+            case "M": out = "Der "; break;
+            case "F": out = "Die "; break;
+            case "N": out = "Das "; break;
+            case "P": out = "Die "; break;
+        }
+
+        if (out.equals("")) {throw new NumberFormatException("Error: Género '" + this.género + "' no reconocido.");}
+
+        out += this.sustantivo;
+        return out;
+    }
+
 
 
 

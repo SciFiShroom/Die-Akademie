@@ -80,6 +80,8 @@ public class Consola {
                 Ejer.EjecutarComando(comando, this.comandosDisponibles);
             } catch (SecurityException h) { //No se recinoció el comando
                 System.out.println("El comando '" + comando + "' no se reconoce. Diga 'listar comandos' para ver la lista completa de comandos.");
+            } catch (ConsolaCerradaException e) {
+                System.out.println("Se ha cerrado el ejercicio.");
             }
         }
     }

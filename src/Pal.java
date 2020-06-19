@@ -209,6 +209,9 @@ public class Pal extends Palabra{
 
         //[-Preposiciones]
 
+        //todo: Marcador: ???
+
+        Pal vor2 = new Pal("vor", "hace", new String[]{"misceláneo"});
         //otras palabras
         //Tags = new String[]{"aún no se"};
 
@@ -232,6 +235,14 @@ public class Pal extends Palabra{
     }
 
 
+    /**
+
+     'vor' significa 'hace'. "Llegué hace tres días" = "Ich bin vor drei Tagen angekommen".
+     'seit' significa 'desde'. "He estado en mi casa desde lunes.". = "Ich bin seit Montag in meinem Haus."
+     'bis' significa 'hasta'. "Estaré en la casa hasta el viernes" = "Ich werde bis Freitag im Haus sein."
+     'in' significa 'en'. "Me iré de la casa en cinco días" = "Ich werde in fünf Tagen das Haus verlassen."
+
+     */
 
 
     /**

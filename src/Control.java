@@ -21,7 +21,7 @@ public class Control {
             "bebida", "materiales", "trabajo", "platillo", "arte",
             "geografía", "amigos", "festivos", "gramática", "conocidos",
             "planta", "profesiónes", "estudios", "calendario", "acuático",
-            "física", "anatomía", "ingeniería", "ciencia",
+            "física", "anatomía", "ingeniería", "ciencia", "finanzas",
 
             "test",
 
@@ -935,6 +935,13 @@ public class Control {
         //ya que ahorita, .getNombreSimple incluye " " antes del "[". en la versión actual.
         //se agregaron varios sustantivos nuevos en los temas de comida y cocina.
         //se agregó Control.OrganizaciónTemas(int anchura), que te deja ver como se utilizan los temas.
+
+
+        //todo Xtra chido: Programa que te diga si una prepocición es con akusativ o dativ.
+        //Se presta mucho para un programa como este!
+
+        //todo: Areglar meses (no tienen género)
+
 
         /**
          * Mi WishList

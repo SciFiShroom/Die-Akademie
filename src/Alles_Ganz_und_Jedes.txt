@@ -1,0 +1,62 @@
+\Goto Comienzao
+\Marcador Final
+\Fin
+\Marcador Comienzo
+---Las palabras 'Alles', 'Ganz', y 'Jedes'---
+
+Lecciones:
+ - Alles
+ - Ganz
+ - Jeden
+
+\Goto input
+
+
+
+
+
+\Marcadro Alles
+'Alles' se  utiliza cuando se habla de algo contable (Objetos, personas, ...).
+Se asemeja ucho a la palabra 'todos' en español.
+
+     "He puesto todos los platos en la mesa."
+     "Ich habe alle die Teller auf den Tisch gesetzen" //auf DEN? Tisch
+
+\P
+\Goto Comienzo
+
+
+
+
+
+
+
+
+\Marcador Ganz
+'Ganz' se utiliza cuando una habla de algo incontable (Arena, agua, ...).
+Se asemeja mucho a la palabra 'todo/a' en singular, o a la palabra 'entero/a'
+
+     "Puse todo el jugo en la jarra."
+     "Ich habe der ganze Saft [en la jarra] gesetzen.
+
+
+     "Esta semana ví la ciudad entera."
+     "Dieses Woche habe ich die ganze Stadt gesehen."
+
+\P
+\Goto Comienzo
+
+
+
+
+\Marcador Jedes
+'Jedes' significa 'Cada uno'
+//La llave cierra el candado del castillo.
+//Die Schlössel schließt der Schlüssel den Schloss.
+
+
+
+
+
+\P
+\Goto Comienzo

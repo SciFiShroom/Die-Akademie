@@ -53,6 +53,8 @@ public class Ver extends Palabra{
 
 
 
+
+
     public boolean tieneImperativoRegular;
     public String[] imperativo; //En general, du = Base = yo-presente menos la 'e' (Komm!), ihr = ihr (Kommt!), sie = Sie (Kommen!)
     public void agregarImperativoNuevo(String REG) {
@@ -572,10 +574,20 @@ public class Ver extends Palabra{
         geben.agregarPreterito(new String[]{"gab", "gabst", "gab", "gaben", "gabt", "gaben"});
         geben.agregarImperativoNuevo("gib", "gebt", "geben");
 
-        Ver lassen = new Ver("lassen", new String[]{"lasse", "lässt", "lässt", "lassen", "lasst", "lassen"}, "dejar", T);
+        Ver lassen = new Ver("lassen", new String[]{"lasse", "lässt", "lässt", "lassen", "lasst", "lassen"}, "dejar [algo en algún lado]", T);
         lassen.agregarParticipio("gelassen");
         lassen.agregarPreterito(new String[]{"ließ", "ließest", "ließ", "ließen", "ließt", "ließen"});
         lassen.agregarImperativoNuevo("lass", "lasst", "lassen");
+
+        Ver verlassen = new Ver("verlassen", new String[]{"verlasse", "verlässt", "verlässt", "verlassen", "verlasst", "verlassen"}, "dejar [a alguien; abandonar]", T);
+        verlassen.agregarParticipio("verlassen");
+        verlassen.agregarPreterito(new String[]{"verließ", "verließest", "verließ", "verließen", "verließt", "verießen"});
+        verlassen.agregarImperativoNuevo("verlass", "verlasst", "verlassen");
+        verlassen.agregarDescripción(new String[]{
+                "El verbo 'verlassen' se utiliza cuando hay implicación de abandono.",
+                "'La esposa lo dejó' (Die Frau hat er verlassen) o 'El dejó su país' (Er verließ seine Heimstadt)",
+                "También se pude usar cuando se sale de algún lugar.",
+                "'Me iré de la casa' (Ich werde das Haus verlassen), 'Sálganse del cuarto' (Verlasst das Zimmer)'"});
 
         Ver teilnehmen = new Ver("teil", nehmen, "participar", T);
 
@@ -760,6 +772,12 @@ public class Ver extends Palabra{
         folgen.agregarPreterito("folgt");
         folgen.agregarImperativoNuevo(reg);
 
+        Ver steigen = new Ver("steigen", "steig", "subirse [a algo]", T);
+        steigen.agregarHilfsverb("sein");
+        steigen.agregarParticipio("gestiegen");
+        steigen.agregarPreterito(new String[]{"stieg", "stiegst", "stieg", "stiegen", "stiegt", "stiegen"});
+        steigen.agregarImperativoNuevo(reg);
+
 
 
 
@@ -770,7 +788,7 @@ public class Ver extends Palabra{
 
         //todo: Marcador. La mente.
         T = new String[]{"mente"};
-        Ver glauben = new Ver("glaube", "glaub", "creer", T);
+        Ver glauben = new Ver("glauben", "glaub", "creer", T);
         glauben.agregarParticipio("geglaubt");
         glauben.agregarPreterito("glaubt");
         glauben.agregarImperativoNuevo(reg);
@@ -1267,6 +1285,8 @@ public class Ver extends Palabra{
         //[tienda]
         T = new String[]{"tienda"};
 
+        Ver ausgeben = new Ver("aus", geben, "gastar",T);
+
         Ver bestücken = new Ver("bestücken", "bestück", "abastecer", T);
         bestücken.agregarParticipio("bestückt");
         bestücken.agregarPreterito("bestückt");
@@ -1385,6 +1405,8 @@ public class Ver extends Palabra{
         //ergreifen; fassen; fangen; nehmen = Agarrar? y cazar, percar,...
 
         //Ver anfangen = new Ver("an", fangen, "empezar", new String[]{"básico"});
+
+
 
         Ver parken = new Ver("parken", "park", "estacionar", T);
         parken.agregarParticipio("geparkt");

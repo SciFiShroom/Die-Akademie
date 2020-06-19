@@ -31,6 +31,8 @@ public class test {
         System.out.println("'" + Control.quitarPrefijo(input, uno.split("\\[")[0]) + "'");
 */
 
+        //String a = Control.entradaNula;
+
 
         try {
             throw new TipoInválidoException("Error: Tipo de palabra inválida");

@@ -11,10 +11,10 @@ Componentes: (Ingrese uno, o diga 'cerrar')
  - Introducción (y Präsens)
  - Perfekt
 // - Präteritum
+// - Konjunktiv
  - DK (Dürfen y Können)
  - MW (Mögen y Wollen)
  - MS (Müssen y Sollen)
-// - Müssen
 \Goto input
 
 
