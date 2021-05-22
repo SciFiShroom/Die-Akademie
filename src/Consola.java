@@ -23,7 +23,7 @@ public class Consola {
 
 
     /**
-     * Consola de uso general capáz de ejecutar los comandos en Ejer.java
+     * Consola de uso general capaz de ejecutar los comandos en Ejer.java
      * La validez de los comandos revisa al inicializar la consola.
      * La consola se puede activar en cualquier instante, y se puede re-activar si se cerró en algún instante.
      * @param Nombre el nombre de la consola.

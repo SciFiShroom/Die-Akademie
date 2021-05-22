@@ -359,7 +359,7 @@ public class Control {
                 continue;
             }
 
-            throw new NumberFormatException("Error: El tema '" + tema + "' no es utilizado");
+            //throw new NumberFormatException("Error: El tema '" + tema + "' no es utilizado");
         }
 
         Temas = new ArrayList<Lista<Palabra>>();
@@ -532,6 +532,7 @@ public class Control {
 
 
     //Revisan repeticiones en los significados de las palabras respectivas.
+    /**
     public static void revisiónCompleta() {
         int numeroDeErrores = 0;
 
@@ -588,7 +589,7 @@ public class Control {
 
             if (actual instanceof Ver) {
 
-                //Varios verbos no tendrán tödo. Aquí se veran todos los casos.
+                //Varios verbos no tendrán tödo. Aquí se verán todos los casos.
                 Ver verActual = (Ver) actual;
                 if (verActual.presente == null) {
                     System.out.println("El verbo '" + verActual.verbo+ "' no tiene presente. ");
@@ -653,7 +654,7 @@ public class Control {
 
         System.out.println("-------------------Revisión de palabras completada exitosamente: " + numeroDeErrores + " errores detectados-----------------------------");
     }
-
+    */
 
 
     public static boolean carácterEsRaro(char c, boolean checarAcentos) {
@@ -788,7 +789,8 @@ public class Control {
 
         //Método opcional que revisa los diccionarios y identifica errores posibles.
         if (revisiónDePalabras) {
-            Control.revisiónCompleta();
+            System.out.println("Esto se quitó porque se me olvido lo que hacía :P");
+            //Control.revisiónCompleta();
         }
 
 

@@ -2,27 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c67d7db2-f21a-48fb-b674-1a9e23769dd4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Consola.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Consola.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Verbos_Modales.txt" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Verbos_Modales.txt" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" />
-      <change beforePath="$PROJECT_DIR$/src/Consola.java" afterPath="$PROJECT_DIR$/src/Consola.java" />
-      <change beforePath="$PROJECT_DIR$/src/Control.java" afterPath="$PROJECT_DIR$/src/Control.java" />
-      <change beforePath="$PROJECT_DIR$/src/Ejer.java" afterPath="$PROJECT_DIR$/src/Ejer.java" />
-      <change beforePath="$PROJECT_DIR$/src/Pal.java" afterPath="$PROJECT_DIR$/src/Pal.java" />
-      <change beforePath="$PROJECT_DIR$/src/Sus.java" afterPath="$PROJECT_DIR$/src/Sus.java" />
-      <change beforePath="$PROJECT_DIR$/src/Ver.java" afterPath="$PROJECT_DIR$/src/Ver.java" />
-      <change beforePath="$PROJECT_DIR$/src/Verbos_Modales.txt" afterPath="$PROJECT_DIR$/src/Verbos_Modales.txt" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" afterPath="$PROJECT_DIR$/src/test.java" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/scifishroom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ControlDos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ver[backup].txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/significadoVer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Adj.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Adj.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Consola.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Consola.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/ConsolaCerradaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/ConsolaCerradaException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$IteradorDeLista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$IteradorDeLista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lista.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Palabra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Palabra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/TipoInválidoException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/TipoInválidoException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ejer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ver.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,242 +47,6 @@
         <entry key="last-active-plugin-version" value="5.18.1" />
       </map>
     </option>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Control.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Control.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="942" column="47" lean-forward="false" selection-start-line="942" selection-start-column="47" selection-end-line="942" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#getTema#0;class#Control#0" expanded="false" />
-                <element signature="method#getTema#0;class#Control#0" expanded="false" />
-                <element signature="docComment;method#getTema#1;class#Control#0" expanded="false" />
-                <element signature="method#getTema#1;class#Control#0" expanded="false" />
-                <element signature="docComment;method#RevisarColisiones#0;class#Control#0" expanded="false" />
-                <element signature="method#RevisarColisiones#0;class#Control#0" expanded="false" />
-                <element signature="method#InicializarSustantivos#0;class#Control#0" expanded="false" />
-                <element signature="method#InicializarVerbos#0;class#Control#0" expanded="false" />
-                <element signature="method#InicializarAdjetivos#0;class#Control#0" expanded="false" />
-                <element signature="method#InicializarPalabras#0;class#Control#0" expanded="false" />
-                <element signature="method#clrScreen#0;class#Control#0" expanded="false" />
-                <element signature="method#scramble#0;class#Control#0" expanded="false" />
-                <element signature="method#contiene#0;class#Control#0" expanded="false" />
-                <element signature="method#arrPrint#0;class#Control#0" expanded="false" />
-                <element signature="method#bidimensional#0;class#Control#0" expanded="false" />
-                <element signature="method#empiezaCon#0;class#Control#0" expanded="false" />
-                <element signature="method#quitarPrefijo#0;class#Control#0" expanded="false" />
-                <element signature="method#quitarSufijo#0;class#Control#0" expanded="false" />
-                <element signature="method#acabaCon#0;class#Control#0" expanded="false" />
-                <element signature="method#comandos#0;class#Control#0" expanded="false" />
-                <element signature="method#revisiónCompleta#0;class#Control#0" expanded="false" />
-                <element signature="method#carácterEsRaro#0;class#Control#0" expanded="false" />
-                <element signature="method#consola#0;class#Control#0" expanded="false" />
-                <element signature="method#Inicialización#0;class#Control#0" expanded="false" />
-                <element signature="method#schnellBedeutung#0;class#Control#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ejer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Ejer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8001">
-              <caret line="402" column="74" lean-forward="false" selection-start-line="402" selection-start-column="73" selection-end-line="402" selection-end-column="74" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#listarLecciones#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#revisarColisionesComandos#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EjecutarComando#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ListaEjerciciosSus#0;class#Ejer#0" expanded="false" />
-                <element signature="method#ListaEjerciciosSus#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ListaEjerciciosVer#0;class#Ejer#0" expanded="false" />
-                <element signature="method#ListaEjerciciosVer#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ListaEjerciciosAdj#0;class#Ejer#0" expanded="false" />
-                <element signature="method#ListaEjerciciosAdj#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ListaEjerciciosPal#0;class#Ejer#0" expanded="false" />
-                <element signature="method#ListaEjerciciosPal#0;class#Ejer#0" expanded="false" />
-                <element signature="method#imprimirTema#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#Lecciones#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#DefinirPalabra#0;class#Ejer#0" expanded="false" />
-                <element signature="method#DefinirPalabra#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ElejirCantidad#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EjerciciosPalabrasSimples#0;class#Ejer#0" expanded="false" />
-                <element signature="method#ConsolaDefinirTipo#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EnseñarTema#0;class#Ejer#0" expanded="false" />
-                <element signature="method#EnseñarTema#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EjercicioSimple#0;class#Ejer#0" expanded="false" />
-                <element signature="method#EjercicioSimple#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EjercicioMatching#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#calificar#0;class#Ejer#0" expanded="false" />
-                <element signature="method#calificar#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ElejirTema#1;class#Ejer#0" expanded="false" />
-                <element signature="method#ElejirTema#1;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ElejirPalabraTipo#0;class#Ejer#0" expanded="false" />
-                <element signature="method#ListarTemas#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EnseñarSustantivos#0;class#Ejer#0" expanded="false" />
-                <element signature="method#EnseñarSustantivos#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EnseñarVerbos#0;class#Ejer#0" expanded="false" />
-                <element signature="method#EnseñarVerbos#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EnseñarAdjetivos#0;class#Ejer#0" expanded="false" />
-                <element signature="method#EnseñarAdjetivos#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#EnseñarPalabras#0;class#Ejer#0" expanded="false" />
-                <element signature="method#EnseñarPalabras#0;class#Ejer#0" expanded="false" />
-                <element signature="method#PracticarSustantivos#0;class#Ejer#0" expanded="false" />
-                <element signature="method#PracticarVerbos#0;class#Ejer#0" expanded="false" />
-                <element signature="method#PracticarAdjetivos#0;class#Ejer#0" expanded="false" />
-                <element signature="method#PracticarPalabras#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ejerciciosSus#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ejerciciosVer#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ejerciciosAdj#0;class#Ejer#0" expanded="false" />
-                <element signature="docComment;method#ejerciciosPal#0;class#Ejer#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Consola.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Consola.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Alles_Ganz_und_Jedes.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Alles_Ganz_und_Jedes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sus.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Sus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="1184" column="63" lean-forward="false" selection-start-line="1184" selection-start-column="63" selection-end-line="1184" selection-end-column="63" />
-              <folding>
-                <element signature="method#definir#0;class#Sus#0" expanded="false" />
-                <element signature="method#NominativoSingular#0;class#Sus#0" expanded="false" />
-                <element signature="method#escojerAleatorio#0;class#Sus#0" expanded="false" />
-                <element signature="method#imprimirListaSimple#0;class#Sus#0" expanded="false" />
-                <element signature="method#imprimirListaChido#0;class#Sus#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Verbos_Modales.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Verbos_Modales.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4074">
-              <caret line="194" column="0" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Ver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="1311" column="0" lean-forward="true" selection-start-line="1311" selection-start-column="0" selection-end-line="1311" selection-end-column="0" />
-              <folding>
-                <element signature="method#agregarParticipio#0;class#Ver#0" expanded="false" />
-                <element signature="method#agregarHilfsverb#0;class#Ver#0" expanded="false" />
-                <element signature="method#agregarImperativoNuevo#1;class#Ver#0" expanded="false" />
-                <element signature="method#agregarPreterito#0;class#Ver#0" expanded="false" />
-                <element signature="method#agregarPreterito#1;class#Ver#0" expanded="false" />
-                <element signature="method#agregarKonjunktivPreterito#0;class#Ver#0" expanded="false" />
-                <element signature="method#agregarKonjunktivPreterito#1;class#Ver#0" expanded="false" />
-                <element signature="method#Ver#0;class#Ver#0" expanded="false" />
-                <element signature="method#Ver#1;class#Ver#0" expanded="false" />
-                <element signature="method#Ver#2;class#Ver#0" expanded="false" />
-                <element signature="method#Ver#3;class#Ver#0" expanded="false" />
-                <element signature="docComment;field#base#0;class#Ver#0" expanded="false" />
-                <element signature="docComment;method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-                <element signature="method#escojerAleatorio#0;class#Ver#0" expanded="false" />
-                <element signature="docComment;method#imprimirListaChido#0;class#Ver#0" expanded="false" />
-                <element signature="method#imprimirListaChido#0;class#Ver#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4725">
-              <caret line="242" column="107" lean-forward="false" selection-start-line="242" selection-start-column="107" selection-end-line="242" selection-end-column="107" />
-              <folding>
-                <element signature="method#Pal#0;class#Pal#0" expanded="false" />
-                <element signature="docComment;method#crearPalabras#0;class#Pal#0" expanded="false" />
-                <element signature="docComment;method#definir#0;class#Pal#0" expanded="false" />
-                <element signature="method#imprimirListaChido#0;class#Pal#0" expanded="false" />
-                <element signature="docComment;method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-                <element signature="method#escojerAleatorio#0;class#Pal#0" expanded="false" />
-                <marker date="1562231766095" expanded="false" signature="8548:8684" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Palabra.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Palabra.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-              <folding>
-                <element signature="method#agregarLección#0;class#Palabra#0" expanded="false" />
-                <element signature="method#tieneColisionesNombre#0;class#Palabra#0" expanded="false" />
-                <element signature="method#tieneColisionesSignificado#0;class#Palabra#0" expanded="false" />
-                <element signature="docComment;method#agregarTag#0;class#Palabra#0" expanded="false" />
-                <element signature="method#agregarTag#0;class#Palabra#0" expanded="false" />
-                <element signature="method#getSignificadoSimple#0;class#Palabra#0" expanded="false" />
-                <element signature="method#buscarNombre#0;class#Palabra#0" expanded="false" />
-                <element signature="method#buscarSignificadoSimple#0;class#Palabra#0" expanded="false" />
-                <element signature="docComment;method#buscarNombreTipo#0;class#Palabra#0" expanded="false" />
-                <element signature="method#buscarNombreTipo#0;class#Palabra#0" expanded="false" />
-                <element signature="docComment;method#buscadorUsuario#0;class#Palabra#0" expanded="false" />
-                <element signature="method#definir#0;class#Palabra#0" expanded="false" />
-                <element signature="method#ConvertirListaASus#0;class#Palabra#0" expanded="false" />
-                <element signature="method#ConvertirListaAVer#0;class#Palabra#0" expanded="false" />
-                <element signature="method#ConvertirListaAAdj#0;class#Palabra#0" expanded="false" />
-                <element signature="method#ConvertirListaAPal#0;class#Palabra#0" expanded="false" />
-                <element signature="docComment;method#sanitize#0;class#Palabra#0" expanded="false" />
-                <element signature="method#agregarDescripción#0;class#Palabra#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Adj.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Adj.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4515">
-              <caret line="311" column="34" lean-forward="false" selection-start-line="311" selection-start-column="34" selection-end-line="311" selection-end-column="34" />
-              <folding>
-                <element signature="method#Adj#0;class#Adj#0" expanded="false" />
-                <element signature="method#Adj#1;class#Adj#0" expanded="false" />
-                <element signature="method#Adj#2;class#Adj#0" expanded="false" />
-                <element signature="method#actualizarDeclinación#0;class#Adj#0" expanded="false" />
-                <element signature="method#actualizarComYSup#0;class#Adj#0" expanded="false" />
-                <element signature="method#definir#0;class#Adj#0" expanded="false" />
-                <element signature="method#escojerAleatorio#0;class#Adj#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -315,6 +92,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -356,6 +141,7 @@
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
+  <component name="ProjectId" id="1sbXUYIs9XfQqsajSpD2trxarTI" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -393,21 +179,14 @@
       <pane id="PackagesPane" />
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunManager" selected="Application.Control">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -418,153 +197,84 @@
       <module />
     </configuration>
     <configuration name="Control" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Control" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Die-Akademie" />
-      <envs />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Lector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Lector" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Die-Akademie" />
-      <envs />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Lista" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Lista" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Die-Akademie" />
-      <envs />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Die-Akademie" />
-      <envs />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
+    <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.Lista" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Control" />
-      <item index="2" class="java.lang.String" itemvalue="Application.test" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Lector" />
+    <list>
+      <item itemvalue="Application.Lista" />
+      <item itemvalue="Application.Control" />
+      <item itemvalue="Application.test" />
+      <item itemvalue="Application.Lector" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Control" />
-        <item index="1" class="java.lang.String" itemvalue="Application.test" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Lector" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Lista" />
+      <list>
+        <item itemvalue="Application.Control" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.Lector" />
+        <item itemvalue="Application.Lista" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -610,15 +320,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="29" />
-    </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Pal.java">

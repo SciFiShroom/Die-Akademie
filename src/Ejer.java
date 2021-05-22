@@ -775,7 +775,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             } else if (ejercicio.equals(Ver_Participios)) {
                 Ver verActual = actual.aVer();
                 preguntas[i] = verActual.getNombre();
-                respuestasCorrectas[i] = verActual.participio;
+                respuestasCorrectas[i] = verActual.partizipPerfekt;
                 continue;
             } else if (ejercicio.equals(Adj_Comparativos)) {
                 Adj adjActual = actual.aAdj();
@@ -1894,6 +1894,8 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
      * @param sc el escaneador
      */
     public static void ejerciciosVer(String ejercicio, Scanner sc) {
+        System.out.println("Este método se ha suprimido temporalmente. ¡Vuelve pronto!");
+        /**
         //Se checa que el ejercicio exista
         if (!ejercicio.equals("significados")
                 && !ejercicio.equals("vocabulario")
@@ -1971,6 +1973,7 @@ public class Ejer { //Esta es la clase en donde se escribirán los ejercicios.
             System.out.println("Ejercicio cerrado");
             return;
         }
+         */
     }
     /**
      * Ejecuta varios ejercicios de los adjetivos
