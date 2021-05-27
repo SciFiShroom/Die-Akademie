@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class significadoVer {
@@ -16,9 +17,8 @@ public class significadoVer {
     }
 
     public void definir(Ver verbo) {
-        System.out.print(verbo.verbo);
-        if (auxiliar != null) {
-            System.out.print(" (" + auxiliar + ")");
+                if (auxiliar != null) {
+            System.out.print(" (" + auxiliar + ") ");
         }
         System.out.println(significado);
         for (int i = 0; i < oraciónes.length; i++) {
@@ -26,7 +26,7 @@ public class significadoVer {
             System.out.println("\"" + oraciónes[i][1] + "\"");
             System.out.println();
         }
-        System.out.println();
+        //System.out.println();
         for (String com : commentarios) {System.out.println(com);}
         System.out.println("Tags: " + Arrays.toString(verbo.tags));
     }

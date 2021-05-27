@@ -9,8 +9,7 @@ public class ControlDos {
     public static void main(String[] args) {
 
         //Inicialización: Verbos
-        Ver.crearVerbos();
-        Ver.posprocesamiento();
+        Ver.inicializar();
 
     }
 

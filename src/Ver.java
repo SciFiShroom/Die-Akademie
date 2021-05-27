@@ -22,10 +22,11 @@ public class Ver extends Palabra{
     public boolean esTrennbare;
     public boolean terminaConEN;
     public String[] tags;
+    public String infinitiv;
 
 
 
-    //todo: Constructor universal
+    //Constructor universal
     public Ver(String verbo, String[] tags) {
         Control.VerbosListaSingular.add(this);
 
@@ -47,8 +48,18 @@ public class Ver extends Palabra{
         if (verbo.substring(verbo.length()-2,verbo.length()).equals("en")) {
             terminaConEN = true;
             verbstamm = verbo.substring(0,verbo.length()-2);
-            //Si no termina con "-en", el verbstamm permanece null.
+        } else {
+            //En el caso de que no termine con "-en", todavía es útil tener el verbstamm. Esto se usa, por ejemplo,
+            //en la construcción del imperativo.
+            terminaConEN = false;
+            verbstamm = verbo.substring(0,verbo.length()-1);
         }
+
+
+        //Construimos el infinitiv
+        String[] temp = verbo.split("\\|");
+        this.infinitiv = "";
+        for (String s : temp) {infinitiv += s;}
 
 
         this.verbo = verbo;
@@ -57,9 +68,19 @@ public class Ver extends Palabra{
         // Control.RevisarColisiones(this);
     }
 
+    //Para agregar tags adicionales
+    public void addTag(String tag) {
+        for (String t : this.tags) {
+            if (t.equals(tag)) {throw new NumberFormatException("Error: Tag agregada dos veces.");}
+        }
+        this.tags = Arrays.copyOf(this.tags, this.tags.length+1);
+        this.tags[this.tags.length - 1] = tag;
+    }
 
 
-    //todo: Präsens
+
+
+    //<Präsens>
     public String[] präsens;
     /**
      * Hay cuatro casos.
@@ -142,11 +163,12 @@ public class Ver extends Palabra{
         }
         this.präsens = conjugación;
     }
-    //todo: /Präsens
+    //</Präsens>
 
 
 
-    //todo: Präteritum
+
+    //<Präteritum>
     public String[] präteritum = new String[6];
     /**
      * Hay cuatro casos:
@@ -225,12 +247,14 @@ public class Ver extends Palabra{
         }
         this.präteritum = conjugación;
     }
-    //todo: /Präteritum
+    //</Präteritum>
 
 
 
-    //todo: Partizip Perfekt
+
+    //<Partizip Perfekt>
     public String partizipPerfekt;
+
     /**
      * define el partizip perfekt.
      * @param partizip el Partizip Perfekt (Partizip II).
@@ -238,38 +262,220 @@ public class Ver extends Palabra{
     public void setPartizipPerfekt(String partizip) {
         this.partizipPerfekt = partizip;
     }
-    //todo: /Partizip Perfekt
+    //</Partizip Perfekt>
 
 
 
-    //todo: Hilfsverb
+
+    //<Perfekt>
+    public String[] perfekt;
+
+    public void setPerfekt() {
+        String[] base;
+        if (this.hilfsverb.equals("haben")) {
+            base = new String[]{"habe", "hast", "hat", "haben", "habt", "haben"};
+        } else {
+            base = new String[]{"bin", "bist", "ist", "sind", "seid", "sind"};
+        }
+
+        for (int i = 0; i < 6; i++) {base[i] += " " + this.partizipPerfekt;}
+        this.perfekt = base;
+    }
+    //</Perfekt>
+
+
+
+
+    //<Hilfsverb>
     public String hilfsverb = "haben";
     public void setHilfsverbSein() {
         this.hilfsverb = "sein";
     }
-    //todo: /Hilfsverb
+    //</Hilfsverb>
 
 
 
-    //todo: Konjunktiv II
-    public boolean konjunvtivIIEsirregular;
+
+    //<Konjunktiv II>
+    //En particular, nos referímos al konjunktiv - irreales Zukunft.
+    public boolean konjunktivIIEsIrregular;
     public String[] konjunktivII;
-    //todo: /Konjunktiv II
 
-    //todo: Konjunktiv I
-    //todo: /Konjunktiv I
+    /**
+     * Si no se define un Konjunktiv II, se genera automáticamente. (Este es el caso con casi todos los verbos)
+     */
+    public void setKonjunktivII() {
+        //Asume caso regular
+        if (this.konjunktivII != null) {
+            throw new NumberFormatException("Error: El verbo " + this.verbo + "ya tiene Konjunktiv II.");
+        }
+        this.konjunktivII = new String[]{
+                "würde " + this.infinitiv,
+                "würdest " + this.infinitiv,
+                "würde " + this.infinitiv,
+                "würden " + this.infinitiv,
+                "würdet " + this.infinitiv,
+                "würden " + this.infinitiv
+        };
+    }
 
-    //todo: Imperativ
-    //todo: /Imperativ
+    /**
+     * Algunos (pocos) verbos tienen Konjunktiv II irregular. En este caso, se agrega manualmente.
+     * @param konjunktivII el konjunktivII[].
+     */
+    public void setKonjunktivII(String[] konjunktivII) {
+        if (konjunktivII.length != 6) {throw new NumberFormatException("Error: Konjunktiv II inválido");}
+        this.konjunktivII = konjunktivII;
+    }
+    //</Konjunktiv II>
 
-    //todo: Partizip I
-    //todo: /Partizip I
 
-    //todo: Significado
+
+
+    //<Imperativ>
+    /**
+     * Hay cuatro casos para el imperativ. Hay dos casos regulares para los verbos que terminan con "-en",
+     * un caso regular para los que no terminan con "-en", y un caso irregular.
+     *
+     * No todos los verbos tienen imperativ; tödo verbo comienza asumiendo que no tiene imperativo (aunque casi todos lo tienen)
+     */
+    public static final String sinE_Imperativ = "sinE_Imperativ";
+    public static final String conE_Imperativ = "conE_Imperativ";
+    public static final String noTerminaConEN = "noTerminaConEN";
+    public String[] imperativ; //Sintaxis: {du, ihr, wir/Sie}
+    public boolean tieneImperativ = false;
+
+    /**
+     * Aquí se construyen los imperativos
+     * @param caso el tipo de imperativ.
+     */
+    public void setImperativ(String caso) {
+        if (this.tieneImperativ) {throw new NumberFormatException("Error: imperativ ya declarado");}
+        this.tieneImperativ = true;
+
+        if (!terminaConEN && caso.equals(noTerminaConEN)) {
+            this.imperativ = new String[]{
+                    verbstamm + "e",
+                    verbstamm + "t",
+                    verbstamm + "en"
+            };
+        } else if (terminaConEN && caso.equals(sinE_Imperativ)) {
+            this.imperativ = new String[]{
+                    verbstamm,
+                    verbstamm + "t",
+                    verbstamm + "en"
+            };
+        } else if (terminaConEN && caso.equals(conE_Imperativ)) {
+            this.imperativ = new String[]{
+                    verbstamm + "e",
+                    verbstamm + "et",
+                    verbstamm + "en"
+            };
+        } else {
+            throw new NumberFormatException("Error: Declaración de Imperativo inválido. ");
+        }
+
+        //Trennbare!
+        if (this.esTrennbare) {
+            for (int i = 0; i < this.imperativ.length; i++) {this.imperativ[i] += " " + this.prefijo;}
+        }
+    }
+
+    /**
+     * Imperativ irregular. Se agrega manualmente. Si el verbo es trennbare, NO se agrega el prefijo.
+     * @param imperativ el imperativ[].
+     */
+    public void setImperativ(String[] imperativ) {
+        if (tieneImperativ) {
+            throw new NumberFormatException("Error: Ya se había declarado un imperativ");
+        } else if (imperativ.length != 3) {
+            throw new NumberFormatException("Error: Imperativ inválido");
+        } else {
+            //Esto se implementa para asegurarnos que no se hayan incluido los prefijos en la declaración del imperativ.
+            for (String s : imperativ) {
+                if (s.contains(" ")) {
+                    throw new NumberFormatException("Error: declaración de Imperativ inválida. ");
+                }
+            }
+            this.imperativ = imperativ;
+            this.tieneImperativ = true;
+        }
+
+        //Trennbare!
+        if (this.esTrennbare) {
+            for (int i = 0; i < this.imperativ.length; i++) {this.imperativ[i] += " " + this.prefijo;}
+        }
+    }
+    //</Imperativ>
+
+
+
+
+    //<Konjunktiv I>
+    public String[] konjunktivI;
+
+    //Asume construcción regular
+    public void setKonjunktivI() {
+        if (!this.terminaConEN) {
+            throw new NumberFormatException(
+                    "Error: El konjunktiv I se debe de agregar manualmente para los verbos que no terminan con '-en'");
+        }
+
+        this.konjunktivI = new String[]{
+                this.verbstamm + "e",
+                this.verbstamm + "est",
+                this.verbstamm + "e",
+                this.verbstamm + "en",
+                this.verbstamm + "et",
+                this.verbstamm + "en",
+        };
+
+        if (this.esTrennbare) {
+            for (String s : this.konjunktivI) { s += " " + this.prefijo;}
+        }
+    }
+
+    /**
+     * En el (extraño) caso de que no tenga un konjunktiv I regular, aquí se agrega manualmente.
+     * @param konjunktivI el konjunktiv I.
+     */
+    public void setKonjunktivI(String[] konjunktivI) {
+        //No queremos que se pongan los prefijos aquí, como siempre.
+        for (String s : konjunktivI) {if (s.contains(" ")) {throw new NumberFormatException("Error: Sin prefijos!");}}
+
+        this.konjunktivI = konjunktivI;
+
+        if (this.esTrennbare) {
+            for (String s : this.konjunktivI) { s += " " + this.prefijo;}
+        }
+    }
+    //</Konjunktiv I>
+
+
+
+
+    //<Partizip I>
+    public String partizipI;
+
+    //Agrega Partizip I, asumiendo que sea regular. Casi todos los verbos lo son.
+    public void setPartizipI() {
+        partizipI = this.infinitiv + "d";
+    }
+
+    //Si no es regular se agrega. Súper simple
+    public void setPartizipI(String partizipI) {
+        this.partizipI = partizipI;
+    }
+    //</Partizip I>
+
+
+
+
+    //<Significado>
     public significadoVer[] significados; //Cada entrada es un significado diferente
 
     /**
-     * Entendiendo que cana verbo puede tener varios significados / usos distintos, se agregan individualmente de la próxima manera:
+     * Entendiendo que cada verbo puede tener varios significados / usos distintos, se agregan individualmente de la próxima manera:
      * @param significado el significado del verbo
      * @param oraciones oraciones en alemán y español demostrando el uso del verbo.
      * @param auxiliar En caso de que haya declinaciones, sea reflexivo, use una preposición, u otro detalle, se agrega aquí. Si no, se deja como null.
@@ -293,14 +499,28 @@ public class Ver extends Palabra{
         }
         significados[significados.length - 1] = new significadoVer(significado, oraciones, auxiliar, comentarios);
     }
+
     public void definir() {
+        System.out.println(this.verbo + " [" + this.partizipI + "-, " + this.perfekt[2] + "]");
         for (int i = 0; i < this.significados.length; i++) {
             significadoVer actual = this.significados[i];
-            System.out.print(i + ". ");
+            System.out.print((i+1) + ". ");
             actual.definir(this);
         }
+        System.out.println();
+        ArrayList<String[]> info = new ArrayList<>();
+        info.add(concatenarLargo(new String[]{"Präsens "}, this.präsens));
+        info.add(concatenarLargo(new String[]{"Präteritum "}, this.präteritum));
+        info.add(concatenarLargo(new String[]{"Konjunktiv I "}, this.konjunktivI));
+        info.add(concatenarLargo(new String[]{"Konjunktiv II "}, this.konjunktivII));
+        String[] imperativ = {"Imperativ", "---", this.imperativ[0], "---", this.imperativ[2], this.imperativ[1], this.imperativ[2]};
+        info.add(imperativ);
+        Control.arrPrint(concatenarAncho(info));
     }
-    //todo: /Significado
+    //</Significado>
+
+
+
 
     /**
      * Aquí se definen todos los verbos.}
@@ -315,16 +535,57 @@ public class Ver extends Palabra{
         sein.setPräteritum("war", vacío);
         sein.setPartizipPerfekt("gewesen"); //Siempre se agrega manualmente
         sein.setHilfsverbSein(); //Siempre asumimos que el hilfsverb es "haben". Si no lo es, usamos este comando.
-        //sein.setKonjunktivII([algo va aquí]);
-        //sein.setImperativ([algo va aquí]);
-        //sein.addSignificado("ser; estar", new String[]{"Ich bin 21 Jahre alt.", "Bist du da?"}, null, 0);
-        //Formato es: [1] Meaning string, [2] Oracion array, [3] declinación. [4] reflexivo 1,0
+        sein.setKonjunktivII(new String[]{"wäre", "wärest", "wäre", "wären", "wäret", "wären"});
+        sein.addTag("hilfsverb");
+        sein.setImperativ(new String[]{"sei", "seid", "seien"}); //imperativ irregular
+        sein.setPartizipI("seiend");
+        sein.setKonjunktivI(new String[]{"sei", "seiest", "sei", "seien", "seiet", "seien"});
+        sein.addSignificado("ser; estar", new String[][]{
+                {"Ich bin hier", "Estoy aquí"},
+                {"Ich bin da gefahren", "He viajado ayá"}
+        }, null, new String[]{"De los verbos más comunes del alemán."});
 
         //Ver vorstellen = new Ver("vor|stellen",T);
         //vorstellen.set
 
+        /**
+         * Liste:
+         * geben
+         * lesen
+         * sehen
+         * sein
+         * tun
+         * wechseln
+         * arbeiten
+         * haben
+         * werden
+         * machen
+         * kommen
+         * tun
+         * sagen
+         * fahren
+         * reden
+         * laufen
+         * wissen
+         * heißen
+         * denken
+         * ziehen
+         * nennen
+         * sollen
+         * wollen
+         */
+
     }
 
+
+
+
+    /**
+     * Se define el Megamap: Diccionario organizado con todos los verbos.
+     * Ex: megamap.get(tag) = [Hashmap con todos los verbos tipo tag. Llámese "temap"]
+     * Ex. temap.get(verbo) = [Objeto Ver]
+     */
+    public static HashMap<String, HashMap<String, Ver>> megamap;
     public static void posprocesamiento() {
         //Creamos una lista de todos los temas/tags usados
         HashMap<String, Boolean> temas = new HashMap<String, Boolean>();
@@ -335,15 +596,99 @@ public class Ver extends Palabra{
             }
         }
 
-        //HashMap Pick up here!
 
+        megamap = new HashMap<>();
+        for (String tema : temas.keySet()) {
+            HashMap<String, Ver> temap = new HashMap<String, Ver>();
+            megamap.put(tema, temap);
+        }
 
-        System.out.println("Todavía no llegamos aquí lel");
+        //posprocesamiento!
+        for (String verbo : TodosLosVerbos.keySet()) {
+            Ver actual = TodosLosVerbos.get(verbo);
+
+            //Se llena el megamap:
+            for (String tag : actual.tags) {
+                megamap.get(tag).put(verbo, actual);
+            }
+
+            //Se agrega el Konjunktiv II
+            if (actual.konjunktivII == null) {
+                actual.setKonjunktivII();
+            }
+
+            //Se agrega perfekt
+            actual.setPerfekt();
+        }
+
     }
 
 
 
+    /**
+     * Inicializa la clase Verbos. Esto se debe ejecutar antes de usar la clase.
+     */
+    public static void inicializar() {
+        crearVerbos();
+        posprocesamiento();
+    }
 
+
+    /**
+     * Muestra una tabla completa con toda la información sobre el verbo.
+     * Se usa para revisar que los datos de la palabra se hayan agregado correctamente.
+     */
+    public void mostrarConjugaciones() {
+        System.out.println(this.verbo + " [" + this.partizipI + "-, " + this.perfekt[2] + "]");
+
+
+
+    }
+
+
+    public static String[] concatenarLargo(String[] a, String[] b) {
+        String[] out = new String[a.length + b.length];
+        for (int i = 0; i < a.length; i++) {
+            out[i] = a[i];
+        }
+        for (int j = a.length; j < out.length; j++) {
+            out[j] = b[j-a.length];
+        }
+        return out;
+    }
+
+
+    /**
+     * Concatena String[] para crear una String[] grande.
+     *
+     * Ej: Pasando { {1,2,3}, {a,b,c,d,e}, {9,8,7,6}} regresaría el siguiente string[][]
+     * {1,  a,  9 }
+     * {2,  b,  8 }
+     * {3,  c,  7 }
+     * {"", d,  6 }
+     * {"", 3,  ""}
+     *
+     * @param in input
+     * @return el String[][] grande. No se le agregan espacios.
+     */
+    public static String[][] concatenarAncho(ArrayList<String[]> in) {
+        int maxLength = -1;
+        for (String[] s : in) {
+            if (s.length > maxLength) {
+                maxLength = s.length;
+            }
+        }
+        String[][] out = new String[maxLength][in.size()];
+
+        for (int j = 0; j < in.size(); j++) {
+            for (int i = 0; i < maxLength; i++) {
+                String[] actual = in.get(j);
+                if (i < actual.length) {out[i][j] = actual[i];} else {out[i][j] = "";}
+            }
+        }
+
+        return out;
+    }
 
 
 
@@ -365,5 +710,16 @@ public class Ver extends Palabra{
     }
 
 
+
+    public static void main(String[] args) {
+        inicializar();
+        //String[] a = {"1", "2", "3"};
+        //String[] b = {"a", "b", "c", "d"};
+        //System.out.println(Arrays.toString(concatenarLargo(a,b)));
+
+        Ver sein = megamap.get("hilfsverb").get("sein");
+        sein.definir();
+
+    }
 
 }

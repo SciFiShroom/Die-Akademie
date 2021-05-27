@@ -2,39 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c67d7db2-f21a-48fb-b674-1a9e23769dd4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/scifishroom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ControlDos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ver[backup].txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/significadoVer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/scifishroom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/scifishroom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Adj.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Adj.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Consola.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Consola.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/ConsolaCerradaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/ConsolaCerradaException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Control.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ejer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$IteradorDeLista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lista$IteradorDeLista.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Lista.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Lista.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Pal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Palabra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Palabra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Sus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/TipoInválidoException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/TipoInválidoException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Consola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consola.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ejer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ejer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ControlDos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ControlDos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/significadoVer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/significadoVer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +160,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
-  <component name="RunManager" selected="Application.Control">
+  <component name="RunManager" selected="Application.Ver">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -214,6 +186,14 @@
     </configuration>
     <configuration name="Lista" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Lista" />
+      <module name="Die-Akademie" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Ver" />
       <module name="Die-Akademie" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -264,9 +244,11 @@
       <item itemvalue="Application.Control" />
       <item itemvalue="Application.test" />
       <item itemvalue="Application.Lector" />
+      <item itemvalue="Application.Ver" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Ver" />
         <item itemvalue="Application.Control" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.Lector" />
