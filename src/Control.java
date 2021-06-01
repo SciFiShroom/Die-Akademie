@@ -422,9 +422,22 @@ public class Control {
     } //Checa si una lista contiene una palabra
 
 
-
-    //Fancy print for string arrays
-    public static void arrPrint(String[][] arr){
+    /**
+     * Fancy printer for string double arrays. Assumes rectangular input array.
+     *
+     * Por ejemplo: {{a, bb, ccc}, {dd, eeee, f}} con espacio=0 imprimiría: (sin '[' o ']')
+     * [a   dd  ]
+     * [bb  eeee]
+     * [ccc f   ]
+     *
+     * Con espacio n=3, daría:
+     * [a      dd  ]
+     * [bb     eeee]
+     * [ccc    f   ]
+     * @param arr el array rectangular
+     * @param espacio número de espacios " " entre columnas. Si no se define, el default es 1.
+     */
+    public static void arrPrint(String[][] arr, int espacio){
         int[] length = new int[arr[0].length];
 
         //for (int i : length) {i = 0;}
@@ -444,11 +457,20 @@ public class Control {
                 for (int k = 0; k < (length[j]-arr[i][j].length()); k++) {
                     System.out.print(" ");
                 }
-                System.out.print(" ");//Un espacio ménimo entre columnas
+                //Espacio entre columnas.
+                for (int e = 0; e < espacio; e++) {System.out.print(" ");}
             }
             System.out.println();
         }
         //we good
+    }
+
+    /**
+     * Igual que el otro; solo asume que no hay espacio adicional.
+     * @param arr el array rectangular.
+     */
+    public static void arrPrint(String[][] arr) {
+        Control.arrPrint(arr,1);
     }
 
     //convierte un String[] ineal a un String[][] bidimensional con anchura 'anchura'

@@ -17,18 +17,20 @@ public class significadoVer {
     }
 
     public void definir(Ver verbo) {
-                if (auxiliar != null) {
+        if (auxiliar != null) {
             System.out.print(" (" + auxiliar + ") ");
         }
         System.out.println(significado);
         for (int i = 0; i < oraciónes.length; i++) {
-            System.out.println("\"" + oraciónes[i][0] + "\"");
-            System.out.println("\"" + oraciónes[i][1] + "\"");
+            System.out.println("        \"" + oraciónes[i][0] + "\"");
+            System.out.println("        \"" + oraciónes[i][1] + "\"");
             System.out.println();
         }
         //System.out.println();
-        for (String com : commentarios) {System.out.println(com);}
-        System.out.println("Tags: " + Arrays.toString(verbo.tags));
+        if (this.commentarios != null) {
+            for (String com : commentarios) {System.out.println("    " + com);}
+        }
+        System.out.println("    Tags: " + Arrays.toString(verbo.tags));
     }
 
 }

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c67d7db2-f21a-48fb-b674-1a9e23769dd4" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GranListaDeVerbos/9.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/scifishroom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/scifishroom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ControlDos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ControlDos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Die-Akademie/Ver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/significadoVer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/significadoVer.java" afterDir="false" />
     </list>
@@ -302,6 +304,18 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Pal.java">
