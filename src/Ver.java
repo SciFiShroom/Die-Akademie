@@ -88,10 +88,12 @@ public class Ver extends Palabra{
     /**
      * Hay cuatro casos.
      *
-     * Caso A: Verbos como machen, kommen, y sagen. Verbstamm + [conjugación].
-     * Caso B: Verbos como sehen, fahren, y laufen. Verbstamm cambia para du y er.
-     * Caso C: Verbos como arbeiten, reden, y antworten: Verbstamm + [Conjugación distinta]
-     * Caso D: Verbos como tun, sein, y werden. No terminan en "-en", o no siguen ninguna regla.
+     * 1. "SsinE":    Verbos como machen, kommen, y sagen. Verbstamm + [conjugación].
+     * 2. "SconE":    Verbos como arbeiten, reden, y antworten: Verbstamm + [Conjugación distinta, que lleva una 'e' adicional]
+     * 3. "<raíz>":   Verbos como sehen, fahren, y laufen. Verbstamm cambia para du y er, pero por lo demás son predecibles
+     * 4. "Sern":     Verbos como fordern, ändern, y steuern. Terminan con '-ern' y siguen una conjugación predecible.
+     * 5. "Seln":     Verbos como handeln, wechseln, y bummeln. Terminan con 'eln', y siguen una conjugación predecible (y distinta al tipo 4)
+     * 6. <String[]>: Verbos como tun, sein, y werden. No terminan en "-en", o no siguen ninguna regla.
      */
     public static final String PsinE_Präsens = "sinE_Präsens";
     public static final String PconE_Präsens = "conE_Präsens";
@@ -105,7 +107,7 @@ public class Ver extends Palabra{
      */
     public void setPräsens(String aux) {
         if (!this.terminaConEN) {
-            throw new NumberFormatException("Error: El verbo " + this.verbo + "no tiene präteritum regular. Revisar definición.");
+            throw new NumberFormatException("Error: El verbo " + this.verbo + "no tiene präsens regular. Revisar definición.");
         }
 
         String sufijo;
@@ -692,12 +694,173 @@ public class Ver extends Palabra{
 
 
     /**
+     * Método para hacer debugging. Se usa para revisar que las palabras se hayan agregado correctamente
+     * [sin errores ortográficos u omisiones]
+     * @param tema el tema que se quiere revisar.
+     */
+    public static void definirTema(String tema) {
+        HashMap<String, Ver> temap = megamap.get(tema);
+        if (temap == null) {
+            System.out.println("Error: Tema no existe");
+            return;
+        }
+
+        System.out.println("Presione [Enter] para avanzar la lista");
+
+        int num = temap.keySet().size();
+        int counter = 0;
+        Scanner sc = new Scanner(System.in);
+        for (String s : temap.keySet()) {
+            counter++;
+            System.out.println("(" + counter + "/" + num + ") ");
+            Ver actual = temap.get(s);
+            actual.definir();
+            sc.nextLine();
+            System.out.println("==================================================================================");
+        }
+    }
+
+
+    /**
+     * Busca el verbo en la lista de los 2000 verbos más comunes. Dice si existe (y donde), o si no se encuentra.
+     * @param verbo el infinitivo del verbo que buscas.
+     */
+    public static void dosMilVerbos(String verbo) {
+        //Este programita buscará el verbo en la lista de 2000 verbos y regresará el número, si aparece.
+
+        System.out.print(verbo + ": ");
+        for (int i = 1; i <= 9; i++) {
+            String nombre = i + ".txt";
+            File file;
+            try {
+                file = new File("/home/scifishroom/IdeaProjects/Die-Akademie/src/GranListaDeVerbos/" + nombre);
+                Scanner sc = new Scanner(file);
+
+                int counter = 1;
+                while (true) {
+                    if (sc.nextLine().equals(verbo)) {
+                        System.out.println("i = " + i + ", counter = " + counter + "; num = " + ((250*(i-1))+counter) );
+                        return;
+                    }
+                    counter++;
+                }
+
+            } catch (Exception e) {}
+        }
+        System.out.println("¡No se encontró!");
+
+    }
+
+
+
+    /**
+     * temp. muestra la primera palabra todavía no implementada.
+     */
+    public static void próximaPalabra() {
+        for (int i = 1; i <= 9; i++) {
+            String nombre = i + ".txt";
+            File file;
+            try {
+                file = new File("/home/scifishroom/IdeaProjects/Die-Akademie/src/GranListaDeVerbos/" + nombre);
+                Scanner sc = new Scanner(file);
+
+                int counter = 1;
+                while (true) {
+                    //revisamos si ya se agregó este verbo
+                    String s = sc.nextLine();
+                    int n = (250*(i-1))+counter;
+                    int t = (int)Math.ceil((double)n/20);
+                    String ß = Integer.toString(t);
+                    //System.out.println(megamap.get(ß).get(s));
+
+
+                    boolean foo = true; //Se asume que el verbo no se ha agregado, hasta que se demuestre que sí lo haya sido.
+                    try {
+                        foo = !megamap.get(Integer.toString(t)).containsKey(s);
+                    } catch (Exception e) {
+                        //No existe el grupo! Esto debe de permanecer vacío
+                    }
+                    if (foo) {
+                        System.out.println("Próximo verbo: " + s + "[n=" + n + "]");
+                        return;
+                    }
+                    counter++;
+                }
+
+            } catch (Exception e) {}
+        }
+        System.out.println("Todo agregado!");
+    }
+
+
+
+    /**
      * Aquí se definen todos los verbos.}
      */
     public static void crearVerbos() {
         String[] T;
 
         //Habrá 100 grupos, cada uno con 20 verbos. Estoy 100.01% seguro que los agregaré todos
+
+
+
+
+        T = new String[]{"0"}; //lugar de almacenamiento para los verbos
+        Ver anwenden = new Ver("an|wenden", T);
+        anwenden.addTag("usar");
+        anwenden.addSignificado("aplicar; emplear [un método; una regla]", null, new String[][]{
+                {"Das theorie wendet in diesem System nicht an.", "El teorema no aplica en este sistema. "},
+                {"Wir werden Ockhams Rasiermesser anwenden.", "Aplicaremos la navaja de Occam."}
+        }, new String[]{
+                "Se usa de manera similar a 'gelten', que significa 'tener validez', pero no son sinónimos.",
+                "No se confunde con 'verwenden', que significa 'usar'. "
+        });
+
+
+        Ver wohnen = new Ver("wohnen", T);
+        wohnen.addSignificado("vivir", "wohnen in +Dat", new String[][]{
+                {"Ich wohne im dritten Stock.", "Vivo en el tercer piso"},
+                {}
+        }, new String[]{
+                "Muy similar a 'leben', pero normalmente solo se usa para indicar el hogar físico en el que se vive. ",
+                "'Vivo en alemania' sería con 'leben', no con 'wohnen'."
+        });
+
+
+        Ver ansehen = new Ver("an|sehen", T);
+
+
+        Ver anfangen = new Ver("an|fangen", T);
+
+
+        Ver ankommen = new Ver("an|kommen", T);
+
+
+        Ver legen = new Ver("legen", T);
+        legen.addTag("colocar");
+
+        Ver liegen = new Ver("liegen", T);
+        liegen.addTag("colocar");
+
+        Ver hängen = new Ver("hängen", T);
+        hängen.addTag("colocar");
+
+        //Ver hängen2 = new Ver("hängen", T);
+        //hängen2.addTag("colocar");
+
+        Ver setzen = new Ver("setzen", T);
+        setzen.addTag("colocar");
+
+        Ver sitzen = new Ver("sitzen", T);
+        sitzen.addTag("colocar");
+
+
+
+
+
+
+
+        //todo: Marcador: comienzo de los verbos.
         T = new String[]{"1"}; //Revisado 1 Junio 2021
 
 
@@ -940,8 +1103,8 @@ public class Ver extends Palabra{
 
         Ver finden = new Ver("finden", T);
         finden.setPräsens(PconE_Präsens);
-        finden.setPräteritum("fand", vacío);
-        finden.setImperativ(IconE_Imperativ);
+        finden.setPräteritum(new String[]{"fand", "fandest", "fand", "fanden", "fandet", "fanden", });
+        finden.setImperativ(new String[]{"find", "findet", "finden"});
         finden.setPartizipPerfekt("gefunden");
         finden.setKonjunktivII(new String[]{"fände", "fändest", "fände", "fänden", "fändet", "fänden"});
         finden.addSignificado("encontrar", null, new String[][]{
@@ -1015,7 +1178,7 @@ public class Ver extends Palabra{
         Ver verwenden = new Ver("verwenden", T);
         verwenden.setPräsens(PconE_Präsens);
         verwenden.setPräteritum("verwand", noVacío);
-        verwenden.setImperativ(IconE_Imperativ);
+        verwenden.setImperativ(new String[]{"verwend", "verwendet", "verwenden"});
         verwenden.setPartizipPerfekt("verwandt");
         verwenden.addSignificado("usar [algo]", null, new String[][]{
                 {"Wie wird dieses Werkzeug verwendet?", "¿Cómo se usa esta herramienta?"},
@@ -1026,29 +1189,296 @@ public class Ver extends Palabra{
         verwenden.addTag("usar");
 
 
+
+
+
         T = new String[]{"2"};
 
 
-        Ver anwenden = new Ver("an|wenden", new String[]{"0"});
-        anwenden.addTag("usar");
-        anwenden.addSignificado("aplicar; emplear [un método; una regla]", null, new String[][]{
-                {"Das theorie wendet in diesem System nicht an.", "El teorema no aplica en este sistema. "},
-                {"Wir werden Ockhams Rasiermesser anwenden.", "Aplicaremos la navaja de Occam."}
+        Ver wollen = new Ver("wollen", T);
+        wollen.setPräsens(new String[]{"will", "willst", "will", "wollen", "wollt", "wollen"});
+        wollen.setPräteritum();
+        wollen.setImperativ(false);
+        wollen.setPartizipPerfekt("gewollt");
+        wollen.setKonjunktivII(new String[]{"wollte", "wolltest", "wollte", "wollten", "wolltet", "wollten"});
+        wollen.addSignificado("querer [hacer algo; tener algo]", "Modalverb", new String[][]{
+                {"Ich will eine Torte", "Quiero un pastel."},
+                {"Willst du einen Film mit mir sehen?", "¿Quieres ver una película conmigo?"},
+                {"Ich wollte immer eine Katze.","Siempre quise un gato."}
         }, new String[]{
-                "Se usa de manera similar a 'gelten', que significa 'tener validez', pero no son sinónimos.",
-                "No se confunde con 'verwenden', que significa 'usar'. "
+                "El konjunktiv II de 'wollen' y 'sollen' es igual que el Präteritum. Sin embargo, ",
+                "no se suele usar la construcción 'würden' para expresar el konjunktiv II con estos dos verbos. "}
+        );
+
+
+        Ver leben = new Ver("leben", T);
+        leben.setPartizipPerfekt("gelebt");
+        leben.setPräsens(PsinE_Präsens);
+        leben.setPräteritum();
+        leben.setImperativ(IsinE_Imperativ);
+        leben.addSignificado("vivir", "leben in +Dat", new String[][]{
+                {"Ich wohne in Deutschland.", "Vivo en alemania."},
+                {"Er lebt für die Kunst.", "El vive para el arte."},
+                {"Ich habe nie allein gelebt.", "Nunca he vivido solo"}
+        }, new String[]{
+                "'leben' comparte significado con 'wohnen', pero 'leben' es mucho más general, y siempre funciona."
         });
 
 
-        Ver ansehen = new Ver("an|sehen", new String[]{"0"});
+        Ver verscheiden = new Ver("verscheiden", T);
+        verscheiden.setPräsens(PconE_Präsens);
+        verscheiden.setPräteritum("verschied", vacío);
+        verscheiden.setHilfsverbSein();
+        verscheiden.setImperativ(IconE_Imperativ);
+        verscheiden.setPartizipPerfekt("verschieden");
+        verscheiden.addSignificado("fallecer", null, new String[][]{
+                {"Sie verschied nach langer Krankenheit.", "Falleció después de una enfermedad larga."}
+        }, new String[]{
+                "Sinónimo de 'versterben', aunque se usa menos. Similar a 'sterben', que significa 'morir'.",
+        });
 
 
-        Ver anfangen = new Ver("an|fangen", new String[]{"0"});
+        Ver kommen = new Ver("kommen", T);
+        kommen.setHilfsverbSein();
+        kommen.setPräsens(PsinE_Präsens);
+        kommen.setPräteritum("kam", vacío);
+        kommen.setImperativ(IsinE_Imperativ);
+        kommen.setPartizipPerfekt("gekommen");
+        kommen.setKonjunktivII(new String[]{"käme", "kämest", "käme", "kämen", "kämet", "kämen"});
+        kommen.addSignificado("venir", null, new String[][]{
+                {"Wir kommen aus dem Kino.", "Venimos del cine. "},
+                {"Alles sind zur Party gekommen.", "Todos vinieron a la fiesta."}
+        }, new String[]{
+                "No se confunde con 'ankommen', que significa 'llegar'."
+        });
 
 
+        Ver erstellen = new Ver("erstellen", T);
+        erstellen.setPräsens(PsinE_Präsens);
+        erstellen.setPräteritum();
+        erstellen.setImperativ(IsinE_Imperativ);
+        erstellen.setPartizipPerfekt("erstellt");
+        erstellen.addSignificado("crear, construir", "informática", new String[][]{
+                {"Erstellen Sie eine Datei auf dem Computer", "Cree un archivo en la computadora. "},
+        }, new String[]{
+                "Muy similar a 'bauen' y 'schaffen'. pero solo suele usarse en contextos de informática",
+        });
 
 
+        Ver erhalten = new Ver("erhalten", T);
+        erhalten.setPräsens("erhäl");
+        erhalten.setPräteritum("erhielt", vacío);
+        erhalten.setPartizipPerfekt("erhalten");
+        erhalten.setImperativ(new String[]{"erhalt", "erhaltet", "erhalten"});
+        erhalten.addSignificado("recibir; conseguir", null, new String[][]{
+                {"Er erhielt das Fahrrad als Geburtstagsgeschenk.", "El recibió la bicicleta como regalo de cumpleaños. "}
+        }, new String[]{
+                "Significa lo mismo que 'bekommen' y 'kriegen', pero no se usa tan frecuentemente, y no siempre se puede usar.",
+                "Por ejemplo, puedes decir 'Kopfschmerzen bekommen', pero no 'Kopfschmerzen erhalten'. "
+        });
+        erhalten.addSignificado("conservar [mantener en buen estado]", null, new String[][]{
+                {"Der Kathedrale ist sehr gut erhalten", "La catedral está muy bien conservada. "},
+        }, new String[]{
+                "No se confunde con 'halten', que significa 'mantener'. "
+        });
 
+
+        Ver sollen = new Ver("sollen", T);
+        sollen.addTag("modalverb");
+        sollen.setPräsens(new String[]{"soll", "sollst", "soll", "sollen", "sollt", "sollen"});
+        sollen.setPräteritum();
+        sollen.setImperativ(false);
+        sollen.setPartizipPerfekt("gesollt");
+        sollen.setKonjunktivII(new String[]{"sollte", "solltest", "sollte", "sollten", "solltet", "sollten"});
+        sollen.addSignificado("deber [hacer algo]", "modalverb", new String[][]{
+                {"Wir sollten in Kino gehen. ", "Deberíamos ir al cine."},
+                {"Ich sollte nicht so viel essen.", "No debí de haber comido tanto."}
+        }, new String[]{
+                "El konjunktiv II de 'sollen' y 'wollen' es igual que el Präteritum. Sin embargo, ",
+                "no se suele usar la construcción 'würden' para expresar el konjunktiv II con estos dos verbos. "
+        });
+
+
+        Ver ändern = new Ver("ändern", T);
+        ändern.setPräsens(new String[]{"ändere", "änderst", "ändert", "ändern", "ändert", "ändern"});
+        ändern.setPräteritum("ändert", noVacío);
+        ändern.setImperativ(new String[]{"ändere", "ändert", "ändern"});
+        ändern.setPartizipPerfekt("geändert");
+        ändern.setKonjunktivI(new String[]{"ändere", "änderest", "ändere", "ändern", "ändert", "ändern"});
+        ändern.addSignificado("cambiar", "ändern; sich ändern", new String[][]{
+                {"Du hast dich sehr geändert.", "Has cambiado mucho."},
+                {"Er änderte seine Meinung nach der Präsentation.", "Cambió de opinión tras verl la presentación."}
+        }, null);
+
+
+        Ver stellen = new Ver("stellen", T);
+        stellen.addTag("colocar");
+        stellen.setPräsens(PsinE_Präsens);
+        stellen.setPräteritum();
+        stellen.setImperativ(IsinE_Imperativ);
+        stellen.setPartizipPerfekt("gestellt");
+        stellen.addSignificado("poner; colocar", null, new String[][]{
+                {"Stell die Flasche auf den Tisch.", "Pon la botella en las mesa."},
+                {"Ich möchte dich eine Frage stellen.", "Me gustaría ponerte una una pregunta."}
+        }, new String[]{
+                "Véase 'colocar'"
+        });
+
+
+        Ver fragen = new Ver("fragen", T);
+        fragen.setPräsens(PsinE_Präsens);
+        fragen.setPräteritum();
+        fragen.setImperativ(IsinE_Imperativ);
+        fragen.setPartizipPerfekt("gefragt");
+        fragen.addSignificado("preguntar", "fragen + Akk", new String[][]{
+                {"Ich muss dich fragen, wo schneidest du deine Haare?", "Te tengo que preguntar, ¿dónde te cortas el pelo?"},
+                {"Ich frage mich, wohin er gegangen ist.", "Me pregunto a donde se habrá ido."}
+        }, null);
+
+
+        Ver enthalten = new Ver("enthalten", T);
+        enthalten.setPräsens("enthäl");
+        enthalten.setPräteritum("enthielt", noVacío);
+        enthalten.setImperativ(IconE_Imperativ);
+        enthalten.setPartizipPerfekt("enthalten");
+        enthalten.addSignificado("contener", null, new String[][]{
+                {"Diese Truhe enthält einen großen Schatz.", "Este cofre contiene un gran tesoro."}
+        }, null);
+        enthalten.addSignificado("abstener", "sich enthalten", new String[][]{
+                {"Ich habe mich der Stimme enthalten", "Me abstuve de votar."},
+        }, null);
+
+
+        Ver stehen = new Ver("stehen", T);
+        stehen.addTag("colocar");
+        stehen.setPräsens(PsinE_Präsens);
+        stehen.setPräteritum(new String[]{"stand", "standst", "stand", "standen", "standet", "standen"});
+        stehen.setImperativ(IsinE_Imperativ);
+        stehen.setPartizipPerfekt("gestanden");
+        stehen.addSignificado("estar [parado]; estar [en un estado]", null, new String[][]{
+                {"Die Flache steht auf dem Tisch.", "La botella está sobre la mesa."},
+                {"Der Tank steht under Druck.", "El tanque está bajo presión."},
+                {"Es steht im Vertrag.", "Está en el contrato. "},
+                {"Ich stehe hinter dir!", "¡Te apoyo!"}
+        }, new String[]{
+                "'stehen' es de esas palabras que tienen mil significados diferentes."
+        });
+
+
+        Ver meinen = new Ver("meinen", T);
+        meinen.setPräsens(PsinE_Präsens);
+        meinen.setPräteritum();
+        meinen.setImperativ(IconE_Imperativ);
+        meinen.setPartizipPerfekt("gemeint");
+        meinen.addSignificado("decir; creer; opinar", null, new String[][]{
+                {"Was meinst du über das Thema 'erneuerbare Energie'?", "¿Qué opinas del tema 'energía renovable'?"},
+                {"Meinst du das im Ernst?", "¿Lo dices enserio?"}
+        }, new String[]{
+                "Comparte mucho significado con palabras como 'sagen', 'glauben', y 'äußern', pero no siempre son intercambiables."
+        });
+
+
+        Ver führen = new Ver("führen", T);
+        führen.setPräsens(PsinE_Präsens);
+        führen.setPräteritum();
+        führen.setImperativ(IconE_Imperativ);
+        führen.setPartizipPerfekt("geführt");
+        führen.addSignificado("dirigir; guiar [a algún lado]; llevar", null , new String[][]{
+                {"Er führt uns durch den Wald. ", "El no dirigió a través del bosque. "},
+                {"Diese Straße führt nach München.", "Esta carretera te lleva a München. "},
+                {"Der Plan würde nur zu Probleme führen.", "El plan solo llevaría a problemas. "}
+        }, new String[]{
+                "Muy similar a 'leiten', aunque 'führen' suele se más general."
+        });
+
+
+        Ver sondern = new Ver("sondern", T);
+        sondern.setPräsens(new String[]{"sondere", "sonderst", "sondert", "sondern", "sondert", "sondern"});
+        sondern.setPräteritum(new String[]{"sonderte", "sondertest", "sonderte", "sonderten", "sondertet", "sonderten"});
+        sondern.setImperativ(noTerminaConEN);
+        sondern.setPartizipPerfekt("gesondert");
+        sondern.setKonjunktivI(new String[]{"sondere", "sonderest", "sondere", "sondern", "sondert", "sondern"});
+        sondern.addSignificado("separar; apartar [crear divisiones dentro de un grupo de personas u objetos]", null, new String[][]{
+                {"Sie haben die toten Pflanzen von der gesunden sondern. ", "Han separado las plantas muertas de las sanas. "}
+        }, new String[]{
+                "Palabra vieja; Normalmente, se usa 'trennen', que significa lo mismo."
+        });
+
+
+        Ver arbeiten = new Ver("arbeiten", T);
+        arbeiten.setPräsens(PconE_Präsens);
+        arbeiten.setPräteritum();
+        arbeiten.setImperativ(IconE_Imperativ);
+        arbeiten.setPartizipPerfekt("gearbeitet");
+        arbeiten.addSignificado("trabajar", "arbeiten als + ...; arbeiten an +Dat", new String[][]{
+                {"Er arbeitet als Profesor an einer Universität.", "El trabaja como profesor en una universidad."},
+                {"Woran arbeitest du?", "¿En qué trabajas?"},
+                {"Wir sind zusammen an dieser Aufgabe arbeiten.", "Estamos trabajando juntos en esta tarea."}
+        }, null);
+
+
+        Ver halten = new Ver("halten", T);
+        halten.setPräsens("hält");
+        halten.setPräteritum(new String[]{"hielt", "hieltst", "hielt", "hielten", "hieltet", "hielten"});
+        halten.setImperativ(IconE_Imperativ);
+        halten.setPartizipPerfekt("gehalten");
+        halten.addSignificado("parar; detener / aguantar", null, new String[][]{
+                {"Halte da!", "¡Detente ahí!"},
+                {"Der Bus hielt nicht.", "El autobús no se detuvo."},
+                {"Ihre Freundschaft hat nicht lange gehalten", "Su amistad no aguantó mucho."},
+                {"Mit diesen Vorkehrungen wird die Brücke noch einige Jahre halten.", "Con estos arreglos aguantará el puente varios años más."}
+        }, new String[]{
+                "'halten' es de esas palabras que tienen un montón de significados y usos. ",
+                "No te sorprendas si vez el verbo usado en otro contexto."
+        });
+
+
+        Ver nehmen = new Ver("nehmen", T);
+        nehmen.setPräsens("nimm");
+        nehmen.setPräteritum("nahm", vacío);
+        nehmen.setImperativ(new String[]{"nimm", "nehmt", "nehmen"});
+        nehmen.setPartizipPerfekt("genommen");
+        nehmen.addSignificado("tomar; coger / llevar", "nehmen + Akk", new String[][]{
+                {"Sie hat seine Medizin genommen.", "Se tomó su medicina."},
+                {"Ich nahm ein Taxi", "Tomé un taxi."},
+                {"Nimm den Kuchen.", "Llevate el pastel."}
+        }, new String[]{
+                "No se confunde con 'trinken', que significa 'tomar [un líquido]'. "
+        });
+
+
+        Ver bringen = new Ver("bringen", T);
+        bringen.setPräsens(PsinE_Präsens);
+        bringen.setPräteritum("brach", noVacío);
+        bringen.setImperativ(IsinE_Imperativ);
+        bringen.setPartizipPerfekt("gebracht");
+        bringen.setKonjunktivII(new String[]{"brächte", "brächtest", "brächte", "brächten", "brächtet", "brächten"});
+        bringen.addSignificado("llevar [algo a un lugar]; traer [algo a un lugar]", null, new String[][]{
+                {"Er hat den Koffer zum Bahnhof gebracht.", "Se llevó la maleta a la estación de trenes. "},
+                {"Ich bringe eine gute Nachricht!", "¡Traigo buenas noticias!"},
+                {"Soll ich dich nach Hause bringen?", "¿Te llevo a la casa?"}
+        }, null);
+
+
+        Ver helfen = new Ver("helfen", T);
+        helfen.setPräsens("hilf");
+        helfen.setPräteritum("half", vacío);
+        helfen.setImperativ(new String[]{"hilf", "helft", "helfen"});
+        helfen.setPartizipPerfekt("geholfen");
+        helfen.addSignificado("ayudar", "helfen + Dat", new String[][]{
+                {"Kann ich Ihnen helfen?", "¿Puedo ayudarle?"},
+                {"Dies hat mir sehr geholfen.", "Esto me ha ayudado mucho."},
+                {"Hilf mir!", "¡Ayúdame!"}
+        }, null);
+        helfen.addSignificado("servir [a alguien]", "helfen + Dat", new String[][]{
+                {"Hat dir die Medizin geholfen?", "¿Te ha servido la medicina?"},
+        }, new String[]{
+                "Muy similar a 'dienen', que también significa 'servir'.",
+                "Se diferencian en que 'helfen' requiere sujeto dativo [servir a alguien], mientras que 'dienen' solo significa 'servir'.",
+                "'El cable no sirve' sería con 'dienen', no con 'helfen'. "
+        });
+
+        //todo: Marcador: Fin de los verbos
 
         /**
          * Lista (no oficial) de TAGS utilizados:
@@ -1070,16 +1500,17 @@ public class Ver extends Palabra{
          *  - anschauen  sinónimo de ansehen.
          */
 
-
         /**
          * Palabras: Usar
+         *
+         *  - gelten: Tener validez; ser válido.
          *  - nutzen
          *  - benutzen
          *  - verwenden: Igual que benutzen, pero más bonito y formal.
          *  - anwenden:
-         *  - gebrauchen
          *  - gelten: Tener validez; ser válido.
-         */
+         *  - gebrauchen
+         *
 
 
         /** PALABRAS: INGRESO DE INFORMACIÓN
@@ -1099,8 +1530,6 @@ public class Ver extends Palabra{
          * bemerken: Notar
          */
 
-
-
         /** PALABRAS: Expresarse
          * sagen
          * sprechen
@@ -1114,74 +1543,37 @@ public class Ver extends Palabra{
          * betonen
          */
 
-
+        /**
+         * PALABRAS: Separar:
+         *  - sondern
+         *          "separar; apartar. Es palabra desusada."
+         *
+         * https://www.reddit.com/r/German/comments/hgqhz4/unterschied_zwischen_aufteilen_verteilen/
+         *
+         *  - teilen:       ?
+         *  - aufteilen:    repartir; distribuir (algo en cantidades iguales a todos lo que lo reciban. ej. cubiertos; cuadernos; exámenes, etc. )
+         *          "Das letzte Stück Kuchen unter Geschwistern war aufgeteilt.", "El ultimo trozo de pastel fue compartido entre los hermanos."
+         *          "Die schüler wurden in vier Gruppen aufgeteilt.", "Los alumnos fueron divididos en cuatro grupos."
+         *          "Hilf mir das Besteck an die Gäste aufzuteilen.", "Ayúdame a repartir los cubiertos."
+         *  - unterteilen:  Subdividir
+         *  - verteilen:    repartir; distribuir (algo, no necesariamente en cantidades iguales o de manera homogénea)
+         *          "Auf der Konferenz wurden Broschüren verteilt.", "Se distribuyeron folletos en la conferencia. "
+         *  - einteilen:    1: igual que aufteilen
+         *                  2: Asignar. "Me asignaron el turno de la noche". (einteilen zu +Akk)
+         *  -
+         *
+         */
     }
 
 
-    /**
-     * Método para hacer debugging. Se usa para revisar que las palabras se hayan agregado correctamente
-     * [sin errores ortográficos u omisiones]
-     * @param tema el tema que se quiere revisar.
-     */
-    public static void definirTema(String tema) {
-        HashMap<String, Ver> temap = megamap.get(tema);
-        if (temap == null) {
-            System.out.println("Error: Tema no existe");
-            return;
-        }
-
-        System.out.println("Presione [Enter] para avanzar la lista");
-
-        int num = temap.keySet().size();
-        int counter = 0;
-        Scanner sc = new Scanner(System.in);
-        for (String s : temap.keySet()) {
-            counter++;
-            System.out.println("(" + counter + "/" + num + ") ");
-            Ver actual = temap.get(s);
-            actual.definir();
-            sc.nextLine();
-            System.out.println("==================================================================================");
-        }
-    }
-
-
-    /**
-     * Busca el verbo en la lista de los 2000 verbos más comunes. Dice si existe (y donde), o si no se encuentra.
-     * @param verbo el infinitivo del verbo que buscas.
-     */
-    public static void dosMilVerbos(String verbo) {
-        //Este programita buscará el verbo en la lista de 2000 verbos y regresará el número, si aparece.
-
-        System.out.print(verbo + ": ");
-        for (int i = 1; i <= 9; i++) {
-            String nombre = i + ".txt";
-            File file;
-            try {
-                file = new File("/home/scifishroom/IdeaProjects/Die-Akademie/src/GranListaDeVerbos/" + nombre);
-                Scanner sc = new Scanner(file);
-
-                int counter = 1;
-                while (true) {
-                    if (sc.nextLine().equals(verbo)) {
-                        System.out.println("i = " + i + ", counter = " + counter + "; num = " + ((250*(i-1))+counter) );
-                        return;
-                    }
-                    counter++;
-                }
-
-            } catch (Exception e) {}
-        }
-        System.out.println("¡No se encontró!");
-
-    }
 
 
 
     public static void main(String[] args) {
         inicializar();
-        //dosMilVerbos("liegen");
-        //System.out.println(megamap.get("1").keySet().size());
+        //próximaPalabra();
+        //dosMilVerbos("dienen");
+        //System.out.println(megamap.get("2").keySet().size());
 
         definirTema("1");
 
@@ -1205,15 +1597,15 @@ public class Ver extends Palabra{
          *  - sehen
          *  - gehen
          *  - lassen
+         *  - kommen
+         *  - wollen:
+         *  - sollen
          *
-         * wollen
-         * sollen
          * dürfen
          * mögen
          * denken
          * brauchen
          * bringen
-         * kommen
          * schlafen
          * bleiben
          * liegen
